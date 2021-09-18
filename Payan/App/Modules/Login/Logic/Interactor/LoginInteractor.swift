@@ -8,17 +8,19 @@
 import Foundation
 
 protocol AnyLoginInteractor {
-    var dataManager: AnyLoginDataManager { get set }
+    var authService: AnyAuthService { get set }
+    
+    func login()
 }
 
 final class LoginInteractor: AnyLoginInteractor {
-    var dataManager: AnyLoginDataManager
+    var authService: AnyAuthService
     
-    init(dataManager: AnyLoginDataManager) {
-        self.dataManager = dataManager
+    init(authService: AnyAuthService) {
+        self.authService = authService
     }
     
     func login() {
-        // TODO: Call the dataManager
+        authService.login()
     }
 }

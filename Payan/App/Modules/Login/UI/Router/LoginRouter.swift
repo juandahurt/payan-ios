@@ -10,7 +10,7 @@ import UIKit
 
 protocol AnyLoginRouter {
     var navigationController: UINavigationController { get set }
-    func show(presenter: AnyLoginPresenter)
+    func show(using presenter: AnyLoginPresenter)
 }
 
 final class LoginRouter: AnyLoginRouter {
@@ -20,8 +20,8 @@ final class LoginRouter: AnyLoginRouter {
         self.navigationController = navigationController
     }
     
-    func show(presenter: AnyLoginPresenter) {
-        let vc = LoginViewController()
+    func show(using presenter: AnyLoginPresenter) {
+        let vc = LoginViewController(presenter: presenter)
         navigationController.pushViewController(vc, animated: false)
     }
 }

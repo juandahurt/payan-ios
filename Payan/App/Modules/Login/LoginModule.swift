@@ -14,12 +14,12 @@ final class LoginModule {
     
     init(navigationController: UINavigationController) {
         router = LoginRouter(navigationController: navigationController)
-        let dataManager = LoginDataManager()
-        let interactor = LoginInteractor(dataManager: dataManager)
+        let service = RemoteAuthService()
+        let interactor = LoginInteractor(authService: service)
         presenter = LoginPresenter(interactor: interactor)
     }
     
     func show() {
-        router.show(presenter: presenter)
+        router.show(using: presenter)
     }
 }
