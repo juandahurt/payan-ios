@@ -9,6 +9,12 @@ import UIKit
 import RxSwift
 
 final class LoginViewController: UIViewController {
+    @IBOutlet weak var loginButton: MainButton! {
+        didSet {
+            loginButton.setTitle("Iniciar sesión", for: .normal)
+        }
+    }
+    
     var output: LoginViewOutput
     var input: LoginViewInput
     
@@ -32,7 +38,7 @@ final class LoginViewController: UIViewController {
     private func rxBind() {
         input.isLoading.subscribe(
             onNext: { value in
-                // TODO: show loading
+                
             }
         ).disposed(by: disposeBag)
     }

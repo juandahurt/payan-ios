@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3D174FF926F6448E000B5D01 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D174FF826F6448E000B5D01 /* AuthService.swift */; };
 		3D51100426F6AAB500D24DD9 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51100326F6AAB500D24DD9 /* Console.swift */; };
+		3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51101626F6CD7A00D24DD9 /* AppStyle.swift */; };
+		3D51102A26F6D55400D24DD9 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51102926F6D55400D24DD9 /* MainButton.swift */; };
+		3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */; };
+		3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */; };
 		3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BC26F2A4D200FD24CF /* AppDelegate.swift */; };
 		3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */; };
 		3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C526F2A4D300FD24CF /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 		2E7408D7FB0978814596FC7F /* Pods-Payan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.debug.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.debug.xcconfig"; sourceTree = "<group>"; };
 		3D174FF826F6448E000B5D01 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3D51100326F6AAB500D24DD9 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
+		3D51101626F6CD7A00D24DD9 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		3D51102926F6D55400D24DD9 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainButton.swift; path = ../../../../../../Documents/MainButton.swift; sourceTree = "<group>"; };
+		3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		3DF708B926F2A4D200FD24CF /* Payan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF708BC26F2A4D200FD24CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +86,48 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		3D51101526F6CD6B00D24DD9 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				3D51102C26F70DC900D24DD9 /* Fonts */,
+				3D51101626F6CD7A00D24DD9 /* AppStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		3D51102626F6D52500D24DD9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3D51102826F6D53A00D24DD9 /* Main Button */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3D51102826F6D53A00D24DD9 /* Main Button */ = {
+			isa = PBXGroup;
+			children = (
+				3D51102926F6D55400D24DD9 /* MainButton.swift */,
+			);
+			path = "Main Button";
+			sourceTree = "<group>";
+		};
+		3D51102C26F70DC900D24DD9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3D51103026F70DE000D24DD9 /* Poppins */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3D51103026F70DE000D24DD9 /* Poppins */ = {
+			isa = PBXGroup;
+			children = (
+				3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */,
+				3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */,
+			);
+			path = Poppins;
+			sourceTree = "<group>";
+		};
 		3DF708B026F2A4D200FD24CF = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +151,6 @@
 			children = (
 				3DF708D226F2A4DE00FD24CF /* AppDelegate */,
 				3DF708D126F2A4DB00FD24CF /* App */,
-				3DF708C526F2A4D300FD24CF /* Assets.xcassets */,
 				3DF708CA26F2A4D300FD24CF /* Info.plist */,
 			);
 			path = Payan;
@@ -110,6 +159,8 @@
 		3DF708D126F2A4DB00FD24CF /* App */ = {
 			isa = PBXGroup;
 			children = (
+				3D51102626F6D52500D24DD9 /* Components */,
+				3D51101526F6CD6B00D24DD9 /* Styles */,
 				3D51100226F6AA9700D24DD9 /* Utils */,
 				3DF708E526F2A64F00FD24CF /* Assets */,
 				3D174FF626F6441E000B5D01 /* Services */,
@@ -139,6 +190,7 @@
 		3DF708E526F2A64F00FD24CF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				3DF708C526F2A4D300FD24CF /* Assets.xcassets */,
 				3DF708E626F2A65500FD24CF /* Login */,
 			);
 			path = Assets;
@@ -288,9 +340,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */,
 				3DF708EB26F2A8AA00FD24CF /* LoginViewController.xib in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
+				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,11 +398,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
+				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
 				3D174FF926F6448E000B5D01 /* AuthService.swift in Sources */,
 				3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
 				3DF708F626F2AC3C00FD24CF /* LoginInteractor.swift in Sources */,
+				3D51102A26F6D55400D24DD9 /* MainButton.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
@@ -420,7 +476,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -475,7 +531,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +557,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Payan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -521,7 +577,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Payan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
