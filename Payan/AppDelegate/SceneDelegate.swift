@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         let navigationController = UINavigationController()
+        navigationController.navigationBar.isHidden = true
         window?.rootViewController = navigationController
         let module = LoginModule(navigationController: navigationController)
         module.show()
