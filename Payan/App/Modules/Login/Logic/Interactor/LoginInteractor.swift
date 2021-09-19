@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol AnyLoginInteractor {
     var authService: AnyAuthService { get set }
     
-    func login()
+    func login() -> Single<Void>
 }
 
 final class LoginInteractor: AnyLoginInteractor {
@@ -20,7 +21,7 @@ final class LoginInteractor: AnyLoginInteractor {
         self.authService = authService
     }
     
-    func login() {
+    func login() -> Single<Void> {
         authService.login()
     }
 }

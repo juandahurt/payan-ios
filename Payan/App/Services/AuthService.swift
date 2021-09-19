@@ -6,13 +6,22 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol AnyAuthService {
-    func login()
+    func login() -> Single<Void>
 }
+//observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
 
 class RemoteAuthService: AnyAuthService {
-    func login() {
-        // Call the API.
+    func login() -> Single<Void> {
+        Console.log("user is logging in", level: .info)
+        return Single.create { single in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                Console.log("login successful", level: .info)
+                single(.success(()))
+            }
+            return Disposables.create()
+        }
     }
 }

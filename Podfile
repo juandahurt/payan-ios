@@ -7,4 +7,5 @@ target 'Payan' do
 
   # Pods for Payan
   pod 'Willow', '~> 5.0'
+  pod 'RxSwift', '6.2.0'
 end

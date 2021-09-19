@@ -1,16 +1,20 @@
 PODS:
+  - RxSwift (6.2.0)
   - Willow (5.2.1)
 
 DEPENDENCIES:
+  - RxSwift (= 6.2.0)
   - Willow (~> 5.0)
 
 SPEC REPOS:
   trunk:
+    - RxSwift
     - Willow
 
 SPEC CHECKSUMS:
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
-PODFILE CHECKSUM: 91825ea509b8c09747cde93ebf380af0f3253d57
+PODFILE CHECKSUM: f7b263f85678e77bcec4d5be97da5ce8edc0a6f1
 
 COCOAPODS: 1.10.1
