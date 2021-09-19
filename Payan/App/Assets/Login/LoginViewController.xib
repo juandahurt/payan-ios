@@ -18,15 +18,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMH-cW-Q9j" customClass="MainButton" customModule="Payan" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMH-cW-Q9j" customClass="MainButton" customModule="Payan" customModuleProvider="target">
                     <rect key="frame" x="20" y="802" width="374" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="zyn-MN-9VD"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="buttonOnPressed:" destination="-1" eventType="touchUpInside" id="2sj-2C-GFI"/>
-                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

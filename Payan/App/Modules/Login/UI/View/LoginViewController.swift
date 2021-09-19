@@ -7,13 +7,10 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class LoginViewController: UIViewController {
-    @IBOutlet weak var loginButton: MainButton! {
-        didSet {
-            loginButton.setTitle("Iniciar sesión", for: .normal)
-        }
-    }
+    @IBOutlet weak var loginButton: MainButton!
     
     var output: LoginViewOutput
     var input: LoginViewInput
@@ -33,17 +30,25 @@ final class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         rxBind()
+        setupUI()
     }
     
     private func rxBind() {
         input.isLoading.subscribe(
-            onNext: { value in
-                
+            onNext: { [weak self] loading in
+                if loading {
+                    self?.loginButton.showLoader()
+                } else {
+                    self?.loginButton.hideLoader()
+                }
             }
         ).disposed(by: disposeBag)
+        loginButton.rx.tap.bind(onNext: { [weak self] in
+            self?.output.login()
+        }).disposed(by: disposeBag)
     }
     
-    @IBAction func buttonOnPressed(_ sender: UIButton) {
-        output.login()
+    private func setupUI() {
+        loginButton.setTitle("Iniciar sesión", for: .normal)
     }
 }

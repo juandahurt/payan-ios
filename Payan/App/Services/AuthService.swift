@@ -17,7 +17,7 @@ class RemoteAuthService: AnyAuthService {
     func login() -> Single<Void> {
         Console.log("user is logging in", level: .info)
         return Single.create { single in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 Console.log("login successful", level: .info)
                 single(.success(()))
             }
