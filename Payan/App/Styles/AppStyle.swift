@@ -12,14 +12,20 @@ struct Color {
     static var primary: UIColor {
         UIColor(named: "Primary") ?? .black
     }
+    
+    static var textFieldForm: UIColor {
+        UIColor(named: "TextFieldForm") ?? .lightGray
+    }
 }
 
 struct UIConstants {
     static let buttonCornerRadius: CGFloat = 20
+    static let textFieldFormPadding: CGFloat = 10
 }
 
 struct Font {
     enum Size: CGFloat {
+        case header = 22
         case subtitle = 14
         case body = 12
     }

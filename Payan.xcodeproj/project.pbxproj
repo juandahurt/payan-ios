@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D174FF926F6448E000B5D01 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D174FF826F6448E000B5D01 /* AuthService.swift */; };
+		3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D426B3626F804F90019FEBA /* TextFieldForm.swift */; };
 		3D51100426F6AAB500D24DD9 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51100326F6AAB500D24DD9 /* Console.swift */; };
 		3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51101626F6CD7A00D24DD9 /* AppStyle.swift */; };
 		3D51102A26F6D55400D24DD9 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51102926F6D55400D24DD9 /* MainButton.swift */; };
@@ -31,6 +32,7 @@
 		2767D1CEBE37CDFBD2B6A695 /* Pods-Payan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.release.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.release.xcconfig"; sourceTree = "<group>"; };
 		2E7408D7FB0978814596FC7F /* Pods-Payan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.debug.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.debug.xcconfig"; sourceTree = "<group>"; };
 		3D174FF826F6448E000B5D01 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		3D426B3626F804F90019FEBA /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
 		3D51100326F6AAB500D24DD9 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
 		3D51101626F6CD7A00D24DD9 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		3D51102926F6D55400D24DD9 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainButton.swift; path = ../../../../../../Documents/MainButton.swift; sourceTree = "<group>"; };
@@ -72,6 +74,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		3D426B3426F801520019FEBA /* Text Field Form */ = {
+			isa = PBXGroup;
+			children = (
+				3D426B3626F804F90019FEBA /* TextFieldForm.swift */,
+			);
+			path = "Text Field Form";
+			sourceTree = "<group>";
+		};
 		3D51100126F6AA7700D24DD9 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		3D51102626F6D52500D24DD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3D426B3426F801520019FEBA /* Text Field Form */,
 				3D51102826F6D53A00D24DD9 /* Main Button */,
 			);
 			path = Components;
@@ -417,6 +428,7 @@
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
 				3DF708F626F2AC3C00FD24CF /* LoginInteractor.swift in Sources */,
 				3D51102A26F6D55400D24DD9 /* MainButton.swift in Sources */,
+				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,

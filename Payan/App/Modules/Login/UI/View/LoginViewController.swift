@@ -10,7 +10,36 @@ import RxSwift
 import RxCocoa
 
 final class LoginViewController: UIViewController {
-    @IBOutlet weak var loginButton: MainButton!
+    @IBOutlet weak var loginButton: MainButton! {
+        didSet {
+            loginButton.setTitle("Iniciar sesión", for: .normal)
+        }
+    }
+    @IBOutlet weak var titleLabel: UILabel! {
+        didSet {
+            titleLabel.text = "¡Bienvenido a Payán!"
+            titleLabel.textColor = .black
+            titleLabel.font = Font.get(.semiBold, size: .header)
+        }
+    }
+    @IBOutlet weak var subtitleLabel: UILabel! {
+        didSet {
+            subtitleLabel.text = "La ciudad blanca"
+            subtitleLabel.textColor = .black
+            subtitleLabel.font = Font.get(.regular, size: .subtitle)
+        }
+    }
+    @IBOutlet weak var userTextField: TextFieldForm! {
+        didSet {
+            userTextField.placeholder = "Usuario"
+        }
+    }
+    @IBOutlet weak var passwordTextField: TextFieldForm! {
+        didSet {
+            passwordTextField.placeholder = "Contraseña"
+            passwordTextField.isSecureTextEntry = true
+        }
+    }
     
     var output: LoginViewOutput
     var input: LoginViewInput
@@ -24,13 +53,13 @@ final class LoginViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        Console.log("init(coder:) has not been implemented", level: .error)
+        fatalError()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         rxBind()
-        setupUI()
     }
     
     private func rxBind() {
@@ -46,9 +75,5 @@ final class LoginViewController: UIViewController {
         loginButton.rx.tap.bind(onNext: { [weak self] in
             self?.output.login()
         }).disposed(by: disposeBag)
-    }
-    
-    private func setupUI() {
-        loginButton.setTitle("Iniciar sesión", for: .normal)
     }
 }
