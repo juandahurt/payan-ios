@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D13157526F92F4D00E451E0 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13157426F92F4D00E451E0 /* Credential.swift */; };
+		3D13157C26F959B700E451E0 /* RESTAPIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13157B26F959B700E451E0 /* RESTAPIEndpoint.swift */; };
 		3D174FF926F6448E000B5D01 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D174FF826F6448E000B5D01 /* AuthService.swift */; };
 		3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D426B3626F804F90019FEBA /* TextFieldForm.swift */; };
 		3D51100426F6AAB500D24DD9 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51100326F6AAB500D24DD9 /* Console.swift */; };
 		3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51101626F6CD7A00D24DD9 /* AppStyle.swift */; };
-		3D51102A26F6D55400D24DD9 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51102926F6D55400D24DD9 /* MainButton.swift */; };
 		3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */; };
 		3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */; };
 		3D51104526F7167600D24DD9 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51104426F7167600D24DD9 /* Loadable.swift */; };
+		3DC9BFEC26F95C7900D4DE6E /* RESTAPIAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFEB26F95C7900D4DE6E /* RESTAPIAuth.swift */; };
+		3DDA079726F8E5D400016204 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA079626F8E5D400016204 /* MainButton.swift */; };
+		3DDA07B126F8EEB400016204 /* RESTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA07B026F8EEB400016204 /* RESTAPI.swift */; };
+		3DDA07B526F8EF1300016204 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA07B426F8EF1300016204 /* AppConfig.swift */; };
+		3DDA07B826F8FAE000016204 /* RESTAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA07B726F8FAE000016204 /* RESTAPIResponse.swift */; };
 		3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BC26F2A4D200FD24CF /* AppDelegate.swift */; };
 		3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */; };
 		3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C526F2A4D300FD24CF /* Assets.xcassets */; };
@@ -31,14 +37,20 @@
 /* Begin PBXFileReference section */
 		2767D1CEBE37CDFBD2B6A695 /* Pods-Payan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.release.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.release.xcconfig"; sourceTree = "<group>"; };
 		2E7408D7FB0978814596FC7F /* Pods-Payan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.debug.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.debug.xcconfig"; sourceTree = "<group>"; };
+		3D13157426F92F4D00E451E0 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		3D13157B26F959B700E451E0 /* RESTAPIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIEndpoint.swift; sourceTree = "<group>"; };
 		3D174FF826F6448E000B5D01 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3D426B3626F804F90019FEBA /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
 		3D51100326F6AAB500D24DD9 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
 		3D51101626F6CD7A00D24DD9 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
-		3D51102926F6D55400D24DD9 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainButton.swift; path = ../../../../../../Documents/MainButton.swift; sourceTree = "<group>"; };
 		3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		3D51104426F7167600D24DD9 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Loadable.swift; path = ../../../../../../Documents/Loadable.swift; sourceTree = "<group>"; };
+		3D51104426F7167600D24DD9 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		3DC9BFEB26F95C7900D4DE6E /* RESTAPIAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIAuth.swift; sourceTree = "<group>"; };
+		3DDA079626F8E5D400016204 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		3DDA07B026F8EEB400016204 /* RESTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPI.swift; sourceTree = "<group>"; };
+		3DDA07B426F8EF1300016204 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		3DDA07B726F8FAE000016204 /* RESTAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIResponse.swift; sourceTree = "<group>"; };
 		3DF708B926F2A4D200FD24CF /* Payan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF708BC26F2A4D200FD24CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +78,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D13157326F92EFB00E451E0 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3D13157426F92F4D00E451E0 /* Credential.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3D13157826F9597500E451E0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3DC9BFEB26F95C7900D4DE6E /* RESTAPIAuth.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3D13157926F9599000E451E0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3D13157826F9597500E451E0 /* Auth */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3D13157A26F959A100E451E0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3DDA07B026F8EEB400016204 /* RESTAPI.swift */,
+				3DDA07B726F8FAE000016204 /* RESTAPIResponse.swift */,
+				3D13157B26F959B700E451E0 /* RESTAPIEndpoint.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		3D174FF626F6441E000B5D01 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +166,7 @@
 		3D51102826F6D53A00D24DD9 /* Main Button */ = {
 			isa = PBXGroup;
 			children = (
-				3D51102926F6D55400D24DD9 /* MainButton.swift */,
+				3DDA079626F8E5D400016204 /* MainButton.swift */,
 			);
 			path = "Main Button";
 			sourceTree = "<group>";
@@ -148,6 +194,23 @@
 				3D51104426F7167600D24DD9 /* Loadable.swift */,
 			);
 			path = Loadable;
+			sourceTree = "<group>";
+		};
+		3DDA07A726F8EE4800016204 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3D13157A26F959A100E451E0 /* Base */,
+				3D13157926F9599000E451E0 /* Components */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3DDA07B326F8EECE00016204 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				3DDA07B426F8EF1300016204 /* AppConfig.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		3DF708B026F2A4D200FD24CF = {
@@ -181,6 +244,8 @@
 		3DF708D126F2A4DB00FD24CF /* App */ = {
 			isa = PBXGroup;
 			children = (
+				3DDA07B326F8EECE00016204 /* Config */,
+				3DDA07A726F8EE4800016204 /* Networking */,
 				3D51102626F6D52500D24DD9 /* Components */,
 				3D51101526F6CD6B00D24DD9 /* Styles */,
 				3D51100226F6AA9700D24DD9 /* Utils */,
@@ -273,6 +338,7 @@
 		3DF708F126F2AC1300FD24CF /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				3D13157326F92EFB00E451E0 /* Entities */,
 				3DF708F426F2AC3100FD24CF /* Interactor */,
 			);
 			path = Logic;
@@ -419,19 +485,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDA07B126F8EEB400016204 /* RESTAPI.swift in Sources */,
+				3D13157526F92F4D00E451E0 /* Credential.swift in Sources */,
+				3DDA07B526F8EF1300016204 /* AppConfig.swift in Sources */,
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
+				3DC9BFEC26F95C7900D4DE6E /* RESTAPIAuth.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
 				3D174FF926F6448E000B5D01 /* AuthService.swift in Sources */,
+				3DDA07B826F8FAE000016204 /* RESTAPIResponse.swift in Sources */,
 				3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */,
+				3D13157C26F959B700E451E0 /* RESTAPIEndpoint.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
 				3DF708F626F2AC3C00FD24CF /* LoginInteractor.swift in Sources */,
-				3D51102A26F6D55400D24DD9 /* MainButton.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
+				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

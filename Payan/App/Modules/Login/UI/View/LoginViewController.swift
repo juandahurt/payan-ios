@@ -63,6 +63,10 @@ final class LoginViewController: UIViewController {
     }
     
     private func rxBind() {
+        loginButton.rx.tap.bind(onNext: { [weak self] in
+            self?.output.login()
+        }).disposed(by: disposeBag)
+        
         input.isLoading.subscribe(
             onNext: { [weak self] loading in
                 if loading {
@@ -72,8 +76,13 @@ final class LoginViewController: UIViewController {
                 }
             }
         ).disposed(by: disposeBag)
-        loginButton.rx.tap.bind(onNext: { [weak self] in
-            self?.output.login()
-        }).disposed(by: disposeBag)
+        
+        output.username
+            .bind(to: userTextField.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.password
+            .bind(to: passwordTextField.rx.text)
+            .disposed(by: disposeBag)
     }
 }

@@ -7,20 +7,35 @@
 
 import Foundation
 import RxSwift
+import RxAlamofire
 
 protocol AnyAuthService {
-    func login() -> Single<Void>
+    func login(with credential: Credential) -> Single<String>
 }
-//observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
 
-class RemoteAuthService: AnyAuthService {
-    func login() -> Single<Void> {
-        Console.log("user is logging in", level: .info)
+final class RemoteAuthService: AnyAuthService {
+    private let disposeBag = DisposeBag()
+    
+    func login(with credential: Credential) -> Single<String> {
+        let endpoint = RESTAPIAuth.login
+        let url = URL(string: endpoint.path)!
+        
         return Single.create { single in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                Console.log("login successful", level: .info)
-                single(.success(()))
-            }
+            let observable: Observable<(HTTPURLResponse, RESTAPIResponse<String>)> = RxAlamofire.requestDecodable(endpoint.method, url)
+            observable
+                .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+                .subscribe(onNext: { (status, response) in
+                    Console.log("server response: \(response)", level: .debug)
+                    if response.success {
+                        single(.success(response.data!))
+                    } else {
+                        single(.failure(response.error!))
+                    }
+                }, onError: { error in
+                    Console.log("unexpected error: \(error)", level: .error)
+                    single(.failure(error))
+                })
+                .disposed(by: self.disposeBag)
             return Disposables.create()
         }
     }
