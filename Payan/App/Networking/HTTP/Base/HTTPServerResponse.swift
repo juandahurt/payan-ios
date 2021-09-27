@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct RESTAPIResponse<T: Decodable>: Decodable {
+struct HTTPServerResponse<T: Decodable>: Decodable {
     var success: Bool
     var data: T?
-    var error: RESTAPIError?
+    var error: HTTPServerError?
 }
 
-struct RESTAPIError: Error, Decodable {
+struct HTTPServerError: Error, Decodable {
     var id: String
     var description: String
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct RESTAPIAuth {
+struct HTTPAuthEndpoint {
     private static let path = "auth/"
     
-    static let login = RESTAPIEndpoint(method: .post, path: "\(path)signIn")
+    static let login = HTTPEndpoint(method: .post, path: "\(path)signIn")
 }

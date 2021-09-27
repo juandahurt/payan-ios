@@ -6,14 +6,18 @@
 //
 
 import Foundation
-import Alamofire
 
-struct RESTAPIEndpoint {
+struct HTTPEndpoint {
     var method: HTTPMethod
     var path: String
     
     init(method: HTTPMethod, path: String) {
         self.method = method
-        self.path = RESTAPI.shared.baseUrl + path
+        self.path = HTTPServer.shared.baseUrl + path
     }
+}
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
 }

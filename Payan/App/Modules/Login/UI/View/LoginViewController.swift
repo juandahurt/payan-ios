@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class LoginViewController: UIViewController {
+final class LoginViewController: ScrollableViewController {
     @IBOutlet weak var loginButton: MainButton! {
         didSet {
             loginButton.setTitle("Iniciar sesión", for: .normal)
@@ -40,6 +40,11 @@ final class LoginViewController: UIViewController {
             passwordTextField.isSecureTextEntry = true
         }
     }
+    @IBOutlet weak var mainScrollView: UIScrollView! {
+        didSet {
+            scrollView = mainScrollView
+        }
+    }
     
     var output: LoginViewOutput
     var input: LoginViewInput
@@ -63,7 +68,9 @@ final class LoginViewController: UIViewController {
     }
     
     private func rxBind() {
+        
         loginButton.rx.tap.bind(onNext: { [weak self] in
+            self?.view.endEditing(true)
             self?.output.login()
         }).disposed(by: disposeBag)
         

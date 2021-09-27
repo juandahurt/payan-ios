@@ -8,6 +8,16 @@
 import Foundation
 import Willow
 
+extension LogLevel {
+    static let network = LogLevel(rawValue: 0b00000000_00000000_00000001_00000000)
+}
+
+extension Logger {
+    func networkMessage(_ message: @autoclosure @escaping () -> String) {
+        logMessage(message, with: .network)
+    }
+}
+
 private class EmojiModifier: LogModifier {
     func modifyMessage(_ message: String, with logLevel: LogLevel) -> String {
         switch logLevel {
@@ -21,6 +31,8 @@ private class EmojiModifier: LogModifier {
             return "💬 [INFO]: \(message)"
         case .warn:
             return "⚠️ [WARN]: \(message)"
+        case .network:
+            return "🌐 [NETWORK]: \(message)"
         default:
             return message
         }
@@ -53,6 +65,9 @@ class Console {
             break
         case .warn:
             logger.warnMessage(message)
+            break
+        case .network:
+            logger.networkMessage(message)
             break
         default:
             break

@@ -7,35 +7,44 @@
 
 import Foundation
 import RxSwift
-import RxAlamofire
 
 protocol AnyAuthService {
     func login(with credential: Credential) -> Single<String>
 }
 
-final class RemoteAuthService: AnyAuthService {
-    private let disposeBag = DisposeBag()
+final class RESTAPIAuthService: AnyAuthService {
     
     func login(with credential: Credential) -> Single<String> {
-        let endpoint = RESTAPIAuth.login
+        let endpoint = HTTPAuthEndpoint.login
         let url = URL(string: endpoint.path)!
+        var request = URLRequest(url: url)
+        request.addValue("Application/json", forHTTPHeaderField: "Accept")
+        request.addValue("Application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = endpoint.method.rawValue
+        request.httpBody = try! JSONEncoder().encode(credential)
+        Console.log("app is about to call: \(endpoint.path)", level: .network)
         
         return Single.create { single in
-            let observable: Observable<(HTTPURLResponse, RESTAPIResponse<String>)> = RxAlamofire.requestDecodable(endpoint.method, url)
-            observable
-                .observe(on: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-                .subscribe(onNext: { (status, response) in
-                    Console.log("server response: \(response)", level: .debug)
-                    if response.success {
-                        single(.success(response.data!))
-                    } else {
-                        single(.failure(response.error!))
-                    }
-                }, onError: { error in
-                    Console.log("unexpected error: \(error)", level: .error)
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    Console.log("\(error)", level: .error)
                     single(.failure(error))
-                })
-                .disposed(by: self.disposeBag)
+                }
+                if let data = data {
+                    do {
+                        let decodedBody = try JSONDecoder().decode(HTTPServerResponse<String>.self, from: data)
+                        Console.log("decoded server response: \(decodedBody)", level: .network)
+                        if decodedBody.success {
+                            single(.success(decodedBody.data!))
+                        } else {
+                            single(.failure(decodedBody.error!))
+                        }
+                    } catch {
+                        Console.log("\(error)", level: .error)
+                        single(.failure(error))
+                    }
+                }
+            }.resume()
             return Disposables.create()
         }
     }

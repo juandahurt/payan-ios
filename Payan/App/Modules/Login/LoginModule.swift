@@ -14,7 +14,7 @@ final class LoginModule {
     
     init(navigationController: UINavigationController) {
         router = LoginRouter(navigationController: navigationController)
-        let service = RemoteAuthService()
+        let service = RESTAPIAuthService()
         let interactor = LoginInteractor(authService: service)
         presenter = LoginPresenter(interactor: interactor)
     }

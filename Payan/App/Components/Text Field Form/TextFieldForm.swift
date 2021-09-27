@@ -28,6 +28,7 @@ class TextFieldForm: UITextField {
     }
     
     private func setup() {
+        autocorrectionType = .no
         font = Font.get(.regular, size: .body)
         textColor = .black
         backgroundColor = Color.textFieldForm

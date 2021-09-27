@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct RESTAPI {
-    private static var _shared: RESTAPI?
-    static var shared: RESTAPI {
+struct HTTPServer {
+    private static var _shared: HTTPServer?
+    static var shared: HTTPServer {
         if _shared == nil {
-            _shared = RESTAPI()
+            _shared = HTTPServer()
         }
         return _shared!
     }
