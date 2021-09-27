@@ -16,6 +16,8 @@
 		3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */; };
 		3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */; };
 		3D51104526F7167600D24DD9 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51104426F7167600D24DD9 /* Loadable.swift */; };
+		3DA95EC4270178660045A128 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA95EC3270178660045A128 /* HTTPHelper.swift */; };
+		3DA95EC827017BBB0045A128 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA95EC727017BBB0045A128 /* HTTPError.swift */; };
 		3DC9BFEC26F95C7900D4DE6E /* HTTPAuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFEB26F95C7900D4DE6E /* HTTPAuthEndpoint.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DDA079726F8E5D400016204 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA079626F8E5D400016204 /* MainButton.swift */; };
@@ -47,6 +49,8 @@
 		3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		3D51104426F7167600D24DD9 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		3DA95EC3270178660045A128 /* HTTPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
+		3DA95EC727017BBB0045A128 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		3DC9BFEB26F95C7900D4DE6E /* HTTPAuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPAuthEndpoint.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DDA079626F8E5D400016204 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		3D07A3D927002F6F0000EC59 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
+				3DA95EC627017BAF0045A128 /* Error */,
+				3DA95EC2270178570045A128 /* Helper */,
 				3D13157A26F959A100E451E0 /* Base */,
 				3D13157926F9599000E451E0 /* Endpoints */,
 			);
@@ -206,6 +212,22 @@
 				3D51104426F7167600D24DD9 /* Loadable.swift */,
 			);
 			path = Loadable;
+			sourceTree = "<group>";
+		};
+		3DA95EC2270178570045A128 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3DA95EC3270178660045A128 /* HTTPHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		3DA95EC627017BAF0045A128 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				3DA95EC727017BBB0045A128 /* HTTPError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		3DC9BFEF26F98D8D00D4DE6E /* Scroll */ = {
@@ -516,9 +538,11 @@
 				3DDA07B826F8FAE000016204 /* HTTPServerResponse.swift in Sources */,
 				3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */,
 				3D13157C26F959B700E451E0 /* HTTPEndpoint.swift in Sources */,
+				3DA95EC827017BBB0045A128 /* HTTPError.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
 				3DF708F626F2AC3C00FD24CF /* LoginInteractor.swift in Sources */,
 				3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */,
+				3DA95EC4270178660045A128 /* HTTPHelper.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
