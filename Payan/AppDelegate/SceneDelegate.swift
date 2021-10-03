@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         navigationController.navigationBar.isHidden = true
         window?.rootViewController = navigationController
-        let module = LoginModule(navigationController: navigationController)
-        module.show()
+        let vc = MainModule.setup(with: navigationController)
+        navigationController.pushViewController(vc, animated: false)
         window?.makeKeyAndVisible()
     }
 
