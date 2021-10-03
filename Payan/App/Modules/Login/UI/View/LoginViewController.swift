@@ -17,16 +17,9 @@ final class LoginViewController: ScrollableViewController {
     }
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            titleLabel.text = "¡Bienvenido a Payán!"
+            titleLabel.text = "Inicia sesión"
             titleLabel.textColor = .black
             titleLabel.font = Font.get(.semiBold, size: .header)
-        }
-    }
-    @IBOutlet weak var subtitleLabel: UILabel! {
-        didSet {
-            subtitleLabel.text = "La ciudad blanca"
-            subtitleLabel.textColor = .black
-            subtitleLabel.font = Font.get(.regular, size: .subtitle)
         }
     }
     @IBOutlet weak var userTextField: TextFieldForm! {
@@ -68,7 +61,6 @@ final class LoginViewController: ScrollableViewController {
     }
     
     private func rxBind() {
-        
         loginButton.rx.tap.bind(onNext: { [weak self] in
             self?.view.endEditing(true)
             self?.output.login()

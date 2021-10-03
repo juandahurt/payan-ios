@@ -28,10 +28,12 @@ class TextFieldForm: UITextField {
     }
     
     private func setup() {
+        borderStyle = .none
+        layer.cornerRadius = UIConstants.textFieldCornerRadius
         autocorrectionType = .no
         font = Font.get(.regular, size: .body)
         textColor = .black
         backgroundColor = Color.textFieldForm
-        self.attributedPlaceholder = NSAttributedString(string: "placeholder", attributes: [NSAttributedString.Key.foregroundColor: Color.primary.withAlphaComponent(0.4)])
+        attributedPlaceholder = NSAttributedString(string: "placeholder", attributes: [NSAttributedString.Key.foregroundColor: Color.primary.withAlphaComponent(0.4)])
     }
 }

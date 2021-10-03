@@ -16,11 +16,16 @@ struct Color {
     static var textFieldForm: UIColor {
         UIColor(named: "TextFieldForm") ?? .lightGray
     }
+    
+    static var background: UIColor {
+        UIColor(named: "Background") ?? .systemGray
+    }
 }
 
 struct UIConstants {
     static let buttonCornerRadius: CGFloat = 20
     static let textFieldFormPadding: CGFloat = 10
+    static let textFieldCornerRadius: CGFloat = 10
 }
 
 struct Font {
