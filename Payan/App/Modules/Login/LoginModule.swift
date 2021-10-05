@@ -8,18 +8,11 @@
 import Foundation
 import UIKit
 
-final class LoginModule {
-    private var router: AnyLoginRouter
-    private var presenter: AnyLoginPresenter
-    
-    init(navigationController: UINavigationController) {
-        router = LoginRouter(navigationController: navigationController)
-        let service = RESTAPIAuthService()
-        let interactor = LoginInteractor(authService: service)
-        presenter = LoginPresenter(interactor: interactor)
-    }
-    
-    func show() {
-        router.show(using: presenter)
+final class LoginModule: BaseModule {
+    static func setup(with navigationController: UINavigationController) -> UIViewController {
+        let interactor = LoginInteractor(authService: RESTAPIAuthService())
+        let router = LoginRouter(navigationController: navigationController)
+        let presenter = LoginPresenter(interactor: interactor, router: router)
+        return LoginViewController(presenter: presenter)
     }
 }
