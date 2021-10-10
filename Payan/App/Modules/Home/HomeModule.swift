@@ -10,9 +10,8 @@ import UIKit
 
 class HomeModule: BaseModule {
     static func setup(with navigationController: UINavigationController) -> UIViewController {
-        // TODO: Pass the presenter to the view controller
         let router = HomeRouter(navigationController: navigationController)
-        _ = HomePresenter(router: router)
-        return HomeViewController()
+        let presenter = HomePresenter(router: router)
+        return HomeViewController(presenter: presenter)
     }
 }

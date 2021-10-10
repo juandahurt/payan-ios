@@ -7,6 +7,7 @@
 
 import UIKit
 import Willow
+import SkeletonView
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,9 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        
         let navigationController = UINavigationController()
         navigationController.navigationBar.isHidden = true
         window?.rootViewController = navigationController
+        
+        SkeletonAppearance.default.tintColor = Color.skeleton
+        
         let vc = MainModule.setup(with: navigationController)
         navigationController.pushViewController(vc, animated: false)
         window?.makeKeyAndVisible()

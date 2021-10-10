@@ -5,11 +5,13 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
+  - SkeletonView (1.24.4)
   - Willow (5.2.1)
 
 DEPENDENCIES:
   - RxCocoa (= 6.2.0)
   - RxSwift (= 6.2.0)
+  - SkeletonView
   - Willow (~> 5.0)
 
 SPEC REPOS:
@@ -17,14 +19,16 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SkeletonView
     - Willow
 
 SPEC CHECKSUMS:
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SkeletonView: c8632f212fcce7b7ba742c3d4a5af3596b5fa5ae
   Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
-PODFILE CHECKSUM: 0ac3015320b2ab36c25df8b669ec7a62e84d6f13
+PODFILE CHECKSUM: 633ee8809eaef53f84e63d58fc7aa94776362bbb
 
 COCOAPODS: 1.10.1

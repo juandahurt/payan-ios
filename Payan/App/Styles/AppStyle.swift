@@ -20,6 +20,10 @@ struct Color {
     static var background: UIColor {
         UIColor(named: "Background") ?? .systemGray
     }
+    
+    static var skeleton: UIColor {
+        UIColor(named: "Skeleton") ?? .systemGray
+    }
 }
 
 struct UIConstants {
