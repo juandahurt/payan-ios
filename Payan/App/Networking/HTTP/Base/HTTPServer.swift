@@ -11,15 +11,15 @@ struct HTTPServer {
     private static var _shared: HTTPServer?
     static var shared: HTTPServer {
         if _shared == nil {
-            _shared = HTTPServer()
+            Console.log("you have not provided a base url!", level: .error)
+            fatalError()
         }
         return _shared!
     }
     
-    var baseUrl: String {
-        switch AppConfig.environment {
-        case .dev:
-            return "https://payan-dev.herokuapp.com/"
-        }
+    var baseUrl: String
+    
+    static func provideBaseUrl(_ url: String) {
+        _shared = HTTPServer(baseUrl: url)
     }
 }
