@@ -32,6 +32,7 @@
 		3D51104526F7167600D24DD9 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51104426F7167600D24DD9 /* Loadable.swift */; };
 		3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */; };
 		3D6678BD27132BBE00A34C70 /* HomeSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6678BC27132BBE00A34C70 /* HomeSectionType.swift */; };
+		3D6678CE2713B68100A34C70 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6678CD2713B68100A34C70 /* SectionHeaderView.swift */; };
 		3DA95EC4270178660045A128 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA95EC3270178660045A128 /* HTTPHelper.swift */; };
 		3DA95EC827017BBB0045A128 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA95EC727017BBB0045A128 /* HTTPError.swift */; };
 		3DC9BFEC26F95C7900D4DE6E /* HTTPAuthEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFEB26F95C7900D4DE6E /* HTTPAuthEndpoint.swift */; };
@@ -85,6 +86,7 @@
 		3D51104426F7167600D24DD9 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
 		3D6678BC27132BBE00A34C70 /* HomeSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionType.swift; sourceTree = "<group>"; };
+		3D6678CD2713B68100A34C70 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		3DA95EC3270178660045A128 /* HTTPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
 		3DA95EC727017BBB0045A128 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		3DC9BFEB26F95C7900D4DE6E /* HTTPAuthEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPAuthEndpoint.swift; sourceTree = "<group>"; };
@@ -163,9 +165,10 @@
 		3D0E9C31270A647400B593AD /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				3D0E9C32270A647D00B593AD /* BaseRouter.swift */,
+				3D6678C1271391AF00A34C70 /* Presenter */,
+				3D6678C0271391A800A34C70 /* Router */,
+				3D6678BF2713919200A34C70 /* View */,
 				3D0E9C35270A652900B593AD /* BaseModule.swift */,
-				3D0E9C3D270A67C600B593AD /* BasePresenter.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -379,6 +382,45 @@
 			path = Preview;
 			sourceTree = "<group>";
 		};
+		3D6678BF2713919200A34C70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D6678C2271391B600A34C70 /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D6678C0271391A800A34C70 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3D0E9C32270A647D00B593AD /* BaseRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3D6678C1271391AF00A34C70 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3D0E9C3D270A67C600B593AD /* BasePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3D6678C2271391B600A34C70 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3D6678CD2713B68100A34C70 /* SectionHeaderView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3D6678C9271394C400A34C70 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		3DA95EC2270178570045A128 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				3DF708C526F2A4D300FD24CF /* Assets.xcassets */,
+				3D6678C9271394C400A34C70 /* Base */,
 				3DF708E626F2A65500FD24CF /* Login */,
 				3D3A384D270A53F700E2EF94 /* Home */,
 			);
@@ -731,6 +774,7 @@
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
 				3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */,
 				3DC9BFEC26F95C7900D4DE6E /* HTTPAuthEndpoint.swift in Sources */,
+				3D6678CE2713B68100A34C70 /* SectionHeaderView.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
 				3D6678BD27132BBE00A34C70 /* HomeSectionType.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,

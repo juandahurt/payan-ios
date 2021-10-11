@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSupplementaryViews()
         collectionView.dataSource = dataSource
         configureLayout()
         rxBind()
@@ -44,7 +45,27 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Collection view layout
+    private func setupSupplementaryViews() {
+        dataSource.supplementaryViewProvider = { [weak self] supplementaryView, elementKind, indexPath in
+            guard let self = self else {
+                return nil
+            }
+            
+            if elementKind == UICollectionView.elementKindSectionHeader {
+                let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: String(describing: SectionHeaderView.self), for: indexPath) as? SectionHeaderView
+                let title = self.input.titleForSection(atIndex: indexPath.section)
+                
+                header?.setup(text: title)
+                
+                return header
+            }
+            
+            return nil
+        }
+    }
+    
     private func configureLayout() {
+        collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionHeaderView.self))
         let placeCellId = String(describing: PlaceCell.self)
         collectionView.register(UINib(nibName: placeCellId, bundle: nil), forCellWithReuseIdentifier: placeCellId)
         
@@ -59,11 +80,15 @@ class HomeViewController: UIViewController {
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(164), heightDimension: .absolute(195))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.contentInsets = .init(top: 20, leading: 20, bottom: 0, trailing: 20)
+                group.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 0)
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = 15
+                section.interGroupSpacing = 0
                 section.orthogonalScrollingBehavior = .continuous
+                section.boundarySupplementaryItems = [header]
                 
                 return section
             }

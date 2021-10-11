@@ -35,6 +35,7 @@ struct UIConstants {
 struct Font {
     enum Size: CGFloat {
         case header = 22
+        case title = 18
         case subtitle = 14
         case body = 12
     }

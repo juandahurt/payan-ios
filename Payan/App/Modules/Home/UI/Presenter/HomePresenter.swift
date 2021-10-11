@@ -13,6 +13,7 @@ protocol HomeViewInput {
     var sectionsDriver: Driver<[HomeSection]> { get }
     
     func sectionType(forIndex index: Int) -> HomeSectionType?
+    func titleForSection(atIndex index: Int) -> String?
 }
 
 protocol HomeViewOutput {
@@ -41,6 +42,16 @@ extension HomePresenter: HomeViewInput {
         return section.type
     }
     
+    func titleForSection(atIndex index: Int) -> String? {
+        guard let value = try? sectionsSubject.value() else {
+            return nil
+        }
+        guard let section = value.indices.contains(index) ? value[index] : nil else {
+            return nil
+        }
+        return section.title
+    }
+    
     var sectionsDriver: Driver<[HomeSection]> {
         sectionsSubject.asDriver(onErrorDriveWith: .never())
     }
@@ -60,7 +71,7 @@ extension HomePresenter: HomeViewOutput {
                 HomeLoadingItem(),
                 HomeLoadingItem()
             ]
-            let section = HomeSection(items: items, type: .place)
+            let section = HomeSection(title: nil, items: items, type: .place)
             sections.append(section)
         }
         sectionsSubject.onNext(sections)

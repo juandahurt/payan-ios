@@ -9,11 +9,13 @@ import Foundation
 
 class HomeSection: Hashable {
     var id: String
+    var title: String?
     var items: [HomeSectionItem]
     var type: HomeSectionType
     
-    init(id: String = UUID().uuidString, items: [HomeSectionItem], type: HomeSectionType) {
+    init(id: String = UUID().uuidString, title: String?, items: [HomeSectionItem], type: HomeSectionType) {
         self.id = id
+        self.title = title
         self.items = items
         self.type = type
     }
