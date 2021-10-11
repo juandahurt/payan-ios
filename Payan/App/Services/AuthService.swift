@@ -12,7 +12,7 @@ protocol AnyAuthService {
     func login(with credential: Credential) -> Single<String>
 }
 
-final class RESTAPIAuthService: AnyAuthService {
+final class HTTPAuthService: AnyAuthService {
     func login(with credential: Credential) -> Single<String> {
         Single.create { single in
             let endpoint = HTTPAuthEndpoint.login
