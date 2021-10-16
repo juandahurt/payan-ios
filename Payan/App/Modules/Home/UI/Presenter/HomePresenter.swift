@@ -64,6 +64,14 @@ extension HomePresenter: HomeViewOutput {
     
     func emitLoading() {
         var sections = [HomeSection]()
+        let items = [
+            HomeLoadingItem(),
+            HomeLoadingItem(),
+            HomeLoadingItem(),
+            HomeLoadingItem()
+        ]
+        let section = HomeSection(title: nil, items: items, type: .favoritePlace)
+        sections.append(section)
         for _ in 0..<2 {
             let items = [
                 HomeLoadingItem(),

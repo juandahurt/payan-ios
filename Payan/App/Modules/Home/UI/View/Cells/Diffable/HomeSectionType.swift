@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum HomeSectionType: Int {
-    case place = 0
+enum HomeSectionType {
+    case favoritePlace
+    case place
 }
