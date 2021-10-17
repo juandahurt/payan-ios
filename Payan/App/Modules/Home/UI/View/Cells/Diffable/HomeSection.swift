@@ -29,14 +29,7 @@ class HomeSection: Hashable {
     }
 }
 
-class HomeSectionItem: Hashable {
-    var id = UUID()
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    
-    static func == (lhs: HomeSectionItem, rhs: HomeSectionItem) -> Bool {
-        lhs.id == rhs.id
-    }
+enum HomeSectionType {
+    case favoritePlace
+    case place
 }

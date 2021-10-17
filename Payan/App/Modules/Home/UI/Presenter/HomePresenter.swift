@@ -21,12 +21,16 @@ protocol HomeViewOutput {
 }
 
 final class HomePresenter: BasePresenter {
+    // MARK: - Attributes
     var router: BaseRouter
+    var interactor: AnyHomeInteractor
+    private var disposeBag = DisposeBag()
     
     // MARK: - Subjects
     var sectionsSubject = BehaviorSubject<[HomeSection]>(value: [])
     
-    init(router: HomeRouter) {
+    init(interactor: AnyHomeInteractor, router: HomeRouter) {
+        self.interactor = interactor
         self.router = router
     }
 }
@@ -60,6 +64,21 @@ extension HomePresenter: HomeViewInput {
 extension HomePresenter: HomeViewOutput {
     func getData() {
         emitLoading()
+        interactor.listPlaces().subscribe(
+            onSuccess: { [weak self] places in
+                guard let self = self else {
+                    return
+                }
+                var items = [HomeSectionItem]()
+                for place in places {
+                    items.append(
+                        HomePlaceItem(place: place)
+                    )
+                }
+                let section = HomeSection(title: "Lugares favoritos", items: items, type: .favoritePlace)
+                self.sectionsSubject.onNext([section])
+            }
+        ).disposed(by: disposeBag)
     }
     
     func emitLoading() {

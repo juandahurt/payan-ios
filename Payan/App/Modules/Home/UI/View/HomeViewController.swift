@@ -121,6 +121,11 @@ class HomeViewController: UIViewController {
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PlaceCell.self), for: indexPath) as? PlaceCell
                     cell?.showSkeletonAnimation()
                     return cell
+                case is HomePlaceItem:
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PlaceCell.self), for: indexPath) as? PlaceCell
+                    cell?.hideSkeleton()
+                    cell?.setup(place: (item as! HomePlaceItem).place)
+                    return cell
                 default:
                     return nil
                 }
