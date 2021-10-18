@@ -18,6 +18,7 @@ class HomeViewController: UIViewController {
     var output: HomeViewOutput
     private let disposeBag = DisposeBag()
     private lazy var dataSource = createDataSource()
+    private var refresher: UIRefreshControl!
     
     // MARK: - Value types
     typealias DataSource = UICollectionViewDiffableDataSource<HomeSection, HomeSectionItem>
@@ -39,8 +40,22 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupSupplementaryViews()
         collectionView.dataSource = dataSource
+        setupRefresher()
         configureLayout()
         rxBind()
+        output.getData()
+    }
+    
+    // MARK: - Refresher
+    private func setupRefresher() {
+        refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(pullCollectionView), for: .valueChanged)
+        collectionView.refreshControl = refresher
+    }
+    
+    @objc
+    private func pullCollectionView() {
+        collectionView.refreshControl?.beginRefreshing()
         output.getData()
     }
     
@@ -147,6 +162,9 @@ class HomeViewController: UIViewController {
         input.sectionsDriver
             .drive(onNext: { [weak self] sections in
                 guard let self = self else { return }
+                if let refreshControl =  self.collectionView.refreshControl, refreshControl.isRefreshing {
+                    self.collectionView.refreshControl?.endRefreshing()
+                }
                 self.applySnapshot(sections: sections)
             }).disposed(by: disposeBag)
     }
