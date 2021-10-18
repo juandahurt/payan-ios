@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PlaceCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
@@ -18,6 +19,8 @@ class PlaceCell: UICollectionViewCell {
     }
     
     private func setupUI() {
+        imageView.layer.cornerRadius = 10
+        
         titleLabel.font = Font.get(.regular, size: .body)
         titleLabel.textColor = .black
         
@@ -42,6 +45,8 @@ class PlaceCell: UICollectionViewCell {
             self?.titleLabel.text = place.name
             self?.subtitleLabel.text = placeStr
         }
+        imageView.contentMode = .scaleAspectFill
+        imageView.kf.setImage(with: URL(string: place.imageUrl))
     }
     
     func showSkeletonAnimation() {

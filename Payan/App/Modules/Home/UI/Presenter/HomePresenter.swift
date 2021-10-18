@@ -64,21 +64,51 @@ extension HomePresenter: HomeViewInput {
 extension HomePresenter: HomeViewOutput {
     func getData() {
         emitLoading()
-        interactor.listPlaces().subscribe(
-            onSuccess: { [weak self] places in
+        
+        let favPlacesObservable = interactor.listFavoritePlaces().asObservable()
+        let catPlacesObservable = interactor.listPlacesByCategory().asObservable()
+        
+        Observable.zip(favPlacesObservable, catPlacesObservable)
+            .subscribe(onNext: { [weak self] favPlaces, placesByCategory in
                 guard let self = self else {
                     return
                 }
-                var items = [HomeSectionItem]()
-                for place in places {
-                    items.append(
+                
+                var sections = [HomeSection]()
+                var favItems = [HomeSectionItem]()
+                
+                for place in favPlaces {
+                    favItems.append(
                         HomePlaceItem(place: place)
                     )
                 }
-                let section = HomeSection(title: "Lugares favoritos", items: items, type: .favoritePlace)
-                self.sectionsSubject.onNext([section])
-            }
-        ).disposed(by: disposeBag)
+                let favoritesSection = HomeSection(title: "Los más populares", items: favItems, type: .favoritePlace)
+                sections.append(favoritesSection)
+                
+                for (category, places) in placesByCategory {
+                    var items = [HomeSectionItem]()
+                    for place in places {
+                        items.append(
+                            HomePlaceItem(place: place)
+                        )
+                    }
+                    let title: String
+                    switch category {
+                    case .museum:
+                        title = "Museos"
+                    case .park:
+                        title = "Parques"
+                    case .bridge:
+                        title = "Puentes"
+                    case .church:
+                        title = "Iglesias"
+                    }
+                    let section = HomeSection(title: title, items: items, type: .place)
+                    sections.append(section)
+                }
+                
+                self.sectionsSubject.onNext(sections)
+            }).disposed(by: disposeBag)
     }
     
     func emitLoading() {

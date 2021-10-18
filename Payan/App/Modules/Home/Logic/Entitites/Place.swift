@@ -9,10 +9,11 @@ import Foundation
 
 struct Place {
     var name: String
-    var type: PlaceType
+    var type: PlaceCategory
+    var imageUrl: String = "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
 }
 
-enum PlaceType: Int {
+enum PlaceCategory: Int {
     case museum = 0
     case park = 1
     case bridge = 2
@@ -21,9 +22,15 @@ enum PlaceType: Int {
 
 // MARK: - Dummy data
 extension Place {
-    static let dummyList = [
-        Place(name: "Lugar 1", type: .museum),
-        Place(name: "Lugar 2", type: .bridge),
-        Place(name: "Lugar 3", type: .park)
+    static let dummyFavorites = [
+        Place(name: "Casa museo Guillero León Valencia", type: .museum),
+        Place(name: "Puente viejo", type: .bridge),
+        Place(name: "Parque Caldas", type: .park)
+    ]
+    
+    static let dummyMuseums = [
+        Place(name: "Museo de arte religioso", type: .museum),
+        Place(name: "Museo de ciencias naturales", type: .museum),
+        Place(name: "Casa museo Guillero León Valencia", type: .museum)
     ]
 }
