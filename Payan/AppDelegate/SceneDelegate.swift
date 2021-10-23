@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         SkeletonAppearance.default.tintColor = Color.skeleton
         
-        let vc = MainModule.setup(with: navigationController)
+        let vc = LoginModule.setup(with: navigationController)
         navigationController.pushViewController(vc, animated: false)
         window?.makeKeyAndVisible()
     }
