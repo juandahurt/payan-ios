@@ -66,7 +66,7 @@ final class LoginViewController: ScrollableViewController {
             self?.output.login()
         }).disposed(by: disposeBag)
         
-        input.isLoading.subscribe(
+        input.loadingPublisher.subscribe(
             onNext: { [weak self] loading in
                 if loading {
                     self?.loginButton.showLoader()
@@ -76,12 +76,12 @@ final class LoginViewController: ScrollableViewController {
             }
         ).disposed(by: disposeBag)
         
-        output.username
-            .bind(to: userTextField.rx.text)
+        userTextField.rx.text
+            .bind(to: output.usernameSubject)
             .disposed(by: disposeBag)
         
-        output.password
-            .bind(to: passwordTextField.rx.text)
+        passwordTextField.rx.text
+            .bind(to: output.passwordSubject)
             .disposed(by: disposeBag)
     }
 }

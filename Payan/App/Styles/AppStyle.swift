@@ -20,6 +20,10 @@ struct Color {
     static var background: UIColor {
         UIColor(named: "Background") ?? .systemGray
     }
+    
+    static var skeleton: UIColor {
+        UIColor(named: "Skeleton") ?? .systemGray
+    }
 }
 
 struct UIConstants {
@@ -31,6 +35,7 @@ struct UIConstants {
 struct Font {
     enum Size: CGFloat {
         case header = 22
+        case title = 18
         case subtitle = 14
         case body = 12
     }
