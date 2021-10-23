@@ -10,27 +10,28 @@ import RxSwift
 
 protocol AnyLoginInteractor {
     var remoteDataManager: RemoteLoginDataManager { get set }
+    var localDataManager: LocalLoginDataManager { get set }
     
     func login(with credential: Credential) -> Single<Void>
 }
 
 final class LoginInteractor: AnyLoginInteractor {
     var remoteDataManager: RemoteLoginDataManager
+    var localDataManager: LocalLoginDataManager
     
     private var disposeBag = DisposeBag()
     
-    init(remoteDataManager: RemoteLoginDataManager) {
+    init(remoteDataManager: RemoteLoginDataManager, localDataManager: LocalLoginDataManager) {
         self.remoteDataManager = remoteDataManager
+        self.localDataManager = localDataManager
     }
     
     func login(with credential: Credential) -> Single<Void> {
         remoteDataManager.login(using: credential)
-            .do(onSuccess: { token in
-                // TODO: Save current session
-                Console.log("token: \(token)", level: .debug)
+            .do(onSuccess: { [weak self] token in
+                let session = UserSession(token: token)
+                self?.localDataManager.saveSession(session)
             })
-            .map({ _ in
-                
-            })
+            .map({ _ in })
     }
 }

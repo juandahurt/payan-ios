@@ -37,7 +37,9 @@
 		3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACA1272397EC00ECB567 /* RESTMethod.swift */; };
 		3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACA52723995900ECB567 /* RESTServerResponse.swift */; };
 		3D79ACA927239DA900ECB567 /* RESTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACA827239DA900ECB567 /* RESTError.swift */; };
-		3D79ACAC27246B0400ECB567 /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACAB27246B0400ECB567 /* LoginDataManager.swift */; };
+		3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */; };
+		3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */; };
+		3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDE27249F7C00ECB567 /* UserSession.swift */; };
 		3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
@@ -91,7 +93,9 @@
 		3D79ACA1272397EC00ECB567 /* RESTMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTMethod.swift; sourceTree = "<group>"; };
 		3D79ACA52723995900ECB567 /* RESTServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTServerResponse.swift; sourceTree = "<group>"; };
 		3D79ACA827239DA900ECB567 /* RESTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTError.swift; sourceTree = "<group>"; };
-		3D79ACAB27246B0400ECB567 /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
+		3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLoginDataManager.swift; sourceTree = "<group>"; };
+		3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoginDataManager.swift; sourceTree = "<group>"; };
+		3D79ACDE27249F7C00ECB567 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				3D13157426F92F4D00E451E0 /* Credential.swift */,
+				3D79ACDE27249F7C00ECB567 /* UserSession.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -442,7 +447,8 @@
 		3D79ACAA27246A9700ECB567 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3D79ACAB27246B0400ECB567 /* LoginDataManager.swift */,
+				3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */,
+				3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -789,6 +795,7 @@
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
 				3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */,
 				3D6678CE2713B68100A34C70 /* SectionHeaderView.swift in Sources */,
+				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
@@ -796,8 +803,8 @@
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
-				3D79ACAC27246B0400ECB567 /* LoginDataManager.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
+				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
 				3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */,
 				3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */,
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
@@ -808,6 +815,7 @@
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
 				3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */,
+				3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
 				3DF708F626F2AC3C00FD24CF /* LoginInteractor.swift in Sources */,
 				3D79ACA927239DA900ECB567 /* RESTError.swift in Sources */,
