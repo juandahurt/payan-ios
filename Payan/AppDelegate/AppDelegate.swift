@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case .dev:
             baseUrl = "https://payan-dev.herokuapp.com/"
         }
-        HTTPServer.provideBaseUrl(baseUrl)
+        RESTClient.provideBaseUrl(baseUrl)
         
         return true
     }

@@ -10,7 +10,7 @@ import UIKit
 
 final class LoginModule: BaseModule {
     static func setup(with navigationController: UINavigationController) -> UIViewController {
-        let interactor = LoginInteractor(authService: HTTPAuthService())
+        let interactor = LoginInteractor(remoteDataManager: RESTLoginDataManager())
         let router = LoginRouter(navigationController: navigationController)
         let presenter = LoginPresenter(interactor: interactor, router: router)
         return LoginViewController(presenter: presenter)
