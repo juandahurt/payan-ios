@@ -17,6 +17,8 @@
 		3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C41270A693200B593AD /* MainPresenter.swift */; };
 		3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C4B270A74CA00B593AD /* Utility.swift */; };
 		3D13157526F92F4D00E451E0 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13157426F92F4D00E451E0 /* Credential.swift */; };
+		3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */; };
+		3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */; };
 		3D27BF01270A565A007143C8 /* MainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF00270A565A007143C8 /* MainModule.swift */; };
 		3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF06270A568B007143C8 /* MainRouter.swift */; };
 		3D3A384A270A53D300E2EF94 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A3849270A53D300E2EF94 /* HomeModule.swift */; };
@@ -40,6 +42,9 @@
 		3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */; };
 		3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */; };
 		3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDE27249F7C00ECB567 /* UserSession.swift */; };
+		3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACE12724D0A000ECB567 /* LaunchModule.swift */; };
+		3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACE82724D13500ECB567 /* LaunchViewController.swift */; };
+		3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79ACE92724D13500ECB567 /* LaunchViewController.xib */; };
 		3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
@@ -73,6 +78,8 @@
 		3D0E9C41270A693200B593AD /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		3D0E9C4B270A74CA00B593AD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		3D13157426F92F4D00E451E0 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
+		3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		3D27BF00270A565A007143C8 /* MainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModule.swift; sourceTree = "<group>"; };
 		3D27BF06270A568B007143C8 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3D3A3849270A53D300E2EF94 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
@@ -96,6 +103,9 @@
 		3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLoginDataManager.swift; sourceTree = "<group>"; };
 		3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoginDataManager.swift; sourceTree = "<group>"; };
 		3D79ACDE27249F7C00ECB567 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		3D79ACE12724D0A000ECB567 /* LaunchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModule.swift; sourceTree = "<group>"; };
+		3D79ACE82724D13500ECB567 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		3D79ACE92724D13500ECB567 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -189,6 +199,22 @@
 				3D79ACDE27249F7C00ECB567 /* UserSession.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		3D1F4CE72725231C003FDF4F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3D1F4CEA2725233F003FDF4F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		3D27BF04270A567B007143C8 /* Router */ = {
@@ -453,6 +479,41 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		3D79ACE02724D08D00ECB567 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				3D79ACE32724D0D300ECB567 /* UI */,
+				3D79ACE12724D0A000ECB567 /* LaunchModule.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		3D79ACE32724D0D300ECB567 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3D1F4CEA2725233F003FDF4F /* Presenter */,
+				3D1F4CE72725231C003FDF4F /* Router */,
+				3D79ACE42724D0DB00ECB567 /* View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3D79ACE42724D0DB00ECB567 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D79ACE82724D13500ECB567 /* LaunchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D79ACE72724D0EE00ECB567 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				3D79ACE92724D13500ECB567 /* LaunchViewController.xib */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		3DA5CA23271B8E6300DD584E /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -564,6 +625,7 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3D79ACE02724D08D00ECB567 /* Launch */,
 				3DF708E526F2A64F00FD24CF /* Assets */,
 				3D0E9C31270A647400B593AD /* Base */,
 				3D3A3854270A548400E2EF94 /* Main */,
@@ -576,6 +638,7 @@
 		3DF708E526F2A64F00FD24CF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				3D79ACE72724D0EE00ECB567 /* Launch */,
 				3DF708C526F2A4D300FD24CF /* Assets.xcassets */,
 				3D6678C9271394C400A34C70 /* Base */,
 				3DF708E626F2A65500FD24CF /* Login */,
@@ -733,6 +796,7 @@
 				3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */,
 				3DF708EB26F2A8AA00FD24CF /* LoginViewController.xib in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
+				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
@@ -796,14 +860,18 @@
 				3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */,
 				3D6678CE2713B68100A34C70 /* SectionHeaderView.swift in Sources */,
 				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
+				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
+				3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
+				3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */,
 				3D0E9C36270A652900B593AD /* BaseModule.swift in Sources */,
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
+				3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */,
 				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
 				3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */,
 				3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */,
