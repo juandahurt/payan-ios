@@ -45,6 +45,10 @@
 		3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACE12724D0A000ECB567 /* LaunchModule.swift */; };
 		3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACE82724D13500ECB567 /* LaunchViewController.swift */; };
 		3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79ACE92724D13500ECB567 /* LaunchViewController.xib */; };
+		3D8CCDE4272613BF00CB7EED /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE3272613BF00CB7EED /* AppVersion.swift */; };
+		3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */; };
+		3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */; };
+		3D8CCDEA2726351E00CB7EED /* AppVersionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */; };
 		3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
@@ -106,6 +110,10 @@
 		3D79ACE12724D0A000ECB567 /* LaunchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModule.swift; sourceTree = "<group>"; };
 		3D79ACE82724D13500ECB567 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		3D79ACE92724D13500ECB567 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
+		3D8CCDE3272613BF00CB7EED /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
+		3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDataManager.swift; sourceTree = "<group>"; };
+		3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractor.swift; sourceTree = "<group>"; };
+		3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionValidation.swift; sourceTree = "<group>"; };
 		3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -482,6 +490,8 @@
 		3D79ACE02724D08D00ECB567 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
+				3D8CCDE02726137A00CB7EED /* Data */,
+				3D8CCDDF2726136500CB7EED /* Logic */,
 				3D79ACE32724D0D300ECB567 /* UI */,
 				3D79ACE12724D0A000ECB567 /* LaunchModule.swift */,
 			);
@@ -512,6 +522,40 @@
 				3D79ACE92724D13500ECB567 /* LaunchViewController.xib */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		3D8CCDDF2726136500CB7EED /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE22726138C00CB7EED /* Interactor */,
+				3D8CCDE12726138400CB7EED /* Entities */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		3D8CCDE02726137A00CB7EED /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3D8CCDE12726138400CB7EED /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE3272613BF00CB7EED /* AppVersion.swift */,
+				3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3D8CCDE22726138C00CB7EED /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		3DA5CA23271B8E6300DD584E /* Logic */ = {
@@ -855,6 +899,7 @@
 			files = (
 				3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */,
 				3D13157526F92F4D00E451E0 /* Credential.swift in Sources */,
+				3D8CCDEA2726351E00CB7EED /* AppVersionValidation.swift in Sources */,
 				3DDA07B526F8EF1300016204 /* AppConfig.swift in Sources */,
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
 				3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */,
@@ -862,15 +907,18 @@
 				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
 				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
+				3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
 				3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
 				3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */,
 				3D0E9C36270A652900B593AD /* BaseModule.swift in Sources */,
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
+				3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
+				3D8CCDE4272613BF00CB7EED /* AppVersion.swift in Sources */,
 				3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */,
 				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
 				3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */,
@@ -1046,6 +1094,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Payan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1066,6 +1115,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Payan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

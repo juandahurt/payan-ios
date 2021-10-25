@@ -33,18 +33,17 @@ class LaunchViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // TODO: Check app version
+        
+        output.checkLatestVersion()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         startJumpAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.hideImage { _ in
-                self.output.showHomeModule()
-            }
-        }
+//        self.hideImage { _ in
+//            self.output.showHomeModule()
+//        }
     }
     
     // MARK: - Animations

@@ -11,7 +11,8 @@ import UIKit
 final class LaunchModule: BaseModule {
     static func setup(with navigationController: UINavigationController) -> UIViewController {
         let router = LaunchRouter(navigationController: navigationController)
-        let presenter = LaunchPresenter(router: router)
+        let interactor = LaunchInteractor(dataManager: LaunchDataManager())
+        let presenter = LaunchPresenter(interactor: interactor, router: router)
         return LaunchViewController(presenter: presenter)
     }
 }

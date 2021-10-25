@@ -28,7 +28,7 @@ struct RESTClient {
 import RxSwift
 
 extension RESTClient {
-    func call<D: Encodable, R: Decodable>(endpoint: RESTEnpoint<D>) -> Single<RESTServerResponse<R>> {
+    func call<B: Encodable, R: Decodable>(endpoint: RESTEnpoint<B>) -> Single<RESTServerResponse<R>> {
         return Single.create { single in
             let disposable = Disposables.create()
             guard let request = createRequest(using: endpoint) else {
@@ -67,7 +67,7 @@ extension RESTClient {
         var request = URLRequest(url: url)
         
         request.httpMethod = endpoint.method.rawValue
-        if let data = endpoint.data {
+        if let data = endpoint.body {
             let encodedData = try? JSONEncoder().encode(data)
             request.httpBody = encodedData
         }
