@@ -49,6 +49,10 @@
 		3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */; };
 		3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */; };
 		3D8CCDEA2726351E00CB7EED /* AppVersionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */; };
+		3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */; };
+		3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */; };
+		3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */; };
+		3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */; };
 		3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
@@ -114,6 +118,10 @@
 		3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDataManager.swift; sourceTree = "<group>"; };
 		3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractor.swift; sourceTree = "<group>"; };
 		3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionValidation.swift; sourceTree = "<group>"; };
+		3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateViewController.swift; sourceTree = "<group>"; };
+		3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppUpdateViewController.xib; sourceTree = "<group>"; };
+		3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBottomSheet.swift; sourceTree = "<group>"; };
+		3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIBottomSheet.xib; sourceTree = "<group>"; };
 		3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
@@ -336,6 +344,7 @@
 		3D51102626F6D52500D24DD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3D8CCDEB2726382E00CB7EED /* Bottom Sheet */,
 				3D0E9C26270A5E2500B593AD /* Tab Bar View Controller */,
 				3D426B3426F801520019FEBA /* Text Field Form */,
 				3D51102826F6D53A00D24DD9 /* Main Button */,
@@ -511,6 +520,7 @@
 		3D79ACE42724D0DB00ECB567 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */,
 				3D79ACE82724D13500ECB567 /* LaunchViewController.swift */,
 			);
 			path = View;
@@ -520,6 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				3D79ACE92724D13500ECB567 /* LaunchViewController.xib */,
+				3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -556,6 +567,15 @@
 				3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3D8CCDEB2726382E00CB7EED /* Bottom Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */,
+				3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */,
+			);
+			path = "Bottom Sheet";
 			sourceTree = "<group>";
 		};
 		3DA5CA23271B8E6300DD584E /* Logic */ = {
@@ -842,6 +862,8 @@
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
+				3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */,
+				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
 				3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* HomeViewController.xib in Resources */,
@@ -916,9 +938,11 @@
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
 				3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
+				3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
 				3D8CCDE4272613BF00CB7EED /* AppVersion.swift in Sources */,
+				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
 				3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */,
 				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
 				3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */,

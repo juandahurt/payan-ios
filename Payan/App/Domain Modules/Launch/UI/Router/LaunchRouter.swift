@@ -23,4 +23,14 @@ final class LaunchRouter: BaseRouter {
         
         navigationController.present(vc, animated: true)
     }
+    
+    func showAppNeedsUpdate() {
+        let vc = AppUpdateViewController()
+        let bottomSheet = UIBottomSheet(embededView: vc.view)
+        
+        bottomSheet.modalPresentationStyle = .overCurrentContext
+        bottomSheet.modalTransitionStyle = .crossDissolve
+        
+        navigationController.present(bottomSheet, animated: true)
+    }
 }

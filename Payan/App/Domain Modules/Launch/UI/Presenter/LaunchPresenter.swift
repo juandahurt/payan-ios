@@ -27,8 +27,10 @@ final class LaunchPresenter: BasePresenter {
 extension LaunchPresenter: LaunchViewOutput {
     func checkLatestVersion() {
         interactor.checkLatestVersion()
-            .subscribe(onSuccess: { _ in
-                // TODO: Show bottom sheet
+            .subscribe(onSuccess: { [weak self] _ in
+                DispatchQueue.main.async {
+                    (self?.router as! LaunchRouter).showAppNeedsUpdate()
+                }
             }
         ).disposed(by: disposeBag)
     }
