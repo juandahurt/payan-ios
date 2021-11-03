@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 
 protocol LaunchViewOutput {
-    func showHomeModule()
     func checkLatestVersion()
 }
 
@@ -27,15 +26,15 @@ final class LaunchPresenter: BasePresenter {
 extension LaunchPresenter: LaunchViewOutput {
     func checkLatestVersion() {
         interactor.checkLatestVersion()
-            .subscribe(onSuccess: { [weak self] _ in
-                DispatchQueue.main.async {
-                    (self?.router as! LaunchRouter).showAppNeedsUpdate()
+            .subscribe(onSuccess: { [weak self] validation in
+                if validation.shouldUpdate {
+                    DispatchQueue.main.async {
+                        (self?.router as! LaunchRouter).showAppUpdateModule()
+                    }
+                } else {
+                    (self?.router as! LaunchRouter).showMainModule()
                 }
             }
         ).disposed(by: disposeBag)
-    }
-    
-    func showHomeModule() {
-        (router as! LaunchRouter).showMainModule()
     }
 }

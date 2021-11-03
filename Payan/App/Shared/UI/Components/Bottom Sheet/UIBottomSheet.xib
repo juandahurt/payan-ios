@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIBottomSheet" customModule="Payan" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundView" destination="7eK-tL-Zzo" id="7Gj-Fj-yTD"/>
                 <outlet property="bottomConstraint" destination="OfY-Rc-gEv" id="6Xr-HI-yo2"/>
                 <outlet property="heightConstraint" destination="mfc-6t-Vsw" id="SEv-jh-uo3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -8,6 +8,7 @@
 import UIKit
 
 class UIBottomSheet: UIViewController {
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
@@ -39,8 +40,9 @@ class UIBottomSheet: UIViewController {
 
     // MARK: - UI
     private func setupUI() {
+        backgroundView.alpha = 0
         viewContainer.backgroundColor = Color.background
-        if let embededView = dataSource?.embededView() {
+        if let embededView = dataSource?.embeddedView() {
             let window = UIApplication.shared.windows.first
             let bottomPadding = window?.safeAreaInsets.bottom ?? 0
             
@@ -60,6 +62,7 @@ class UIBottomSheet: UIViewController {
     // MARK: - Animations
     private func showContainerFromBottom() {
         UIView.animate(withDuration: 0.35, delay: 0, options: [.curveEaseInOut]) { [weak self] in
+            self?.backgroundView.alpha = 0.7
             self?.bottomConstraint.constant = 0
             self?.view.layoutIfNeeded()
         }
@@ -69,5 +72,5 @@ class UIBottomSheet: UIViewController {
 
 // MARK: - DataSource
 protocol UIBottomSheetDataSource {
-    func embededView() -> UIView
+    func embeddedView() -> UIView
 }

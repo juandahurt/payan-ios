@@ -54,6 +54,9 @@
 		3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */; };
 		3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */; };
 		3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */; };
+		3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */; };
+		3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */; };
+		3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B452733329E00CC107B /* AppUpdateRouter.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
 		3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD65DC2270CD2C90058273D /* PlaceCell.xib */; };
@@ -123,6 +126,9 @@
 		3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBottomSheet.swift; sourceTree = "<group>"; };
 		3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIBottomSheet.xib; sourceTree = "<group>"; };
 		3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateModule.swift; sourceTree = "<group>"; };
+		3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdatePresenter.swift; sourceTree = "<group>"; };
+		3DA93B452733329E00CC107B /* AppUpdateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateRouter.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		3DD65DC2270CD2C90058273D /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
@@ -520,7 +526,6 @@
 		3D79ACE42724D0DB00ECB567 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */,
 				3D79ACE82724D13500ECB567 /* LaunchViewController.swift */,
 			);
 			path = View;
@@ -530,7 +535,6 @@
 			isa = PBXGroup;
 			children = (
 				3D79ACE92724D13500ECB567 /* LaunchViewController.xib */,
-				3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -593,6 +597,57 @@
 				3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3DA93B3A2732FB4D00CC107B /* App Update */ = {
+			isa = PBXGroup;
+			children = (
+				3DA93B3B2732FB5B00CC107B /* UI */,
+				3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */,
+			);
+			path = "App Update";
+			sourceTree = "<group>";
+		};
+		3DA93B3B2732FB5B00CC107B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3DA93B442733329200CC107B /* Router */,
+				3DA93B402732FBB300CC107B /* Presenter */,
+				3DA93B3C2732FB6000CC107B /* View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3DA93B3C2732FB6000CC107B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DA93B402732FBB300CC107B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3DA93B442733329200CC107B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3DA93B452733329E00CC107B /* AppUpdateRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3DA93B49273335A400CC107B /* App Update */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */,
+			);
+			path = "App Update";
 			sourceTree = "<group>";
 		};
 		3DC9BFEF26F98D8D00D4DE6E /* Scroll */ = {
@@ -689,6 +744,7 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3DA93B3A2732FB4D00CC107B /* App Update */,
 				3D79ACE02724D08D00ECB567 /* Launch */,
 				3DF708E526F2A64F00FD24CF /* Assets */,
 				3D0E9C31270A647400B593AD /* Base */,
@@ -702,6 +758,7 @@
 		3DF708E526F2A64F00FD24CF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				3DA93B49273335A400CC107B /* App Update */,
 				3D79ACE72724D0EE00ECB567 /* Launch */,
 				3DF708C526F2A4D300FD24CF /* Assets.xcassets */,
 				3D6678C9271394C400A34C70 /* Base */,
@@ -929,6 +986,7 @@
 				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
 				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
+				3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */,
 				3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
 				3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */,
@@ -950,10 +1008,12 @@
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
 				3D0E9C3A270A678000B593AD /* HomePresenter.swift in Sources */,
 				3D3A3850270A541400E2EF94 /* HomeViewController.swift in Sources */,
+				3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */,
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
+				3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */,
 				3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */,
 				3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,

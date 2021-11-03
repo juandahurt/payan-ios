@@ -41,9 +41,6 @@ class LaunchViewController: UIViewController {
         super.viewDidAppear(animated)
         
         startJumpAnimation()
-//        self.hideImage { _ in
-//            self.output.showHomeModule()
-//        }
     }
     
     // MARK: - Animations
@@ -53,13 +50,5 @@ class LaunchViewController: UIViewController {
             guard let self = self else { return }
             self.view.layoutIfNeeded()
         })
-    }
-    
-    private func hideImage(completion: @escaping (Bool) -> Void) {
-        UIView.animate(withDuration: fadeAnimationDuration, delay: 0, options: [.curveEaseIn], animations: { [weak self] in
-            guard let self = self else { return }
-            self.imageView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
-            self.imageView.alpha = 0
-        }, completion: completion)
     }
 }
