@@ -26,8 +26,9 @@ final class LaunchRouter: BaseRouter {
     
     func showAppNeedsUpdate() {
         let vc = AppUpdateViewController()
-        let bottomSheet = UIBottomSheet(embededView: vc.view)
+        let bottomSheet = UIBottomSheet()
         
+        bottomSheet.dataSource = vc
         bottomSheet.modalPresentationStyle = .overCurrentContext
         bottomSheet.modalTransitionStyle = .crossDissolve
         

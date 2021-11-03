@@ -24,3 +24,11 @@ class AppUpdateViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 }
+
+
+// MARK: UIBottomSheetDataSource
+extension AppUpdateViewController: UIBottomSheetDataSource {
+    func embededView() -> UIView {
+        view
+    }
+}
