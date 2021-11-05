@@ -17,6 +17,8 @@
 		3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C41270A693200B593AD /* MainPresenter.swift */; };
 		3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C4B270A74CA00B593AD /* Utility.swift */; };
 		3D13157526F92F4D00E451E0 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13157426F92F4D00E451E0 /* Credential.swift */; };
+		3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */; };
+		3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */; };
 		3D27BF01270A565A007143C8 /* MainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF00270A565A007143C8 /* MainModule.swift */; };
 		3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF06270A568B007143C8 /* MainRouter.swift */; };
 		3D3A384A270A53D300E2EF94 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A3849270A53D300E2EF94 /* HomeModule.swift */; };
@@ -40,7 +42,23 @@
 		3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */; };
 		3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */; };
 		3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDE27249F7C00ECB567 /* UserSession.swift */; };
+		3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACE12724D0A000ECB567 /* LaunchModule.swift */; };
+		3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACE82724D13500ECB567 /* LaunchViewController.swift */; };
+		3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79ACE92724D13500ECB567 /* LaunchViewController.xib */; };
+		3D8CCDE4272613BF00CB7EED /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE3272613BF00CB7EED /* AppVersion.swift */; };
+		3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */; };
+		3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */; };
+		3D8CCDEA2726351E00CB7EED /* AppVersionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */; };
+		3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */; };
+		3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */; };
+		3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */; };
+		3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */; };
 		3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */; };
+		3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */; };
+		3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */; };
+		3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B452733329E00CC107B /* AppUpdateRouter.swift */; };
+		3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5327333FA700CC107B /* SecondaryButton.swift */; };
+		3DA93B5727333FE000CC107B /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* BaseButton.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
 		3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD65DC2270CD2C90058273D /* PlaceCell.xib */; };
@@ -73,6 +91,8 @@
 		3D0E9C41270A693200B593AD /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		3D0E9C4B270A74CA00B593AD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		3D13157426F92F4D00E451E0 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
+		3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		3D27BF00270A565A007143C8 /* MainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModule.swift; sourceTree = "<group>"; };
 		3D27BF06270A568B007143C8 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3D3A3849270A53D300E2EF94 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
@@ -96,7 +116,23 @@
 		3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLoginDataManager.swift; sourceTree = "<group>"; };
 		3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoginDataManager.swift; sourceTree = "<group>"; };
 		3D79ACDE27249F7C00ECB567 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		3D79ACE12724D0A000ECB567 /* LaunchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModule.swift; sourceTree = "<group>"; };
+		3D79ACE82724D13500ECB567 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		3D79ACE92724D13500ECB567 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
+		3D8CCDE3272613BF00CB7EED /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
+		3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDataManager.swift; sourceTree = "<group>"; };
+		3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractor.swift; sourceTree = "<group>"; };
+		3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionValidation.swift; sourceTree = "<group>"; };
+		3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateViewController.swift; sourceTree = "<group>"; };
+		3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppUpdateViewController.xib; sourceTree = "<group>"; };
+		3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBottomSheet.swift; sourceTree = "<group>"; };
+		3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIBottomSheet.xib; sourceTree = "<group>"; };
 		3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateModule.swift; sourceTree = "<group>"; };
+		3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdatePresenter.swift; sourceTree = "<group>"; };
+		3DA93B452733329E00CC107B /* AppUpdateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateRouter.swift; sourceTree = "<group>"; };
+		3DA93B5327333FA700CC107B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		3DA93B5627333FE000CC107B /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		3DD65DC2270CD2C90058273D /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
@@ -189,6 +225,22 @@
 				3D79ACDE27249F7C00ECB567 /* UserSession.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		3D1F4CE72725231C003FDF4F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3D1F4CEA2725233F003FDF4F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		3D27BF04270A567B007143C8 /* Router */ = {
@@ -302,19 +354,22 @@
 		3D51102626F6D52500D24DD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3D8CCDEB2726382E00CB7EED /* Bottom Sheet */,
 				3D0E9C26270A5E2500B593AD /* Tab Bar View Controller */,
 				3D426B3426F801520019FEBA /* Text Field Form */,
-				3D51102826F6D53A00D24DD9 /* Main Button */,
+				3D51102826F6D53A00D24DD9 /* Buttons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		3D51102826F6D53A00D24DD9 /* Main Button */ = {
+		3D51102826F6D53A00D24DD9 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
 				3DDA079626F8E5D400016204 /* MainButton.swift */,
+				3DA93B5327333FA700CC107B /* SecondaryButton.swift */,
+				3DA93B5627333FE000CC107B /* BaseButton.swift */,
 			);
-			path = "Main Button";
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		3D51102C26F70DC900D24DD9 /* Fonts */ = {
@@ -453,6 +508,86 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		3D79ACE02724D08D00ECB567 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE02726137A00CB7EED /* Data */,
+				3D8CCDDF2726136500CB7EED /* Logic */,
+				3D79ACE32724D0D300ECB567 /* UI */,
+				3D79ACE12724D0A000ECB567 /* LaunchModule.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		3D79ACE32724D0D300ECB567 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3D1F4CEA2725233F003FDF4F /* Presenter */,
+				3D1F4CE72725231C003FDF4F /* Router */,
+				3D79ACE42724D0DB00ECB567 /* View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3D79ACE42724D0DB00ECB567 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D79ACE82724D13500ECB567 /* LaunchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D79ACE72724D0EE00ECB567 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				3D79ACE92724D13500ECB567 /* LaunchViewController.xib */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		3D8CCDDF2726136500CB7EED /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE22726138C00CB7EED /* Interactor */,
+				3D8CCDE12726138400CB7EED /* Entities */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		3D8CCDE02726137A00CB7EED /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3D8CCDE12726138400CB7EED /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE3272613BF00CB7EED /* AppVersion.swift */,
+				3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		3D8CCDE22726138C00CB7EED /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3D8CCDEB2726382E00CB7EED /* Bottom Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */,
+				3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */,
+			);
+			path = "Bottom Sheet";
+			sourceTree = "<group>";
+		};
 		3DA5CA23271B8E6300DD584E /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +603,57 @@
 				3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3DA93B3A2732FB4D00CC107B /* App Update */ = {
+			isa = PBXGroup;
+			children = (
+				3DA93B3B2732FB5B00CC107B /* UI */,
+				3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */,
+			);
+			path = "App Update";
+			sourceTree = "<group>";
+		};
+		3DA93B3B2732FB5B00CC107B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3DA93B442733329200CC107B /* Router */,
+				3DA93B402732FBB300CC107B /* Presenter */,
+				3DA93B3C2732FB6000CC107B /* View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3DA93B3C2732FB6000CC107B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DA93B402732FBB300CC107B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3DA93B442733329200CC107B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3DA93B452733329E00CC107B /* AppUpdateRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3DA93B49273335A400CC107B /* App Update */ = {
+			isa = PBXGroup;
+			children = (
+				3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */,
+			);
+			path = "App Update";
 			sourceTree = "<group>";
 		};
 		3DC9BFEF26F98D8D00D4DE6E /* Scroll */ = {
@@ -564,6 +750,8 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3DA93B3A2732FB4D00CC107B /* App Update */,
+				3D79ACE02724D08D00ECB567 /* Launch */,
 				3DF708E526F2A64F00FD24CF /* Assets */,
 				3D0E9C31270A647400B593AD /* Base */,
 				3D3A3854270A548400E2EF94 /* Main */,
@@ -576,6 +764,8 @@
 		3DF708E526F2A64F00FD24CF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				3DA93B49273335A400CC107B /* App Update */,
+				3D79ACE72724D0EE00ECB567 /* Launch */,
 				3DF708C526F2A4D300FD24CF /* Assets.xcassets */,
 				3D6678C9271394C400A34C70 /* Base */,
 				3DF708E626F2A65500FD24CF /* Login */,
@@ -733,7 +923,10 @@
 				3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */,
 				3DF708EB26F2A8AA00FD24CF /* LoginViewController.xib in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
+				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
+				3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */,
+				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
 				3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* HomeViewController.xib in Resources */,
@@ -791,29 +984,42 @@
 			files = (
 				3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */,
 				3D13157526F92F4D00E451E0 /* Credential.swift in Sources */,
+				3D8CCDEA2726351E00CB7EED /* AppVersionValidation.swift in Sources */,
 				3DDA07B526F8EF1300016204 /* AppConfig.swift in Sources */,
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
 				3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */,
 				3D6678CE2713B68100A34C70 /* SectionHeaderView.swift in Sources */,
 				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
+				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
+				3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */,
+				3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
+				3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
+				3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */,
 				3D0E9C36270A652900B593AD /* BaseModule.swift in Sources */,
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
+				3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
+				3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
+				3D8CCDE4272613BF00CB7EED /* AppVersion.swift in Sources */,
+				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
+				3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */,
 				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
 				3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */,
 				3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */,
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
 				3D0E9C3A270A678000B593AD /* HomePresenter.swift in Sources */,
 				3D3A3850270A541400E2EF94 /* HomeViewController.swift in Sources */,
+				3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */,
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
+				3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */,
 				3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */,
 				3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
@@ -824,6 +1030,8 @@
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */,
+				3DA93B5727333FE000CC107B /* BaseButton.swift in Sources */,
+				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
 				3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */,
@@ -978,6 +1186,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Payan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -998,6 +1207,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Payan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

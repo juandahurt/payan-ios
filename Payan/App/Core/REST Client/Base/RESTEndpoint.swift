@@ -10,5 +10,7 @@ import Foundation
 struct RESTEnpoint<T> where T: Encodable {
     var path: String
     var method: RESTMethod
-    var data: T?
+    var body: T?
 }
+
+struct RESTEmptyBody: Encodable {}

@@ -17,7 +17,7 @@ struct RESTLoginDataManager: RemoteLoginDataManager {
     
     func login(using credential: Credential) -> Single<String> {
         Single.create { single in
-            let endoint = RESTEnpoint(path: "auth/signIn", method: .post, data: credential)
+            let endoint = RESTEnpoint(path: "auth/signIn", method: .post, body: credential)
             let response: Single<RESTServerResponse<String>>
             
             response = RESTClient.shared.call(endpoint: endoint)

@@ -1,13 +1,23 @@
 //
-//  MainButton.swift
+//  BaseButton.swift
 //  Payan
 //
-//  Created by juandahurt on 18/09/21.
+//  Created by juandahurt on 3/11/21.
 //
 
+import Foundation
 import UIKit
 
-final class MainButton: LoadableButton {    
+class BaseButton: UIButton {
+    // MARK: - Public
+    var background: UIColor? {
+        nil
+    }
+    public var textColor: UIColor? {
+        nil
+    }
+    
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -18,14 +28,16 @@ final class MainButton: LoadableButton {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
+        
         setup()
     }
     
     private func setup() {
-        setTitleColor(.white, for: .normal)
+        setTitleColor(textColor, for: .normal)
         layer.cornerRadius = UIConstants.buttonCornerRadius
-        backgroundColor = Color.primary
+        backgroundColor = background
         titleLabel?.font = Font.get(.semiBold, size: .subtitle)
+        
         self.addTarget(self, action: #selector(onPressed(_:)), for: .touchDown)
         self.addTarget(self, action: #selector(onRelease(_:)), for: .touchUpInside)
         self.addTarget(self, action: #selector(onRelease(_:)), for: .touchUpOutside)
@@ -33,7 +45,6 @@ final class MainButton: LoadableButton {
     
     @objc
     func onPressed(_ sender: Any) {
-        Console.log("button was pressed", level: .event)
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
         }
@@ -41,7 +52,6 @@ final class MainButton: LoadableButton {
     
     @objc
     func onRelease(_ sender: Any) {
-        Console.log("button was released", level: .event)
         UIView.animate(withDuration: 0.3) { [weak self] in
             self?.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
