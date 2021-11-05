@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AppUpdateViewOutput {
     func dismissUpdate()
+    func update()
 }
 
 final class AppUpdatePresenter: BasePresenter {
@@ -20,6 +22,10 @@ final class AppUpdatePresenter: BasePresenter {
 }
 
 extension AppUpdatePresenter: AppUpdateViewOutput {
+    func update() {
+        // TODO: Open appstore url!
+    }
+    
     func dismissUpdate() {
         (router as! AppUpdateRouter).dismiss()
     }

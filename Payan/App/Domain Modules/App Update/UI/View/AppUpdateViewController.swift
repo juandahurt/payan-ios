@@ -28,10 +28,17 @@ class AppUpdateViewController: UIViewController {
             descriptionTextView.isEditable = false
         }
     }
+    @IBOutlet weak var dismissButton: SecondaryButton! {
+        didSet {
+            dismissButton.setTitle("Omitir", for: .normal)
+        }
+    }
+    @IBOutlet weak var dismissButtonHeight: NSLayoutConstraint!
     
     // MARK: - Private
     private var output: AppUpdateViewOutput
     private let disposeBag = DisposeBag()
+    private var versionType: AppVersionType?
     
     // MARK: - Lifecycle
     init(presenter: AppUpdateViewOutput) {
@@ -48,13 +55,39 @@ class AppUpdateViewController: UIViewController {
         super.viewDidLoad()
         
         rxBind()
+        updateUI()
     }
     
     // MARK: - Rx
     private func rxBind() {
         updateButton.rx.tap.bind(onNext: { [weak self] in
+            self?.output.update()
+        }).disposed(by: disposeBag)
+        
+        dismissButton.rx.tap.bind(onNext: { [weak self] in
             self?.output.dismissUpdate()
         }).disposed(by: disposeBag)
+    }
+    
+    func setVersionType(_ versionType: AppVersionType) {
+        self.versionType = versionType
+    }
+    
+    private func updateUI() {
+        guard let versionType = versionType else {
+            Console.log("The version type has not been setted", level: .warn)
+            return
+        }
+        
+        if versionType == .mandatory {
+            dismissButtonHeight.constant = 0
+            dismissButton.isHidden = true
+            
+            titleLabel.text = "Lo sentimos"
+            descriptionTextView.text = "Parece que tienes una version desactualizada de la aplicacion. Para que puedas continuar disfrutando de Payan, debes actualizarla."
+            
+            view.layoutIfNeeded()
+        }
     }
 }
 

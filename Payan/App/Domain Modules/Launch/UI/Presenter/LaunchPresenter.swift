@@ -29,7 +29,7 @@ extension LaunchPresenter: LaunchViewOutput {
             .subscribe(onSuccess: { [weak self] validation in
                 if validation.shouldUpdate {
                     DispatchQueue.main.async {
-                        (self?.router as! LaunchRouter).showAppUpdateModule()
+                        (self?.router as! LaunchRouter).showAppUpdateModule(versionType: validation.type)
                     }
                 } else {
                     (self?.router as! LaunchRouter).showMainModule()

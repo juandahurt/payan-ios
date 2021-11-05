@@ -24,8 +24,11 @@ final class LaunchRouter: BaseRouter {
         navigationController.present(vc, animated: true)
     }
     
-    func showAppUpdateModule() {
-        let vc = AppUpdateModule.setup(with: navigationController)
+    func showAppUpdateModule(versionType: AppVersionType) {
+        let vc = AppUpdateModule.setup(with: navigationController) as! UIBottomSheet
+        let appUpdateVC = vc.dataSource as! AppUpdateViewController
+        
+        appUpdateVC.setVersionType(versionType)
         
         navigationController.present(vc, animated: true)
     }
