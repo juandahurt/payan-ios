@@ -10,25 +10,12 @@ import Foundation
 struct Place: Decodable {
     var name: String
     var type: PlaceCategory
-    var image: String
+    var imageUrl: String = "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
     
     enum CodingKeys: String, CodingKey {
-        case name, image
+        case name
+        case imageUrl = "image"
         case type = "category"
-    }
-    
-    init(name: String, type: PlaceCategory) {
-        self.name = name
-        self.type = type
-        image = ""
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        name = try container.decode(String.self, forKey: .name)
-        type = try container.decode(PlaceCategory.self, forKey: .type)
-        image = try container.decodeIfPresent(String.self, forKey: .image) ?? ""
     }
 }
 

@@ -46,8 +46,9 @@ class PlaceCell: UICollectionViewCell {
             self?.subtitleLabel.text = placeStr
         }
         imageView.contentMode = .scaleAspectFill
-        let provider = Base64ImageDataProvider(base64String: place.image, cacheKey: UUID().uuidString)
-        imageView.kf.setImage(with: provider)
+        if let url = URL(string: place.imageUrl) {
+            imageView.kf.setImage(with: url)
+        }
     }
     
     func showSkeletonAnimation() {
