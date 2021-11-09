@@ -10,7 +10,7 @@ import Foundation
 struct Place: Decodable {
     var name: String
     var type: PlaceCategory
-    var imageUrl: String
+    var image: String
     
     enum CodingKeys: String, CodingKey {
         case name, image
@@ -20,7 +20,7 @@ struct Place: Decodable {
     init(name: String, type: PlaceCategory) {
         self.name = name
         self.type = type
-        imageUrl = "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
+        image = ""
     }
     
     init(from decoder: Decoder) throws {
@@ -28,7 +28,7 @@ struct Place: Decodable {
         
         name = try container.decode(String.self, forKey: .name)
         type = try container.decode(PlaceCategory.self, forKey: .type)
-        imageUrl = "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
+        image = try container.decodeIfPresent(String.self, forKey: .image) ?? ""
     }
 }
 
