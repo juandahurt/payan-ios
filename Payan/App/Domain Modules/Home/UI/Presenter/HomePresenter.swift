@@ -69,7 +69,7 @@ extension HomePresenter: HomeViewOutput {
         let catPlacesObservable = interactor.listPlacesByCategory().asObservable()
         
         Observable.zip(favPlacesObservable, catPlacesObservable)
-            .subscribe(onNext: { [weak self] favPlaces, placesByCategory in
+            .subscribe(onNext: { [weak self] favPlaces, groupOfPlaces in
                 guard let self = self else {
                     return
                 }
@@ -85,26 +85,28 @@ extension HomePresenter: HomeViewOutput {
                 let favoritesSection = HomeSection(title: "Los más populares", items: favItems, type: .favoritePlace)
                 sections.append(favoritesSection)
                 
-                for (category, places) in placesByCategory {
-                    var items = [HomeSectionItem]()
-                    for place in places {
-                        items.append(
-                            HomePlaceItem(place: place)
-                        )
+                for group in groupOfPlaces {
+                    if !group.places.isEmpty {
+                        var items = [HomeSectionItem]()
+                        for place in group.places {
+                            items.append(
+                                HomePlaceItem(place: place)
+                            )
+                        }
+                        let title: String
+                        switch group.category {
+                        case .museum:
+                            title = "Museos"
+                        case .park:
+                            title = "Parques"
+                        case .bridge:
+                            title = "Puentes"
+                        case .church:
+                            title = "Iglesias"
+                        }
+                        let section = HomeSection(title: title, items: items, type: .place)
+                        sections.append(section)
                     }
-                    let title: String
-                    switch category {
-                    case .museum:
-                        title = "Museos"
-                    case .park:
-                        title = "Parques"
-                    case .bridge:
-                        title = "Puentes"
-                    case .church:
-                        title = "Iglesias"
-                    }
-                    let section = HomeSection(title: title, items: items, type: .place)
-                    sections.append(section)
                 }
                 
                 self.sectionsSubject.onNext(sections)

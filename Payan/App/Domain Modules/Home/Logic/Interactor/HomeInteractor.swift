@@ -11,11 +11,19 @@ import RxSwift
 // TODO: Create place services
 
 protocol AnyHomeInteractor {
+    var dataManager: HomeDataManager { get set }
+    
     func listFavoritePlaces() -> Single<[Place]>
-    func listPlacesByCategory() -> Single<[(PlaceCategory, [Place])]>
+    func listPlacesByCategory() -> Single<[PlaceGroup]>
 }
 
 final class HomeInteractor: AnyHomeInteractor {
+    var dataManager: HomeDataManager
+    
+    init(dataManager: HomeDataManager) {
+        self.dataManager = dataManager
+    }
+    
     func listFavoritePlaces() -> Single<[Place]> {
         Single.create { single in
             DispatchQueue(label: "", qos: DispatchQoS.background).asyncAfter(deadline: .now() + 2) {
@@ -25,16 +33,11 @@ final class HomeInteractor: AnyHomeInteractor {
         }
     }
     
-    func listPlacesByCategory() -> Single<[(PlaceCategory, [Place])]> {
-        Single.create { single in
-            DispatchQueue(label: "", qos: DispatchQoS.background).asyncAfter(deadline: .now() + 1.6) {
-                single(.success(
-                    [
-                        (.museum, Place.dummyMuseums)
-                    ]
-                ))
-            }
-            return Disposables.create()
-        }
+    func listPlacesByCategory() -> Single<[PlaceGroup]> {
+        dataManager.listPlacesByCategory()
+//        Single.create { single in
+//
+//            return Disposables.create()
+//        }
     }
 }
