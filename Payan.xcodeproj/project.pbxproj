@@ -68,6 +68,8 @@
 		3DDA07B526F8EF1300016204 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA07B426F8EF1300016204 /* AppConfig.swift */; };
 		3DEEE5F2273ACE7B009D7341 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEEE5F1273ACE7B009D7341 /* HomeDataManager.swift */; };
 		3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEEE5F4273AD216009D7341 /* PlaceGroup.swift */; };
+		3DF1E8FE273C391A002466E0 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1E8FC273C391A002466E0 /* CarouselViewController.swift */; };
+		3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF1E8FD273C391A002466E0 /* CarouselViewController.xib */; };
 		3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BC26F2A4D200FD24CF /* AppDelegate.swift */; };
 		3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */; };
 		3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C526F2A4D300FD24CF /* Assets.xcassets */; };
@@ -145,6 +147,8 @@
 		3DDA07B426F8EF1300016204 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		3DEEE5F1273ACE7B009D7341 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 		3DEEE5F4273AD216009D7341 /* PlaceGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceGroup.swift; sourceTree = "<group>"; };
+		3DF1E8FC273C391A002466E0 /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
+		3DF1E8FD273C391A002466E0 /* CarouselViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselViewController.xib; sourceTree = "<group>"; };
 		3DF708B926F2A4D200FD24CF /* Payan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF708BC26F2A4D200FD24CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 		3D51102626F6D52500D24DD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3DF1E8F3273C335D002466E0 /* Carousel */,
 				3D67706E273C1A5100FE1E55 /* Squishable View */,
 				3D8CCDEB2726382E00CB7EED /* Bottom Sheet */,
 				3D0E9C26270A5E2500B593AD /* Tab Bar View Controller */,
@@ -723,6 +728,15 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		3DF1E8F3273C335D002466E0 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				3DF1E8FC273C391A002466E0 /* CarouselViewController.swift */,
+				3DF1E8FD273C391A002466E0 /* CarouselViewController.xib */,
+			);
+			path = Carousel;
+			sourceTree = "<group>";
+		};
 		3DF708B026F2A4D200FD24CF = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +965,7 @@
 				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */,
+				3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */,
 				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
 				3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
@@ -1035,6 +1050,7 @@
 				3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */,
 				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
 				3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */,
+				3DF1E8FE273C391A002466E0 /* CarouselViewController.swift in Sources */,
 				3DEEE5F2273ACE7B009D7341 /* HomeDataManager.swift in Sources */,
 				3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */,
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
