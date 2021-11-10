@@ -34,6 +34,7 @@
 		3D51104526F7167600D24DD9 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51104426F7167600D24DD9 /* Loadable.swift */; };
 		3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */; };
 		3D6678CE2713B68100A34C70 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6678CD2713B68100A34C70 /* SectionHeaderView.swift */; };
+		3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67706F273C1A6800FE1E55 /* SquishableView.swift */; };
 		3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79AC9D272392A800ECB567 /* RESTClient.swift */; };
 		3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79AC9F272394BA00ECB567 /* RESTEndpoint.swift */; };
 		3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACA1272397EC00ECB567 /* RESTMethod.swift */; };
@@ -110,6 +111,7 @@
 		3D51104426F7167600D24DD9 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
 		3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
 		3D6678CD2713B68100A34C70 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		3D67706F273C1A6800FE1E55 /* SquishableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableView.swift; sourceTree = "<group>"; };
 		3D79AC9D272392A800ECB567 /* RESTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClient.swift; sourceTree = "<group>"; };
 		3D79AC9F272394BA00ECB567 /* RESTEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTEndpoint.swift; sourceTree = "<group>"; };
 		3D79ACA1272397EC00ECB567 /* RESTMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTMethod.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		3D51102626F6D52500D24DD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3D67706E273C1A5100FE1E55 /* Squishable View */,
 				3D8CCDEB2726382E00CB7EED /* Bottom Sheet */,
 				3D0E9C26270A5E2500B593AD /* Tab Bar View Controller */,
 				3D426B3426F801520019FEBA /* Text Field Form */,
@@ -448,6 +451,14 @@
 			children = (
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		3D67706E273C1A5100FE1E55 /* Squishable View */ = {
+			isa = PBXGroup;
+			children = (
+				3D67706F273C1A6800FE1E55 /* SquishableView.swift */,
+			);
+			path = "Squishable View";
 			sourceTree = "<group>";
 		};
 		3D79AC992723914E00ECB567 /* Shared */ = {
@@ -1034,6 +1045,7 @@
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */,
+				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
 				3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */,
 				3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */,
