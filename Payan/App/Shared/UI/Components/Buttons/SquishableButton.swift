@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class BaseButton: UIButton {
+class SquishableButton: UIButton {
     // MARK: - Public
     var background: UIColor? {
         nil
@@ -46,7 +46,7 @@ class BaseButton: UIButton {
     @objc
     func onPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.3) { [weak self] in
-            self?.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+            self?.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
         }
     }
     

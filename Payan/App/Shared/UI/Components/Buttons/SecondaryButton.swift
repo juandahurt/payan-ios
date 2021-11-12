@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class SecondaryButton: BaseButton {
+final class SecondaryButton: SquishableButton {
     override var background: UIColor? {
         Color.background
     }

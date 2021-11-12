@@ -12,12 +12,10 @@ protocol HomeDataManager {
     func listPlacesByCategory() -> Single<[PlaceGroup]>
 }
 
-
 struct RESTHomeDataManager: HomeDataManager {
     private let disposeBag = DisposeBag()
     
     func listPlacesByCategory() -> Single<[PlaceGroup]> {
-//        let disposable = Disposables.create()
         let endpoint = RESTEnpoint<RESTEmptyBody>(path: "place?group=1", method: .get)
         let response: Single<RESTServerResponse<[PlaceGroup]>>
         
@@ -26,17 +24,5 @@ struct RESTHomeDataManager: HomeDataManager {
         return response.map({ response in
             response.data ?? []
         })
-//        Single.create { single in
-//            let disposable = Disposables.create()
-//            let endpoint = RESTEnpoint<RESTEmptyBody>(path: "place?group=1", method: .get)
-//            let response: Single<RESTServerResponse<[PlaceGroup]>>
-//
-//            response = RESTClient.shared.call(endpoint: endpoint)
-//            response
-//                .subscribe()
-//                .disposed(by: disposeBag)
-//
-//            return disposable
-//        }
     }
 }

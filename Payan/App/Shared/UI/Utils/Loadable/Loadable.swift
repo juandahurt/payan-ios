@@ -13,7 +13,7 @@ protocol Loadable {
     func hideLoader()
 }
 
-class LoadableButton: BaseButton, Loadable {
+class LoadableButton: SquishableButton, Loadable {
     private var activityIndicator: UIActivityIndicatorView?
     
     private func createIndicator() {

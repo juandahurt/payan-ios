@@ -59,7 +59,7 @@
 		3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */; };
 		3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B452733329E00CC107B /* AppUpdateRouter.swift */; };
 		3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5327333FA700CC107B /* SecondaryButton.swift */; };
-		3DA93B5727333FE000CC107B /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* BaseButton.swift */; };
+		3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* SquishableButton.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
 		3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD65DC2270CD2C90058273D /* PlaceCell.xib */; };
@@ -138,7 +138,7 @@
 		3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdatePresenter.swift; sourceTree = "<group>"; };
 		3DA93B452733329E00CC107B /* AppUpdateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateRouter.swift; sourceTree = "<group>"; };
 		3DA93B5327333FA700CC107B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
-		3DA93B5627333FE000CC107B /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		3DA93B5627333FE000CC107B /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		3DD65DC2270CD2C90058273D /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 			children = (
 				3DDA079626F8E5D400016204 /* MainButton.swift */,
 				3DA93B5327333FA700CC107B /* SecondaryButton.swift */,
-				3DA93B5627333FE000CC107B /* BaseButton.swift */,
+				3DA93B5627333FE000CC107B /* SquishableButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1074,7 +1074,7 @@
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */,
-				3DA93B5727333FE000CC107B /* BaseButton.swift in Sources */,
+				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,
 				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
