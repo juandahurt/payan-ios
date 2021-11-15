@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class AppUpdateModule: BaseModule {
+final class AppUpdateModule {
     static func setup(with navigationController: UINavigationController) -> UIViewController {
         let router = AppUpdateRouter(navigationController: navigationController)
         let presenter = AppUpdatePresenter(router: router)

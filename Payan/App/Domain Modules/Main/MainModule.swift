@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainModule: BaseModule {
+final class MainModule {
     static func setup(with navigationController: UINavigationController) -> UIViewController {
         let router = MainRouter(navigationController: navigationController)
         let presenter = MainPresenter(router: router)

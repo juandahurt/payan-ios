@@ -11,7 +11,6 @@
 		3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */; };
 		3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C2E270A63A800B593AD /* HomeRouter.swift */; };
 		3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C32270A647D00B593AD /* BaseRouter.swift */; };
-		3D0E9C36270A652900B593AD /* BaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C35270A652900B593AD /* BaseModule.swift */; };
 		3D0E9C3A270A678000B593AD /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C39270A678000B593AD /* HomePresenter.swift */; };
 		3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C3D270A67C600B593AD /* BasePresenter.swift */; };
 		3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C41270A693200B593AD /* MainPresenter.swift */; };
@@ -90,7 +89,6 @@
 		3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3D0E9C2E270A63A800B593AD /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		3D0E9C32270A647D00B593AD /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
-		3D0E9C35270A652900B593AD /* BaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModule.swift; sourceTree = "<group>"; };
 		3D0E9C39270A678000B593AD /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		3D0E9C3D270A67C600B593AD /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		3D0E9C41270A693200B593AD /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 				3D6678C1271391AF00A34C70 /* Presenter */,
 				3D6678C0271391A800A34C70 /* Router */,
 				3D6678BF2713919200A34C70 /* View */,
-				3D0E9C35270A652900B593AD /* BaseModule.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1038,7 +1035,6 @@
 				3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
 				3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */,
-				3D0E9C36270A652900B593AD /* BaseModule.swift in Sources */,
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
 				3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,

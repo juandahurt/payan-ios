@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class LoginModule: BaseModule {
+final class LoginModule {
     static func setup(with navigationController: UINavigationController) -> UIViewController {
         let interactor = LoginInteractor(remoteDataManager: RESTLoginDataManager(), localDataManager: UserDefaultsLoginDataManager())
         let router = LoginRouter(navigationController: navigationController)

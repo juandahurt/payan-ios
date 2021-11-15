@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
-class HomeModule: BaseModule {
+final class HomeModule {
     static func setup(with navigationController: UINavigationController) -> UIViewController {
         let router = HomeRouter(navigationController: navigationController)
         let interactor = HomeInteractor(dataManager: RESTHomeDataManager())
         let presenter = HomePresenter(interactor: interactor, router: router)
+        
         return HomeViewController(presenter: presenter)
     }
 }
