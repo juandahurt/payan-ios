@@ -27,8 +27,6 @@ class PlaceCell: UICollectionViewCell {
         
         subtitleLabel.font = Font.get(.regular, size: .body)
         subtitleLabel.textColor = UIColor.black.withAlphaComponent(0.4)
-        
-        contentView.makeSquihable()
     }
 
     func setup(place: Place) {
