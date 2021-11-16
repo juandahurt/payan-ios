@@ -15,9 +15,7 @@ class HomeSectionItem: Hashable {
     }
     
     static func == (lhs: HomeSectionItem, rhs: HomeSectionItem) -> Bool {
-        let res = lhs.id == rhs.id
-        print(res)
-        return res
+        lhs.id == rhs.id
     }
 }
 
