@@ -12,7 +12,7 @@ protocol MainViewOutput {
 }
 
 class MainPresenter: BasePresenter {
-    var router: BaseRouter
+    var router: MainRouter
     
     init(router: MainRouter) {
         self.router = router

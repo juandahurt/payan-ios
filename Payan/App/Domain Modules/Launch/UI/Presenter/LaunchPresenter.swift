@@ -13,9 +13,10 @@ protocol LaunchViewOutput {
 }
 
 final class LaunchPresenter: BasePresenter {
-    var router: BaseRouter
+    var router: LaunchRouter
     var interactor: AnyLaunchInteractor
     private var disposeBag = DisposeBag()
+    internal var versionType: AppVersionType?
     
     init(interactor: AnyLaunchInteractor, router: LaunchRouter) {
         self.interactor = interactor
@@ -28,13 +29,33 @@ extension LaunchPresenter: LaunchViewOutput {
         interactor.checkLatestVersion()
             .subscribe(onSuccess: { [weak self] validation in
                 if validation.shouldUpdate {
+                    self?.versionType = validation.type
                     DispatchQueue.main.async {
-                        (self?.router as! LaunchRouter).showAppUpdateModule(versionType: validation.type)
+                        self?.router.showAppUpdateModule(
+                            dataSource: self!,
+                            delegate: self!
+                        )
                     }
                 } else {
-                    (self?.router as! LaunchRouter).showMainModule()
+                    DispatchQueue.main.async {
+                        self?.router.showMainModule()
+                    }
                 }
             }
         ).disposed(by: disposeBag)
+    }
+}
+
+// MARK: - App Update Module Delegate
+extension LaunchPresenter: AppUpdateModuleDelegate {
+    func didDismiss() {
+        router.showMainModule()
+    }
+}
+
+// MARK: - App Update Module Data Source
+extension LaunchPresenter: AppUpdateModuleDataSource {
+    func latestVersionType() -> AppVersionType {
+        versionType ?? .optional
     }
 }

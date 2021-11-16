@@ -37,12 +37,13 @@ class AppUpdateViewController: UIViewController {
     
     // MARK: - Private
     private var output: AppUpdateViewOutput
+    private var input: AppUpdateViewInput
     private let disposeBag = DisposeBag()
-    private var versionType: AppVersionType?
     
     // MARK: - Lifecycle
-    init(presenter: AppUpdateViewOutput) {
+    init(presenter: AppUpdateViewOutput & AppUpdateViewInput) {
         output = presenter
+        input = presenter
         
         super.init(nibName: String(describing: AppUpdateViewController.self), bundle: nil)
     }
@@ -69,17 +70,8 @@ class AppUpdateViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
-    func setVersionType(_ versionType: AppVersionType) {
-        self.versionType = versionType
-    }
-    
     private func updateUI() {
-        guard let versionType = versionType else {
-            Console.log("The version type has not been setted", level: .warn)
-            return
-        }
-        
-        if versionType == .mandatory {
+        if input.versionType == .mandatory {
             dismissButtonHeight.constant = 0
             dismissButton.isHidden = true
             

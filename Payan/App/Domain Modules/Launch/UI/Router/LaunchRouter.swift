@@ -21,14 +21,11 @@ final class LaunchRouter: BaseRouter {
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
         
-        navigationController.present(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
     }
     
-    func showAppUpdateModule(versionType: AppVersionType) {
-        let vc = AppUpdateModule.setup(with: navigationController) as! UIBottomSheet
-        let appUpdateVC = vc.dataSource as! AppUpdateViewController
-        
-        appUpdateVC.setVersionType(versionType)
+    func showAppUpdateModule(dataSource: AppUpdateModuleDataSource, delegate: AppUpdateModuleDelegate) {
+        let vc = AppUpdateModule.setup(with: navigationController, dataSource: dataSource, delegate: delegate)
         
         navigationController.present(vc, animated: true)
     }

@@ -18,13 +18,15 @@ protocol HomeViewInput {
 
 protocol HomeViewOutput {
     func getData()
+    func showPlace(_ place: Place)
 }
 
 final class HomePresenter: BasePresenter {
     // MARK: - Attributes
-    var router: BaseRouter
+    var router: HomeRouter
     var interactor: AnyHomeInteractor
     private var disposeBag = DisposeBag()
+    internal var selectedPlace: Place?
     
     // MARK: - Subjects
     var sectionsSubject = BehaviorSubject<[HomeSection]>(value: [])
@@ -62,6 +64,11 @@ extension HomePresenter: HomeViewInput {
 }
 
 extension HomePresenter: HomeViewOutput {
+    func showPlace(_ place: Place) {
+        selectedPlace = place
+        router.showPlaceModule(dataSource: self)
+    }
+    
     func getData() {
         emitLoading()
         
@@ -134,5 +141,12 @@ extension HomePresenter: HomeViewOutput {
             sections.append(section)
         }
         sectionsSubject.onNext(sections)
+    }
+}
+
+// MARK: - Place Module Data Source
+extension HomePresenter: PlaceModuleDataSource {
+    func providePlace() -> Place {
+        selectedPlace!
     }
 }

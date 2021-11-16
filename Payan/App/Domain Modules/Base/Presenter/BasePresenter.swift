@@ -8,5 +8,6 @@
 import Foundation
 
 protocol BasePresenter {
-    var router: BaseRouter { get set }
+    associatedtype Router: BaseRouter
+    var router: Router { get set }
 }

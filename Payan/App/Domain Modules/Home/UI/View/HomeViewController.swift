@@ -5,13 +5,19 @@
 //  Created by juandahurt on 3/10/21.
 //
 
-import UIKit
+import RxCocoa
 import RxSwift
 import SkeletonView
+import UIKit
+
 
 class HomeViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.delegate = self
+        }
+    }
     
     // MARK: - Attributes
     var input: HomeViewInput
@@ -112,7 +118,7 @@ class HomeViewController: UIViewController {
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(164), heightDimension: .absolute(195))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 0)
+                group.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
@@ -121,6 +127,7 @@ class HomeViewController: UIViewController {
                 section.interGroupSpacing = 0
                 section.orthogonalScrollingBehavior = .continuous
                 section.boundarySupplementaryItems = [header]
+                section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
                 
                 return section
             }
@@ -167,6 +174,16 @@ class HomeViewController: UIViewController {
                 }
                 self.applySnapshot(sections: sections)
             }).disposed(by: disposeBag)
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        
+        if let item = item as? HomePlaceItem {
+            output.showPlace(item.place)
+        }
     }
 }
 

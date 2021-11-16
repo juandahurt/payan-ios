@@ -21,7 +21,7 @@ protocol LoginViewInput {
 }
 
 final class LoginPresenter: BasePresenter, LoginViewInput, LoginViewOutput {
-    var router: BaseRouter
+    var router: LoginRouter
     private var interactor: AnyLoginInteractor
     private let disposeBag = DisposeBag()
     
