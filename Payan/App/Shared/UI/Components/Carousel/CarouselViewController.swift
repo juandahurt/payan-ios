@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 private let reuseIdentifier = "Cell"
 
@@ -15,13 +17,37 @@ protocol CarouselDataSource {
 }
 
 class CarouselViewController: UIViewController {
+    @IBOutlet weak var lastViewButton: UIButton! {
+        didSet {
+            lastViewButton.rx.tap.bind(onNext: { [weak self] in
+                self?.scrollToLastView()
+                self?.updateButtonsInteraction()
+            }).disposed(by: disposeBag)
+        }
+    }
+    @IBOutlet weak var nextViewButton: UIButton! {
+        didSet {
+            nextViewButton.rx.tap.bind(onNext: { [weak self] in
+                self?.scrollToNextView()
+                self?.updateButtonsInteraction()
+            }).disposed(by: disposeBag)
+        }
+    }
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Public
     var dataSource: CarouselDataSource?
     
+    // MARK: - Private
+    private var disposeBag = DisposeBag()
+    private var currentIndex = 0
+    private let numberOfItems: Int
+    
     // MARK: - Lifecycle
-    init() {
+    init(dataSource: CarouselDataSource?) {
+        self.dataSource = dataSource
+        numberOfItems = dataSource?.numberOfItems() ?? 0
+        
         super.init(nibName: String(describing: CarouselViewController.self), bundle: nil)
     }
     
@@ -33,9 +59,10 @@ class CarouselViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateButtonsInteraction()
         setupLayout()
         collectionView.dataSource = self
-        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
     // MARK: - Layout
@@ -45,22 +72,64 @@ class CarouselViewController: UIViewController {
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
             group.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
             
             let section = NSCollectionLayoutSection(group: group)
             section.interGroupSpacing = 0
-            section.orthogonalScrollingBehavior = .groupPagingCentered
             
             return section
         })
+    }
+    
+    private func scrollToLastView() {
+        if currentIndex > 0 {
+            currentIndex -= 1
+            let indexPath = IndexPath(item: currentIndex, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
+        }
+    }
+    
+    private func scrollToNextView() {
+        if currentIndex < numberOfItems - 1 {
+            currentIndex += 1
+            let indexPath = IndexPath(item: currentIndex, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    private func updateButtonsInteraction() {
+        guard numberOfItems > 0 else { return }
+        
+        if currentIndex == 0 {
+            disableButton(lastViewButton)
+            
+        } else {
+            enableButton(lastViewButton)
+        }
+        
+        if currentIndex == numberOfItems - 1 {
+            disableButton(nextViewButton)
+        } else {
+            enableButton(nextViewButton)
+        }
+    }
+    
+    private func disableButton(_ button: UIButton) {
+        button.isUserInteractionEnabled = false
+        button.alpha = 0.25
+    }
+    
+    private func enableButton(_ button: UIButton) {
+        button.isUserInteractionEnabled = true
+        button.alpha = 1
     }
 }
 
 // MARK: - DataSource
 extension CarouselViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dataSource?.numberOfItems() ?? 0
+        numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,9 +166,7 @@ struct DummyView: View {
 
 struct CarouselViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        let vc = CarouselViewController()
-        
-        vc.dataSource = DataSource()
+        let vc = CarouselViewController(dataSource: DataSource())
         
         return vc.toPreview().preferredColorScheme(.light)
     }
