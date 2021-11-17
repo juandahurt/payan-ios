@@ -22,6 +22,6 @@ final class HomeRouter: AnyHomeRouter, BaseRouter {
     func showPlaceModule(dataSource: PlaceModuleDataSource) {
         let vc = PlaceModule.setup(with: navigationController, dataSource: dataSource)
 
-        navigationController.topViewController?.present(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
     }
 }

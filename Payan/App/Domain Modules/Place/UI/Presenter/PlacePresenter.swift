@@ -21,7 +21,7 @@ final class PlacePresenter: BasePresenter {
     }
 }
 
-// MARK: - Input
+
 extension PlacePresenter: PlaceViewInput {
     var selectedPlace: Place {
         place
