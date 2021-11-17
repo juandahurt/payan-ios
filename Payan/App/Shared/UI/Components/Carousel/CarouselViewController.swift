@@ -11,7 +11,7 @@ import RxSwift
 
 private let reuseIdentifier = "Cell"
 
-protocol CarouselDataSource {
+protocol CarouselDataSource: class {
     func numberOfItems() -> Int
     func viewForItem(at indexPath: IndexPath) -> UIView
 }
@@ -36,18 +36,19 @@ class CarouselViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Public
-    var dataSource: CarouselDataSource?
+    weak open var dataSource: CarouselDataSource? {
+        didSet {
+            numberOfItems = dataSource?.numberOfItems() ?? 0
+        }
+    }
     
     // MARK: - Private
     private var disposeBag = DisposeBag()
     private var currentIndex = 0
-    private let numberOfItems: Int
+    private var numberOfItems = 0
     
     // MARK: - Lifecycle
-    init(dataSource: CarouselDataSource?) {
-        self.dataSource = dataSource
-        numberOfItems = dataSource?.numberOfItems() ?? 0
-        
+    init() {
         super.init(nibName: String(describing: CarouselViewController.self), bundle: nil)
     }
     
@@ -148,7 +149,7 @@ extension CarouselViewController: UICollectionViewDataSource {
 #if DEBUG
 import SwiftUI
 
-struct DataSource: CarouselDataSource {
+class DataSource: CarouselDataSource {
     func viewForItem(at indexPath: IndexPath) -> UIView {
         UIHostingController(rootView: DummyView()).view
     }
@@ -165,8 +166,11 @@ struct DummyView: View {
 }
 
 struct CarouselViewControllerPreview: PreviewProvider {
+    private static var dataSource = DataSource()
+    private static let vc = CarouselViewController()
+    
     static var previews: some View {
-        let vc = CarouselViewController(dataSource: DataSource())
+        vc.dataSource = dataSource
         
         return vc.toPreview().preferredColorScheme(.light)
     }
