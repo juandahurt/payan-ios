@@ -64,6 +64,12 @@ class CarouselViewController: UIViewController {
         setupLayout()
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.backgroundColor = .clear
+        setupBackground()
+    }
+    
+    private func setupBackground() {
+        view.backgroundColor = .clear
     }
 
     // MARK: - Layout

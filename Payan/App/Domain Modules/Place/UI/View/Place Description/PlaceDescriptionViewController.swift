@@ -23,7 +23,6 @@ class PlaceDescriptionViewController: UIViewController {
             descriptionTextView.text = placeDetails.description
         }
     }
-    @IBOutlet weak var titleTopConstraint: NSLayoutConstraint!
     
     private let placeDetails: PlaceDetails
     
@@ -42,18 +41,9 @@ class PlaceDescriptionViewController: UIViewController {
         super.viewDidLoad()
         
         setupBackground()
-        setupTitleTopConstraint()
     }
     
     private func setupBackground() {
-        view.backgroundColor = .black
-    }
-    
-    private func setupTitleTopConstraint() {
-        let window = UIApplication.shared.windows.first
-        let topPadding = window?.safeAreaInsets.top
-        
-        titleTopConstraint.constant = (topPadding ?? 0) + 20
-        view.layoutIfNeeded()
+        view.backgroundColor = .clear
     }
 }

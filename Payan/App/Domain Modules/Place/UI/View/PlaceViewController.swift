@@ -9,6 +9,15 @@ import UIKit
 import RxSwift
 
 class PlaceViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView! {
+        didSet {
+            imageView.contentMode = .scaleAspectFill
+            if let url = URL(string: input.selectedPlace.imageUrl) {
+                imageView.kf.setImage(with: url)
+            }
+        }
+    }
+    
     // MARK: - Attributes
     private var input: PlaceViewInput
     private var disposeBag = DisposeBag()
@@ -29,6 +38,7 @@ class PlaceViewController: UIViewController {
         super.viewDidLoad()
         
         configureLayout()
+        addGradient()
     }
     
     private func configureLayout() {
@@ -38,6 +48,15 @@ class PlaceViewController: UIViewController {
         carousel.view.center = view.center
         
         view.addSubview(carousel.view)
+    }
+    
+    private func addGradient() {
+        let gradient = CAGradientLayer()
+
+        gradient.colors = [UIColor.black.withAlphaComponent(0).cgColor, UIColor.black.cgColor]
+        gradient.frame = view.frame
+
+        imageView.layer.addSublayer(gradient)
     }
     
     deinit {
@@ -51,7 +70,6 @@ extension PlaceViewController: CarouselDataSource {
     }
     
     func viewForItem(at indexPath: IndexPath) -> UIView {
-        dump(Thread.current)
         if indexPath.row == 0 {
             return PlaceTitleViewController(placeDetails: input.selectedPlace).view
         } else {
