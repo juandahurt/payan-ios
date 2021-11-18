@@ -51,10 +51,11 @@ extension PlaceViewController: CarouselDataSource {
     }
     
     func viewForItem(at indexPath: IndexPath) -> UIView {
+        dump(Thread.current)
         if indexPath.row == 0 {
-            return PlaceTitleViewController(place: input.selectedPlace).view
+            return PlaceTitleViewController(placeDetails: input.selectedPlace).view
         } else {
-            return PlaceDescriptionViewController().view
+            return PlaceDescriptionViewController(placeDetails: input.selectedPlace).view
         }
     }
 }

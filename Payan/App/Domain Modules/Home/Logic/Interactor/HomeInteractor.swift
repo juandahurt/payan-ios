@@ -35,9 +35,5 @@ final class HomeInteractor: AnyHomeInteractor {
     
     func listPlacesByCategory() -> Single<[PlaceGroup]> {
         dataManager.listPlacesByCategory()
-//        Single.create { single in
-//
-//            return Disposables.create()
-//        }
     }
 }

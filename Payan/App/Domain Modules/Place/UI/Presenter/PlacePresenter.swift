@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PlaceViewInput {
-    var selectedPlace: Place { get }
+    var selectedPlace: PlaceDetails { get }
 }
 
 final class PlacePresenter: BasePresenter {
@@ -23,7 +23,11 @@ final class PlacePresenter: BasePresenter {
 
 
 extension PlacePresenter: PlaceViewInput {
-    var selectedPlace: Place {
-        place
+    var selectedPlace: PlaceDetails {
+        PlaceDetails(
+            name: place.name,
+            imageUrl: place.imageUrl,
+            description: place.description
+        )
     }
 }

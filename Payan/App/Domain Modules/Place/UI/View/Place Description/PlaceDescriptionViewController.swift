@@ -20,11 +20,16 @@ class PlaceDescriptionViewController: UIViewController {
             descriptionTextView.font = Font.get(.regular, size: .body)
             descriptionTextView.textColor = .white
             descriptionTextView.backgroundColor = .clear
+            descriptionTextView.text = placeDetails.description
         }
     }
     @IBOutlet weak var titleTopConstraint: NSLayoutConstraint!
     
-    init() {
+    private let placeDetails: PlaceDetails
+    
+    init(placeDetails: PlaceDetails) {
+        self.placeDetails = placeDetails
+        
         super.init(nibName: String(describing: PlaceDescriptionViewController.self), bundle: nil)
     }
     

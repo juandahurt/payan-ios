@@ -65,6 +65,7 @@
 		3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */; };
 		3DCE7EC52746B38F00860232 /* PlaceDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7EC32746B38F00860232 /* PlaceDescriptionViewController.swift */; };
 		3DCE7EC62746B38F00860232 /* PlaceDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EC42746B38F00860232 /* PlaceDescriptionViewController.xib */; };
+		3DCE7ECB2746E7F500860232 /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7ECA2746E7F500860232 /* PlaceDetails.swift */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
 		3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD65DC2270CD2C90058273D /* PlaceCell.xib */; };
 		3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC8270CD3920058273D /* HomeSection.swift */; };
@@ -153,6 +154,7 @@
 		3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTitleViewController.xib; sourceTree = "<group>"; };
 		3DCE7EC32746B38F00860232 /* PlaceDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDescriptionViewController.swift; sourceTree = "<group>"; };
 		3DCE7EC42746B38F00860232 /* PlaceDescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDescriptionViewController.xib; sourceTree = "<group>"; };
+		3DCE7ECA2746E7F500860232 /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		3DD65DC2270CD2C90058273D /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		3DD65DC8270CD3920058273D /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
@@ -715,6 +717,22 @@
 			path = "Place Description";
 			sourceTree = "<group>";
 		};
+		3DCE7EC82746E7E600860232 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				3DCE7EC92746E7EA00860232 /* Entities */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		3DCE7EC92746E7EA00860232 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3DCE7ECA2746E7F500860232 /* PlaceDetails.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		3DD65DBA270CD2390058273D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -752,6 +770,7 @@
 		3DEC9C7A27431A300062BACF /* Place */ = {
 			isa = PBXGroup;
 			children = (
+				3DCE7EC82746E7E600860232 /* Logic */,
 				3DEC9C8427431B670062BACF /* UI */,
 				3DEC9C7C27431A750062BACF /* PlaceModule.swift */,
 			);
@@ -1142,6 +1161,7 @@
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
 				3DEC9C9127431BF70062BACF /* PlacePresenter.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
+				3DCE7ECB2746E7F500860232 /* PlaceDetails.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */,
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
