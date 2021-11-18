@@ -72,25 +72,13 @@ extension HomePresenter: HomeViewOutput {
     func getData() {
         emitLoading()
         
-        let favPlacesObservable = interactor.listFavoritePlaces().asObservable()
-        let catPlacesObservable = interactor.listPlacesByCategory().asObservable()
-        
-        Observable.zip(favPlacesObservable, catPlacesObservable)
-            .subscribe(onNext: { [weak self] favPlaces, groupOfPlaces in
+        interactor.listPlacesByCategory()
+            .subscribe(onSuccess: { [weak self] groupOfPlaces in
                 guard let self = self else {
                     return
                 }
                 
                 var sections = [HomeSection]()
-                var favItems = [HomeSectionItem]()
-                
-                for place in favPlaces {
-                    favItems.append(
-                        HomePlaceItem(place: place)
-                    )
-                }
-                let favoritesSection = HomeSection(title: "Los más populares", items: favItems, type: .favoritePlace)
-                sections.append(favoritesSection)
                 
                 for group in groupOfPlaces {
                     if !group.places.isEmpty {
@@ -122,15 +110,7 @@ extension HomePresenter: HomeViewOutput {
     
     func emitLoading() {
         var sections = [HomeSection]()
-        let items = [
-            HomeLoadingItem(),
-            HomeLoadingItem(),
-            HomeLoadingItem(),
-            HomeLoadingItem()
-        ]
-        let section = HomeSection(title: nil, items: items, type: .favoritePlace)
-        sections.append(section)
-        for _ in 0..<2 {
+        for _ in 0..<3 {
             let items = [
                 HomeLoadingItem(),
                 HomeLoadingItem(),

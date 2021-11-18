@@ -30,6 +30,5 @@ class HomeSection: Hashable {
 }
 
 enum HomeSectionType {
-    case favoritePlace
     case place
 }
