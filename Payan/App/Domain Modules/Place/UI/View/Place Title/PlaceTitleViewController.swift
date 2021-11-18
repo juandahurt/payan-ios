@@ -46,10 +46,10 @@ class PlaceTitleViewController: UIViewController {
 
     private func addGradient() {
         let gradient = CAGradientLayer()
-        
+
         gradient.colors = [UIColor.black.withAlphaComponent(0).cgColor, UIColor.black.cgColor]
-        gradient.frame = view.bounds
-        
+        gradient.frame = view.frame
+
         placeImageView.layer.addSublayer(gradient)
     }
 }

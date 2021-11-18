@@ -63,6 +63,8 @@
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DCE7EB927459CB600860232 /* PlaceTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */; };
 		3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */; };
+		3DCE7EC52746B38F00860232 /* PlaceDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7EC32746B38F00860232 /* PlaceDescriptionViewController.swift */; };
+		3DCE7EC62746B38F00860232 /* PlaceDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EC42746B38F00860232 /* PlaceDescriptionViewController.xib */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
 		3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD65DC2270CD2C90058273D /* PlaceCell.xib */; };
 		3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC8270CD3920058273D /* HomeSection.swift */; };
@@ -149,6 +151,8 @@
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTitleViewController.swift; sourceTree = "<group>"; };
 		3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTitleViewController.xib; sourceTree = "<group>"; };
+		3DCE7EC32746B38F00860232 /* PlaceDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDescriptionViewController.swift; sourceTree = "<group>"; };
+		3DCE7EC42746B38F00860232 /* PlaceDescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDescriptionViewController.xib; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		3DD65DC2270CD2C90058273D /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		3DD65DC8270CD3920058273D /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
@@ -702,6 +706,15 @@
 			path = "Place Title";
 			sourceTree = "<group>";
 		};
+		3DCE7EBD2746AF4500860232 /* Place Description */ = {
+			isa = PBXGroup;
+			children = (
+				3DCE7EC32746B38F00860232 /* PlaceDescriptionViewController.swift */,
+				3DCE7EC42746B38F00860232 /* PlaceDescriptionViewController.xib */,
+			);
+			path = "Place Description";
+			sourceTree = "<group>";
+		};
 		3DD65DBA270CD2390058273D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,6 +761,7 @@
 		3DEC9C7B27431A350062BACF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DCE7EBD2746AF4500860232 /* Place Description */,
 				3DCE7EB627459C0A00860232 /* Place Title */,
 				3DEC9C7F27431B340062BACF /* PlaceViewController.swift */,
 				3DEC9C8027431B340062BACF /* PlaceViewController.xib */,
@@ -1025,6 +1039,7 @@
 				3DF708EB26F2A8AA00FD24CF /* LoginViewController.xib in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */,
+				3DCE7EC62746B38F00860232 /* PlaceDescriptionViewController.xib in Resources */,
 				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */,
@@ -1096,6 +1111,7 @@
 				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
 				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
+				3DCE7EC52746B38F00860232 /* PlaceDescriptionViewController.swift in Sources */,
 				3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */,
 				3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,

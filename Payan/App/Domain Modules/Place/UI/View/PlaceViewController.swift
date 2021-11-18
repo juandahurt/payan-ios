@@ -54,11 +54,7 @@ extension PlaceViewController: CarouselDataSource {
         if indexPath.row == 0 {
             return PlaceTitleViewController(place: input.selectedPlace).view
         } else {
-            let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-
-            view.backgroundColor = .black
-
-            return view
+            return PlaceDescriptionViewController().view
         }
     }
 }
@@ -72,7 +68,7 @@ private class PreviewDataSource: PlaceModuleDataSource {
         Place(
             name: "Preview place",
             type: .bridge,
-            imageUrl: ""
+            imageUrl: "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
         )
     }
 }
