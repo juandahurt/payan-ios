@@ -61,6 +61,8 @@
 		3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5327333FA700CC107B /* SecondaryButton.swift */; };
 		3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* SquishableButton.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
+		3DCE7EB927459CB600860232 /* PlaceTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */; };
+		3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */; };
 		3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC1270CD2C90058273D /* PlaceCell.swift */; };
 		3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD65DC2270CD2C90058273D /* PlaceCell.xib */; };
 		3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC8270CD3920058273D /* HomeSection.swift */; };
@@ -145,6 +147,8 @@
 		3DA93B5327333FA700CC107B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		3DA93B5627333FE000CC107B /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
+		3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTitleViewController.swift; sourceTree = "<group>"; };
+		3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTitleViewController.xib; sourceTree = "<group>"; };
 		3DD65DC1270CD2C90058273D /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		3DD65DC2270CD2C90058273D /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		3DD65DC8270CD3920058273D /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
@@ -689,6 +693,15 @@
 			path = Scroll;
 			sourceTree = "<group>";
 		};
+		3DCE7EB627459C0A00860232 /* Place Title */ = {
+			isa = PBXGroup;
+			children = (
+				3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */,
+				3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */,
+			);
+			path = "Place Title";
+			sourceTree = "<group>";
+		};
 		3DD65DBA270CD2390058273D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,6 +748,7 @@
 		3DEC9C7B27431A350062BACF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DCE7EB627459C0A00860232 /* Place Title */,
 				3DEC9C7F27431B340062BACF /* PlaceViewController.swift */,
 				3DEC9C8027431B340062BACF /* PlaceViewController.xib */,
 			);
@@ -1010,6 +1024,7 @@
 				3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */,
 				3DF708EB26F2A8AA00FD24CF /* LoginViewController.xib in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
+				3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */,
 				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */,
@@ -1099,6 +1114,7 @@
 				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
 				3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */,
 				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
+				3DCE7EB927459CB600860232 /* PlaceTitleViewController.swift in Sources */,
 				3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */,
 				3DF1E8FE273C391A002466E0 /* CarouselViewController.swift in Sources */,
 				3DEEE5F2273ACE7B009D7341 /* HomeDataManager.swift in Sources */,

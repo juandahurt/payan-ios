@@ -51,11 +51,15 @@ extension PlaceViewController: CarouselDataSource {
     }
     
     func viewForItem(at indexPath: IndexPath) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        if indexPath.row == 0 {
+            return PlaceTitleViewController(place: input.selectedPlace).view
+        } else {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 
-        view.backgroundColor = indexPath.row == 0 ? .gray : .black
+            view.backgroundColor = .black
 
-        return view
+            return view
+        }
     }
 }
 
