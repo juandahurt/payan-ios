@@ -11,7 +11,7 @@ import RxSwift
 
 private let reuseIdentifier = "Cell"
 
-protocol CarouselDataSource: class {
+protocol CarouselDataSource: AnyObject {
     func numberOfItems() -> Int
     func viewForItem(at indexPath: IndexPath) -> UIView
 }
@@ -65,6 +65,7 @@ class CarouselViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.backgroundColor = .clear
+        collectionView.isUserInteractionEnabled = false
         setupBackground()
     }
     
