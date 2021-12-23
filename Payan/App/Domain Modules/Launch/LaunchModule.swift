@@ -9,11 +9,20 @@ import Foundation
 import UIKit
 
 final class LaunchModule {
-    static func setup(with navigationController: UINavigationController) -> UIViewController {
-        let router = LaunchRouter(navigationController: navigationController)
+    private let presenter: LaunchPresenter
+    private let router: LaunchRouter
+    
+    private init(navigationController: UINavigationController) {
+        router = LaunchRouter(navigationController: navigationController)
         let interactor = LaunchInteractor(dataManager: LaunchDataManager())
-        let presenter = LaunchPresenter(interactor: interactor, router: router)
-        
-        return LaunchViewController(presenter: presenter)
+        presenter = LaunchPresenter(interactor: interactor, router: router)
+    }
+    
+    static func setup(with navigationController: UINavigationController) -> LaunchModule {
+        LaunchModule(navigationController: navigationController)
+    }
+    
+    func show() {
+        router.show(presenter: presenter)
     }
 }

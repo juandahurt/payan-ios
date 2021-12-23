@@ -15,6 +15,11 @@ final class LaunchRouter: BaseRouter {
         self.navigationController = navigationController
     }
     
+    func show(presenter: LaunchViewOutput) {
+        let vc = LaunchViewController(presenter: presenter)
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
     func showMainModule() {
         let vc = MainModule.setup(with: navigationController)
         

@@ -25,6 +25,10 @@ class LaunchViewController: UIViewController {
         super.init(nibName: String(describing: LaunchViewController.self), bundle: nil)
     }
     
+    deinit {
+        Console.log("\(String(describing: Self.self)) is being deallocated", level: .debug)
+    }
+    
     required init?(coder: NSCoder) {
         Console.log("init(coder:) has not been implemented", level: .error)
         fatalError()
