@@ -96,7 +96,7 @@ class HomeViewController: UIViewController {
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(164), heightDimension: .absolute(195))
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+                group.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 20)
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
@@ -105,7 +105,7 @@ class HomeViewController: UIViewController {
                 section.interGroupSpacing = 0
                 section.orthogonalScrollingBehavior = .continuous
                 section.boundarySupplementaryItems = [header]
-                section.contentInsets = .init(top: 0, leading: 10, bottom: 0, trailing: 10)
+                section.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
                 
                 return section
             }
