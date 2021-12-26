@@ -63,9 +63,9 @@ class CarouselViewController: UIViewController {
         updateButtonsInteraction()
         setupLayout()
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.backgroundColor = .clear
-        collectionView.isUserInteractionEnabled = false
         setupBackground()
     }
     
@@ -75,19 +75,10 @@ class CarouselViewController: UIViewController {
 
     // MARK: - Layout
     private func setupLayout() {
-        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { _, _ in
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-            group.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
-            
-            let section = NSCollectionLayoutSection(group: group)
-            section.interGroupSpacing = 0
-            
-            return section
-        })
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        collectionView.collectionViewLayout = layout
+        collectionView.isPagingEnabled = true
     }
     
     private func scrollToLastView() {
@@ -152,6 +143,12 @@ extension CarouselViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Delegate
+extension CarouselViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        collectionView.frame.size
+    }
+}
 
 #if DEBUG
 import SwiftUI
