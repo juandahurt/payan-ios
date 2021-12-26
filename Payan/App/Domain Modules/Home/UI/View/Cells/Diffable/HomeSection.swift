@@ -30,5 +30,5 @@ class HomeSection: Hashable {
 }
 
 enum HomeSectionType {
-    case place
+    case place(PlaceCategory?)
 }

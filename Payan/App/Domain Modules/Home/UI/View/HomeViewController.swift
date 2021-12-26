@@ -66,10 +66,11 @@ class HomeViewController: UIViewController {
             }
             
             if elementKind == UICollectionView.elementKindSectionHeader {
-                let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: String(describing: SectionHeaderView.self), for: indexPath) as? SectionHeaderView
-                let title = self.input.titleForSection(atIndex: indexPath.section)
+                let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: elementKind, withReuseIdentifier: String(describing: HeaderView.self), for: indexPath) as? HeaderView
                 
-                header?.setup(text: title)
+                if let title = self.input.titleForSection(atIndex: indexPath.section), let image = self.input.imageForSection(atIndex: indexPath.section) {
+                    header?.configure(title: title, image: image)
+                }
                 
                 return header
             }
@@ -79,7 +80,8 @@ class HomeViewController: UIViewController {
     }
     
     private func configureLayout() {
-        collectionView.register(SectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: SectionHeaderView.self))
+        let headerId = String(describing: HeaderView.self)
+        collectionView.register(UINib(nibName: headerId, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         let placeCellId = String(describing: PlaceCell.self)
         collectionView.register(UINib(nibName: placeCellId, bundle: nil), forCellWithReuseIdentifier: placeCellId)
         

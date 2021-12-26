@@ -31,8 +31,9 @@
 		3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */; };
 		3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */; };
 		3D51104526F7167600D24DD9 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51104426F7167600D24DD9 /* Loadable.swift */; };
+		3D5402BA2778CA2F00256BCD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5402B82778CA2F00256BCD /* HeaderView.swift */; };
+		3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5402B92778CA2F00256BCD /* HeaderView.xib */; };
 		3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */; };
-		3D6678CE2713B68100A34C70 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6678CD2713B68100A34C70 /* SectionHeaderView.swift */; };
 		3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67706F273C1A6800FE1E55 /* SquishableView.swift */; };
 		3D69C11F27446FEA002982B3 /* UtilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C11E27446FEA002982B3 /* UtilButton.swift */; };
 		3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79AC9D272392A800ECB567 /* RESTClient.swift */; };
@@ -120,8 +121,9 @@
 		3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		3D51104426F7167600D24DD9 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
+		3D5402B82778CA2F00256BCD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		3D5402B92778CA2F00256BCD /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
-		3D6678CD2713B68100A34C70 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		3D67706F273C1A6800FE1E55 /* SquishableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableView.swift; sourceTree = "<group>"; };
 		3D69C11E27446FEA002982B3 /* UtilButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilButton.swift; sourceTree = "<group>"; };
 		3D79AC9D272392A800ECB567 /* RESTClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClient.swift; sourceTree = "<group>"; };
@@ -466,7 +468,8 @@
 		3D6678C2271391B600A34C70 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3D6678CD2713B68100A34C70 /* SectionHeaderView.swift */,
+				3D5402B82778CA2F00256BCD /* HeaderView.swift */,
+				3D5402B92778CA2F00256BCD /* HeaderView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1059,6 +1062,7 @@
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */,
 				3DCE7EC62746B38F00860232 /* PlaceDescriptionViewController.xib in Resources */,
+				3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */,
 				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */,
@@ -1126,7 +1130,6 @@
 				3DDA07B526F8EF1300016204 /* AppConfig.swift in Sources */,
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
 				3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */,
-				3D6678CE2713B68100A34C70 /* SectionHeaderView.swift in Sources */,
 				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
 				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
@@ -1174,6 +1177,7 @@
 				3D69C11F27446FEA002982B3 /* UtilButton.swift in Sources */,
 				3D79ACA927239DA900ECB567 /* RESTError.swift in Sources */,
 				3D3A384A270A53D300E2EF94 /* HomeModule.swift in Sources */,
+				3D5402BA2778CA2F00256BCD /* HeaderView.swift in Sources */,
 				3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */,
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,

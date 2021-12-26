@@ -7,6 +7,7 @@
 
 import RxSwift
 import RxCocoa
+import UIKit
 
 
 protocol HomeViewInput {
@@ -14,6 +15,7 @@ protocol HomeViewInput {
     
     func sectionType(forIndex index: Int) -> HomeSectionType?
     func titleForSection(atIndex index: Int) -> String?
+    func imageForSection(atIndex index: Int) -> UIImage?
 }
 
 protocol HomeViewOutput {
@@ -56,6 +58,24 @@ extension HomePresenter: HomeViewInput {
             return nil
         }
         return section.title
+    }
+    
+    func imageForSection(atIndex index: Int) -> UIImage? {
+        guard let value = try? sectionsSubject.value() else {
+            return nil
+        }
+        guard let section = value.indices.contains(index) ? value[index] : nil else {
+            return nil
+        }
+        
+        switch section.type {
+        case .place(let category):
+            guard let category = category else {
+                return nil
+            }
+            
+            return UIImage(named: category.rawValue.lowercased())
+        }
     }
     
     var sectionsDriver: Driver<[HomeSection]> {
@@ -101,7 +121,7 @@ extension HomePresenter: HomeViewOutput {
                         case .church:
                             title = "Iglesias"
                         }
-                        let section = HomeSection(title: title, items: items, type: .place)
+                        let section = HomeSection(title: title, items: items, type: .place(group.category))
                         sections.append(section)
                     }
                 }
@@ -119,7 +139,7 @@ extension HomePresenter: HomeViewOutput {
                 HomeLoadingItem(),
                 HomeLoadingItem()
             ]
-            let section = HomeSection(title: nil, items: items, type: .place)
+            let section = HomeSection(title: nil, items: items, type: .place(nil))
             sections.append(section)
         }
         sectionsSubject.onNext(sections)
