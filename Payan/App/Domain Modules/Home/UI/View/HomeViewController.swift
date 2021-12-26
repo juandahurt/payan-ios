@@ -49,20 +49,13 @@ class HomeViewController: UIViewController {
         setupRefresher()
         configureLayout()
         rxBind()
-        output.getData()
+        output.getData(usingRefresh: false)
     }
     
     // MARK: - Refresher
     private func setupRefresher() {
         refresher = UIRefreshControl()
-        refresher.addTarget(self, action: #selector(pullCollectionView), for: .valueChanged)
         collectionView.refreshControl = refresher
-    }
-    
-    @objc
-    private func pullCollectionView() {
-        collectionView.refreshControl?.beginRefreshing()
-        output.getData()
     }
     
     // MARK: - Collection view layout
@@ -152,7 +145,7 @@ class HomeViewController: UIViewController {
         input.sectionsDriver
             .drive(onNext: { [weak self] sections in
                 guard let self = self else { return }
-                if let refreshControl =  self.collectionView.refreshControl, refreshControl.isRefreshing {
+                if let refreshControl = self.collectionView.refreshControl, refreshControl.isRefreshing {
                     self.collectionView.refreshControl?.endRefreshing()
                 }
                 self.applySnapshot(sections: sections)
@@ -166,6 +159,12 @@ extension HomeViewController: UICollectionViewDelegate {
         
         if let item = item as? HomePlaceItem {
             output.showPlace(item.place)
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if refresher.isRefreshing {
+            output.getData(usingRefresh: true)
         }
     }
 }

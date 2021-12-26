@@ -17,7 +17,7 @@ protocol HomeViewInput {
 }
 
 protocol HomeViewOutput {
-    func getData()
+    func getData(usingRefresh: Bool)
     func showPlace(_ place: Place)
 }
 
@@ -69,8 +69,10 @@ extension HomePresenter: HomeViewOutput {
         router.showPlaceModule(dataSource: self)
     }
     
-    func getData() {
-        emitLoading()
+    func getData(usingRefresh: Bool) {
+        if !usingRefresh {
+            emitLoading()
+        }
         
         interactor.listPlacesByCategory()
             .subscribe(onSuccess: { [weak self] groupOfPlaces in
