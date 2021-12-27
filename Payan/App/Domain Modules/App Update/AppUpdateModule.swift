@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol AppUpdateModuleDataSource {
+protocol AppUpdateModuleDataSource: AnyObject {
     func latestVersionType() -> AppVersionType
 }
 
@@ -17,16 +17,19 @@ protocol AppUpdateModuleDelegate {
 }
 
 final class AppUpdateModule {
-    static func setup(with navigationController: UINavigationController, dataSource: AppUpdateModuleDataSource, delegate: AppUpdateModuleDelegate?) -> UIViewController {
-        let router = AppUpdateRouter(navigationController: navigationController)
-        let presenter = AppUpdatePresenter(router: router, latestVersionType: dataSource.latestVersionType(), delegate: delegate)
-        let bottomSheet = UIBottomSheet()
-        let vc = AppUpdateViewController(presenter: presenter)
-        
-        bottomSheet.dataSource = vc
-        bottomSheet.modalPresentationStyle = .overCurrentContext
-        bottomSheet.modalTransitionStyle = .crossDissolve
-        
-        return bottomSheet
+    private let router: AppUpdateRouter
+    private let presenter: AppUpdatePresenter
+    
+    private init(navigationController: UINavigationController, dataSource: AppUpdateModuleDataSource, delegate: AppUpdateModuleDelegate?) {
+        router = AppUpdateRouter(navigationController: navigationController)
+        presenter = AppUpdatePresenter(router: router, latestVersionType: dataSource.latestVersionType(), delegate: delegate)
+    }
+    
+    static func setup(with navigationController: UINavigationController, dataSource: AppUpdateModuleDataSource, delegate: AppUpdateModuleDelegate?) -> AppUpdateModule {
+        AppUpdateModule(navigationController: navigationController, dataSource: dataSource, delegate: delegate)
+    }
+    
+    func show() {
+        router.show(using: presenter)
     }
 }

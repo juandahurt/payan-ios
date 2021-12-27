@@ -48,6 +48,10 @@ class AppUpdateViewController: UIViewController {
         super.init(nibName: String(describing: AppUpdateViewController.self), bundle: nil)
     }
     
+    deinit {
+        Console.log("\(String(describing: Self.self)) is being deallocated", level: .debug)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

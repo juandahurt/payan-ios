@@ -25,8 +25,6 @@ final class LaunchRouter: BaseRouter {
     }
     
     func showAppUpdateModule(dataSource: AppUpdateModuleDataSource, delegate: AppUpdateModuleDelegate) {
-        let vc = AppUpdateModule.setup(with: navigationController, dataSource: dataSource, delegate: delegate)
-        
-        navigationController.present(vc, animated: true)
+        AppUpdateModule.setup(with: navigationController, dataSource: dataSource, delegate: delegate).show()
     }
 }
