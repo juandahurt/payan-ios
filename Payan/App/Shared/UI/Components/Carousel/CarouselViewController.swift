@@ -17,22 +17,6 @@ protocol CarouselDataSource: AnyObject {
 }
 
 class CarouselViewController: UIViewController {
-    @IBOutlet weak var lastViewButton: UIButton! {
-        didSet {
-            lastViewButton.rx.tap.bind(onNext: { [weak self] in
-                self?.scrollToLastView()
-                self?.updateButtonsInteraction()
-            }).disposed(by: disposeBag)
-        }
-    }
-    @IBOutlet weak var nextViewButton: UIButton! {
-        didSet {
-            nextViewButton.rx.tap.bind(onNext: { [weak self] in
-                self?.scrollToNextView()
-                self?.updateButtonsInteraction()
-            }).disposed(by: disposeBag)
-        }
-    }
     @IBOutlet weak var collectionView: UICollectionView!
     
     // MARK: - Public
@@ -60,7 +44,6 @@ class CarouselViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateButtonsInteraction()
         setupLayout()
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -79,49 +62,6 @@ class CarouselViewController: UIViewController {
         layout.scrollDirection = .vertical
         collectionView.collectionViewLayout = layout
         collectionView.isPagingEnabled = true
-    }
-    
-    private func scrollToLastView() {
-        if currentIndex > 0 {
-            currentIndex -= 1
-            let indexPath = IndexPath(item: currentIndex, section: 0)
-            collectionView.scrollToItem(at: indexPath, at: .top, animated: true)
-        }
-    }
-    
-    private func scrollToNextView() {
-        if currentIndex < numberOfItems - 1 {
-            currentIndex += 1
-            let indexPath = IndexPath(item: currentIndex, section: 0)
-            collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
-        }
-    }
-    
-    private func updateButtonsInteraction() {
-        guard numberOfItems > 0 else { return }
-        
-        if currentIndex == 0 {
-            disableButton(lastViewButton)
-            
-        } else {
-            enableButton(lastViewButton)
-        }
-        
-        if currentIndex == numberOfItems - 1 {
-            disableButton(nextViewButton)
-        } else {
-            enableButton(nextViewButton)
-        }
-    }
-    
-    private func disableButton(_ button: UIButton) {
-        button.isUserInteractionEnabled = false
-        button.alpha = 0.25
-    }
-    
-    private func enableButton(_ button: UIButton) {
-        button.isUserInteractionEnabled = true
-        button.alpha = 1
     }
 }
 
@@ -143,7 +83,7 @@ extension CarouselViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - Delegate
+// MARK: - Layout Delegate
 extension CarouselViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         collectionView.frame.size
