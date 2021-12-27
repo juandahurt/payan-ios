@@ -70,6 +70,8 @@ class HomeViewController: UIViewController {
                 
                 if let title = self.input.titleForSection(atIndex: indexPath.section), let image = self.input.imageForSection(atIndex: indexPath.section) {
                     header?.configure(title: title, image: image)
+                } else {
+                    header?.configure(title: nil, image: nil)
                 }
                 
                 return header
@@ -123,7 +125,7 @@ class HomeViewController: UIViewController {
                     return cell
                 case is HomePlaceItem:
                     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: PlaceCell.self), for: indexPath) as? PlaceCell
-                    cell?.hideSkeleton()
+                    cell?.hideSkeleton(reloadDataAfter: false, transition: .none)
                     cell?.setup(place: (item as! HomePlaceItem).place)
                     return cell
                 default:

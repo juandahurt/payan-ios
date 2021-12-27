@@ -21,7 +21,7 @@ class HeaderView: UICollectionReusableView {
         titleLabel.font = Font.get(.semiBold, size: .title)
     }
     
-    func configure(title: String, image: UIImage) {
+    func configure(title: String?, image: UIImage?) {
         titleLabel.text = title
         imageView.image = image
     }

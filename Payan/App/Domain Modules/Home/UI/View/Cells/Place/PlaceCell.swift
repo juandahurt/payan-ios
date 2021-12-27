@@ -48,6 +48,7 @@ class PlaceCell: UICollectionViewCell {
         }
         imageView.contentMode = .scaleAspectFill
         if let url = URL(string: place.imageUrl) {
+            imageView.kf.indicatorType = .activity
             imageView.kf.setImage(with: url)
         }
     }
