@@ -14,4 +14,12 @@ final class PlaceRouter: BaseRouter {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
+    
+    func show(using presenter: PlaceViewInput) {
+        let vc = PlaceViewController(presenter: presenter)
+        
+        vc.modalPresentationStyle = .overCurrentContext
+        
+        navigationController.present(vc, animated: true)
+    }
 }

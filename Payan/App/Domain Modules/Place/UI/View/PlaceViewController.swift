@@ -77,25 +77,25 @@ extension PlaceViewController: CarouselDataSource {
         }
     }
 }
-
-// MARK: - Preview
-#if DEBUG
-import SwiftUI
-
-private class PreviewDataSource: PlaceModuleDataSource {
-    func providePlace() -> Place {
-        Place(
-            name: "Preview place",
-            type: .bridge,
-            imageUrl: "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
-        )
-    }
-}
-
-private struct PlaceViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        let navigationController = UINavigationController()
-        return PlaceModule.setup(with: navigationController, dataSource: PreviewDataSource()).toPreview()
-    }
-}
-#endif
+//
+//// MARK: - Preview
+//#if DEBUG
+//import SwiftUI
+//
+//private class PreviewDataSource: PlaceModuleDataSource {
+//    func providePlace() -> Place {
+//        Place(
+//            name: "Preview place",
+//            type: .bridge,
+//            imageUrl: "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
+//        )
+//    }
+//}
+//
+//private struct PlaceViewControllerPreview: PreviewProvider {
+//    static var previews: some View {
+//        let navigationController = UINavigationController()
+//        return PlaceModule.setup(with: navigationController, dataSource: PreviewDataSource()).toPreview()
+//    }
+//}
+//#endif

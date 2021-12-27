@@ -13,10 +13,19 @@ protocol PlaceModuleDataSource {
 }
 
 final class PlaceModule {
-    static func setup(with navigationController: UINavigationController, dataSource: PlaceModuleDataSource) -> PlaceViewController {
-        let router = PlaceRouter(navigationController: navigationController)
-        let presenter = PlacePresenter(place: dataSource.providePlace(), router: router)
-        
-        return PlaceViewController(presenter: presenter)
+    private let router: PlaceRouter
+    private let presenter: PlacePresenter
+    
+    private init(navigationController: UINavigationController, dataSource: PlaceModuleDataSource) {
+        router = PlaceRouter(navigationController: navigationController)
+        presenter = PlacePresenter(place: dataSource.providePlace(), router: router)
+    }
+    
+    static func setup(with navigationController: UINavigationController, dataSource: PlaceModuleDataSource) -> PlaceModule {
+        PlaceModule(navigationController: navigationController, dataSource: dataSource)
+    }
+    
+    func show() {
+        router.show(using: presenter)
     }
 }
