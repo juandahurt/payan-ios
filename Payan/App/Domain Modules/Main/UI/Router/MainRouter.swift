@@ -14,4 +14,15 @@ final class MainRouter: BaseRouter {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
+    
+    func show(using presenter: MainViewOutput) {
+        let vc = MainViewController(presenter: presenter)
+        
+        vc.viewControllers = [
+            HomeModule.setup(with: navigationController).associatedViewController
+        ]
+        
+        navigationController.pushViewController(vc, animated: true)
+        navigationController.viewControllers = [vc]
+    }
 }

@@ -181,7 +181,8 @@ struct HomeViewControllerPreview: PreviewProvider {
     static var previews: some View {
         SkeletonAppearance.default.tintColor = Color.skeleton
         let nav = UINavigationController()
-        return HomeModule.setup(with: nav).toPreview().preferredColorScheme(.light)
+        let module = HomeModule.setup(with: nav)
+        return module.associatedViewController.toPreview().preferredColorScheme(.light)
     }
 }
 #endif

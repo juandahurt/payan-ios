@@ -21,12 +21,7 @@ final class LaunchRouter: BaseRouter {
     }
     
     func showMainModule() {
-        let vc = MainModule.setup(with: navigationController)
-        
-        vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .crossDissolve
-        
-        navigationController.pushViewController(vc, animated: true)
+        MainModule.setup(with: navigationController).show()
     }
     
     func showAppUpdateModule(dataSource: AppUpdateModuleDataSource, delegate: AppUpdateModuleDelegate) {
