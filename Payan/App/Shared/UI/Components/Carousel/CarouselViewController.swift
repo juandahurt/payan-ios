@@ -27,7 +27,6 @@ class CarouselViewController: UIViewController {
     }
     
     // MARK: - Private
-    private var disposeBag = DisposeBag()
     private var currentIndex = 0
     private var numberOfItems = 0
     
