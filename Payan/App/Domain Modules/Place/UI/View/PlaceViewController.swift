@@ -69,7 +69,7 @@ class PlaceViewController: UIViewController {
     private func addDismissButton() {
         let window = UIApplication.shared.windows.first
         let topPadding = window?.safeAreaInsets.top
-        let button = UtilButton(frame: .init(x: view.frame.width - 100, y: (topPadding ?? 0) + 25, width: 40, height: 40))
+        let button = UtilButton(frame: .init(x: view.bounds.width - 65, y: (topPadding ?? 0) + 25, width: 40, height: 40))
         
         button.setImage(UIImage(named: "close"), for: .normal)
         button.rx.tap.bind(onNext: { [weak self] in
