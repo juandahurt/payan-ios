@@ -13,25 +13,17 @@ protocol AnyLaunchDataManager {
 }
 
 struct LaunchDataManager: AnyLaunchDataManager {
-    private var disposeBag = DisposeBag()
-    
     func getLatestVersion() -> Single<AppVersion> {
-        Single.create { single in
-            let disposable = Disposables.create()
-            let endpoint = RESTEnpoint<RESTEmptyBody>(path: "app-version/ios", method: .get)
-            let response: Single<RESTServerResponse<AppVersion>>
+        let endpoint = RESTEnpoint<RESTEmptyBody>(path: "app-version/ios", method: .get)
+        let response: Single<RESTServerResponse<AppVersion>>
+        
+        response = RESTClient.shared.call(endpoint: endpoint)
+        return response.map({ res -> AppVersion in
+            if let error = res.error {
+                throw error
+            }
             
-            response =  RESTClient.shared.call(endpoint: endpoint)
-            response.subscribe(
-                onSuccess: { res in
-                    single(.success(res.data!))
-                },
-                onFailure: { err in
-                    single(.failure(err))
-                }
-            ).disposed(by: disposeBag)
-            
-            return disposable
-        }
+            return res.data!
+        })
     }
 }
