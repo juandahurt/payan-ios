@@ -46,6 +46,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupSupplementaryViews()
         collectionView.dataSource = dataSource
+        collectionView.showsVerticalScrollIndicator = false
         setupRefresher()
         configureLayout()
         rxBind()
