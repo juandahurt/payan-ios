@@ -20,6 +20,8 @@ final class HomeRouter: AnyHomeRouter, BaseRouter {
     }
     
     func showPlaceModule(dataSource: PlaceModuleDataSource) {
-        PlaceModule.setup(with: navigationController, dataSource: dataSource).show()
+        let placeModule = PlaceModule.setup(with: navigationController)
+        placeModule.dataSource = dataSource
+        placeModule.show()
     }
 }

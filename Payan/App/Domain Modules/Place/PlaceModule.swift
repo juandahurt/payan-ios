@@ -14,18 +14,22 @@ protocol PlaceModuleDataSource {
 
 final class PlaceModule {
     private let router: PlaceRouter
-    private let presenter: PlacePresenter
+    var dataSource: PlaceModuleDataSource?
     
-    private init(navigationController: UINavigationController, dataSource: PlaceModuleDataSource) {
+    private init(navigationController: UINavigationController) {
         router = PlaceRouter(navigationController: navigationController)
-        presenter = PlacePresenter(place: dataSource.providePlace(), router: router)
     }
     
-    static func setup(with navigationController: UINavigationController, dataSource: PlaceModuleDataSource) -> PlaceModule {
-        PlaceModule(navigationController: navigationController, dataSource: dataSource)
+    static func setup(with navigationController: UINavigationController) -> PlaceModule {
+        PlaceModule(navigationController: navigationController)
     }
     
     func show() {
+        guard let dataSource = dataSource else {
+            return
+        }
+        
+        let presenter = PlacePresenter(place: dataSource.providePlace(), router: router)
         router.show(using: presenter)
     }
 }

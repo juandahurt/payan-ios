@@ -15,11 +15,15 @@ final class PlaceRouter: BaseRouter {
         self.navigationController = navigationController
     }
     
-    func show(using presenter: PlaceViewInput) {
+    func show(using presenter: PlaceViewInput & PlaceViewOutput) {
         let vc = PlaceViewController(presenter: presenter)
         
         vc.modalPresentationStyle = .overCurrentContext
         
         navigationController.present(vc, animated: true)
+    }
+    
+    func dismiss() {
+        navigationController.dismiss(animated: true)
     }
 }

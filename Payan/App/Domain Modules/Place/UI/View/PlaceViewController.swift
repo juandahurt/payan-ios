@@ -20,11 +20,13 @@ class PlaceViewController: UIViewController {
     
     // MARK: - Attributes
     private var input: PlaceViewInput
+    private var output: PlaceViewOutput
     private var disposeBag = DisposeBag()
     private var carousel: CarouselViewController!
     
-    init(presenter: PlaceViewInput) {
-        self.input = presenter
+    init(presenter: PlaceViewInput & PlaceViewOutput) {
+        input = presenter
+        output = presenter
         
         super.init(nibName: String(describing: PlaceViewController.self), bundle: nil)
     }
@@ -34,11 +36,16 @@ class PlaceViewController: UIViewController {
         fatalError()
     }
     
+    deinit {
+        Console.log("\(String(describing: PlaceViewController.self)) is being deallocated", level: .debug)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureLayout()
         addGradient()
+        addDismissButton()
     }
     
     private func configureLayout() {
@@ -59,8 +66,17 @@ class PlaceViewController: UIViewController {
         imageView.layer.addSublayer(gradient)
     }
     
-    deinit {
-        Console.log("\(String(describing: PlaceViewController.self)) is being deallocated", level: .debug)
+    private func addDismissButton() {
+        let window = UIApplication.shared.windows.first
+        let topPadding = window?.safeAreaInsets.top
+        let button = UtilButton(frame: .init(x: view.frame.width - 100, y: (topPadding ?? 0) + 25, width: 40, height: 40))
+        
+        button.setImage(UIImage(named: "close"), for: .normal)
+        button.rx.tap.bind(onNext: {
+            self.output.dismiss()
+        }).disposed(by: disposeBag)
+        
+        view.addSubview(button)
     }
 }
 
@@ -77,25 +93,3 @@ extension PlaceViewController: CarouselDataSource {
         }
     }
 }
-//
-//// MARK: - Preview
-//#if DEBUG
-//import SwiftUI
-//
-//private class PreviewDataSource: PlaceModuleDataSource {
-//    func providePlace() -> Place {
-//        Place(
-//            name: "Preview place",
-//            type: .bridge,
-//            imageUrl: "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
-//        )
-//    }
-//}
-//
-//private struct PlaceViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        let navigationController = UINavigationController()
-//        return PlaceModule.setup(with: navigationController, dataSource: PreviewDataSource()).toPreview()
-//    }
-//}
-//#endif

@@ -11,6 +11,10 @@ protocol PlaceViewInput {
     var selectedPlace: PlaceDetails { get }
 }
 
+protocol PlaceViewOutput {
+    func dismiss()
+}
+
 final class PlacePresenter: BasePresenter {
     var router: PlaceRouter
     private var place: Place
@@ -29,5 +33,12 @@ extension PlacePresenter: PlaceViewInput {
             imageUrl: place.imageUrl,
             description: place.description
         )
+    }
+}
+
+
+extension PlacePresenter: PlaceViewOutput {
+    func dismiss() {
+        router.dismiss()
     }
 }
