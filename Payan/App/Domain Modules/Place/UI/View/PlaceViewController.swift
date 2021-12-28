@@ -72,7 +72,10 @@ class PlaceViewController: UIViewController {
         let button = UtilButton(frame: .init(x: view.frame.width - 100, y: (topPadding ?? 0) + 25, width: 40, height: 40))
         
         button.setImage(UIImage(named: "close"), for: .normal)
-        button.rx.tap.bind(onNext: {
+        button.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else {
+                return
+            }
             self.output.dismiss()
         }).disposed(by: disposeBag)
         
