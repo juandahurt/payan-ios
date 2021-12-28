@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch AppConfig.environment {
         case .dev:
             baseUrl = "https://payan-dev.herokuapp.com/"
+            break
+        case .test:
+            baseUrl = "https://payan-test.herokuapp.com/"
         }
         RESTClient.provideBaseUrl(baseUrl)
         
