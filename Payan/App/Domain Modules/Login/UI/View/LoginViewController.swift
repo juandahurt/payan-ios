@@ -19,7 +19,7 @@ final class LoginViewController: ScrollableViewController {
         didSet {
             titleLabel.text = "Inicia sesión"
             titleLabel.textColor = .black
-            titleLabel.font = Font.get(.semiBold, size: .header)
+            titleLabel.font = AppStyle.Font.get(.semiBold, size: .header)
         }
     }
     @IBOutlet weak var userTextField: TextFieldForm! {

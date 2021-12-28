@@ -11,13 +11,13 @@ class PlaceDescriptionViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = "Descripción"
-            titleLabel.font = Font.get(.semiBold, size: .title)
+            titleLabel.font = AppStyle.Font.get(.semiBold, size: .title)
             titleLabel.textColor = .white
         }
     }
     @IBOutlet weak var descriptionTextView: UITextView! {
         didSet {
-            descriptionTextView.font = Font.get(.regular, size: .body)
+            descriptionTextView.font = AppStyle.Font.get(.regular, size: .body)
             descriptionTextView.textColor = .white
             descriptionTextView.backgroundColor = .clear
             descriptionTextView.text = placeDetails.description

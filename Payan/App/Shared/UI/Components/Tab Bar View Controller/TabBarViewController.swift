@@ -17,7 +17,7 @@ class TabBarViewController: UITabBarController {
     
     private func setupTabBar() {
         tabBar.barTintColor = .white
-        tabBar.tintColor = Color.primary
+        tabBar.tintColor = AppStyle.Color.primary
         tabBar.backgroundColor = .white
         tabBar.isTranslucent = false
         Utility.addShadow(to: tabBar, offset: CGSize(width: 0, height: -4))

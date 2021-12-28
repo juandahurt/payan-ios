@@ -41,7 +41,7 @@ class UIBottomSheet: UIViewController {
     // MARK: - UI
     private func setupUI() {
         backgroundView.alpha = 0
-        viewContainer.backgroundColor = Color.background
+        viewContainer.backgroundColor = AppStyle.Color.background
         if let embededView = dataSource?.embeddedView() {
             let window = UIApplication.shared.windows.first
             let bottomPadding = window?.safeAreaInsets.bottom ?? 0

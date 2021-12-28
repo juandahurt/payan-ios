@@ -8,7 +8,7 @@
 import UIKit
 
 class TextFieldForm: UITextField {
-    let padding = UIEdgeInsets(top: 0, left: UIConstants.textFieldFormPadding, bottom: 0, right: UIConstants.textFieldFormPadding)
+    let padding = UIEdgeInsets(top: 0, left: AppStyle.UIConstants.textFieldFormPadding, bottom: 0, right: AppStyle.UIConstants.textFieldFormPadding)
 
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
@@ -29,11 +29,11 @@ class TextFieldForm: UITextField {
     
     private func setup() {
         borderStyle = .none
-        layer.cornerRadius = UIConstants.textFieldCornerRadius
+        layer.cornerRadius = AppStyle.UIConstants.textFieldCornerRadius
         autocorrectionType = .no
-        font = Font.get(.regular, size: .body)
+        font = AppStyle.Font.get(.regular, size: .body)
         textColor = .black
-        backgroundColor = Color.textFieldForm
-        attributedPlaceholder = NSAttributedString(string: "placeholder", attributes: [NSAttributedString.Key.foregroundColor: Color.primary.withAlphaComponent(0.4)])
+        backgroundColor = AppStyle.Color.textFieldForm
+        attributedPlaceholder = NSAttributedString(string: "placeholder", attributes: [NSAttributedString.Key.foregroundColor: AppStyle.Color.primary.withAlphaComponent(0.4)])
     }
 }

@@ -22,10 +22,10 @@ class PlaceCell: UICollectionViewCell {
     private func setupUI() {
         imageView.layer.cornerRadius = 10
         
-        titleLabel.font = Font.get(.regular, size: .body)
+        titleLabel.font = AppStyle.Font.get(.regular, size: .body)
         titleLabel.textColor = .black
         
-        subtitleLabel.font = Font.get(.regular, size: .body)
+        subtitleLabel.font = AppStyle.Font.get(.regular, size: .body)
         subtitleLabel.textColor = UIColor.black.withAlphaComponent(0.4)
     }
 

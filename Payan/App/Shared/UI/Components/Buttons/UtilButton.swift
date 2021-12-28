@@ -10,7 +10,7 @@ import UIKit
 
 final class UtilButton: SquishableButton {
     override var background: UIColor? {
-        Color.primary.withAlphaComponent(0.2)
+        AppStyle.Color.primary.withAlphaComponent(0.2)
     }
     
     override func didMoveToSuperview() {

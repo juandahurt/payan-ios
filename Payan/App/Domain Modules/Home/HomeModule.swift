@@ -18,8 +18,8 @@ final class HomeModule {
         associatedViewController = HomeViewController(presenter: presenter)
         
         let title = "Inicio"
-        let image = UIImage(named: "home")?.withTintColor(Color.primary.withAlphaComponent(0.15))
-        let selectedImage = UIImage(named: "home")?.withTintColor(Color.primary).withRenderingMode(.alwaysOriginal)
+        let image = UIImage(named: "home")?.withTintColor(AppStyle.Color.primary.withAlphaComponent(0.15))
+        let selectedImage = UIImage(named: "home")?.withTintColor(AppStyle.Color.primary).withRenderingMode(.alwaysOriginal)
         
         associatedViewController.tabBarItem.title = title
         associatedViewController.tabBarItem.image = image

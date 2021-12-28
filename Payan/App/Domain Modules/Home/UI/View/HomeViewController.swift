@@ -180,7 +180,7 @@ import SwiftUI
 
 struct HomeViewControllerPreview: PreviewProvider {
     static var previews: some View {
-        SkeletonAppearance.default.tintColor = Color.skeleton
+        SkeletonAppearance.default.tintColor = AppStyle.Color.skeleton
         let nav = UINavigationController()
         let module = HomeModule.setup(with: nav)
         return module.associatedViewController.toPreview().preferredColorScheme(.light)

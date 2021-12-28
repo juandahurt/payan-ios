@@ -11,7 +11,7 @@ class PlaceTitleViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = placeDetails.name
-            titleLabel.font = Font.get(.semiBold, size: .header)
+            titleLabel.font = AppStyle.Font.get(.semiBold, size: .header)
             titleLabel.textColor = .white
             titleLabel.numberOfLines = 0
             titleLabel.lineBreakMode = .byWordWrapping

@@ -10,7 +10,7 @@ import UIKit
 
 final class MainButton: LoadableButton {
     override var background: UIColor? {
-        Color.primary
+        AppStyle.Color.primary
     }
     
     override var textColor: UIColor? {

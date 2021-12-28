@@ -34,9 +34,9 @@ class SquishableButton: UIButton {
     
     private func setup() {
         setTitleColor(textColor, for: .normal)
-        layer.cornerRadius = UIConstants.buttonCornerRadius
+        layer.cornerRadius = AppStyle.UIConstants.buttonCornerRadius
         backgroundColor = background
-        titleLabel?.font = Font.get(.semiBold, size: .subtitle)
+        titleLabel?.font = AppStyle.Font.get(.semiBold, size: .subtitle)
         
         self.addTarget(self, action: #selector(onPressed(_:)), for: .touchDown)
         self.addTarget(self, action: #selector(onRelease(_:)), for: .touchUpInside)

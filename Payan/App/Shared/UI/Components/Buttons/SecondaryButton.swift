@@ -10,10 +10,10 @@ import UIKit
 
 final class SecondaryButton: SquishableButton {
     override var background: UIColor? {
-        Color.background
+        AppStyle.Color.background
     }
     
     override var textColor: UIColor? {
-        Color.primary
+        AppStyle.Color.primary
     }
 }

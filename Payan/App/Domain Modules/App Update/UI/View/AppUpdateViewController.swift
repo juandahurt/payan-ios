@@ -17,14 +17,14 @@ class AppUpdateViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = "¡Nueva actualización!"
-            titleLabel.font = Font.get(.semiBold, size: .title)
+            titleLabel.font = AppStyle.Font.get(.semiBold, size: .title)
         }
     }
     @IBOutlet weak var descriptionTextView: UITextView! {
         didSet {
-            descriptionTextView.backgroundColor = Color.background
+            descriptionTextView.backgroundColor = AppStyle.Color.background
             descriptionTextView.text = "Te recomendamos actualizar la app para que puedas disfrutar de la mejor experiencia."
-            descriptionTextView.font = Font.get(.regular, size: .body)
+            descriptionTextView.font = AppStyle.Font.get(.regular, size: .body)
             descriptionTextView.isEditable = false
         }
     }

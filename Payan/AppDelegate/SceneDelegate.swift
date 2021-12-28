@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.navigationBar.isHidden = true
         window?.rootViewController = navigationController
         
-        SkeletonAppearance.default.tintColor = Color.skeleton
+        SkeletonAppearance.default.tintColor = AppStyle.Color.skeleton
         
         let module = LaunchModule.setup(with: navigationController)
         module.show()
