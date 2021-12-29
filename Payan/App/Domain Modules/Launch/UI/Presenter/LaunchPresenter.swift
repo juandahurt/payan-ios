@@ -39,8 +39,14 @@ extension LaunchPresenter: LaunchViewInput {
 extension LaunchPresenter: LaunchViewOutput {
     func getData() {
         interactor.getRandomFact().asObservable()
-            .concatMap { fact -> Observable<Int> in
-                self.randomFactSubject.onNext(fact)
+            .concatMap { [weak self] fact -> Observable<Int> in
+                guard let self = self else {
+                    return Observable.just(0)
+                }
+                
+                DispatchQueue.main.async {
+                    self.randomFactSubject.onNext(fact)
+                }
                 return Observable<Int>.timer(.seconds(3), scheduler: MainScheduler.instance).asObservable()
             }.concatMap({ _ -> Observable<AppVersionValidation> in
                 self.interactor.checkLatestVersion().asObservable()
