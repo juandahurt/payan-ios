@@ -12,6 +12,7 @@ protocol AnyLaunchInteractor {
     var dataManager: AnyLaunchDataManager { get set }
     
     func checkLatestVersion() -> Single<AppVersionValidation>
+    func getRandomFact() -> Single<Fact>
 }
 
 final class LaunchInteractor: AnyLaunchInteractor {
@@ -30,5 +31,9 @@ final class LaunchInteractor: AnyLaunchInteractor {
                 let validation = AppVersionValidation(shouldUpdate: shouldUpdate, type: version.type)
                 return validation
             })
+    }
+    
+    func getRandomFact() -> Single<Fact> {
+        dataManager.getRandomFact()
     }
 }

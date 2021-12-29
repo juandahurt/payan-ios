@@ -61,6 +61,7 @@
 		3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B452733329E00CC107B /* AppUpdateRouter.swift */; };
 		3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5327333FA700CC107B /* SecondaryButton.swift */; };
 		3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* SquishableButton.swift */; };
+		3DA9C8FB277CC92100E5588E /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9C8FA277CC92100E5588E /* Fact.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DCE7EB927459CB600860232 /* PlaceTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */; };
 		3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */; };
@@ -151,6 +152,7 @@
 		3DA93B452733329E00CC107B /* AppUpdateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateRouter.swift; sourceTree = "<group>"; };
 		3DA93B5327333FA700CC107B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		3DA93B5627333FE000CC107B /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
+		3DA9C8FA277CC92100E5588E /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTitleViewController.swift; sourceTree = "<group>"; };
 		3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTitleViewController.xib; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 			children = (
 				3D8CCDE3272613BF00CB7EED /* AppVersion.swift */,
 				3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */,
+				3DA9C8FA277CC92100E5588E /* Fact.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1158,6 +1161,7 @@
 				3D4A51D0271BE2F900A7E0C1 /* HomeSectionItem.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
 				3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */,
+				3DA9C8FB277CC92100E5588E /* Fact.swift in Sources */,
 				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,
 				3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */,
 			);
