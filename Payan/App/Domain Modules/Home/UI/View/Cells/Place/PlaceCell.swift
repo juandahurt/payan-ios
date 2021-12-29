@@ -31,8 +31,11 @@ class PlaceCell: UICollectionViewCell {
 
     func setup(place: Place) {
         DispatchQueue.main.async { [weak self] in
-            let placeStr: String
+            guard let self = self else {
+                return
+            }
             
+            let placeStr: String
             switch place.type {
             case .museum:
                 placeStr = "Museo"
@@ -43,14 +46,16 @@ class PlaceCell: UICollectionViewCell {
             case .church:
                 placeStr = "Iglesia"
             }
-            self?.titleLabel.text = place.name
-            self?.subtitleLabel.text = placeStr
+            self.titleLabel.text = place.name
+            self.subtitleLabel.text = placeStr
+            
+            self.imageView.contentMode = .scaleAspectFill
+            if let url = URL(string: place.imageUrl) {
+                self.imageView.kf.indicatorType = .activity
+                self.imageView.kf.setImage(with: url)
+            }
         }
-        imageView.contentMode = .scaleAspectFill
-        if let url = URL(string: place.imageUrl) {
-            imageView.kf.indicatorType = .activity
-            imageView.kf.setImage(with: url)
-        }
+        
     }
     
     func showSkeletonAnimation() {
