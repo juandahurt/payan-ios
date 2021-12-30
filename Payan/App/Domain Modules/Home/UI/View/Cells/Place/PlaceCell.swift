@@ -35,19 +35,8 @@ class PlaceCell: UICollectionViewCell {
                 return
             }
             
-            let placeStr: String
-            switch place.type {
-            case .museum:
-                placeStr = "Museo"
-            case .park:
-                placeStr = "Parque"
-            case .bridge:
-                placeStr = "Puente"
-            case .church:
-                placeStr = "Iglesia"
-            }
             self.titleLabel.text = place.name
-            self.subtitleLabel.text = placeStr
+            self.subtitleLabel.text = place.foundationYear
             
             self.imageView.contentMode = .scaleAspectFill
             if let url = URL(string: place.imageUrl) {

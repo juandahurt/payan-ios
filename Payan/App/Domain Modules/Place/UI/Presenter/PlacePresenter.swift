@@ -31,7 +31,8 @@ extension PlacePresenter: PlaceViewInput {
         PlaceDetails(
             name: place.name,
             imageUrl: place.imageUrl,
-            description: place.description
+            description: place.description,
+            foundationYear: place.foundationYear
         )
     }
 }

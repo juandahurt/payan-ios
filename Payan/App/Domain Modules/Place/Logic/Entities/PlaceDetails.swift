@@ -11,5 +11,5 @@ struct PlaceDetails {
     var name: String
     var imageUrl: String
     var description: String
-    // TODO: Add location field
+    var foundationYear: String
 }

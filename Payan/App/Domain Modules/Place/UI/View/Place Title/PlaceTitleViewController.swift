@@ -17,6 +17,14 @@ class PlaceTitleViewController: UIViewController {
             titleLabel.lineBreakMode = .byWordWrapping
         }
     }
+    @IBOutlet weak var footerLabel: UILabel! {
+        didSet {
+            footerLabel.text = placeDetails.foundationYear
+            footerLabel.font = AppStyle.Font.get(.regular, size: .body)
+            footerLabel.textColor = .white.withAlphaComponent(0.5)
+            footerLabel.textAlignment = .right
+        }
+    }
     
     private let placeDetails: PlaceDetails
     

@@ -12,9 +12,10 @@ struct Place: Decodable {
     var type: PlaceCategory
     var imageUrl: String = "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
     var description: String = ""
+    var foundationYear: String = ""
     
     enum CodingKeys: String, CodingKey {
-        case name, description
+        case name, description, foundationYear
         case imageUrl = "image"
         case type = "category"
     }
