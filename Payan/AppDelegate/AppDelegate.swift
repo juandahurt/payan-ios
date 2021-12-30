@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         RESTClient.provideBaseUrl(baseUrl)
         
+        let firebaseEngine = FirebaseAnalytics()
+        AnalyticsManager.shared.registerEngine(firebaseEngine)
+        
         return true
     }
 

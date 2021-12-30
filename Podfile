@@ -13,5 +13,8 @@ target 'Payan' do
 
   # UI
   pod 'SkeletonView'
-  pod 'Kingfisher' 
+  pod 'Kingfisher'
+  
+  # Analytics
+  pod 'FirebaseAnalytics'
 end

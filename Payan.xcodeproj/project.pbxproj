@@ -24,6 +24,11 @@
 		3D3A3850270A541400E2EF94 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A384E270A541400E2EF94 /* HomeViewController.swift */; };
 		3D3A3851270A541400E2EF94 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3A384F270A541400E2EF94 /* HomeViewController.xib */; };
 		3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D426B3626F804F90019FEBA /* TextFieldForm.swift */; };
+		3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */; };
+		3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F86277E353C009BFF74 /* AnalyticsEngine.swift */; };
+		3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F88277E357B009BFF74 /* AnalyticsManager.swift */; };
+		3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */; };
+		3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D496F8F277E4C90009BFF74 /* GoogleService-Info.plist */; };
 		3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A51C9271BDEBE00A7E0C1 /* Place.swift */; };
 		3D4A51D0271BE2F900A7E0C1 /* HomeSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A51CF271BE2F900A7E0C1 /* HomeSectionItem.swift */; };
 		3D51100426F6AAB500D24DD9 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51100326F6AAB500D24DD9 /* Console.swift */; };
@@ -115,6 +120,11 @@
 		3D3A384E270A541400E2EF94 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3D3A384F270A541400E2EF94 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		3D426B3626F804F90019FEBA /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
+		3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
+		3D496F86277E353C009BFF74 /* AnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngine.swift; sourceTree = "<group>"; };
+		3D496F88277E357B009BFF74 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalytics.swift; sourceTree = "<group>"; };
+		3D496F8F277E4C90009BFF74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D4A51C9271BDEBE00A7E0C1 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		3D4A51CF271BE2F900A7E0C1 /* HomeSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItem.swift; sourceTree = "<group>"; };
 		3D51100326F6AAB500D24DD9 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
@@ -341,6 +351,25 @@
 			path = "Text Field Form";
 			sourceTree = "<group>";
 		};
+		3D496F82277E34C4009BFF74 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				3D496F8A277E36B0009BFF74 /* Firebase */,
+				3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */,
+				3D496F86277E353C009BFF74 /* AnalyticsEngine.swift */,
+				3D496F88277E357B009BFF74 /* AnalyticsManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		3D496F8A277E36B0009BFF74 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
 		3D4A51C8271BDEB400A7E0C1 /* Entitites */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +527,7 @@
 		3D79AC9B2723926E00ECB567 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3D496F82277E34C4009BFF74 /* Analytics */,
 				3D79AC9C2723928900ECB567 /* REST Client */,
 			);
 			path = Core;
@@ -840,6 +870,7 @@
 				3DF708D226F2A4DE00FD24CF /* AppDelegate */,
 				3DF708D126F2A4DB00FD24CF /* App */,
 				3DF708CA26F2A4D300FD24CF /* Info.plist */,
+				3D496F8F277E4C90009BFF74 /* GoogleService-Info.plist */,
 			);
 			path = Payan;
 			sourceTree = "<group>";
@@ -1036,6 +1067,7 @@
 				3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */,
 				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
+				3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */,
 				3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */,
 				3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */,
 				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
@@ -1116,6 +1148,7 @@
 				3DEC9C7D27431A750062BACF /* PlaceModule.swift in Sources */,
 				3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
+				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
 				3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
@@ -1136,10 +1169,12 @@
 				3DEC9C9127431BF70062BACF /* PlacePresenter.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
 				3DCE7ECB2746E7F500860232 /* PlaceDetails.swift in Sources */,
+				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */,
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
+				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,
 				3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */,
 				3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */,
 				3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */,
@@ -1153,6 +1188,7 @@
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */,
+				3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */,
 				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,
 				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
