@@ -13,6 +13,7 @@ class LaunchViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var factTitleLabel: UILabel! {
         didSet {
+            factTitleLabel.textColor = .black
             factTitleLabel.font = AppStyle.Font.get(.semiBold, size: .subtitle)
             factTitleLabel.text = "Dato curioso"
             factTitleLabel.alpha = 0

@@ -18,6 +18,7 @@ class HeaderView: UICollectionReusableView {
     }
     
     private func setup() {
+        titleLabel.textColor = .black
         titleLabel.font = AppStyle.Font.get(.semiBold, size: .title)
     }
     

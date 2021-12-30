@@ -44,6 +44,7 @@ class HomeViewController: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         setupSupplementaryViews()
         collectionView.dataSource = dataSource
         collectionView.showsVerticalScrollIndicator = false
@@ -56,6 +57,7 @@ class HomeViewController: UIViewController {
     // MARK: - Refresher
     private func setupRefresher() {
         refresher = UIRefreshControl()
+        refresher.tintColor = AppStyle.Color.primary.withAlphaComponent(0.5)
         collectionView.refreshControl = refresher
     }
     
