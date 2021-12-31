@@ -69,6 +69,9 @@
 		3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5327333FA700CC107B /* SecondaryButton.swift */; };
 		3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* SquishableButton.swift */; };
 		3DA9C8FB277CC92100E5588E /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9C8FA277CC92100E5588E /* Fact.swift */; };
+		3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */; };
+		3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */; };
+		3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
 		3DCE7EB927459CB600860232 /* PlaceTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */; };
 		3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */; };
@@ -167,6 +170,9 @@
 		3DA93B5327333FA700CC107B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		3DA93B5627333FE000CC107B /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
 		3DA9C8FA277CC92100E5588E /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
+		3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientAppDelegate.swift; sourceTree = "<group>"; };
+		3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppDelegate.swift; sourceTree = "<group>"; };
+		3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsAppDelegate.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
 		3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTitleViewController.swift; sourceTree = "<group>"; };
 		3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTitleViewController.xib; sourceTree = "<group>"; };
@@ -725,6 +731,16 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		3DB9D542277F54ED00E4D45A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */,
+				3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */,
+				3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		3DC9BFEF26F98D8D00D4DE6E /* Scroll */ = {
 			isa = PBXGroup;
 			children = (
@@ -911,6 +927,7 @@
 		3DF708D226F2A4DE00FD24CF /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				3DB9D542277F54ED00E4D45A /* Services */,
 				3DF708BC26F2A4D200FD24CF /* AppDelegate.swift */,
 				3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */,
 				3DF708C726F2A4D300FD24CF /* LaunchScreen.storyboard */,
@@ -1159,10 +1176,12 @@
 				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
 				3DCE7EC52746B38F00860232 /* PlaceDescriptionViewController.swift in Sources */,
+				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
 				3D496F95277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift in Sources */,
 				3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */,
 				3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
+				3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */,
 				3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
 				3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */,
@@ -1220,6 +1239,7 @@
 				3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */,
 				3D4A51D0271BE2F900A7E0C1 /* HomeSectionItem.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
+				3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */,
 				3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */,
 				3DA9C8FB277CC92100E5588E /* Fact.swift in Sources */,
 				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,

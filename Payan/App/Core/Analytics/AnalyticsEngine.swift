@@ -9,6 +9,5 @@ import Foundation
 
 protocol AnalyticsEngine: AnyObject {
     var name: String { get }
-    func start()
     func logEvent(_ event: AnalyticsEvent)
 }
