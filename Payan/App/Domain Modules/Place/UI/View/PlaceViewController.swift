@@ -48,6 +48,12 @@ class PlaceViewController: UIViewController {
         addDismissButton()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        output.didEnter()
+    }
+    
     private func configureLayout() {
         carousel = CarouselViewController()
         carousel.dataSource = self

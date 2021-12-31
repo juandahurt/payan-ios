@@ -29,6 +29,8 @@
 		3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F88277E357B009BFF74 /* AnalyticsManager.swift */; };
 		3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */; };
 		3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D496F8F277E4C90009BFF74 /* GoogleService-Info.plist */; };
+		3D496F95277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F94277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift */; };
+		3D496F99277E518C009BFF74 /* PlaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F98277E518C009BFF74 /* PlaceInteractor.swift */; };
 		3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A51C9271BDEBE00A7E0C1 /* Place.swift */; };
 		3D4A51D0271BE2F900A7E0C1 /* HomeSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A51CF271BE2F900A7E0C1 /* HomeSectionItem.swift */; };
 		3D51100426F6AAB500D24DD9 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51100326F6AAB500D24DD9 /* Console.swift */; };
@@ -125,6 +127,8 @@
 		3D496F88277E357B009BFF74 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalytics.swift; sourceTree = "<group>"; };
 		3D496F8F277E4C90009BFF74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D496F94277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnalyticsEvent.swift; sourceTree = "<group>"; };
+		3D496F98277E518C009BFF74 /* PlaceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInteractor.swift; sourceTree = "<group>"; };
 		3D4A51C9271BDEBE00A7E0C1 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		3D4A51CF271BE2F900A7E0C1 /* HomeSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItem.swift; sourceTree = "<group>"; };
 		3D51100326F6AAB500D24DD9 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
@@ -368,6 +372,22 @@
 				3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		3D496F91277E4D73009BFF74 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				3D496F94277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		3D496F97277E5180009BFF74 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3D496F98277E518C009BFF74 /* PlaceInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		3D4A51C8271BDEB400A7E0C1 /* Entitites */ = {
@@ -734,6 +754,7 @@
 		3DCE7EC82746E7E600860232 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				3D496F97277E5180009BFF74 /* Interactor */,
 				3DCE7EC92746E7EA00860232 /* Entities */,
 			);
 			path = Logic;
@@ -785,6 +806,7 @@
 		3DEC9C7A27431A300062BACF /* Place */ = {
 			isa = PBXGroup;
 			children = (
+				3D496F91277E4D73009BFF74 /* Analytics */,
 				3DCE7EC82746E7E600860232 /* Logic */,
 				3DEC9C8427431B670062BACF /* UI */,
 				3DEC9C7C27431A750062BACF /* PlaceModule.swift */,
@@ -1137,6 +1159,7 @@
 				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
 				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
 				3DCE7EC52746B38F00860232 /* PlaceDescriptionViewController.swift in Sources */,
+				3D496F95277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift in Sources */,
 				3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */,
 				3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
@@ -1193,6 +1216,7 @@
 				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
+				3D496F99277E518C009BFF74 /* PlaceInteractor.swift in Sources */,
 				3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */,
 				3D4A51D0271BE2F900A7E0C1 /* HomeSectionItem.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,

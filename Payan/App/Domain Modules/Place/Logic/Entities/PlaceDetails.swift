@@ -9,6 +9,7 @@ import Foundation
 
 struct PlaceDetails {
     var name: String
+    var code: String
     var imageUrl: String
     var description: String
     var foundationYear: String

@@ -22,6 +22,7 @@ final class AnalyticsManager {
             return
         }
         
+        Console.log("Logging \(event.name) event", level: .info)
         for engine in engines {
             engine.logEvent(event)
         }

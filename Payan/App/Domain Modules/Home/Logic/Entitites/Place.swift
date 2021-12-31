@@ -8,6 +8,7 @@
 import Foundation
 
 struct Place: Decodable {
+    var code: String = ""
     var name: String
     var type: PlaceCategory
     var imageUrl: String = "https://media.traveler.es/photos/61376f8bd4923f67e298ef5b/master/w_1600,c_limit/130738.jpg"
@@ -15,7 +16,7 @@ struct Place: Decodable {
     var foundationYear: String = ""
     
     enum CodingKeys: String, CodingKey {
-        case name, description, foundationYear
+        case name, description, foundationYear, code
         case imageUrl = "image"
         case type = "category"
     }
@@ -28,6 +29,7 @@ enum PlaceCategory: String, Decodable {
     case church = "CHURCH"
 }
 
+#if DEBUG
 // MARK: - Dummy data
 extension Place {
     static let dummyFavorites = [
@@ -42,3 +44,4 @@ extension Place {
         Place(name: "Casa museo Guillero León Valencia", type: .museum)
     ]
 }
+#endif

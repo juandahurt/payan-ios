@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AnalyticsEvent {
-    var name: String
-    var params: [String: Any]?
+protocol AnalyticsEvent {
+    var name: String { get }
+    var params: [String: Any]? { get }
 }
