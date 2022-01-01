@@ -57,7 +57,7 @@ struct MapView: View {
                             presenter.showPlace(place)
                             presenter.selectedPlace = nil
                         }) {
-                            presenter.selectedPlace = place
+                            presenter.selectedPlace = nil
                         }
                             .frame(width: geometry.size.width - 30, height: geometry.size.height / 3)
                         Spacer(minLength: 0)
