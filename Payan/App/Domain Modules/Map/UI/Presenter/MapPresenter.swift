@@ -10,6 +10,7 @@ import RxSwift
 
 protocol MapViewInput: ObservableObject {
     var places: [Place] { get }
+    var selectedPlace: Place? { get }
 }
 
 protocol MapViewOutput {
@@ -20,6 +21,7 @@ protocol MapViewOutput {
 final class MapPresenter: MapViewInput, MapViewOutput, ObservableObject, BasePresenter {
     var router: MapRouter
     @Published var places: [Place] = []
+    @Published var selectedPlace: Place?
     private let interactor: AnyMapInteractor
     private let disposeBag = DisposeBag()
     

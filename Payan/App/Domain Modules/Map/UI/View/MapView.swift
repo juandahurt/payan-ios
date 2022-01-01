@@ -20,7 +20,6 @@ struct MapView: View {
         )
     )
     @ObservedObject private var presenter: MapPresenter
-    @State private var selectedPlace: Place?
     
     init(presenter: MapPresenter) {
         self.presenter = presenter
@@ -34,7 +33,7 @@ struct MapView: View {
                     anchorPoint: .init(x: 0.5, y: 0.5)
                 ) {
                     PlaceAnnotationView(category: place.type) {
-                        selectedPlace = place
+                        presenter.selectedPlace = place
                         withAnimation(.easeIn) {
                             region.center = place.coordinate
                         }
@@ -46,15 +45,19 @@ struct MapView: View {
                         presenter.getPlaces()
                     }
                 }
-            if let place = selectedPlace {
+                .onDisappear {
+                    presenter.selectedPlace = nil
+                }
+            if let place = presenter.selectedPlace {
                 VStack {
                     Spacer()
                     HStack {
                         Spacer(minLength: 0)
                         SelectedPlaceView(in: geometry.size, place: place, seeMoreOnTap: {
                             presenter.showPlace(place)
+                            presenter.selectedPlace = nil
                         }) {
-                            selectedPlace = nil
+                            presenter.selectedPlace = place
                         }
                             .frame(width: geometry.size.width - 30, height: geometry.size.height / 3)
                         Spacer(minLength: 0)
