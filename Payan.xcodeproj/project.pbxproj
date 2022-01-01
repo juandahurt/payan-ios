@@ -75,6 +75,7 @@
 		3DB61EAD277FCE1E00F00091 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EAC277FCE1E00F00091 /* MapDataManager.swift */; };
 		3DB61EB0277FCE5D00F00091 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */; };
 		3DB61EB3277FE45C00F00091 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */; };
+		3DB61EB5277FFF7100F00091 /* SelectedPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */; };
 		3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */; };
 		3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */; };
 		3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */; };
@@ -182,6 +183,7 @@
 		3DB61EAC277FCE1E00F00091 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
 		3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
+		3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceView.swift; sourceTree = "<group>"; };
 		3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsAppDelegate.swift; sourceTree = "<group>"; };
@@ -808,6 +810,7 @@
 			isa = PBXGroup;
 			children = (
 				3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */,
+				3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1298,6 +1301,7 @@
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */,
+				3DB61EB5277FFF7100F00091 /* SelectedPlaceView.swift in Sources */,
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
 				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,

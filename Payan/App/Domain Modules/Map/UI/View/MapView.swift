@@ -15,34 +15,50 @@ struct MapView: View {
             longitude: -76.6147
         ),
         span: MKCoordinateSpan(
-            latitudeDelta: 0.2,
-            longitudeDelta: 0.2
+            latitudeDelta: 0.035,
+            longitudeDelta: 0.035
         )
     )
     @ObservedObject private var presenter: MapPresenter
+    @State private var selectedPlace: Place?
     
     init(presenter: MapPresenter) {
         self.presenter = presenter
     }
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: presenter.places) { place in
-            MapAnnotation(
-                coordinate: place.coordinate,
-                anchorPoint: .init(x: 0.5, y: 0.5)
-            ) {
-                PlaceAnnotationView(category: place.type) {
-                    withAnimation(.easeIn) {
-                        region.center = place.coordinate
+        GeometryReader { geometry in
+            Map(coordinateRegion: $region, annotationItems: presenter.places) { place in
+                MapAnnotation(
+                    coordinate: place.coordinate,
+                    anchorPoint: .init(x: 0.5, y: 0.5)
+                ) {
+                    PlaceAnnotationView(category: place.type) {
+                        selectedPlace = place
+                        withAnimation(.easeIn) {
+                            region.center = place.coordinate
+                        }
+                    }
+                }
+            }
+                .onAppear {
+                    if presenter.places.isEmpty {
+                        presenter.getPlaces()
+                    }
+                }
+            if let place = selectedPlace {
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer(minLength: 0)
+                        SelectedPlaceView(in: geometry.size, place: place) {
+                            selectedPlace = nil
+                        }
+                            .frame(width: geometry.size.width - 30, height: geometry.size.height / 3)
+                        Spacer(minLength: 0)
                     }
                 }
             }
         }
-            .onAppear {
-                if presenter.places.isEmpty {
-                    presenter.getPlaces()
-                }
-            }
-            .colorScheme(.dark)
     }
 }
