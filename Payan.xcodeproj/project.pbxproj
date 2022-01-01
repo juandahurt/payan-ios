@@ -69,6 +69,12 @@
 		3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5327333FA700CC107B /* SecondaryButton.swift */; };
 		3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* SquishableButton.swift */; };
 		3DA9C8FB277CC92100E5588E /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9C8FA277CC92100E5588E /* Fact.swift */; };
+		3DB61EA2277FA9AE00F00091 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EA1277FA9AD00F00091 /* MapModule.swift */; };
+		3DB61EA6277FAA4D00F00091 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EA5277FAA4D00F00091 /* MapView.swift */; };
+		3DB61EA9277FCDA100F00091 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EA8277FCDA100F00091 /* MapPresenter.swift */; };
+		3DB61EAD277FCE1E00F00091 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EAC277FCE1E00F00091 /* MapDataManager.swift */; };
+		3DB61EB0277FCE5D00F00091 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */; };
+		3DB61EB3277FE45C00F00091 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */; };
 		3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */; };
 		3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */; };
 		3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */; };
@@ -170,6 +176,12 @@
 		3DA93B5327333FA700CC107B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		3DA93B5627333FE000CC107B /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
 		3DA9C8FA277CC92100E5588E /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
+		3DB61EA1277FA9AD00F00091 /* MapModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModule.swift; sourceTree = "<group>"; };
+		3DB61EA5277FAA4D00F00091 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3DB61EA8277FCDA100F00091 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		3DB61EAC277FCE1E00F00091 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
+		3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
 		3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsAppDelegate.swift; sourceTree = "<group>"; };
@@ -731,6 +743,75 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		3DB61EA0277FA9A100F00091 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EAB277FCE0E00F00091 /* Data */,
+				3DB61EAA277FCE0100F00091 /* Logic */,
+				3DB61EA3277FAA3900F00091 /* UI */,
+				3DB61EA1277FA9AD00F00091 /* MapModule.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		3DB61EA3277FAA3900F00091 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EA7277FCD8B00F00091 /* Presenter */,
+				3DB61EA4277FAA4000F00091 /* View */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3DB61EA4277FAA4000F00091 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EB1277FE44100F00091 /* Components */,
+				3DB61EA5277FAA4D00F00091 /* MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3DB61EA7277FCD8B00F00091 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EA8277FCDA100F00091 /* MapPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3DB61EAA277FCE0100F00091 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EAE277FCE5100F00091 /* Interactor */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		3DB61EAB277FCE0E00F00091 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EAC277FCE1E00F00091 /* MapDataManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3DB61EAE277FCE5100F00091 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		3DB61EB1277FE44100F00091 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		3DB9D542277F54ED00E4D45A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -938,6 +1019,7 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3DB61EA0277FA9A100F00091 /* Map */,
 				3DEC9C7A27431A300062BACF /* Place */,
 				3DA93B3A2732FB4D00CC107B /* App Update */,
 				3D79ACE02724D08D00ECB567 /* Launch */,
@@ -1190,6 +1272,7 @@
 				3DEC9C7D27431A750062BACF /* PlaceModule.swift in Sources */,
 				3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
+				3DB61EA9277FCDA100F00091 /* MapPresenter.swift in Sources */,
 				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
 				3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
@@ -1211,6 +1294,7 @@
 				3DEC9C9127431BF70062BACF /* PlacePresenter.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
 				3DCE7ECB2746E7F500860232 /* PlaceDetails.swift in Sources */,
+				3DB61EA2277FA9AE00F00091 /* MapModule.swift in Sources */,
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */,
@@ -1225,6 +1309,8 @@
 				3D69C11F27446FEA002982B3 /* UtilButton.swift in Sources */,
 				3D79ACA927239DA900ECB567 /* RESTError.swift in Sources */,
 				3D3A384A270A53D300E2EF94 /* HomeModule.swift in Sources */,
+				3DB61EAD277FCE1E00F00091 /* MapDataManager.swift in Sources */,
+				3DB61EA6277FAA4D00F00091 /* MapView.swift in Sources */,
 				3D5402BA2778CA2F00256BCD /* HeaderView.swift in Sources */,
 				3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */,
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
@@ -1236,6 +1322,7 @@
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
 				3D496F99277E518C009BFF74 /* PlaceInteractor.swift in Sources */,
+				3DB61EB0277FCE5D00F00091 /* MapInteractor.swift in Sources */,
 				3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */,
 				3D4A51D0271BE2F900A7E0C1 /* HomeSectionItem.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
@@ -1243,6 +1330,7 @@
 				3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */,
 				3DA9C8FB277CC92100E5588E /* Fact.swift in Sources */,
 				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,
+				3DB61EB3277FE45C00F00091 /* PlaceAnnotationView.swift in Sources */,
 				3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
