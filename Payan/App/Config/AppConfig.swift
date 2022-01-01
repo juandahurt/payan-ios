@@ -24,5 +24,5 @@ struct AppConfig {
 
 enum AppEnvironment: String {
     case dev = "dev"
-    case test = "test"
+    case prod = "prod"
 }

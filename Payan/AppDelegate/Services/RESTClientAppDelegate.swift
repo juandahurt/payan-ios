@@ -16,8 +16,8 @@ class RESTClientAppDelegate: NSObject, UIApplicationDelegate {
         case .dev:
             baseUrl = "https://payan-dev.herokuapp.com/"
             break
-        case .test:
-            baseUrl = "https://payan-test.herokuapp.com/"
+        case .prod:
+            baseUrl = "https://payan-prod.herokuapp.com/"
         }
         RESTClient.provideBaseUrl(baseUrl)
         
