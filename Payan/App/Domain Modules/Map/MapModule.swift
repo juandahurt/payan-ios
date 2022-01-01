@@ -14,7 +14,8 @@ class MapModule {
     
     private init(navigationController: UINavigationController) {
         let interactor = MapInteractor(dataManager: RESTMapDataManager())
-        let presenter = MapPresenter(interactor: interactor)
+        let router = MapRouter(navigationController: navigationController)
+        let presenter = MapPresenter(interactor: interactor, router: router)
         associatedViewController = UIHostingController(rootView: MapView(presenter: presenter))
         
         let title = "Mapa"

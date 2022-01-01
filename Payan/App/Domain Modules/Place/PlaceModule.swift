@@ -33,4 +33,10 @@ final class PlaceModule {
         let presenter = PlacePresenter(place: dataSource.providePlace(), router: router, interactor: interactor)
         router.show(using: presenter)
     }
+    
+    func show(place: Place) {
+        let interactor = PlaceInteractor()
+        let presenter = PlacePresenter(place: place, router: router, interactor: interactor)
+        router.show(using: presenter)
+    }
 }

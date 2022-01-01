@@ -14,15 +14,18 @@ protocol MapViewInput: ObservableObject {
 
 protocol MapViewOutput {
     func getPlaces()
+    func showPlace(_ place: Place)
 }
 
-final class MapPresenter: MapViewInput, MapViewOutput, ObservableObject {
+final class MapPresenter: MapViewInput, MapViewOutput, ObservableObject, BasePresenter {
+    var router: MapRouter
     @Published var places: [Place] = []
     private let interactor: AnyMapInteractor
     private let disposeBag = DisposeBag()
     
-    init(interactor: AnyMapInteractor) {
+    init(interactor: AnyMapInteractor, router: MapRouter) {
         self.interactor = interactor
+        self.router = router
     }
     
     func getPlaces() {
@@ -30,5 +33,9 @@ final class MapPresenter: MapViewInput, MapViewOutput, ObservableObject {
             guard let self = self else { return }
             self.places = places
         }).disposed(by: disposeBag)
+    }
+    
+    func showPlace(_ place: Place) {
+        router.showPlace(place: place)
     }
 }

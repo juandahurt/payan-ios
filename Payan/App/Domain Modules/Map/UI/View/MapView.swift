@@ -51,7 +51,9 @@ struct MapView: View {
                     Spacer()
                     HStack {
                         Spacer(minLength: 0)
-                        SelectedPlaceView(in: geometry.size, place: place) {
+                        SelectedPlaceView(in: geometry.size, place: place, seeMoreOnTap: {
+                            presenter.showPlace(place)
+                        }) {
                             selectedPlace = nil
                         }
                             .frame(width: geometry.size.width - 30, height: geometry.size.height / 3)

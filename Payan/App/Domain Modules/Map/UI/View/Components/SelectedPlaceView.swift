@@ -13,11 +13,13 @@ struct SelectedPlaceView: View {
     private let place: Place
     private let size: CGSize
     
+    var seeMoreOnTap: (() -> Void)?
     var onCloseTap: (() -> Void)?
     
-    init(in size: CGSize, place: Place, onCloseTap: (() -> Void)?) {
+    init(in size: CGSize, place: Place, seeMoreOnTap: (() -> Void)?,onCloseTap: (() -> Void)?) {
         self.size = size
         self.place = place
+        self.seeMoreOnTap = seeMoreOnTap
         self.onCloseTap = onCloseTap
     }
     
@@ -56,6 +58,9 @@ struct SelectedPlaceView: View {
                 .font(Font(AppStyle.Font.get(.semiBold, size: .title) as CTFont))
                 .foregroundColor(.white)
         }.frame(width: size.width - 80, height: 45)
+            .onTapGesture {
+                seeMoreOnTap?()
+            }
     }
     
     var body: some View {

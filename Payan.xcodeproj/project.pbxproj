@@ -76,6 +76,7 @@
 		3DB61EB0277FCE5D00F00091 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */; };
 		3DB61EB3277FE45C00F00091 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */; };
 		3DB61EB5277FFF7100F00091 /* SelectedPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */; };
+		3DB61EB82780A35600F00091 /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB72780A35600F00091 /* MapRouter.swift */; };
 		3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */; };
 		3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */; };
 		3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */; };
@@ -184,6 +185,7 @@
 		3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
 		3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceView.swift; sourceTree = "<group>"; };
+		3DB61EB72780A35600F00091 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
 		3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsAppDelegate.swift; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 		3DB61EA3277FAA3900F00091 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				3DB61EB62780A34C00F00091 /* Router */,
 				3DB61EA7277FCD8B00F00091 /* Presenter */,
 				3DB61EA4277FAA4000F00091 /* View */,
 			);
@@ -813,6 +816,14 @@
 				3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3DB61EB62780A34C00F00091 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3DB61EB72780A35600F00091 /* MapRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		3DB9D542277F54ED00E4D45A /* Services */ = {
@@ -1336,6 +1347,7 @@
 				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,
 				3DB61EB3277FE45C00F00091 /* PlaceAnnotationView.swift in Sources */,
 				3DD65DC3270CD2C90058273D /* PlaceCell.swift in Sources */,
+				3DB61EB82780A35600F00091 /* MapRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
