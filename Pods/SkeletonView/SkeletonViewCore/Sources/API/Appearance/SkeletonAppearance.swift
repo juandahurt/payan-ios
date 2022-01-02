@@ -26,7 +26,9 @@ public class SkeletonViewAppearance {
     public var gradient = SkeletonGradient(baseColor: .skeletonDefault)
 
     public var multilineHeight: CGFloat = 15
-
+    
+    public lazy var textLineHeight: SkeletonTextLineHeight = .fixed(SkeletonAppearance.default.multilineHeight)
+    
     public var multilineSpacing: CGFloat = 10
 
     public var multilineLastLineFillPercent: Int = 70

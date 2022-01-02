@@ -171,6 +171,8 @@
 		3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppUpdateViewController.xib; sourceTree = "<group>"; };
 		3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBottomSheet.swift; sourceTree = "<group>"; };
 		3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIBottomSheet.xib; sourceTree = "<group>"; };
+		3DA1113B27823AF6008DF4DE /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		3DA1113C27823B02008DF4DE /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateModule.swift; sourceTree = "<group>"; };
 		3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdatePresenter.swift; sourceTree = "<group>"; };
@@ -222,6 +224,8 @@
 		3DF708FE26F2B2FC00FD24CF /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		3DF7090126F2B41600FD24CF /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		849CAD1D4BFE119895F955FB /* Pods_Payan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Payan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B15C50A352C61D9016E724 /* Pods-Payan.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.development.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.development.xcconfig"; sourceTree = "<group>"; };
+		95E8E6B3C87CC0DBF75F7DDF /* Pods-Payan.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.production.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.production.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1004,6 +1008,8 @@
 				3DF708D126F2A4DB00FD24CF /* App */,
 				3DF708CA26F2A4D300FD24CF /* Info.plist */,
 				3D496F8F277E4C90009BFF74 /* GoogleService-Info.plist */,
+				3DA1113B27823AF6008DF4DE /* Development.xcconfig */,
+				3DA1113C27823B02008DF4DE /* Production.xcconfig */,
 			);
 			path = Payan;
 			sourceTree = "<group>";
@@ -1122,6 +1128,8 @@
 			children = (
 				2E7408D7FB0978814596FC7F /* Pods-Payan.debug.xcconfig */,
 				2767D1CEBE37CDFBD2B6A695 /* Pods-Payan.release.xcconfig */,
+				90B15C50A352C61D9016E724 /* Pods-Payan.development.xcconfig */,
+				95E8E6B3C87CC0DBF75F7DDF /* Pods-Payan.production.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1365,8 +1373,9 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		3DF708CB26F2A4D300FD24CF /* Debug */ = {
+		3DA1113927823AC0008DF4DE /* Production */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DA1113C27823B02008DF4DE /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1424,10 +1433,32 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Production;
 		};
-		3DF708CC26F2A4D300FD24CF /* Release */ = {
+		3DA1113A27823AC0008DF4DE /* Production */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95E8E6B3C87CC0DBF75F7DDF /* Pods-Payan.production.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9TP4HMDZ7W;
+				INFOPLIST_FILE = Payan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Payan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Production;
+		};
+		3DF708CB26F2A4D300FD24CF /* Development */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DA1113B27823AF6008DF4DE /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1460,11 +1491,17 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -1472,18 +1509,18 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Release;
+			name = Development;
 		};
-		3DF708CE26F2A4D300FD24CF /* Debug */ = {
+		3DF708CE26F2A4D300FD24CF /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E7408D7FB0978814596FC7F /* Pods-Payan.debug.xcconfig */;
+			baseConfigurationReference = 90B15C50A352C61D9016E724 /* Pods-Payan.development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1500,28 +1537,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
-		};
-		3DF708CF26F2A4D300FD24CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2767D1CEBE37CDFBD2B6A695 /* Pods-Payan.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9TP4HMDZ7W;
-				INFOPLIST_FILE = Payan/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = juandahurt.Payan;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
+			name = Development;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1529,20 +1545,20 @@
 		3DF708B426F2A4D200FD24CF /* Build configuration list for PBXProject "Payan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3DF708CB26F2A4D300FD24CF /* Debug */,
-				3DF708CC26F2A4D300FD24CF /* Release */,
+				3DF708CB26F2A4D300FD24CF /* Development */,
+				3DA1113927823AC0008DF4DE /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Development;
 		};
 		3DF708CD26F2A4D300FD24CF /* Build configuration list for PBXNativeTarget "Payan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3DF708CE26F2A4D300FD24CF /* Debug */,
-				3DF708CF26F2A4D300FD24CF /* Release */,
+				3DF708CE26F2A4D300FD24CF /* Development */,
+				3DA1113A27823AC0008DF4DE /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Development;
 		};
 /* End XCConfigurationList section */
 	};

@@ -74,7 +74,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.6.0):
     - GoogleUtilities/Logger
-  - Kingfisher (6.3.0)
+  - Kingfisher (7.1.2)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -87,7 +87,7 @@ PODS:
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
-  - SkeletonView (1.24.4)
+  - SkeletonView (1.26.0)
   - Willow (5.2.1)
 
 DEPENDENCIES:
@@ -124,13 +124,13 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: a3311dbcf3ea651e5a070fe8559b57c174ada081
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
-  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  Kingfisher: 44ed6a8504763f27bab46163adfac83f5deb240c
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  SkeletonView: c8632f212fcce7b7ba742c3d4a5af3596b5fa5ae
+  SkeletonView: 6b62a8ddbc64abb113ea3243e4a9979e5750f147
   Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
 PODFILE CHECKSUM: 3bbe029943eb79bedafc3abc874942a94da46cd2
