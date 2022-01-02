@@ -15,6 +15,7 @@
 		3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C3D270A67C600B593AD /* BasePresenter.swift */; };
 		3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C41270A693200B593AD /* MainPresenter.swift */; };
 		3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C4B270A74CA00B593AD /* Utility.swift */; };
+		3D0ECF792782496100847E0D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ECF782782496100847E0D /* Environment.swift */; };
 		3D13157526F92F4D00E451E0 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13157426F92F4D00E451E0 /* Credential.swift */; };
 		3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */; };
 		3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */; };
@@ -90,7 +91,6 @@
 		3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD65DC2270CD2C90058273D /* PlaceCell.xib */; };
 		3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65DC8270CD3920058273D /* HomeSection.swift */; };
 		3DDA079726F8E5D400016204 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA079626F8E5D400016204 /* MainButton.swift */; };
-		3DDA07B526F8EF1300016204 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA07B426F8EF1300016204 /* AppConfig.swift */; };
 		3DEC9C7D27431A750062BACF /* PlaceModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEC9C7C27431A750062BACF /* PlaceModule.swift */; };
 		3DEC9C8127431B340062BACF /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEC9C7F27431B340062BACF /* PlaceViewController.swift */; };
 		3DEC9C8227431B340062BACF /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEC9C8027431B340062BACF /* PlaceViewController.xib */; };
@@ -124,6 +124,7 @@
 		3D0E9C3D270A67C600B593AD /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
 		3D0E9C41270A693200B593AD /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		3D0E9C4B270A74CA00B593AD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		3D0ECF782782496100847E0D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		3D13157426F92F4D00E451E0 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 		3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
@@ -201,7 +202,6 @@
 		3DD65DC2270CD2C90058273D /* PlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceCell.xib; sourceTree = "<group>"; };
 		3DD65DC8270CD3920058273D /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		3DDA079626F8E5D400016204 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
-		3DDA07B426F8EF1300016204 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		3DEC9C7C27431A750062BACF /* PlaceModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModule.swift; sourceTree = "<group>"; };
 		3DEC9C7F27431B340062BACF /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
 		3DEC9C8027431B340062BACF /* PlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
@@ -913,7 +913,7 @@
 		3DDA07B326F8EECE00016204 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				3DDA07B426F8EF1300016204 /* AppConfig.swift */,
+				3D0ECF782782496100847E0D /* Environment.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -1273,7 +1273,6 @@
 				3D13157526F92F4D00E451E0 /* Credential.swift in Sources */,
 				3D8CCDEA2726351E00CB7EED /* AppVersionValidation.swift in Sources */,
 				3DEC9C8127431B340062BACF /* PlaceViewController.swift in Sources */,
-				3DDA07B526F8EF1300016204 /* AppConfig.swift in Sources */,
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
 				3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */,
 				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
@@ -1342,6 +1341,7 @@
 				3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */,
 				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,
 				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
+				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
 				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
 				3D496F99277E518C009BFF74 /* PlaceInteractor.swift in Sources */,

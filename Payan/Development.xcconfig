@@ -6,3 +6,4 @@
 //
 
 APP_NAME = Payan (dev)
+BASE_URL = https:/$()/payan-dev.herokuapp.com/

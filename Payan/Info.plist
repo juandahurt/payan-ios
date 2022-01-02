@@ -65,5 +65,7 @@
 	</array>
 	<key>FirebaseAutomaticScreenReportingEnabled</key>
 	<false/>
+	<key>API_URL</key>
+	<string>$(BASE_URL)</string>
 </dict>
 </plist>
