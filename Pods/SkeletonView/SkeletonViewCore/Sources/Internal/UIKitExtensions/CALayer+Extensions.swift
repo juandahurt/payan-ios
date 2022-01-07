@@ -108,7 +108,7 @@ private extension CALayer {
     
     func calculatedWidthForLine(at index: Int, totalLines: Int, lastLineFillPercent: Int, paddingInsets: UIEdgeInsets) -> CGFloat {
         var width = bounds.width - paddingInsets.left - paddingInsets.right
-        if index == totalLines - 1 && totalLines != 1 {
+        if index == totalLines - 1 {
             width = width * CGFloat(lastLineFillPercent) / 100
         }
         return width
@@ -188,6 +188,19 @@ extension CALayer {
                                    isRTL: config.isRTL
             )
         }
+        
+        guard config.shouldCenterVertically,
+              let maxY = currentSkeletonSublayers.last?.frame.maxY else {
+            return
+        }
+        let verticallyCenterAlignedFrames = currentSkeletonSublayers.map { layer -> CGRect in
+            let moveDownBy = (bounds.height - (maxY + paddingInsets.top + paddingInsets.bottom)) / 2
+            return layer.frame.offsetBy(dx: 0, dy: moveDownBy)
+        }
+        
+        for (index, layer) in currentSkeletonSublayers.enumerated() {
+            layer.frame = verticallyCenterAlignedFrames[index]
+        }
     }
 
     func updateLayerFrame(for index: Int, totalLines: Int, size: CGSize, multilineSpacing: CGFloat, paddingInsets: UIEdgeInsets, alignment: NSTextAlignment, isRTL: Bool) {
@@ -197,7 +210,7 @@ extension CALayer {
                               width: size.width,
                               height: size.height)
 
-        if index == totalLines - 1 && totalLines != 1 {
+        if index == totalLines - 1 {
             frame = alignLayerFrame(newFrame, alignment: alignment, isRTL: isRTL)
         } else {
             frame = newFrame

@@ -1,0 +1,9 @@
+//
+//  Development.xcconfig
+//  Payan
+//
+//  Created by juandahurt on 2/01/22.
+//
+
+APP_NAME = Payan (dev)
+BASE_URL = https:/$()/payan-dev.herokuapp.com/
