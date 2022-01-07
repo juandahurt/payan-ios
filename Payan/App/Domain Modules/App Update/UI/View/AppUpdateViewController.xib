@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppUpdateViewController" customModule="Payan" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionTextView" destination="OT5-eA-79x" id="Zlt-YY-IND"/>
+                <outlet property="dismissButton" destination="hb1-st-ulh" id="3nM-mK-fML"/>
+                <outlet property="dismissButtonHeight" destination="B5H-DA-air" id="5Ig-RD-q2E"/>
+                <outlet property="titleLabel" destination="ZC7-0l-SvX" id="oPd-Nl-rS3"/>
+                <outlet property="updateButton" destination="CQe-FD-Q7a" id="YMa-Bg-0CM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="297" height="266"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQe-FD-Q7a" customClass="MainButton" customModule="Payan" customModuleProvider="target">
+                    <rect key="frame" x="20" y="159" width="257" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="t1p-gS-xDN"/>
+                    </constraints>
+                    <state key="normal" title="Update"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZC7-0l-SvX">
+                    <rect key="frame" x="15" y="15" width="267" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OT5-eA-79x">
+                    <rect key="frame" x="15" y="52" width="267" height="92"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb1-st-ulh" customClass="SecondaryButton" customModule="Payan" customModuleProvider="target">
+                    <rect key="frame" x="20" y="211" width="257" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="B5H-DA-air"/>
+                    </constraints>
+                    <state key="normal" title="Dismiss"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="Background"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hb1-st-ulh" secondAttribute="trailing" constant="20" id="8ji-px-cRj"/>
+                <constraint firstItem="CQe-FD-Q7a" firstAttribute="top" secondItem="OT5-eA-79x" secondAttribute="bottom" constant="15" id="AxM-OM-kcy"/>
+                <constraint firstAttribute="trailing" secondItem="ZC7-0l-SvX" secondAttribute="trailing" constant="15" id="DHJ-Y2-uKO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CQe-FD-Q7a" secondAttribute="trailing" constant="20" id="JGu-LG-AKm"/>
+                <constraint firstAttribute="bottom" secondItem="hb1-st-ulh" secondAttribute="bottom" constant="10" id="LtN-V4-et7"/>
+                <constraint firstItem="ZC7-0l-SvX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="N5o-Bq-d8M"/>
+                <constraint firstItem="OT5-eA-79x" firstAttribute="top" secondItem="ZC7-0l-SvX" secondAttribute="bottom" constant="16" id="RGC-jN-plY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OT5-eA-79x" secondAttribute="trailing" constant="15" id="Slg-Cn-9l8"/>
+                <constraint firstItem="CQe-FD-Q7a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="TNK-4j-TGd"/>
+                <constraint firstItem="hb1-st-ulh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="aic-nk-rqN"/>
+                <constraint firstItem="hb1-st-ulh" firstAttribute="top" secondItem="CQe-FD-Q7a" secondAttribute="bottom" constant="7" id="wSn-s3-4jO"/>
+                <constraint firstItem="OT5-eA-79x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="yFj-GY-FFi"/>
+                <constraint firstItem="ZC7-0l-SvX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="zkh-DL-mqF"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="18.115942028985508" y="-350.22321428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="Background">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
