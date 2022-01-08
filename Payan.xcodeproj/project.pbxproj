@@ -1549,7 +1549,7 @@
 				3DA1113927823AC0008DF4DE /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
+			defaultConfigurationName = Production;
 		};
 		3DF708CD26F2A4D300FD24CF /* Build configuration list for PBXNativeTarget "Payan" */ = {
 			isa = XCConfigurationList;
@@ -1558,7 +1558,7 @@
 				3DA1113A27823AC0008DF4DE /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Development;
+			defaultConfigurationName = Production;
 		};
 /* End XCConfigurationList section */
 	};
