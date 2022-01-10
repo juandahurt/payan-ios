@@ -1,0 +1,3 @@
+# Emogger
+
+An emoji logger!
