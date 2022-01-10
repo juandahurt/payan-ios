@@ -5,7 +5,7 @@ final class EmoggerTests: XCTestCase {
 
     func test_throw_empty_events() throws {
         do {
-            try Emogger.provideEvents([])
+            _ = try Emogger(events: [])
         } catch EmoggerError.emptyEvents {
             return
         } catch {
