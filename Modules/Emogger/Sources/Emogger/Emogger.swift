@@ -4,4 +4,8 @@ public struct Emogger {
             throw EmoggerError.emptyLevels
         }
     }
+    
+    public func log(_ message: String, level: LogLevel) {
+        print("\(level.emoji) \(message)")
+    }
 }

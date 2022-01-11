@@ -10,5 +10,9 @@ import Foundation
 public struct LogLevel {
     var emoji: String
     
-    static let debug = LogLevel(emoji: "")
+    public static let debug = LogLevel(emoji: "")
+    
+    public static let all: [LogLevel] = [
+        .debug
+    ]
 }
