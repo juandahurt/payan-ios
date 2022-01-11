@@ -1,7 +1,7 @@
 public struct Emogger {
-    public init(events: [LogEvent]) throws {
-        guard !events.isEmpty else {
-            throw EmoggerError.emptyEvents
+    public init(levels: [LogLevel]) throws {
+        guard !levels.isEmpty else {
+            throw EmoggerError.emptyLevels
         }
     }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 enum EmoggerError: Error {
-    case emptyEvents
+    case emptyLevels
 }
