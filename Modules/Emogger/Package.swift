@@ -11,7 +11,6 @@ let package = Package(
             targets: ["Emogger"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/Nike-Inc/Willow.git", from: "5.0.0")
     ],
     targets: [
         .target(
