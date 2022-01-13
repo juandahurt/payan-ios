@@ -4,8 +4,6 @@
 target 'Payan' do
   use_frameworks!
 
-  # Logger
-  pod 'Willow', '~> 5.0'
 
   # Rx
   pod 'RxSwift', '6.2.0'

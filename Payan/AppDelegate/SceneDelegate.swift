@@ -5,9 +5,9 @@
 //  Created by juandahurt on 15/09/21.
 //
 
-import UIKit
-import Willow
+import Emogger
 import SkeletonView
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -31,23 +31,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
-        Console.log("scene did disconnect", level: .event)
+        Emogger.shared.log("scene did disconnect", level: .event)
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
-        Console.log("scene did become active", level: .event)
+        Emogger.shared.log("scene did become active", level: .event)
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        Console.log("scene will resign active", level: .event)
+        Emogger.shared.log("scene will resign active", level: .event)
     }
 
     func sceneWillEnterForeground(_ scene: UIScene) {
-        Console.log("scene will enter foreground", level: .event)
+        Emogger.shared.log("scene will enter foreground", level: .event)
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
-        Console.log("scene did enter background", level: .event)
+        Emogger.shared.log("scene did enter background", level: .event)
     }
 }
 

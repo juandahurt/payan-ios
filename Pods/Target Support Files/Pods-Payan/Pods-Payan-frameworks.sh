@@ -187,7 +187,6 @@ if [[ "$CONFIGURATION" == "Development" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Willow/Willow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Production" ]]; then
@@ -202,7 +201,6 @@ if [[ "$CONFIGURATION" == "Production" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SkeletonView/SkeletonView.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Willow/Willow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

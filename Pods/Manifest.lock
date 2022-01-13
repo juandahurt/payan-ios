@@ -88,7 +88,6 @@ PODS:
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
   - SkeletonView (1.26.0)
-  - Willow (5.2.1)
 
 DEPENDENCIES:
   - FirebaseAnalytics
@@ -96,7 +95,6 @@ DEPENDENCIES:
   - RxCocoa (= 6.2.0)
   - RxSwift (= 6.2.0)
   - SkeletonView
-  - Willow (~> 5.0)
 
 SPEC REPOS:
   trunk:
@@ -114,7 +112,6 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SkeletonView
-    - Willow
 
 SPEC CHECKSUMS:
   FirebaseAnalytics: 319c9b3b1bdd400d60e2f415dff0c5f6959e6760
@@ -131,8 +128,7 @@ SPEC CHECKSUMS:
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SkeletonView: 6b62a8ddbc64abb113ea3243e4a9979e5750f147
-  Willow: a6310f9aedcb6f4de8c35b94fd3416a660ae9280
 
-PODFILE CHECKSUM: 5c008b6c73549d943aa2478f5a64587be2874598
+PODFILE CHECKSUM: 844a2d2e4b82668c0fe9dbd2f15ac97f96a80786
 
 COCOAPODS: 1.11.2
