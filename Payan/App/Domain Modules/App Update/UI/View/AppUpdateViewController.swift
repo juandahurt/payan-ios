@@ -5,6 +5,7 @@
 //  Created by juandahurt on 24/10/21.
 //
 
+import Emogger
 import UIKit
 import RxSwift
 
@@ -49,7 +50,7 @@ class AppUpdateViewController: UIViewController {
     }
     
     deinit {
-        Console.log("\(String(describing: Self.self)) is being deallocated", level: .debug)
+        Emogger.shared.log("\(String(describing: Self.self)) is being deallocated", level: .debug)
     }
     
     required init?(coder: NSCoder) {

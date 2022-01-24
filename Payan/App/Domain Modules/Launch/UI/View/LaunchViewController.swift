@@ -5,6 +5,7 @@
 //  Created by juandahurt on 23/10/21.
 //
 
+import Emogger
 import RxSwift
 import UIKit
 
@@ -47,12 +48,11 @@ class LaunchViewController: UIViewController {
     }
     
     deinit {
-        Console.log("\(String(describing: Self.self)) is being deallocated", level: .debug)
+        Emogger.shared.log("\(String(describing: Self.self)) is being deallocated", level: .debug)
     }
     
     required init?(coder: NSCoder) {
-        Console.log("init(coder:) has not been implemented", level: .error)
-        fatalError()
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Life cycle

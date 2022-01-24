@@ -5,6 +5,7 @@
 //  Created by juandahurt on 20/09/21.
 //
 
+import Emogger
 import Foundation
 import UIKit
 
@@ -29,7 +30,7 @@ class ScrollableViewController: UIViewController {
             let keyboardRect = keyboardValue.cgRectValue
             scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height + keyboardRect.height)
         } else {
-            Console.log("you must set a scroll view! Otherwise, the scroll won't work as you expect when the keyboard appears", level: .warn)
+            Emogger.shared.log("you must set a scroll view! Otherwise, the scroll won't work as you expect when the keyboard appears", level: .warning)
         }
     }
         

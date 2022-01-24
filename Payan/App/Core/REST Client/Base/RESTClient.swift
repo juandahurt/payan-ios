@@ -5,6 +5,7 @@
 //  Created by juandahurt on 22/10/21.
 //
 
+import Emogger
 import Foundation
 
 struct RESTClient {
@@ -12,8 +13,7 @@ struct RESTClient {
     static var shared: RESTClient {
         get {
             if _shared == nil {
-                Console.log("You must provide a base url! Use the `provideBaseUrl()` function", level: .error)
-                fatalError()
+                fatalError("You must provide a base url! Use the `provideBaseUrl()` function")
             }
             return _shared!
         }
@@ -36,7 +36,7 @@ extension RESTClient {
                 return disposable
             }
             
-            Console.log("calling endpoint: \(request.url!.absoluteString)", level: .network)
+            Emogger.shared.log("calling endpoint: \(request.url!.absoluteString)", level: .network)
             URLSession.shared.dataTask(with: request) { data, response, error in
                 if let error = error {
                     single(.failure(error))

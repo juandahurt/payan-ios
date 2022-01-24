@@ -51,8 +51,7 @@ final class LoginViewController: ScrollableViewController {
     }
     
     required init?(coder: NSCoder) {
-        Console.log("init(coder:) has not been implemented", level: .error)
-        fatalError()
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {

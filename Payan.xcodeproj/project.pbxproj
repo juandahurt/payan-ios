@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		3D3A384A270A53D300E2EF94 /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A3849270A53D300E2EF94 /* HomeModule.swift */; };
 		3D3A3850270A541400E2EF94 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A384E270A541400E2EF94 /* HomeViewController.swift */; };
 		3D3A3851270A541400E2EF94 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3A384F270A541400E2EF94 /* HomeViewController.xib */; };
+		3D3C031B278F953400771AC6 /* LoggerAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */; };
 		3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D426B3626F804F90019FEBA /* TextFieldForm.swift */; };
 		3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */; };
 		3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F86277E353C009BFF74 /* AnalyticsEngine.swift */; };
@@ -34,7 +35,6 @@
 		3D496F99277E518C009BFF74 /* PlaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F98277E518C009BFF74 /* PlaceInteractor.swift */; };
 		3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A51C9271BDEBE00A7E0C1 /* Place.swift */; };
 		3D4A51D0271BE2F900A7E0C1 /* HomeSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A51CF271BE2F900A7E0C1 /* HomeSectionItem.swift */; };
-		3D51100426F6AAB500D24DD9 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51100326F6AAB500D24DD9 /* Console.swift */; };
 		3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51101626F6CD7A00D24DD9 /* AppStyle.swift */; };
 		3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */; };
 		3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */; };
@@ -63,6 +63,7 @@
 		3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */; };
 		3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */; };
 		3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */; };
+		3D9DFDE7278D0E7B00FC9775 /* Emogger in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9DFDE6278D0E7B00FC9775 /* Emogger */; };
 		3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */; };
 		3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */; };
 		3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */; };
@@ -133,6 +134,7 @@
 		3D3A3849270A53D300E2EF94 /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
 		3D3A384E270A541400E2EF94 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3D3A384F270A541400E2EF94 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerAppDelegate.swift; sourceTree = "<group>"; };
 		3D426B3626F804F90019FEBA /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
 		3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		3D496F86277E353C009BFF74 /* AnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngine.swift; sourceTree = "<group>"; };
@@ -143,7 +145,6 @@
 		3D496F98277E518C009BFF74 /* PlaceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInteractor.swift; sourceTree = "<group>"; };
 		3D4A51C9271BDEBE00A7E0C1 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		3D4A51CF271BE2F900A7E0C1 /* HomeSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItem.swift; sourceTree = "<group>"; };
-		3D51100326F6AAB500D24DD9 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
 		3D51101626F6CD7A00D24DD9 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -234,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8987A13886C670080144F6EC /* Pods_Payan.framework in Frameworks */,
+				3D9DFDE7278D0E7B00FC9775 /* Emogger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,14 +427,6 @@
 			path = Entitites;
 			sourceTree = "<group>";
 		};
-		3D51100126F6AA7700D24DD9 /* Logger */ = {
-			isa = PBXGroup;
-			children = (
-				3D51100326F6AAB500D24DD9 /* Console.swift */,
-			);
-			path = Logger;
-			sourceTree = "<group>";
-		};
 		3D51100226F6AA9700D24DD9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,7 +549,6 @@
 			isa = PBXGroup;
 			children = (
 				3D79AC9A272391F200ECB567 /* UI */,
-				3D51100126F6AA7700D24DD9 /* Logger */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -836,6 +829,7 @@
 				3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */,
 				3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */,
 				3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */,
+				3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1160,6 +1154,9 @@
 			dependencies = (
 			);
 			name = Payan;
+			packageProductDependencies = (
+				3D9DFDE6278D0E7B00FC9775 /* Emogger */,
+			);
 			productName = Payan;
 			productReference = 3DF708B926F2A4D200FD24CF /* Payan.app */;
 			productType = "com.apple.product-type.application";
@@ -1323,6 +1320,7 @@
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
 				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,
+				3D3C031B278F953400771AC6 /* LoggerAppDelegate.swift in Sources */,
 				3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */,
 				3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */,
 				3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */,
@@ -1342,7 +1340,6 @@
 				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,
 				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
-				3D51100426F6AAB500D24DD9 /* Console.swift in Sources */,
 				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
 				3D496F99277E518C009BFF74 /* PlaceInteractor.swift in Sources */,
 				3DB61EB0277FCE5D00F00091 /* MapInteractor.swift in Sources */,
@@ -1563,6 +1560,13 @@
 			defaultConfigurationName = Production;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D9DFDE6278D0E7B00FC9775 /* Emogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Emogger;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DF708B126F2A4D200FD24CF /* Project object */;
 }
