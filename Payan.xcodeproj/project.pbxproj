@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F9AFAD027FA3626006DC8D6 /* Willow in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFACF27FA3626006DC8D6 /* Willow */; };
+		2F9AFAD327FA366B006DC8D6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD227FA366B006DC8D6 /* RxCocoa */; };
+		2F9AFAD527FA366B006DC8D6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD427FA366B006DC8D6 /* RxSwift */; };
+		2F9AFAD827FA36CB006DC8D6 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD727FA36CB006DC8D6 /* SkeletonView */; };
+		2F9AFADB27FA3701006DC8D6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFADA27FA3701006DC8D6 /* Kingfisher */; };
+		2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */; };
 		3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C1F270A59CC00B593AD /* MainViewController.swift */; };
 		3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */; };
 		3D0E9C2F270A63A800B593AD /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C2E270A63A800B593AD /* HomeRouter.swift */; };
@@ -111,12 +117,10 @@
 		3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708FB26F2B0AC00FD24CF /* LoginModule.swift */; };
 		3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708FE26F2B2FC00FD24CF /* LoginRouter.swift */; };
 		3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7090126F2B41600FD24CF /* LoginPresenter.swift */; };
-		8987A13886C670080144F6EC /* Pods_Payan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849CAD1D4BFE119895F955FB /* Pods_Payan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2767D1CEBE37CDFBD2B6A695 /* Pods-Payan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.release.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.release.xcconfig"; sourceTree = "<group>"; };
-		2E7408D7FB0978814596FC7F /* Pods-Payan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.debug.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.debug.xcconfig"; sourceTree = "<group>"; };
+		2F9AFAE027FA3AFF006DC8D6 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		3D0E9C1F270A59CC00B593AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3D0E9C2E270A63A800B593AD /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
@@ -224,9 +228,6 @@
 		3DF708FB26F2B0AC00FD24CF /* LoginModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
 		3DF708FE26F2B2FC00FD24CF /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		3DF7090126F2B41600FD24CF /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
-		849CAD1D4BFE119895F955FB /* Pods_Payan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Payan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90B15C50A352C61D9016E724 /* Pods-Payan.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.development.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.development.xcconfig"; sourceTree = "<group>"; };
-		95E8E6B3C87CC0DBF75F7DDF /* Pods-Payan.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Payan.production.xcconfig"; path = "Target Support Files/Pods-Payan/Pods-Payan.production.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,14 +235,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8987A13886C670080144F6EC /* Pods_Payan.framework in Frameworks */,
+				2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */,
+				2F9AFADB27FA3701006DC8D6 /* Kingfisher in Frameworks */,
+				2F9AFAD327FA366B006DC8D6 /* RxCocoa in Frameworks */,
+				2F9AFAD027FA3626006DC8D6 /* Willow in Frameworks */,
+				2F9AFAD527FA366B006DC8D6 /* RxSwift in Frameworks */,
 				3D9DFDE7278D0E7B00FC9775 /* Emogger in Frameworks */,
+				2F9AFAD827FA36CB006DC8D6 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F9AFADF27FA3AFF006DC8D6 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				2F9AFAE027FA3AFF006DC8D6 /* Emogger */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		3D0E9C26270A5E2500B593AD /* Tab Bar View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -980,10 +994,9 @@
 		3DF708B026F2A4D200FD24CF = {
 			isa = PBXGroup;
 			children = (
+				2F9AFADF27FA3AFF006DC8D6 /* Packages */,
 				3DF708BB26F2A4D200FD24CF /* Payan */,
 				3DF708BA26F2A4D200FD24CF /* Products */,
-				AA3FE27C50DAB7E89F681A09 /* Pods */,
-				B3C1402E0D8D0309DD12B754 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1117,25 +1130,6 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		AA3FE27C50DAB7E89F681A09 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2E7408D7FB0978814596FC7F /* Pods-Payan.debug.xcconfig */,
-				2767D1CEBE37CDFBD2B6A695 /* Pods-Payan.release.xcconfig */,
-				90B15C50A352C61D9016E724 /* Pods-Payan.development.xcconfig */,
-				95E8E6B3C87CC0DBF75F7DDF /* Pods-Payan.production.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		B3C1402E0D8D0309DD12B754 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				849CAD1D4BFE119895F955FB /* Pods_Payan.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1143,11 +1137,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3DF708CD26F2A4D300FD24CF /* Build configuration list for PBXNativeTarget "Payan" */;
 			buildPhases = (
-				770ABFB6267C75EC6089C85C /* [CP] Check Pods Manifest.lock */,
 				3DF708B526F2A4D200FD24CF /* Sources */,
 				3DF708B626F2A4D200FD24CF /* Frameworks */,
 				3DF708B726F2A4D200FD24CF /* Resources */,
-				2AF5CC5299441AF54A680A61 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1156,6 +1148,12 @@
 			name = Payan;
 			packageProductDependencies = (
 				3D9DFDE6278D0E7B00FC9775 /* Emogger */,
+				2F9AFACF27FA3626006DC8D6 /* Willow */,
+				2F9AFAD227FA366B006DC8D6 /* RxCocoa */,
+				2F9AFAD427FA366B006DC8D6 /* RxSwift */,
+				2F9AFAD727FA36CB006DC8D6 /* SkeletonView */,
+				2F9AFADA27FA3701006DC8D6 /* Kingfisher */,
+				2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */,
 			);
 			productName = Payan;
 			productReference = 3DF708B926F2A4D200FD24CF /* Payan.app */;
@@ -1184,6 +1182,13 @@
 				Base,
 			);
 			mainGroup = 3DF708B026F2A4D200FD24CF;
+			packageReferences = (
+				2F9AFACE27FA3626006DC8D6 /* XCRemoteSwiftPackageReference "Willow" */,
+				2F9AFAD127FA366B006DC8D6 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				2F9AFAD627FA36CB006DC8D6 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				2F9AFAD927FA3701006DC8D6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3DF708BA26F2A4D200FD24CF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1218,48 +1223,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2AF5CC5299441AF54A680A61 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Payan/Pods-Payan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Payan/Pods-Payan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Payan/Pods-Payan-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		770ABFB6267C75EC6089C85C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Payan-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3DF708B526F2A4D200FD24CF /* Sources */ = {
@@ -1434,7 +1397,6 @@
 		};
 		3DA1113A27823AC0008DF4DE /* Production */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95E8E6B3C87CC0DBF75F7DDF /* Pods-Payan.production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1518,7 +1480,6 @@
 		};
 		3DF708CE26F2A4D300FD24CF /* Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90B15C50A352C61D9016E724 /* Pods-Payan.development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1561,7 +1522,80 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		2F9AFACE27FA3626006DC8D6 /* XCRemoteSwiftPackageReference "Willow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Nike-Inc/Willow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		2F9AFAD127FA366B006DC8D6 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		2F9AFAD627FA36CB006DC8D6 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		2F9AFAD927FA3701006DC8D6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		2F9AFACF27FA3626006DC8D6 /* Willow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F9AFACE27FA3626006DC8D6 /* XCRemoteSwiftPackageReference "Willow" */;
+			productName = Willow;
+		};
+		2F9AFAD227FA366B006DC8D6 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F9AFAD127FA366B006DC8D6 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		2F9AFAD427FA366B006DC8D6 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F9AFAD127FA366B006DC8D6 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		2F9AFAD727FA36CB006DC8D6 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F9AFAD627FA36CB006DC8D6 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
+		2F9AFADA27FA3701006DC8D6 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F9AFAD927FA3701006DC8D6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
 		3D9DFDE6278D0E7B00FC9775 /* Emogger */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Emogger;
