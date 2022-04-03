@@ -26,7 +26,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="Background"/>
+                        <color key="backgroundColor" name="G3"/>
                         <constraints>
                             <constraint firstItem="1c5-wv-ZsW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1q1-1I-9H1"/>
                             <constraint firstItem="1c5-wv-ZsW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uh8-hr-rHE"/>
@@ -40,8 +40,8 @@
     </scenes>
     <resources>
         <image name="lantern" width="20" height="30"/>
-        <namedColor name="Background">
-            <color red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="G3">
+            <color red="0.41960784313725491" green="0.46666666666666667" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
