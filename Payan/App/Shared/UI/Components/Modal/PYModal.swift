@@ -51,6 +51,7 @@ class PYModal: UIView {
         UIView.animate(withDuration: backgroundAnimationDuration, delay: 0, options: [.curveEaseIn], animations: { [weak self] in
             guard let self = self else { return }
             self.backgroundColor = .black.withAlphaComponent(0.75)
+            self.dismissButton.layer.opacity = 1
         }) { _ in
             completion?()
         }
@@ -80,6 +81,7 @@ class PYModal: UIView {
         container.layer.cornerRadius = 8
         container.backgroundColor = .white
         container.layer.opacity = 0
+        dismissButton.layer.opacity = 0
         titleLabel.textColor = .black.withAlphaComponent(0.9)
         titleLabel.font = AppStyle.Font.get(.medium, size: .title)
         contentLabel.textColor = .black.withAlphaComponent(0.9)
