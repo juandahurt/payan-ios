@@ -41,16 +41,18 @@ class PYModal: UIView {
     }
     
     private func presentModal() {
-        showBackground()
+        showBackground { [weak self] in
+            guard let self = self else { return }
+            self.showContainer()
+        }
     }
     
-    private func showBackground() {
+    private func showBackground(completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: backgroundAnimationDuration, delay: 0, options: [.curveEaseIn], animations: { [weak self] in
             guard let self = self else { return }
             self.backgroundColor = .black.withAlphaComponent(0.75)
-        }) { [weak self] a in
-            guard let self = self else { return }
-            self.showContainer()
+        }) { _ in
+            completion?()
         }
     }
     
@@ -84,5 +86,36 @@ class PYModal: UIView {
         contentLabel.font = AppStyle.Font.get(.regular, size: .subtitle)
         backgroundColor = .clear
         verticalConstraint.constant = UIScreen.main.bounds.height
+        
+        dismissButton.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
+    }
+    
+    @objc
+    private func dismissModal() {
+        hideContainer { [weak self] in
+            guard let self = self else { return }
+            self.hideBackground() {
+                self.removeFromSuperview()
+            }
+        }
+    }
+    
+    private func hideBackground(completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: backgroundAnimationDuration, delay: 0, options: [.curveEaseIn], animations: { [weak self] in
+            guard let self = self else { return }
+            self.backgroundColor = .black.withAlphaComponent(0)
+        }) { _ in
+            completion?()
+        }
+    }
+    
+    private func hideContainer(completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: containerAnimationDuration, delay: 0, options: [.curveEaseOut], animations: { [weak self] in
+            guard let self = self else { return }
+            self.verticalConstraint.constant = UIScreen.main.bounds.height
+            self.layoutIfNeeded()
+        }) { _ in
+            completion?()
+        }
     }
 }
