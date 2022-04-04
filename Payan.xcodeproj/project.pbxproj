@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
 		2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4C8E8E27FA514200AC9C54 /* PYModal.xib */; };
 		2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9027FA528F00AC9C54 /* PYModal.swift */; };
 		2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */; };
@@ -126,6 +127,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
 		2F4C8E8E27FA514200AC9C54 /* PYModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYModal.xib; sourceTree = "<group>"; };
 		2F4C8E9027FA528F00AC9C54 /* PYModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModal.swift; sourceTree = "<group>"; };
 		2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 				3DA93B5327333FA700CC107B /* SecondaryButton.swift */,
 				3DA93B5627333FE000CC107B /* SquishableButton.swift */,
 				3D69C11E27446FEA002982B3 /* UtilButton.swift */,
+				2F34D96327FB85C300E0B2E1 /* PYButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1319,6 +1322,7 @@
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */,
+				2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */,
 				3DB61EB5277FFF7100F00091 /* SelectedPlaceView.swift in Sources */,
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
