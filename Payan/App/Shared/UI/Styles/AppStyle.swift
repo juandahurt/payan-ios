@@ -43,6 +43,7 @@ struct AppStyle {
         
         enum Weight: String {
             case regular = "Poppins-Regular"
+            case medium = "Poppins-Medium"
             case semiBold = "Poppins-SemiBold"
         }
         

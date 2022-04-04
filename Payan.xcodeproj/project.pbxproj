@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4C8E8E27FA514200AC9C54 /* PYModal.xib */; };
+		2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9027FA528F00AC9C54 /* PYModal.swift */; };
+		2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */; };
+		2F4C8E9627FA552000AC9C54 /* PYModalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */; };
+		2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */; };
 		2F9AFAD027FA3626006DC8D6 /* Willow in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFACF27FA3626006DC8D6 /* Willow */; };
 		2F9AFAD327FA366B006DC8D6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD227FA366B006DC8D6 /* RxCocoa */; };
 		2F9AFAD527FA366B006DC8D6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD427FA366B006DC8D6 /* RxSwift */; };
@@ -120,6 +125,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F4C8E8E27FA514200AC9C54 /* PYModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYModal.xib; sourceTree = "<group>"; };
+		2F4C8E9027FA528F00AC9C54 /* PYModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModal.swift; sourceTree = "<group>"; };
+		2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
+		2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModalManager.swift; sourceTree = "<group>"; };
+		2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		2F9AFAE027FA3AFF006DC8D6 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		3D0E9C1F270A59CC00B593AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +258,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F4C8E8727FA4ED100AC9C54 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				2F4C8E8E27FA514200AC9C54 /* PYModal.xib */,
+				2F4C8E9027FA528F00AC9C54 /* PYModal.swift */,
+				2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		2F4C8E9227FA545200AC9C54 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2F9AFADF27FA3AFF006DC8D6 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +472,7 @@
 		3D51100226F6AA9700D24DD9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2F4C8E9227FA545200AC9C54 /* Extensions */,
 				3D6678B7271279BF00A34C70 /* Preview */,
 				3DC9BFEF26F98D8D00D4DE6E /* Scroll */,
 				3D51104326F7166600D24DD9 /* Loadable */,
@@ -464,6 +493,7 @@
 		3D51102626F6D52500D24DD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2F4C8E8727FA4ED100AC9C54 /* Modal */,
 				3DF1E8F3273C335D002466E0 /* Carousel */,
 				3D67706E273C1A5100FE1E55 /* Squishable View */,
 				3D8CCDEB2726382E00CB7EED /* Bottom Sheet */,
@@ -496,6 +526,7 @@
 		3D51103026F70DE000D24DD9 /* Poppins */ = {
 			isa = PBXGroup;
 			children = (
+				2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */,
 				3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */,
 				3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */,
 			);
@@ -1209,6 +1240,7 @@
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */,
 				3DCE7EC62746B38F00860232 /* PlaceDescriptionViewController.xib in Resources */,
+				2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */,
 				3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */,
 				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
@@ -1217,6 +1249,7 @@
 				3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */,
 				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
 				3DD65DC4270CD2C90058273D /* PlaceCell.xib in Resources */,
+				2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* HomeViewController.xib in Resources */,
 			);
@@ -1249,6 +1282,7 @@
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
 				3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */,
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
+				2F4C8E9627FA552000AC9C54 /* PYModalManager.swift in Sources */,
 				3DEC9C8E27431B980062BACF /* PlaceRouter.swift in Sources */,
 				3DEC9C7D27431A750062BACF /* PlaceModule.swift in Sources */,
 				3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */,
@@ -1257,8 +1291,10 @@
 				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
 				3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
+				2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
 				3D8CCDE4272613BF00CB7EED /* AppVersion.swift in Sources */,
+				2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */,
 				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
 				3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */,
 				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
