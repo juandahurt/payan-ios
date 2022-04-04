@@ -57,10 +57,9 @@ class PYModal: UIView {
     }
     
     private func showContainer() {
-        UIView.animate(withDuration: containerAnimationDuration, delay: 0, options: [.curveEaseOut]) { [weak self] in
+        UIView.animate(withDuration: containerAnimationDuration, delay: 0.2, options: [.curveLinear]) { [weak self] in
             guard let self = self else { return }
-            self.verticalConstraint.constant = 0
-            self.layoutIfNeeded()
+            self.container.layer.opacity = 1
         }
     }
     
@@ -80,13 +79,12 @@ class PYModal: UIView {
         container.layer.masksToBounds = true
         container.layer.cornerRadius = 8
         container.backgroundColor = .white
+        container.layer.opacity = 0
         titleLabel.textColor = .black.withAlphaComponent(0.9)
         titleLabel.font = AppStyle.Font.get(.medium, size: .title)
         contentLabel.textColor = .black.withAlphaComponent(0.9)
         contentLabel.font = AppStyle.Font.get(.regular, size: .subtitle)
         backgroundColor = .clear
-        verticalConstraint.constant = UIScreen.main.bounds.height
-        
         dismissButton.addTarget(self, action: #selector(dismissModal), for: .touchUpInside)
     }
     
@@ -101,7 +99,7 @@ class PYModal: UIView {
     }
     
     private func hideBackground(completion: (() -> Void)? = nil) {
-        UIView.animate(withDuration: backgroundAnimationDuration, delay: 0, options: [.curveEaseIn], animations: { [weak self] in
+        UIView.animate(withDuration: backgroundAnimationDuration, delay: 0.2, options: [.curveEaseIn], animations: { [weak self] in
             guard let self = self else { return }
             self.backgroundColor = .black.withAlphaComponent(0)
         }) { _ in
@@ -112,7 +110,8 @@ class PYModal: UIView {
     private func hideContainer(completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: containerAnimationDuration, delay: 0, options: [.curveEaseOut], animations: { [weak self] in
             guard let self = self else { return }
-            self.verticalConstraint.constant = UIScreen.main.bounds.height
+            self.dismissButton.layer.opacity = 0
+            self.container.layer.opacity = 0
             self.layoutIfNeeded()
         }) { _ in
             completion?()

@@ -49,10 +49,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gy3-od-IV9" customClass="MainButton" customModule="Payan" customModuleProvider="target">
-                                    <rect key="frame" x="131" y="170" width="90" height="48"/>
+                                    <rect key="frame" x="23" y="170" width="297" height="48"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="R0C-zx-D4b"/>
-                                        <constraint firstAttribute="width" constant="90" id="tF4-yt-R8j"/>
                                     </constraints>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" title="Actualizar"/>
@@ -60,11 +59,12 @@
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstItem="gy3-od-IV9" firstAttribute="centerX" secondItem="oET-am-kYL" secondAttribute="centerX" id="4no-hP-ia9"/>
                                 <constraint firstAttribute="bottom" secondItem="gy3-od-IV9" secondAttribute="bottom" constant="32" id="7KM-Nr-xKw"/>
                                 <constraint firstItem="UJA-rF-JnX" firstAttribute="leading" secondItem="oET-am-kYL" secondAttribute="leading" constant="32" id="L56-yl-O4n"/>
+                                <constraint firstAttribute="trailing" secondItem="gy3-od-IV9" secondAttribute="trailing" constant="32" id="Wg3-Yl-f5c"/>
                                 <constraint firstItem="IM4-QR-hPf" firstAttribute="top" secondItem="oET-am-kYL" secondAttribute="top" constant="32" id="flE-dd-EWi"/>
                                 <constraint firstItem="UJA-rF-JnX" firstAttribute="top" secondItem="IM4-QR-hPf" secondAttribute="bottom" constant="20" id="kDp-D9-6pl"/>
+                                <constraint firstItem="gy3-od-IV9" firstAttribute="leading" secondItem="oET-am-kYL" secondAttribute="leading" constant="23" id="kRM-IM-QuP"/>
                                 <constraint firstAttribute="height" constant="250" id="kzS-LR-8yN"/>
                                 <constraint firstAttribute="trailing" secondItem="ngT-Aj-NgK" secondAttribute="trailing" constant="32" id="oxX-0S-bzo"/>
                                 <constraint firstItem="ngT-Aj-NgK" firstAttribute="top" secondItem="UJA-rF-JnX" secondAttribute="bottom" constant="8" id="rCq-LX-J4C"/>

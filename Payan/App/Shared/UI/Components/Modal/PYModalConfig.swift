@@ -9,6 +9,7 @@ import Foundation
 
 
 struct PYModalConfig {
+    // TODO: Add image
     let height: Double
     let title: String
     let content: String
