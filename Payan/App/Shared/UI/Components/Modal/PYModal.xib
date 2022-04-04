@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="container" destination="oET-am-kYL" id="Ajz-bN-EaE"/>
                 <outlet property="contentLabel" destination="ngT-Aj-NgK" id="gH3-ee-N0o"/>
+                <outlet property="dismissButton" destination="TKB-IZ-14f" id="Buw-Ch-tUf"/>
                 <outlet property="heightConstraint" destination="kzS-LR-8yN" id="S13-V5-uwD"/>
                 <outlet property="titleLabel" destination="UJA-rF-JnX" id="h6I-JX-hFc"/>
                 <outlet property="verticalConstraint" destination="fJf-pn-twa" id="qOM-TQ-LVC"/>

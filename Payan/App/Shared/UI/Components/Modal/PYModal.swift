@@ -11,20 +11,20 @@ import UIKit
 
 class PYModal: UIView {
     @IBOutlet private weak var container: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var verticalConstraint: NSLayoutConstraint!
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var contentLabel: UILabel!
+    @IBOutlet private weak var verticalConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var dismissButton: UIButton!
     
     private let backgroundAnimationDuration = 0.3
     private let containerAnimationDuration = 0.4
-    private let defaultHeight = 250.0
     
-    init(frame: CGRect, height: Double) {
+    init(frame: CGRect, config: PYModalConfig) {
         super.init(frame: frame)
         
         setupFromNib()
-        setupView(height: height)
+        setupView(using: config)
     }
     
     required init?(coder: NSCoder) {
@@ -62,9 +62,12 @@ class PYModal: UIView {
         }
     }
     
-    private func setupView(height: Double) {
+    private func setupView(using config: PYModalConfig) {
         setupCommonUI()
-        heightConstraint.constant = height
+        titleLabel.text = config.title
+        contentLabel.text = config.content
+        heightConstraint.constant = config.height
+        dismissButton.isHidden = !config.isDismissable
     }
     
     private func setupView() {
@@ -81,8 +84,5 @@ class PYModal: UIView {
         contentLabel.font = AppStyle.Font.get(.regular, size: .subtitle)
         backgroundColor = .clear
         verticalConstraint.constant = UIScreen.main.bounds.height
-        
-        titleLabel.text = "¡Hay una nueva actualización disponible!"
-        contentLabel.text = "Te recomendamos actualizar la app para que puedas disfrutar de la mejor experiencia."
     }
 }

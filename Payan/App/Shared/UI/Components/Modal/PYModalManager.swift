@@ -22,8 +22,8 @@ final class PYModalManager {
         }
     }
     
-    func showModal(ofHeight height: Double, inside viewController: UIViewController) {
-        let modal = PYModal(frame: viewController.view.bounds, height: height)
+    func showModal(using config: PYModalConfig, inside viewController: UIViewController) {
+        let modal = PYModal(frame: viewController.view.bounds, config: config)
         viewController.view.addSubview(modal)
     }
 }

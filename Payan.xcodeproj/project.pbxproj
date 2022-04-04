@@ -12,6 +12,7 @@
 		2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */; };
 		2F4C8E9627FA552000AC9C54 /* PYModalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */; };
 		2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */; };
+		2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F52870327FA927000F65F95 /* PYModalConfig.swift */; };
 		2F9AFAD027FA3626006DC8D6 /* Willow in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFACF27FA3626006DC8D6 /* Willow */; };
 		2F9AFAD327FA366B006DC8D6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD227FA366B006DC8D6 /* RxCocoa */; };
 		2F9AFAD527FA366B006DC8D6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD427FA366B006DC8D6 /* RxSwift */; };
@@ -130,6 +131,7 @@
 		2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
 		2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModalManager.swift; sourceTree = "<group>"; };
 		2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		2F52870327FA927000F65F95 /* PYModalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModalConfig.swift; sourceTree = "<group>"; };
 		2F9AFAE027FA3AFF006DC8D6 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		3D0E9C1F270A59CC00B593AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				2F4C8E8E27FA514200AC9C54 /* PYModal.xib */,
 				2F4C8E9027FA528F00AC9C54 /* PYModal.swift */,
 				2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */,
+				2F52870327FA927000F65F95 /* PYModalConfig.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -1290,6 +1293,7 @@
 				3DB61EA9277FCDA100F00091 /* MapPresenter.swift in Sources */,
 				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
 				3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */,
+				2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */,
 				3DD65DC9270CD3920058273D /* HomeSection.swift in Sources */,
 				2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */,
 				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
