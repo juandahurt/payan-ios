@@ -10,6 +10,7 @@ import UIKit
 
 
 class PYModal: UIView {
+    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var container: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var contentLabel: UILabel!
@@ -70,6 +71,7 @@ class PYModal: UIView {
         contentLabel.text = config.content
         heightConstraint.constant = config.height
         dismissButton.isHidden = !config.isDismissable
+        imageView.image = config.image
     }
     
     private func setupView() {

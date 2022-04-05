@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct PYModalConfig {
-    // TODO: Add image
+    let image: UIImage?
     let height: Double
     let title: String
     let content: String
