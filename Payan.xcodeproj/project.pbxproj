@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
 		2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */; };
+		2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */; };
+		2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21D27FCCF580026FDBC /* PYHWorker.swift */; };
 		2F4979B427FBE04B0008028F /* PYHPlaceCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4979B327FBE04B0008028F /* PYHPlaceCategoriesView.swift */; };
 		2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */; };
 		2F4979BB27FBE8180008028F /* PYHCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */; };
@@ -19,6 +21,9 @@
 		2F4C8E9627FA552000AC9C54 /* PYModalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */; };
 		2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */; };
 		2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F52870327FA927000F65F95 /* PYModalConfig.swift */; };
+		2F63C87927FCD36C00857056 /* PYHAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C87827FCD36C00857056 /* PYHAppVersion.swift */; };
+		2F63C87F27FCD5F600857056 /* Emogger in Frameworks */ = {isa = PBXBuildFile; productRef = 2F63C87E27FCD5F600857056 /* Emogger */; };
+		2F63C88227FCD62500857056 /* PYHInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C88127FCD62500857056 /* PYHInteractor.swift */; };
 		2F9AFAD027FA3626006DC8D6 /* Willow in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFACF27FA3626006DC8D6 /* Willow */; };
 		2F9AFAD327FA366B006DC8D6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD227FA366B006DC8D6 /* RxCocoa */; };
 		2F9AFAD527FA366B006DC8D6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFAD427FA366B006DC8D6 /* RxSwift */; };
@@ -32,9 +37,6 @@
 		3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C41270A693200B593AD /* MainPresenter.swift */; };
 		3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C4B270A74CA00B593AD /* Utility.swift */; };
 		3D0ECF792782496100847E0D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ECF782782496100847E0D /* Environment.swift */; };
-		3D13157526F92F4D00E451E0 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13157426F92F4D00E451E0 /* Credential.swift */; };
-		3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */; };
-		3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */; };
 		3D27BF01270A565A007143C8 /* MainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF00270A565A007143C8 /* MainModule.swift */; };
 		3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF06270A568B007143C8 /* MainRouter.swift */; };
 		3D3A384A270A53D300E2EF94 /* PYHomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A3849270A53D300E2EF94 /* PYHomeModule.swift */; };
@@ -47,9 +49,6 @@
 		3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F88277E357B009BFF74 /* AnalyticsManager.swift */; };
 		3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */; };
 		3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D496F8F277E4C90009BFF74 /* GoogleService-Info.plist */; };
-		3D496F95277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F94277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift */; };
-		3D496F99277E518C009BFF74 /* PlaceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F98277E518C009BFF74 /* PlaceInteractor.swift */; };
-		3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4A51C9271BDEBE00A7E0C1 /* Place.swift */; };
 		3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51101626F6CD7A00D24DD9 /* AppStyle.swift */; };
 		3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */; };
 		3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */; };
@@ -64,70 +63,28 @@
 		3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACA1272397EC00ECB567 /* RESTMethod.swift */; };
 		3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACA52723995900ECB567 /* RESTServerResponse.swift */; };
 		3D79ACA927239DA900ECB567 /* RESTError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACA827239DA900ECB567 /* RESTError.swift */; };
-		3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */; };
-		3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */; };
-		3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACDE27249F7C00ECB567 /* UserSession.swift */; };
-		3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACE12724D0A000ECB567 /* LaunchModule.swift */; };
-		3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79ACE82724D13500ECB567 /* LaunchViewController.swift */; };
-		3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79ACE92724D13500ECB567 /* LaunchViewController.xib */; };
-		3D8CCDE4272613BF00CB7EED /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE3272613BF00CB7EED /* AppVersion.swift */; };
-		3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */; };
-		3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */; };
-		3D8CCDEA2726351E00CB7EED /* AppVersionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */; };
-		3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */; };
-		3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */; };
 		3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */; };
 		3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */; };
-		3D9DFDE7278D0E7B00FC9775 /* Emogger in Frameworks */ = {isa = PBXBuildFile; productRef = 3D9DFDE6278D0E7B00FC9775 /* Emogger */; };
-		3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */; };
-		3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */; };
-		3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */; };
-		3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B452733329E00CC107B /* AppUpdateRouter.swift */; };
 		3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5327333FA700CC107B /* SecondaryButton.swift */; };
 		3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* SquishableButton.swift */; };
-		3DA9C8FB277CC92100E5588E /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9C8FA277CC92100E5588E /* Fact.swift */; };
-		3DB61EA2277FA9AE00F00091 /* MapModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EA1277FA9AD00F00091 /* MapModule.swift */; };
-		3DB61EA6277FAA4D00F00091 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EA5277FAA4D00F00091 /* MapView.swift */; };
-		3DB61EA9277FCDA100F00091 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EA8277FCDA100F00091 /* MapPresenter.swift */; };
-		3DB61EAD277FCE1E00F00091 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EAC277FCE1E00F00091 /* MapDataManager.swift */; };
-		3DB61EB0277FCE5D00F00091 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */; };
-		3DB61EB3277FE45C00F00091 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */; };
-		3DB61EB5277FFF7100F00091 /* SelectedPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */; };
-		3DB61EB82780A35600F00091 /* MapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB61EB72780A35600F00091 /* MapRouter.swift */; };
 		3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */; };
 		3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */; };
 		3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
-		3DCE7EB927459CB600860232 /* PlaceTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */; };
-		3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */; };
-		3DCE7EC52746B38F00860232 /* PlaceDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7EC32746B38F00860232 /* PlaceDescriptionViewController.swift */; };
-		3DCE7EC62746B38F00860232 /* PlaceDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCE7EC42746B38F00860232 /* PlaceDescriptionViewController.xib */; };
-		3DCE7ECB2746E7F500860232 /* PlaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCE7ECA2746E7F500860232 /* PlaceDetails.swift */; };
 		3DDA079726F8E5D400016204 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDA079626F8E5D400016204 /* MainButton.swift */; };
-		3DEC9C7D27431A750062BACF /* PlaceModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEC9C7C27431A750062BACF /* PlaceModule.swift */; };
-		3DEC9C8127431B340062BACF /* PlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEC9C7F27431B340062BACF /* PlaceViewController.swift */; };
-		3DEC9C8227431B340062BACF /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEC9C8027431B340062BACF /* PlaceViewController.xib */; };
-		3DEC9C8E27431B980062BACF /* PlaceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEC9C8D27431B980062BACF /* PlaceRouter.swift */; };
-		3DEC9C9127431BF70062BACF /* PlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEC9C9027431BF70062BACF /* PlacePresenter.swift */; };
-		3DEEE5F2273ACE7B009D7341 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEEE5F1273ACE7B009D7341 /* HomeDataManager.swift */; };
-		3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEEE5F4273AD216009D7341 /* PlaceGroup.swift */; };
 		3DF1E8FE273C391A002466E0 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1E8FC273C391A002466E0 /* CarouselViewController.swift */; };
 		3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF1E8FD273C391A002466E0 /* CarouselViewController.xib */; };
 		3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BC26F2A4D200FD24CF /* AppDelegate.swift */; };
 		3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */; };
 		3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C526F2A4D300FD24CF /* Assets.xcassets */; };
 		3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C726F2A4D300FD24CF /* LaunchScreen.storyboard */; };
-		3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708E826F2A8AA00FD24CF /* LoginViewController.swift */; };
-		3DF708EB26F2A8AA00FD24CF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708E926F2A8AA00FD24CF /* LoginViewController.xib */; };
-		3DF708F626F2AC3C00FD24CF /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708F526F2AC3C00FD24CF /* LoginInteractor.swift */; };
-		3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708FB26F2B0AC00FD24CF /* LoginModule.swift */; };
-		3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708FE26F2B2FC00FD24CF /* LoginRouter.swift */; };
-		3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7090126F2B41600FD24CF /* LoginPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
 		2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesViewDataSource.swift; sourceTree = "<group>"; };
+		2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHAppVersionType.swift; sourceTree = "<group>"; };
+		2F44E21D27FCCF580026FDBC /* PYHWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHWorker.swift; sourceTree = "<group>"; };
 		2F4979B327FBE04B0008028F /* PYHPlaceCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesView.swift; sourceTree = "<group>"; };
 		2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHPlaceCategoriesView.xib; sourceTree = "<group>"; };
 		2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +95,11 @@
 		2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModalManager.swift; sourceTree = "<group>"; };
 		2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		2F52870327FA927000F65F95 /* PYModalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModalConfig.swift; sourceTree = "<group>"; };
+		2F63C87827FCD36C00857056 /* PYHAppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHAppVersion.swift; sourceTree = "<group>"; };
+		2F63C87A27FCD49900857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
+		2F63C87B27FCD51700857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
+		2F63C87C27FCD58C00857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
+		2F63C88127FCD62500857056 /* PYHInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHInteractor.swift; sourceTree = "<group>"; };
 		2F9AFAE027FA3AFF006DC8D6 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		3D0E9C1F270A59CC00B593AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -146,9 +108,6 @@
 		3D0E9C41270A693200B593AD /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		3D0E9C4B270A74CA00B593AD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		3D0ECF782782496100847E0D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		3D13157426F92F4D00E451E0 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
-		3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
-		3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresenter.swift; sourceTree = "<group>"; };
 		3D27BF00270A565A007143C8 /* MainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModule.swift; sourceTree = "<group>"; };
 		3D27BF06270A568B007143C8 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3D3A3849270A53D300E2EF94 /* PYHomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHomeModule.swift; sourceTree = "<group>"; };
@@ -161,9 +120,6 @@
 		3D496F88277E357B009BFF74 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAnalytics.swift; sourceTree = "<group>"; };
 		3D496F8F277E4C90009BFF74 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3D496F94277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnalyticsEvent.swift; sourceTree = "<group>"; };
-		3D496F98277E518C009BFF74 /* PlaceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInteractor.swift; sourceTree = "<group>"; };
-		3D4A51C9271BDEBE00A7E0C1 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		3D51101626F6CD7A00D24DD9 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -178,54 +134,17 @@
 		3D79ACA1272397EC00ECB567 /* RESTMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTMethod.swift; sourceTree = "<group>"; };
 		3D79ACA52723995900ECB567 /* RESTServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTServerResponse.swift; sourceTree = "<group>"; };
 		3D79ACA827239DA900ECB567 /* RESTError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTError.swift; sourceTree = "<group>"; };
-		3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalLoginDataManager.swift; sourceTree = "<group>"; };
-		3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLoginDataManager.swift; sourceTree = "<group>"; };
-		3D79ACDE27249F7C00ECB567 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
-		3D79ACE12724D0A000ECB567 /* LaunchModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchModule.swift; sourceTree = "<group>"; };
-		3D79ACE82724D13500ECB567 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		3D79ACE92724D13500ECB567 /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
-		3D8CCDE3272613BF00CB7EED /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
-		3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDataManager.swift; sourceTree = "<group>"; };
-		3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchInteractor.swift; sourceTree = "<group>"; };
-		3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionValidation.swift; sourceTree = "<group>"; };
-		3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateViewController.swift; sourceTree = "<group>"; };
-		3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppUpdateViewController.xib; sourceTree = "<group>"; };
 		3D8CCDF427263CBC00CB7EED /* UIBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBottomSheet.swift; sourceTree = "<group>"; };
 		3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIBottomSheet.xib; sourceTree = "<group>"; };
 		3DA1113B27823AF6008DF4DE /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		3DA1113C27823B02008DF4DE /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
-		3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
-		3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateModule.swift; sourceTree = "<group>"; };
-		3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdatePresenter.swift; sourceTree = "<group>"; };
-		3DA93B452733329E00CC107B /* AppUpdateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdateRouter.swift; sourceTree = "<group>"; };
 		3DA93B5327333FA700CC107B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		3DA93B5627333FE000CC107B /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
-		3DA9C8FA277CC92100E5588E /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
-		3DB61EA1277FA9AD00F00091 /* MapModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModule.swift; sourceTree = "<group>"; };
-		3DB61EA5277FAA4D00F00091 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		3DB61EA8277FCDA100F00091 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
-		3DB61EAC277FCE1E00F00091 /* MapDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
-		3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
-		3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
-		3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPlaceView.swift; sourceTree = "<group>"; };
-		3DB61EB72780A35600F00091 /* MapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouter.swift; sourceTree = "<group>"; };
 		3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsAppDelegate.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
-		3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTitleViewController.swift; sourceTree = "<group>"; };
-		3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTitleViewController.xib; sourceTree = "<group>"; };
-		3DCE7EC32746B38F00860232 /* PlaceDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDescriptionViewController.swift; sourceTree = "<group>"; };
-		3DCE7EC42746B38F00860232 /* PlaceDescriptionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDescriptionViewController.xib; sourceTree = "<group>"; };
-		3DCE7ECA2746E7F500860232 /* PlaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetails.swift; sourceTree = "<group>"; };
 		3DDA079626F8E5D400016204 /* MainButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
-		3DEC9C7C27431A750062BACF /* PlaceModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModule.swift; sourceTree = "<group>"; };
-		3DEC9C7F27431B340062BACF /* PlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewController.swift; sourceTree = "<group>"; };
-		3DEC9C8027431B340062BACF /* PlaceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
-		3DEC9C8D27431B980062BACF /* PlaceRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRouter.swift; sourceTree = "<group>"; };
-		3DEC9C9027431BF70062BACF /* PlacePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePresenter.swift; sourceTree = "<group>"; };
-		3DEEE5F1273ACE7B009D7341 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
-		3DEEE5F4273AD216009D7341 /* PlaceGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceGroup.swift; sourceTree = "<group>"; };
 		3DF1E8FC273C391A002466E0 /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
 		3DF1E8FD273C391A002466E0 /* CarouselViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselViewController.xib; sourceTree = "<group>"; };
 		3DF708B926F2A4D200FD24CF /* Payan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Payan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -234,12 +153,6 @@
 		3DF708C526F2A4D300FD24CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DF708C826F2A4D300FD24CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF708CA26F2A4D300FD24CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DF708E826F2A8AA00FD24CF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3DF708E926F2A8AA00FD24CF /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		3DF708F526F2AC3C00FD24CF /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
-		3DF708FB26F2B0AC00FD24CF /* LoginModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
-		3DF708FE26F2B2FC00FD24CF /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
-		3DF7090126F2B41600FD24CF /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,8 +164,8 @@
 				2F9AFADB27FA3701006DC8D6 /* Kingfisher in Frameworks */,
 				2F9AFAD327FA366B006DC8D6 /* RxCocoa in Frameworks */,
 				2F9AFAD027FA3626006DC8D6 /* Willow in Frameworks */,
+				2F63C87F27FCD5F600857056 /* Emogger in Frameworks */,
 				2F9AFAD527FA366B006DC8D6 /* RxSwift in Frameworks */,
-				3D9DFDE7278D0E7B00FC9775 /* Emogger in Frameworks */,
 				2F9AFAD827FA36CB006DC8D6 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +179,23 @@
 				2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2F44E21727FCCDFB0026FDBC /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */,
+				2F63C87827FCD36C00857056 /* PYHAppVersion.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2F44E21C27FCCF400026FDBC /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				2F44E21D27FCCF580026FDBC /* PYHWorker.swift */,
+			);
+			path = Workers;
 			sourceTree = "<group>";
 		};
 		2F4979B227FBDFD70008028F /* Views */ = {
@@ -314,10 +244,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2F63C87D27FCD5F600857056 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F63C88027FCD61A00857056 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2F63C88127FCD62500857056 /* PYHInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		2F9AFADF27FA3AFF006DC8D6 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
 				2F9AFAE027FA3AFF006DC8D6 /* Emogger */,
+				2F63C87A27FCD49900857056 /* Emogger */,
+				2F63C87B27FCD51700857056 /* Emogger */,
+				2F63C87C27FCD58C00857056 /* Emogger */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -357,31 +305,6 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		3D13157326F92EFB00E451E0 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				3D13157426F92F4D00E451E0 /* Credential.swift */,
-				3D79ACDE27249F7C00ECB567 /* UserSession.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		3D1F4CE72725231C003FDF4F /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3D1F4CE82725232B003FDF4F /* LaunchRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3D1F4CEA2725233F003FDF4F /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3D1F4CEB2725234A003FDF4F /* LaunchPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		3D27BF04270A567B007143C8 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,8 +324,9 @@
 		3D3A3848270A53C700E2EF94 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3DEEE5F0273ACE6F009D7341 /* Data */,
-				3DA5CA23271B8E6300DD584E /* Logic */,
+				2F63C88027FCD61A00857056 /* Interactor */,
+				2F44E21C27FCCF400026FDBC /* Workers */,
+				2F44E21727FCCDFB0026FDBC /* Entities */,
 				3D3A384C270A53F000E2EF94 /* UI */,
 				3D3A3849270A53D300E2EF94 /* PYHomeModule.swift */,
 			);
@@ -463,31 +387,6 @@
 				3D496F8D277E39DF009BFF74 /* FirebaseAnalytics.swift */,
 			);
 			path = Firebase;
-			sourceTree = "<group>";
-		};
-		3D496F91277E4D73009BFF74 /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				3D496F94277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift */,
-			);
-			path = Analytics;
-			sourceTree = "<group>";
-		};
-		3D496F97277E5180009BFF74 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3D496F98277E518C009BFF74 /* PlaceInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3D4A51C8271BDEB400A7E0C1 /* Entitites */ = {
-			isa = PBXGroup;
-			children = (
-				3D4A51C9271BDEBE00A7E0C1 /* Place.swift */,
-				3DEEE5F4273AD216009D7341 /* PlaceGroup.swift */,
-			);
-			path = Entitites;
 			sourceTree = "<group>";
 		};
 		3D51100226F6AA9700D24DD9 /* Utils */ = {
@@ -667,80 +566,6 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		3D79ACAA27246A9700ECB567 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				3D79ACDA27249EB000ECB567 /* LocalLoginDataManager.swift */,
-				3D79ACDC27249EBE00ECB567 /* RemoteLoginDataManager.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		3D79ACE02724D08D00ECB567 /* Launch */ = {
-			isa = PBXGroup;
-			children = (
-				3D8CCDE02726137A00CB7EED /* Data */,
-				3D8CCDDF2726136500CB7EED /* Logic */,
-				3D79ACE32724D0D300ECB567 /* UI */,
-				3D79ACE12724D0A000ECB567 /* LaunchModule.swift */,
-			);
-			path = Launch;
-			sourceTree = "<group>";
-		};
-		3D79ACE32724D0D300ECB567 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				3D1F4CEA2725233F003FDF4F /* Presenter */,
-				3D1F4CE72725231C003FDF4F /* Router */,
-				3D79ACE42724D0DB00ECB567 /* View */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		3D79ACE42724D0DB00ECB567 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3D79ACE92724D13500ECB567 /* LaunchViewController.xib */,
-				3D79ACE82724D13500ECB567 /* LaunchViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3D8CCDDF2726136500CB7EED /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				3D8CCDE22726138C00CB7EED /* Interactor */,
-				3D8CCDE12726138400CB7EED /* Entities */,
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
-		3D8CCDE02726137A00CB7EED /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				3D8CCDE52726141300CB7EED /* LaunchDataManager.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		3D8CCDE12726138400CB7EED /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				3D8CCDE3272613BF00CB7EED /* AppVersion.swift */,
-				3D8CCDE92726351E00CB7EED /* AppVersionValidation.swift */,
-				3DA9C8FA277CC92100E5588E /* Fact.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		3D8CCDE22726138C00CB7EED /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3D8CCDE7272617EA00CB7EED /* LaunchInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
 		3D8CCDEB2726382E00CB7EED /* Bottom Sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,146 +573,6 @@
 				3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */,
 			);
 			path = "Bottom Sheet";
-			sourceTree = "<group>";
-		};
-		3DA5CA23271B8E6300DD584E /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				3D4A51C8271BDEB400A7E0C1 /* Entitites */,
-				3DA5CA24271B8E6900DD584E /* Interactor */,
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
-		3DA5CA24271B8E6900DD584E /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3DA5CA25271B8E7B00DD584E /* HomeInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3DA93B3A2732FB4D00CC107B /* App Update */ = {
-			isa = PBXGroup;
-			children = (
-				3DA93B3B2732FB5B00CC107B /* UI */,
-				3DA93B3D2732FB7300CC107B /* AppUpdateModule.swift */,
-			);
-			path = "App Update";
-			sourceTree = "<group>";
-		};
-		3DA93B3B2732FB5B00CC107B /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				3DA93B442733329200CC107B /* Router */,
-				3DA93B402732FBB300CC107B /* Presenter */,
-				3DA93B3C2732FB6000CC107B /* View */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		3DA93B3C2732FB6000CC107B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3D8CCDF127263BE800CB7EED /* AppUpdateViewController.xib */,
-				3D8CCDF027263BE800CB7EED /* AppUpdateViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3DA93B402732FBB300CC107B /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3DA93B412732FC8F00CC107B /* AppUpdatePresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3DA93B442733329200CC107B /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3DA93B452733329E00CC107B /* AppUpdateRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3DB61EA0277FA9A100F00091 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EAB277FCE0E00F00091 /* Data */,
-				3DB61EAA277FCE0100F00091 /* Logic */,
-				3DB61EA3277FAA3900F00091 /* UI */,
-				3DB61EA1277FA9AD00F00091 /* MapModule.swift */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		3DB61EA3277FAA3900F00091 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EB62780A34C00F00091 /* Router */,
-				3DB61EA7277FCD8B00F00091 /* Presenter */,
-				3DB61EA4277FAA4000F00091 /* View */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		3DB61EA4277FAA4000F00091 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EB1277FE44100F00091 /* Components */,
-				3DB61EA5277FAA4D00F00091 /* MapView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3DB61EA7277FCD8B00F00091 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EA8277FCDA100F00091 /* MapPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3DB61EAA277FCE0100F00091 /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EAE277FCE5100F00091 /* Interactor */,
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
-		3DB61EAB277FCE0E00F00091 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EAC277FCE1E00F00091 /* MapDataManager.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		3DB61EAE277FCE5100F00091 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EAF277FCE5D00F00091 /* MapInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		3DB61EB1277FE44100F00091 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EB2277FE45C00F00091 /* PlaceAnnotationView.swift */,
-				3DB61EB4277FFF7100F00091 /* SelectedPlaceView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		3DB61EB62780A34C00F00091 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3DB61EB72780A35600F00091 /* MapRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		3DB9D542277F54ED00E4D45A /* Services */ = {
@@ -909,103 +594,12 @@
 			path = Scroll;
 			sourceTree = "<group>";
 		};
-		3DCE7EB627459C0A00860232 /* Place Title */ = {
-			isa = PBXGroup;
-			children = (
-				3DCE7EB727459CB600860232 /* PlaceTitleViewController.swift */,
-				3DCE7EB827459CB600860232 /* PlaceTitleViewController.xib */,
-			);
-			path = "Place Title";
-			sourceTree = "<group>";
-		};
-		3DCE7EBD2746AF4500860232 /* Place Description */ = {
-			isa = PBXGroup;
-			children = (
-				3DCE7EC32746B38F00860232 /* PlaceDescriptionViewController.swift */,
-				3DCE7EC42746B38F00860232 /* PlaceDescriptionViewController.xib */,
-			);
-			path = "Place Description";
-			sourceTree = "<group>";
-		};
-		3DCE7EC82746E7E600860232 /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				3D496F97277E5180009BFF74 /* Interactor */,
-				3DCE7EC92746E7EA00860232 /* Entities */,
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
-		3DCE7EC92746E7EA00860232 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				3DCE7ECA2746E7F500860232 /* PlaceDetails.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
 		3DDA07B326F8EECE00016204 /* Config */ = {
 			isa = PBXGroup;
 			children = (
 				3D0ECF782782496100847E0D /* Environment.swift */,
 			);
 			path = Config;
-			sourceTree = "<group>";
-		};
-		3DEC9C7A27431A300062BACF /* Place */ = {
-			isa = PBXGroup;
-			children = (
-				3D496F91277E4D73009BFF74 /* Analytics */,
-				3DCE7EC82746E7E600860232 /* Logic */,
-				3DEC9C8427431B670062BACF /* UI */,
-				3DEC9C7C27431A750062BACF /* PlaceModule.swift */,
-			);
-			path = Place;
-			sourceTree = "<group>";
-		};
-		3DEC9C7B27431A350062BACF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3DCE7EBD2746AF4500860232 /* Place Description */,
-				3DCE7EB627459C0A00860232 /* Place Title */,
-				3DEC9C7F27431B340062BACF /* PlaceViewController.swift */,
-				3DEC9C8027431B340062BACF /* PlaceViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3DEC9C8427431B670062BACF /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				3DEC9C8727431B7C0062BACF /* Presenter */,
-				3DEC9C8527431B710062BACF /* Router */,
-				3DEC9C7B27431A350062BACF /* View */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		3DEC9C8527431B710062BACF /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3DEC9C8D27431B980062BACF /* PlaceRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3DEC9C8727431B7C0062BACF /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3DEC9C9027431BF70062BACF /* PlacePresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3DEEE5F0273ACE6F009D7341 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				3DEEE5F1273ACE7B009D7341 /* HomeDataManager.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		3DF1E8F3273C335D002466E0 /* Carousel */ = {
@@ -1023,6 +617,7 @@
 				2F9AFADF27FA3AFF006DC8D6 /* Packages */,
 				3DF708BB26F2A4D200FD24CF /* Payan */,
 				3DF708BA26F2A4D200FD24CF /* Products */,
+				2F63C87D27FCD5F600857056 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1073,14 +668,9 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
-				3DB61EA0277FA9A100F00091 /* Map */,
-				3DEC9C7A27431A300062BACF /* Place */,
-				3DA93B3A2732FB4D00CC107B /* App Update */,
-				3D79ACE02724D08D00ECB567 /* Launch */,
 				3D0E9C31270A647400B593AD /* Base */,
 				3D3A3854270A548400E2EF94 /* Main */,
 				3D3A3848270A53C700E2EF94 /* Home */,
-				3DF708E726F2A65A00FD24CF /* Login */,
 			);
 			path = "Domain Modules";
 			sourceTree = "<group>";
@@ -1091,69 +681,6 @@
 				3DF708C526F2A4D300FD24CF /* Assets.xcassets */,
 			);
 			path = Assets;
-			sourceTree = "<group>";
-		};
-		3DF708E726F2A65A00FD24CF /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				3D79ACAA27246A9700ECB567 /* Data */,
-				3DF708F126F2AC1300FD24CF /* Logic */,
-				3DF708ED26F2ABCA00FD24CF /* UI */,
-				3DF708FB26F2B0AC00FD24CF /* LoginModule.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		3DF708ED26F2ABCA00FD24CF /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				3DF708F026F2ABE500FD24CF /* View */,
-				3DF708EF26F2ABE100FD24CF /* Presenter */,
-				3DF708EE26F2ABDB00FD24CF /* Router */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		3DF708EE26F2ABDB00FD24CF /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3DF708FE26F2B2FC00FD24CF /* LoginRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3DF708EF26F2ABE100FD24CF /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3DF7090126F2B41600FD24CF /* LoginPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3DF708F026F2ABE500FD24CF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3DF708E926F2A8AA00FD24CF /* LoginViewController.xib */,
-				3DF708E826F2A8AA00FD24CF /* LoginViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3DF708F126F2AC1300FD24CF /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				3D13157326F92EFB00E451E0 /* Entities */,
-				3DF708F426F2AC3100FD24CF /* Interactor */,
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
-		3DF708F426F2AC3100FD24CF /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				3DF708F526F2AC3C00FD24CF /* LoginInteractor.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1173,13 +700,13 @@
 			);
 			name = Payan;
 			packageProductDependencies = (
-				3D9DFDE6278D0E7B00FC9775 /* Emogger */,
 				2F9AFACF27FA3626006DC8D6 /* Willow */,
 				2F9AFAD227FA366B006DC8D6 /* RxCocoa */,
 				2F9AFAD427FA366B006DC8D6 /* RxSwift */,
 				2F9AFAD727FA36CB006DC8D6 /* SkeletonView */,
 				2F9AFADA27FA3701006DC8D6 /* Kingfisher */,
 				2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */,
+				2F63C87E27FCD5F600857056 /* Emogger */,
 			);
 			productName = Payan;
 			productReference = 3DF708B926F2A4D200FD24CF /* Payan.app */;
@@ -1229,18 +756,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DEC9C8227431B340062BACF /* PlaceViewController.xib in Resources */,
 				3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */,
-				3DF708EB26F2A8AA00FD24CF /* LoginViewController.xib in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
-				3DCE7EBA27459CB600860232 /* PlaceTitleViewController.xib in Resources */,
-				3DCE7EC62746B38F00860232 /* PlaceDescriptionViewController.xib in Resources */,
 				2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */,
 				3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */,
-				3D79ACEB2724D13500ECB567 /* LaunchViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */,
-				3D8CCDF327263BE800CB7EED /* AppUpdateViewController.xib in Resources */,
 				2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */,
 				3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */,
 				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
@@ -1259,74 +780,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */,
-				3D13157526F92F4D00E451E0 /* Credential.swift in Sources */,
-				3D8CCDEA2726351E00CB7EED /* AppVersionValidation.swift in Sources */,
-				3DEC9C8127431B340062BACF /* PlaceViewController.swift in Sources */,
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
-				3D79ACDD27249EBE00ECB567 /* RemoteLoginDataManager.swift in Sources */,
-				3D1F4CEC2725234A003FDF4F /* LaunchPresenter.swift in Sources */,
-				3DF708EA26F2A8AA00FD24CF /* LoginViewController.swift in Sources */,
-				3DCE7EC52746B38F00860232 /* PlaceDescriptionViewController.swift in Sources */,
 				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
-				3D496F95277E4DA2009BFF74 /* PlaceAnalyticsEvent.swift in Sources */,
-				3DA93B3E2732FB7300CC107B /* AppUpdateModule.swift in Sources */,
-				3D8CCDE8272617EA00CB7EED /* LaunchInteractor.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
 				3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */,
-				3D1F4CE92725232B003FDF4F /* LaunchRouter.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
-				3D79ACE22724D0A000ECB567 /* LaunchModule.swift in Sources */,
+				2F63C87927FCD36C00857056 /* PYHAppVersion.swift in Sources */,
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
 				2F4C8E9627FA552000AC9C54 /* PYModalManager.swift in Sources */,
-				3DEC9C8E27431B980062BACF /* PlaceRouter.swift in Sources */,
-				3DEC9C7D27431A750062BACF /* PlaceModule.swift in Sources */,
-				3D8CCDE62726141300CB7EED /* LaunchDataManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
-				3DB61EA9277FCDA100F00091 /* MapPresenter.swift in Sources */,
 				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
-				3D8CCDF227263BE800CB7EED /* AppUpdateViewController.swift in Sources */,
 				2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */,
 				2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */,
-				3DF7090226F2B41600FD24CF /* LoginPresenter.swift in Sources */,
-				3D8CCDE4272613BF00CB7EED /* AppVersion.swift in Sources */,
+				2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */,
 				2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */,
 				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
-				3D79ACEA2724D13500ECB567 /* LaunchViewController.swift in Sources */,
-				3D79ACDF27249F7C00ECB567 /* UserSession.swift in Sources */,
-				3DCE7EB927459CB600860232 /* PlaceTitleViewController.swift in Sources */,
-				3D4A51CA271BDEBE00A7E0C1 /* Place.swift in Sources */,
 				3DF1E8FE273C391A002466E0 /* CarouselViewController.swift in Sources */,
 				2F4979B427FBE04B0008028F /* PYHPlaceCategoriesView.swift in Sources */,
-				3DEEE5F2273ACE7B009D7341 /* HomeDataManager.swift in Sources */,
-				3DF708FC26F2B0AC00FD24CF /* LoginModule.swift in Sources */,
+				2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */,
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
 				3D3A3850270A541400E2EF94 /* PYHHomeViewController.swift in Sources */,
-				3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */,
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
 				2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */,
-				3DEC9C9127431BF70062BACF /* PlacePresenter.swift in Sources */,
+				2F63C88227FCD62500857056 /* PYHInteractor.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
-				3DCE7ECB2746E7F500860232 /* PlaceDetails.swift in Sources */,
-				3DB61EA2277FA9AE00F00091 /* MapModule.swift in Sources */,
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
-				3DEEE5F5273AD216009D7341 /* PlaceGroup.swift in Sources */,
 				2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */,
-				3DB61EB5277FFF7100F00091 /* SelectedPlaceView.swift in Sources */,
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
 				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,
 				3D3C031B278F953400771AC6 /* LoggerAppDelegate.swift in Sources */,
-				3DA93B462733329E00CC107B /* AppUpdateRouter.swift in Sources */,
-				3DA5CA26271B8E7B00DD584E /* HomeInteractor.swift in Sources */,
-				3D79ACDB27249EB000ECB567 /* LocalLoginDataManager.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
-				3DF708F626F2AC3C00FD24CF /* LoginInteractor.swift in Sources */,
 				3D69C11F27446FEA002982B3 /* UtilButton.swift in Sources */,
 				3D79ACA927239DA900ECB567 /* RESTError.swift in Sources */,
 				3D3A384A270A53D300E2EF94 /* PYHomeModule.swift in Sources */,
-				3DB61EAD277FCE1E00F00091 /* MapDataManager.swift in Sources */,
-				3DB61EA6277FAA4D00F00091 /* MapView.swift in Sources */,
 				3D5402BA2778CA2F00256BCD /* HeaderView.swift in Sources */,
 				3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */,
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
@@ -1337,17 +825,11 @@
 				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,
 				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
-				3DF708FF26F2B2FC00FD24CF /* LoginRouter.swift in Sources */,
-				3D496F99277E518C009BFF74 /* PlaceInteractor.swift in Sources */,
-				3DB61EB0277FCE5D00F00091 /* MapInteractor.swift in Sources */,
 				3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
 				3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */,
 				3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */,
-				3DA9C8FB277CC92100E5588E /* Fact.swift in Sources */,
 				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,
-				3DB61EB3277FE45C00F00091 /* PlaceAnnotationView.swift in Sources */,
-				3DB61EB82780A35600F00091 /* MapRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1598,6 +1080,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F63C87E27FCD5F600857056 /* Emogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Emogger;
+		};
 		2F9AFACF27FA3626006DC8D6 /* Willow */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F9AFACE27FA3626006DC8D6 /* XCRemoteSwiftPackageReference "Willow" */;
@@ -1627,10 +1113,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
-		};
-		3D9DFDE6278D0E7B00FC9775 /* Emogger */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Emogger;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

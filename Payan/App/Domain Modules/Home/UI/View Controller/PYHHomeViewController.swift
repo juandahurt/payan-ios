@@ -11,7 +11,11 @@ class PYHHomeViewController: UIViewController {
     @IBOutlet private weak var hiLabel: UILabel!
     @IBOutlet private weak var categoriesView: PYHPlaceCategoriesView!
     
-    init() {
+    private let interactor: PYHInteractor
+    
+    init(interactor: PYHInteractor) {
+        self.interactor = interactor
+        
         let nibName = String(describing: Self.self)
         super.init(nibName: nibName, bundle: nil)
     }
@@ -25,6 +29,8 @@ class PYHHomeViewController: UIViewController {
         
         setupSubviews()
         setupShadows()
+        
+        interactor.checkCurrentVersion()
     }
     
     private func setupSubviews() {
