@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PYHCategoryCollectionViewCell" id="gTV-IL-0wX" customClass="PYHCategoryCollectionViewCell" customModule="Payan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="72"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="46" height="72"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLB-fR-CXL">
+                        <rect key="frame" x="0.0" y="57.5" width="46" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EP-Ja-Jw9">
+                        <rect key="frame" x="0.0" y="0.0" width="46" height="52.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="church" translatesAutoresizingMaskIntoConstraints="NO" id="Z4U-wA-o2a">
+                                <rect key="frame" x="13" y="16.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="45Z-yb-kzt"/>
+                                    <constraint firstAttribute="height" constant="20" id="DRC-bJ-LPN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Z4U-wA-o2a" firstAttribute="centerX" secondItem="2EP-Ja-Jw9" secondAttribute="centerX" id="UNn-8Y-QBh"/>
+                            <constraint firstItem="Z4U-wA-o2a" firstAttribute="centerY" secondItem="2EP-Ja-Jw9" secondAttribute="centerY" id="jFY-i1-PZD"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="fLB-fR-CXL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6zL-OY-Xlp"/>
+                <constraint firstItem="fLB-fR-CXL" firstAttribute="top" secondItem="2EP-Ja-Jw9" secondAttribute="bottom" constant="5" id="CFA-9V-830"/>
+                <constraint firstItem="2EP-Ja-Jw9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Rqy-zJ-vR4"/>
+                <constraint firstAttribute="bottom" secondItem="fLB-fR-CXL" secondAttribute="bottom" id="cc2-ga-2kO"/>
+                <constraint firstAttribute="trailing" secondItem="fLB-fR-CXL" secondAttribute="trailing" id="dx1-TM-saQ"/>
+                <constraint firstAttribute="trailing" secondItem="2EP-Ja-Jw9" secondAttribute="trailing" id="fhF-eC-Ami"/>
+                <constraint firstItem="2EP-Ja-Jw9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="h1f-hh-vc1"/>
+            </constraints>
+            <size key="customSize" width="46" height="72"/>
+            <connections>
+                <outlet property="imageContainer" destination="2EP-Ja-Jw9" id="BI6-c7-lFE"/>
+                <outlet property="titleLabel" destination="fLB-fR-CXL" id="ggn-xz-96o"/>
+            </connections>
+            <point key="canvasLocation" x="134.78260869565219" y="150"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="church" width="30" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

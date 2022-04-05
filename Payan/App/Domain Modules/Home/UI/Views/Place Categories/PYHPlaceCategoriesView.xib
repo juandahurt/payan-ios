@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYHPlaceCategoriesView" customModule="Payan" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="WQf-PU-oAD" id="exP-4l-fqr"/>
                 <outlet property="contentView" destination="LOU-fv-aPq" id="ZLz-gk-NqC"/>
                 <outlet property="titleLabel" destination="kIi-Jn-aNu" id="td3-54-JQR"/>
             </connections>
@@ -28,11 +29,27 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WQf-PU-oAD">
+                    <rect key="frame" x="32" y="48.5" width="297" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="ruM-LN-E3v"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5ky-Ke-aMK">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="WQf-PU-oAD" firstAttribute="top" secondItem="kIi-Jn-aNu" secondAttribute="bottom" constant="10" id="3Wr-Pn-sOO"/>
                 <constraint firstItem="kIi-Jn-aNu" firstAttribute="top" secondItem="LOU-fv-aPq" secondAttribute="top" constant="18" id="5pn-nn-NdK"/>
                 <constraint firstItem="kIi-Jn-aNu" firstAttribute="leading" secondItem="LOU-fv-aPq" secondAttribute="leading" constant="18" id="91P-VR-nMY"/>
+                <constraint firstAttribute="trailing" secondItem="WQf-PU-oAD" secondAttribute="trailing" constant="32" id="Lg0-ip-vQN"/>
+                <constraint firstItem="WQf-PU-oAD" firstAttribute="leading" secondItem="LOU-fv-aPq" secondAttribute="leading" constant="32" id="MkS-OW-Wdl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="73.188405797101453" y="301.00446428571428"/>

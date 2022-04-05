@@ -10,6 +10,8 @@
 		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
 		2F4979B427FBE04B0008028F /* PYHPlaceCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4979B327FBE04B0008028F /* PYHPlaceCategoriesView.swift */; };
 		2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */; };
+		2F4979BB27FBE8180008028F /* PYHCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */; };
+		2F4979BC27FBE8180008028F /* PYHCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4979BA27FBE8180008028F /* PYHCategoryCollectionViewCell.xib */; };
 		2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4C8E8E27FA514200AC9C54 /* PYModal.xib */; };
 		2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9027FA528F00AC9C54 /* PYModal.swift */; };
 		2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */; };
@@ -126,6 +128,8 @@
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
 		2F4979B327FBE04B0008028F /* PYHPlaceCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesView.swift; sourceTree = "<group>"; };
 		2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHPlaceCategoriesView.xib; sourceTree = "<group>"; };
+		2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F4979BA27FBE8180008028F /* PYHCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F4C8E8E27FA514200AC9C54 /* PYModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYModal.xib; sourceTree = "<group>"; };
 		2F4C8E9027FA528F00AC9C54 /* PYModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModal.swift; sourceTree = "<group>"; };
 		2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
@@ -265,10 +269,20 @@
 		2F4979B527FBE0AA0008028F /* Place Categories */ = {
 			isa = PBXGroup;
 			children = (
+				2F4979B827FBE8020008028F /* Cell */,
 				2F4979B327FBE04B0008028F /* PYHPlaceCategoriesView.swift */,
 				2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */,
 			);
 			path = "Place Categories";
+			sourceTree = "<group>";
+		};
+		2F4979B827FBE8020008028F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */,
+				2F4979BA27FBE8180008028F /* PYHCategoryCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		2F4C8E8727FA4ED100AC9C54 /* Modal */ = {
@@ -1220,6 +1234,7 @@
 				3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */,
 				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
 				2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */,
+				2F4979BC27FBE8180008028F /* PYHCategoryCollectionViewCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* PYHHomeViewController.xib in Resources */,
 			);
@@ -1305,6 +1320,7 @@
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */,
+				2F4979BB27FBE8180008028F /* PYHCategoryCollectionViewCell.swift in Sources */,
 				3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */,
 				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,
 				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
