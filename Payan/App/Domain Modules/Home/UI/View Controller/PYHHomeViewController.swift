@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PYHHomeViewController: UIViewController {
+class PYHHomeViewController: PYBaseViewController {
     @IBOutlet private weak var hiLabel: UILabel!
     @IBOutlet private weak var categoriesView: PYHPlaceCategoriesView!
     
@@ -31,6 +31,15 @@ class PYHHomeViewController: UIViewController {
         setupShadows()
         
         interactor.checkCurrentVersion()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.hideLoading()
+        }
     }
     
     private func setupSubviews() {
