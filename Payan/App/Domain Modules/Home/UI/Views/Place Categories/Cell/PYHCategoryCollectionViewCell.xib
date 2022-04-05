@@ -25,10 +25,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2EP-Ja-Jw9">
-                        <rect key="frame" x="0.0" y="0.0" width="46" height="52.5"/>
+                        <rect key="frame" x="3" y="12.5" width="40" height="40"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="church" translatesAutoresizingMaskIntoConstraints="NO" id="Z4U-wA-o2a">
-                                <rect key="frame" x="13" y="16.5" width="20" height="20"/>
+                                <rect key="frame" x="10" y="10" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="45Z-yb-kzt"/>
                                     <constraint firstAttribute="height" constant="20" id="DRC-bJ-LPN"/>
@@ -39,6 +39,8 @@
                         <constraints>
                             <constraint firstItem="Z4U-wA-o2a" firstAttribute="centerX" secondItem="2EP-Ja-Jw9" secondAttribute="centerX" id="UNn-8Y-QBh"/>
                             <constraint firstItem="Z4U-wA-o2a" firstAttribute="centerY" secondItem="2EP-Ja-Jw9" secondAttribute="centerY" id="jFY-i1-PZD"/>
+                            <constraint firstAttribute="height" constant="40" id="lBK-WW-UkQ"/>
+                            <constraint firstAttribute="width" constant="40" id="oMO-UQ-HK3"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -47,15 +49,14 @@
             <constraints>
                 <constraint firstItem="fLB-fR-CXL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="6zL-OY-Xlp"/>
                 <constraint firstItem="fLB-fR-CXL" firstAttribute="top" secondItem="2EP-Ja-Jw9" secondAttribute="bottom" constant="5" id="CFA-9V-830"/>
-                <constraint firstItem="2EP-Ja-Jw9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Rqy-zJ-vR4"/>
                 <constraint firstAttribute="bottom" secondItem="fLB-fR-CXL" secondAttribute="bottom" id="cc2-ga-2kO"/>
                 <constraint firstAttribute="trailing" secondItem="fLB-fR-CXL" secondAttribute="trailing" id="dx1-TM-saQ"/>
-                <constraint firstAttribute="trailing" secondItem="2EP-Ja-Jw9" secondAttribute="trailing" id="fhF-eC-Ami"/>
-                <constraint firstItem="2EP-Ja-Jw9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="h1f-hh-vc1"/>
+                <constraint firstItem="2EP-Ja-Jw9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="wm1-fG-MCu"/>
             </constraints>
             <size key="customSize" width="46" height="72"/>
             <connections>
                 <outlet property="imageContainer" destination="2EP-Ja-Jw9" id="BI6-c7-lFE"/>
+                <outlet property="imageView" destination="Z4U-wA-o2a" id="adc-oZ-f7s"/>
                 <outlet property="titleLabel" destination="fLB-fR-CXL" id="ggn-xz-96o"/>
             </connections>
             <point key="canvasLocation" x="134.78260869565219" y="150"/>

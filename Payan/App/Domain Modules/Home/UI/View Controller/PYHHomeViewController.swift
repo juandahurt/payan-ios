@@ -35,6 +35,7 @@ class PYHHomeViewController: UIViewController {
         hiLabel.textColor = AppStyle.Color.N1
         
         categoriesView.contentView.layer.cornerRadius = 8
+        categoriesView.dataSource = self
     }
     
     private func setupShadows() {
@@ -42,5 +43,21 @@ class PYHHomeViewController: UIViewController {
         categoriesView.contentView.layer.shadowOffset = .init(width: 0, height: 4)
         categoriesView.contentView.layer.shadowRadius = 25
         categoriesView.contentView.layer.shadowOpacity = 1
+    }
+}
+
+
+extension PYHHomeViewController: PYHPlaceCategoriesViewDataSource {
+    func placesCategoriesView(numberOfCategoriesIn view: PYHPlaceCategoriesView) -> Int {
+        4
+    }
+    
+    func placesCategoriesView(_ view: PYHPlaceCategoriesView, categoryTitleAt index: Int) -> String {
+        let categories = ["Iglesias", "Museos", "Parques", "Puentes"]
+        return categories[index]
+    }
+    
+    func placesCategoriesView(_ view: PYHPlaceCategoriesView, categoryImageAt index: Int) -> UIImage {
+        UIImage(named: "museum")!
     }
 }

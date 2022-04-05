@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
+		2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */; };
 		2F4979B427FBE04B0008028F /* PYHPlaceCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4979B327FBE04B0008028F /* PYHPlaceCategoriesView.swift */; };
 		2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */; };
 		2F4979BB27FBE8180008028F /* PYHCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */; };
@@ -126,6 +127,7 @@
 
 /* Begin PBXFileReference section */
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
+		2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesViewDataSource.swift; sourceTree = "<group>"; };
 		2F4979B327FBE04B0008028F /* PYHPlaceCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesView.swift; sourceTree = "<group>"; };
 		2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHPlaceCategoriesView.xib; sourceTree = "<group>"; };
 		2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -258,6 +260,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F44E21127FCBAD30026FDBC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		2F4979B227FBDFD70008028F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +412,7 @@
 		3D3A384C270A53F000E2EF94 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2F44E21127FCBAD30026FDBC /* Protocols */,
 				2F4979B227FBDFD70008028F /* Views */,
 				3D0E9C2C270A639800B593AD /* View Controller */,
 			);
@@ -1292,6 +1303,7 @@
 				3D3A3850270A541400E2EF94 /* PYHHomeViewController.swift in Sources */,
 				3DA93B422732FC8F00CC107B /* AppUpdatePresenter.swift in Sources */,
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
+				2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */,
 				3DEC9C9127431BF70062BACF /* PlacePresenter.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
 				3DCE7ECB2746E7F500860232 /* PlaceDetails.swift in Sources */,

@@ -14,6 +14,15 @@ class PYHPlaceCategoriesView: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     
+    weak var dataSource: PYHPlaceCategoriesViewDataSource? {
+        didSet {
+            numberOfCategories = dataSource?.placesCategoriesView(numberOfCategoriesIn: self) ?? 0
+            collectionView.reloadData()
+        }
+    }
+    
+    private var numberOfCategories = 0
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -49,12 +58,20 @@ class PYHPlaceCategoriesView: UIView {
 
 extension PYHPlaceCategoriesView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        numberOfCategories
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let id = "PYHCategoryCollectionViewCell"
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: id, for: indexPath) as! PYHCategoryCollectionViewCell
+        
+        if let dataSource = dataSource {
+            let title = dataSource.placesCategoriesView(self, categoryTitleAt: indexPath.row)
+            cell.setTitle(title)
+            let image = dataSource.placesCategoriesView(self, categoryImageAt: indexPath.row)
+            cell.setImage(image)
+        }
+        
         return cell
     }
 }
@@ -62,10 +79,10 @@ extension PYHPlaceCategoriesView: UICollectionViewDataSource {
 
 extension PYHPlaceCategoriesView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        (collectionView.frame.width - 4 * 40) / 3
+        (collectionView.frame.width - CGFloat(numberOfCategories * 50)) / CGFloat((numberOfCategories - 1))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 40, height: 60)
+        return CGSize(width: 50, height: 60)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class PYHCategoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var imageContainer: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,5 +25,13 @@ class PYHCategoryCollectionViewCell: UICollectionViewCell {
         imageContainer.layer.cornerRadius = imageContainer.frame.width / 2
         imageContainer.layer.borderColor = AppStyle.Color.N8.cgColor
         imageContainer.layer.borderWidth = 1
+    }
+    
+    func setTitle(_ title: String) {
+        titleLabel.text = title
+    }
+    
+    func setImage(_ image: UIImage) {
+        imageView.image = image
     }
 }
