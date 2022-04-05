@@ -14,6 +14,14 @@ struct AppStyle {
             UIColor(named: "Primary") ?? .black
         }
         
+        static var G1: UIColor {
+            UIColor(named: "G1") ?? .gray
+        }
+        
+        static var G2: UIColor {
+            UIColor(named: "G2") ?? .gray
+        }
+        
         static var textFieldForm: UIColor {
             UIColor(named: "TextFieldForm") ?? .lightGray
         }
@@ -43,6 +51,7 @@ struct AppStyle {
         
         enum Weight: String {
             case regular = "Poppins-Regular"
+            case medium = "Poppins-Medium"
             case semiBold = "Poppins-SemiBold"
         }
         

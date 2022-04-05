@@ -18,15 +18,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lantern" translatesAutoresizingMaskIntoConstraints="NO" id="1c5-wv-ZsW">
-                                <rect key="frame" x="191" y="423" width="32" height="50"/>
+                                <rect key="frame" x="184.5" y="413" width="45" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="32" id="7S7-NI-gEg"/>
-                                    <constraint firstAttribute="height" constant="50" id="poc-5h-K75"/>
+                                    <constraint firstAttribute="width" constant="45" id="7S7-NI-gEg"/>
+                                    <constraint firstAttribute="height" constant="70" id="poc-5h-K75"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="G3"/>
+                        <color key="backgroundColor" name="G5"/>
                         <constraints>
                             <constraint firstItem="1c5-wv-ZsW" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="1q1-1I-9H1"/>
                             <constraint firstItem="1c5-wv-ZsW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uh8-hr-rHE"/>
@@ -40,8 +40,8 @@
     </scenes>
     <resources>
         <image name="lantern" width="20" height="30"/>
-        <namedColor name="G3">
-            <color red="0.41960784313725491" green="0.46666666666666667" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="G5">
+            <color red="0.65098039215686276" green="0.70196078431372544" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
