@@ -19,7 +19,7 @@ final class MainRouter: BaseRouter {
         let vc = MainViewController()
         
         vc.viewControllers = [
-            HomeModule.setup(with: navigationController).associatedViewController,
+            PYHomeModule.setup(with: navigationController).associatedViewController,
             MapModule.setup(with: navigationController).associatedViewController,
         ]
         

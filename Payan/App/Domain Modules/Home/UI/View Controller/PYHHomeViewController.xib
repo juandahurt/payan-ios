@@ -9,8 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Payan" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYHHomeViewController" customModule="Payan" customModuleProvider="target">
             <connections>
+                <outlet property="categoriesView" destination="MSk-2R-XkQ" id="Hhs-Fa-isC"/>
                 <outlet property="hiLabel" destination="o4n-rk-ee5" id="bUQ-V4-t9y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,19 +27,29 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-2R-XkQ" customClass="PYHPlaceCategoriesView" customModule="Payan" customModuleProvider="target">
+                    <rect key="frame" x="20" y="105" width="374" height="148"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="148" id="ckA-Gz-uRH"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="Background"/>
+            <color key="backgroundColor" name="N8"/>
             <constraints>
                 <constraint firstItem="o4n-rk-ee5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Ck2-1d-y4h"/>
                 <constraint firstItem="o4n-rk-ee5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="FPD-jz-hjz"/>
+                <constraint firstItem="MSk-2R-XkQ" firstAttribute="top" secondItem="o4n-rk-ee5" secondAttribute="bottom" constant="20" id="Rw2-Ro-f1A"/>
+                <constraint firstItem="MSk-2R-XkQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bPc-Fp-mV1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MSk-2R-XkQ" secondAttribute="trailing" constant="20" id="gFI-CU-ReX"/>
             </constraints>
             <point key="canvasLocation" x="38" y="50"/>
         </view>
     </objects>
     <resources>
-        <namedColor name="Background">
-            <color red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="N8">
+            <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

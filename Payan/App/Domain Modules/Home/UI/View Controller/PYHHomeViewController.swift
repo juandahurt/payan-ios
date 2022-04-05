@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  PYHHomeViewController.swift
 //  Payan
 //
 //  Created by juandahurt on 3/10/21.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class PYHHomeViewController: UIViewController {
     @IBOutlet private weak var hiLabel: UILabel!
+    @IBOutlet private weak var categoriesView: PYHPlaceCategoriesView!
     
     init() {
         let nibName = String(describing: Self.self)
@@ -23,11 +24,23 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupSubviews()
+        setupShadows()
     }
     
     private func setupSubviews() {
         view.backgroundColor = AppStyle.Color.N8
+        
         hiLabel.font = AppStyle.Font.get(.semiBold, size: .title)
         hiLabel.text = "Buenos días"
+        hiLabel.textColor = AppStyle.Color.N1
+        
+        categoriesView.contentView.layer.cornerRadius = 8
+    }
+    
+    private func setupShadows() {
+        categoriesView.contentView.layer.shadowColor = UIColor.black.withAlphaComponent(0.05).cgColor
+        categoriesView.contentView.layer.shadowOffset = .init(width: 0, height: 4)
+        categoriesView.contentView.layer.shadowRadius = 25
+        categoriesView.contentView.layer.shadowOpacity = 1
     }
 }

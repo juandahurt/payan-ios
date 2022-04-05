@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-final class HomeModule {
+final class PYHomeModule {
     let associatedViewController: UIViewController
     
     private init(navigationController: UINavigationController) {
-        associatedViewController = HomeViewController()
+        associatedViewController = PYHHomeViewController()
         
         let title = "Inicio"
         let image = UIImage(named: "home")?.withTintColor(AppStyle.Color.G7)
@@ -23,7 +23,7 @@ final class HomeModule {
         associatedViewController.tabBarItem.selectedImage = selectedImage
     }
     
-    static func setup(with navigationController: UINavigationController) -> HomeModule {
-        HomeModule(navigationController: navigationController)
+    static func setup(with navigationController: UINavigationController) -> PYHomeModule {
+        PYHomeModule(navigationController: navigationController)
     }
 }
