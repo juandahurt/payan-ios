@@ -12,14 +12,11 @@ final class HomeModule {
     let associatedViewController: UIViewController
     
     private init(navigationController: UINavigationController) {
-        let interactor = HomeInteractor(dataManager: RESTHomeDataManager())
-        let router = HomeRouter(navigationController: navigationController)
-        let presenter = HomePresenter(interactor: interactor, router: router)
-        associatedViewController = HomeViewController(presenter: presenter)
+        associatedViewController = HomeViewController()
         
         let title = "Inicio"
-        let image = UIImage(named: "home")?.withTintColor(AppStyle.Color.primary.withAlphaComponent(0.15))
-        let selectedImage = UIImage(named: "home")?.withTintColor(AppStyle.Color.primary).withRenderingMode(.alwaysOriginal)
+        let image = UIImage(named: "home")?.withTintColor(AppStyle.Color.G7)
+        let selectedImage = UIImage(named: "home")?.withTintColor(AppStyle.Color.G2).withRenderingMode(.alwaysOriginal)
         
         associatedViewController.tabBarItem.title = title
         associatedViewController.tabBarItem.image = image

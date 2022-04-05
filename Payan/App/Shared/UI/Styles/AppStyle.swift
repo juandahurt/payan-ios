@@ -22,6 +22,14 @@ struct AppStyle {
             UIColor(named: "G2") ?? .gray
         }
         
+        static var G7: UIColor {
+            UIColor(named: "G7") ?? .gray
+        }
+        
+        static var N8: UIColor {
+            UIColor(named: "N8") ?? .gray
+        }
+        
         static var textFieldForm: UIColor {
             UIColor(named: "TextFieldForm") ?? .lightGray
         }
