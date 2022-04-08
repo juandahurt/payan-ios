@@ -19,9 +19,16 @@ final class PYHInteractor: PYHBusinessLogic {
     
     func checkCurrentVersion() {
         presenter.showLoading()
-        worker.getLastVersion { version in
+        worker.getLastVersion { [weak self] version in
+            guard let self = self else { return }
+            
             self.presenter.hideLoading()
-            dump(version)
+            // Get the current version
+            let currVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+            // TODO: Fix comparison
+            if currVersion == version.number {
+                self.presenter.showAppNeedsUpdate(version.type)
+            }
         }
     }
 }

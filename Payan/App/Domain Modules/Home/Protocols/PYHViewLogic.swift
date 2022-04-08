@@ -14,5 +14,5 @@ protocol PYHViewLogic: AnyObject {
     
     func showLoading()
     func hideLoading()
-    func showModal()
+    func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool)
 }

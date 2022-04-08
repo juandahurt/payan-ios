@@ -33,14 +33,18 @@ class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
         interactor.checkCurrentVersion()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool) {
+        guard let parent = parent else { return }
         
-        interactor.checkCurrentVersion()
-    }
-    
-    func showModal() {
-        
+        let config = PYModalConfig(
+            image: image,
+            height: 350,
+            title: title,
+            content: content,
+            mainButtonTitle: "Actualizar",
+            isDismissable: dismissable
+        )
+        PYModalManager.shared.showModal(using: config, inside: parent)
     }
     
     private func setupSubviews() {
