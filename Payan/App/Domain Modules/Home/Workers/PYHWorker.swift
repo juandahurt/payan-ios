@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-class PYHWorker {
+class PYHWorker: PYHDataAccessLogic {
     func getLastVersion(completion: ((PYHAppVersion) -> Void)?) {
         completion?(PYHAppVersion(number: "1.0.0", type: .mandatory))
 //        let endpoint = RESTEnpoint<RESTEmptyBody>(path: "app-version/ios", method: .get)

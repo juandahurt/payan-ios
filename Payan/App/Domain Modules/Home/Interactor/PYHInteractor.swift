@@ -8,8 +8,12 @@
 import Foundation
 
 
-final class PYHInteractor {
-    let worker = PYHWorker()
+final class PYHInteractor: PYHBusinessLogic {
+    var worker: PYHDataAccessLogic
+    
+    init(worker: PYHDataAccessLogic = PYHWorker()) {
+        self.worker = worker
+    }
     
     func checkCurrentVersion() {
         worker.getLastVersion { version in
