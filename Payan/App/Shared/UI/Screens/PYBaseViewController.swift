@@ -11,6 +11,35 @@ import NVActivityIndicatorView
 
 
 class PYBaseViewController: UIViewController {
+    /// Shows or hides the tab bar.
+    ///
+    /// This cannot be called before viewDidLayoutSubviews(), because the frame is not set before this time.
+    /// - Parameters:
+    ///   - visible: Indicates if you want to show the tab bar or not.
+    ///   - animated: `true` if you want an animation.
+    func setTabBarVisible(visible: Bool, animated: Bool) {
+        if (tabBarIsVisible() == visible) { return }
+        
+        let frame = self.tabBarController?.tabBar.frame
+        let height = frame?.size.height
+        let offsetY = (visible ? -height! : height)
+        
+        let duration: TimeInterval = (animated ? 0.3 : 0.0)
+        
+        if frame != nil {
+            UIView.animate(withDuration: duration) {
+                self.tabBarController?.tabBar.frame = frame!.offsetBy(dx: 0, dy: offsetY!)
+                return
+            }
+        }
+    }
+    
+    /// Indicates if the tab bar is visible or not.
+    /// - Returns: `true` if tab bar is visible.
+    func tabBarIsVisible() -> Bool {
+        return (self.tabBarController?.tabBar.frame.origin.y)! < self.view.frame.maxY
+    }
+    
     /// Hides all the subviews and shows the loading animation.
     func showLoading() {
         // hide subviews

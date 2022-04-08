@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreGraphics
 
 class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
     @IBOutlet private weak var hiLabel: UILabel!
@@ -33,6 +34,18 @@ class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
         interactor.checkCurrentVersion()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setTabBarVisible(visible: false, animated: false)
+    }
+    
+    override func hideLoading() {
+        super.hideLoading()
+        
+        setTabBarVisible(visible: true, animated: true)
+    }
+    
     func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool) {
         guard let parent = parent else { return }
         
@@ -48,6 +61,14 @@ class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
     }
     
     private func setupSubviews() {
+        
+        
+//        tabBarController?.tabBar.transform = .init(translationX: 0, y: 20)
+//        self.view.transform = CGAffineTransform(translationX: 0, y: 200)
+//        tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 200)
+//        tabBarController?.tabBar.alpha = 0
+//        tabBarController?.tabBar.center = tabBarController?.tabBar.center.applying(.init(translationX: 0, y: 50)) ?? tabBarController?.tabBar.center as! CGPoint
+        
         view.backgroundColor = AppStyle.Color.F1
         
         hiLabel.font = AppStyle.Font.get(.semiBold, size: .title)
