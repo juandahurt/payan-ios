@@ -7,11 +7,11 @@
 
 import UIKit
 
-class PYHHomeViewController: PYBaseViewController {
+class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
     @IBOutlet private weak var hiLabel: UILabel!
     @IBOutlet private weak var categoriesView: PYHPlaceCategoriesView!
     
-    private let interactor: PYHInteractor
+    var interactor: PYHInteractor
     
     init(interactor: PYHInteractor) {
         self.interactor = interactor
@@ -36,7 +36,11 @@ class PYHHomeViewController: PYBaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        showLoading()
+        interactor.checkCurrentVersion()
+    }
+    
+    func showModal() {
+        
     }
     
     private func setupSubviews() {

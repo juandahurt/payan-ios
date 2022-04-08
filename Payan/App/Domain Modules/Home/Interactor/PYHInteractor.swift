@@ -10,13 +10,17 @@ import Foundation
 
 final class PYHInteractor: PYHBusinessLogic {
     var worker: PYHDataAccessLogic
+    var presenter: PYHPresenter
     
-    init(worker: PYHDataAccessLogic = PYHWorker()) {
+    init(presenter: PYHPresenter, worker: PYHDataAccessLogic = PYHWorker()) {
+        self.presenter = presenter
         self.worker = worker
     }
     
     func checkCurrentVersion() {
+        presenter.showLoading()
         worker.getLastVersion { version in
+            self.presenter.hideLoading()
             dump(version)
         }
     }

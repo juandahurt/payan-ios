@@ -10,6 +10,7 @@ import Foundation
 
 protocol PYHBusinessLogic {
     var worker: PYHDataAccessLogic { get }
+    var presenter: PYHPresenter { get }
     
     func checkCurrentVersion()
 }

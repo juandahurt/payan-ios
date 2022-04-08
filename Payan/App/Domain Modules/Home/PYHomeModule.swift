@@ -12,8 +12,10 @@ final class PYHomeModule {
     let associatedViewController: UIViewController
     
     private init(navigationController: UINavigationController) {
-        let interactor = PYHInteractor()
+        let presenter = PYHPresenter()
+        let interactor = PYHInteractor(presenter: presenter)
         associatedViewController = PYHHomeViewController(interactor: interactor)
+        presenter.view = associatedViewController as? PYHViewLogic
         
         let title = "Inicio"
         let image = UIImage(named: "home")?.withTintColor(AppStyle.Color.G7)
