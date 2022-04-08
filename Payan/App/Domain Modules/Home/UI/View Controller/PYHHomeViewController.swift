@@ -36,20 +36,17 @@ class PYHHomeViewController: PYBaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showLoading()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.hideLoading()
-        }
+//        showLoading()
     }
     
     private func setupSubviews() {
-        view.backgroundColor = AppStyle.Color.N8
+        view.backgroundColor = AppStyle.Color.F1
         
         hiLabel.font = AppStyle.Font.get(.semiBold, size: .title)
         hiLabel.text = "Buenos días"
         hiLabel.textColor = AppStyle.Color.N1
         
-        categoriesView.contentView.layer.cornerRadius = 8
+        categoriesView.contentView.layer.cornerRadius = 5
         categoriesView.dataSource = self
     }
     
