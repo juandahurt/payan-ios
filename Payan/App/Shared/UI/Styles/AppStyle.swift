@@ -29,6 +29,10 @@ struct AppStyle {
             UIColor(named: "N1") ?? .black
         }
         
+        static var N4: UIColor {
+            UIColor(named: "N4") ?? .gray
+        }
+        
         static var N8: UIColor {
             UIColor(named: "N8") ?? .gray
         }

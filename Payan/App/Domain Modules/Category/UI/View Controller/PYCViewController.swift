@@ -37,8 +37,14 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
         
         view.backgroundColor = AppStyle.Color.F2
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "a")
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        let nibName = String(describing: PYCTableViewCell.self)
+        tableView.register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: PYCTableViewCell.reuseIdentifier)
         tableView.dataSource = self
+        tableView.separatorColor = .clear
     }
     
     func showLoading() {
@@ -57,6 +63,22 @@ extension PYCViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        UITableViewCell(style: .subtitle, reuseIdentifier: "a")
+        let cell = tableView.dequeueReusableCell(withIdentifier: PYCTableViewCell.reuseIdentifier, for: indexPath)
+        let bgView = UIView()
+        bgView.backgroundColor = .clear
+        cell.selectedBackgroundView = bgView
+        #warning("TODO: set cell's data")
+        
+        return cell
+    }
+}
+
+extension PYCViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        
+//    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
 }
