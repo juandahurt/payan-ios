@@ -23,10 +23,10 @@ final class PYHInteractor: PYHBusinessLogic {
             guard let self = self else { return }
             
             self.presenter.hideLoading()
-            let currVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-            #warning("TODO: fix version comparison")
-            if currVersion == version.number {
-                self.presenter.showAppNeedsUpdate(version.type)
+            if let currVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                if currVersion < version.number {
+                    self.presenter.showAppNeedsUpdate(version.type)
+                }
             }
         }
     }
