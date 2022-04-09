@@ -37,6 +37,10 @@ class PYCTableViewCell: UITableViewCell {
         placeImageView?.load(fromUrl: URL(string: "https://payan-dev-images.s3.us-east-2.amazonaws.com/san-jose.jpg")!)
         placeImageView.layer.cornerRadius = 5
         
-        dividerView.backgroundColor = AppStyle.Color.F1
+        dividerView.backgroundColor = AppStyle.Color.N8
+    }
+    
+    func hideDivider() {
+        dividerView.isHidden = true
     }
 }

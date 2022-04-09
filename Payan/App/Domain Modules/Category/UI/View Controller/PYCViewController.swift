@@ -63,10 +63,14 @@ extension PYCViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PYCTableViewCell.reuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PYCTableViewCell.reuseIdentifier, for: indexPath) as! PYCTableViewCell
+        
         let bgView = UIView()
         bgView.backgroundColor = .clear
         cell.selectedBackgroundView = bgView
+        if indexPath.row == interactor.places.count - 1 {
+            cell.hideDivider()
+        }
         #warning("TODO: set cell's data")
         
         return cell
