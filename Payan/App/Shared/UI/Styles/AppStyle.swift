@@ -22,6 +22,25 @@ struct AppStyle {
             UIColor(named: "G2") ?? .gray
         }
         
+        static var G7: UIColor {
+            UIColor(named: "G7") ?? .gray
+        }
+        static var N1: UIColor {
+            UIColor(named: "N1") ?? .black
+        }
+        
+        static var N8: UIColor {
+            UIColor(named: "N8") ?? .gray
+        }
+        
+        static var F1: UIColor {
+            UIColor(named: "F1") ?? .gray
+        }
+        
+        static var F2: UIColor {
+            UIColor(named: "F2") ?? .gray
+        }
+        
         static var textFieldForm: UIColor {
             UIColor(named: "TextFieldForm") ?? .lightGray
         }
@@ -45,8 +64,10 @@ struct AppStyle {
         enum Size: CGFloat {
             case header = 22
             case title = 18
+            case secondTitle = 16
             case subtitle = 14
             case body = 12
+            case footer = 10
         }
         
         enum Weight: String {

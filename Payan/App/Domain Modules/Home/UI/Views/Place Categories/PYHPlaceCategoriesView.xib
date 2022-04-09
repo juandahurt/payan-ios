@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYHPlaceCategoriesView" customModule="Payan" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="WQf-PU-oAD" id="exP-4l-fqr"/>
+                <outlet property="contentView" destination="LOU-fv-aPq" id="ZLz-gk-NqC"/>
+                <outlet property="titleLabel" destination="kIi-Jn-aNu" id="td3-54-JQR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LOU-fv-aPq">
+            <rect key="frame" x="0.0" y="0.0" width="361" height="137"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIi-Jn-aNu">
+                    <rect key="frame" x="18" y="18" width="170" height="20.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="170" id="3YI-s2-Fdk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WQf-PU-oAD">
+                    <rect key="frame" x="32" y="48.5" width="297" height="68.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5ky-Ke-aMK">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="WQf-PU-oAD" firstAttribute="top" secondItem="kIi-Jn-aNu" secondAttribute="bottom" constant="10" id="3Wr-Pn-sOO"/>
+                <constraint firstItem="kIi-Jn-aNu" firstAttribute="top" secondItem="LOU-fv-aPq" secondAttribute="top" constant="18" id="5pn-nn-NdK"/>
+                <constraint firstItem="kIi-Jn-aNu" firstAttribute="leading" secondItem="LOU-fv-aPq" secondAttribute="leading" constant="18" id="91P-VR-nMY"/>
+                <constraint firstAttribute="bottom" secondItem="WQf-PU-oAD" secondAttribute="bottom" constant="20" id="GZz-SS-njd"/>
+                <constraint firstAttribute="trailing" secondItem="WQf-PU-oAD" secondAttribute="trailing" constant="32" id="Lg0-ip-vQN"/>
+                <constraint firstItem="WQf-PU-oAD" firstAttribute="leading" secondItem="LOU-fv-aPq" secondAttribute="leading" constant="32" id="MkS-OW-Wdl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="73.188405797101453" y="301.00446428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
