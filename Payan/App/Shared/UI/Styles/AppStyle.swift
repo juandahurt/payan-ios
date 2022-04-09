@@ -64,6 +64,7 @@ struct AppStyle {
         enum Size: CGFloat {
             case header = 22
             case title = 18
+            case secondTitle = 16
             case subtitle = 14
             case body = 12
             case footer = 10

@@ -19,8 +19,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let navigationController = UINavigationController()
-        navigationController.navigationBar.isHidden = true
+        navigationController.navigationBar.backgroundColor = AppStyle.Color.F2
+        navigationController.navigationBar.tintColor = AppStyle.Color.N1
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppStyle.Font.get(.medium, size: .secondTitle)]
+        let navBarButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
+        navBarButtonAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0), NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
+        
         window?.rootViewController = navigationController
+        
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back")
         
         SkeletonAppearance.default.tintColor = AppStyle.Color.skeleton
         

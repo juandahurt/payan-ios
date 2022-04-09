@@ -30,6 +30,7 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Home"
         
         setupSubviews()
         setupShadows()
@@ -41,6 +42,10 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
         super.viewDidAppear(animated)
         
         setTabBarVisible(visible: false, animated: false)
+    }
+    
+    func showLoading() {
+        super.showLoading()
     }
     
     override func hideLoading() {
@@ -64,6 +69,7 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     }
     
     private func setupSubviews() {
+        navigationBarIsHidden = true
         view.backgroundColor = AppStyle.Color.F1
         
         hiLabel.font = AppStyle.Font.get(.semiBold, size: .title)

@@ -11,6 +11,13 @@ import NVActivityIndicatorView
 
 
 class PYBaseViewController: UIViewController {
+    var navigationBarIsHidden = false
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = navigationBarIsHidden
+    }
+    
     /// Shows or hides the tab bar.
     ///
     /// This cannot be called before viewDidLayoutSubviews(), because the frame is not set before this time.
@@ -41,10 +48,12 @@ class PYBaseViewController: UIViewController {
     }
     
     /// Hides all the subviews and shows the loading animation.
-    func showLoading() {
+    func showLoading(hidesSubviews: Bool = true) {
         // hide subviews
-        view.subviews.forEach {
-            $0.alpha = 0
+        if hidesSubviews {
+            view.subviews.forEach {
+                $0.alpha = 0
+            }
         }
         
         let indicator = NVActivityIndicatorView(

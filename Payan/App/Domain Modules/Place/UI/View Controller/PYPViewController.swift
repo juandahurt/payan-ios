@@ -20,10 +20,13 @@ class PYPViewController: PYBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showLoading()
+        setupSubviews()
+        showLoading(hidesSubviews: false)
     }
-
+    
     private func setupSubviews() {
-        view.backgroundColor = AppStyle.Color.F1
+        navigationBarIsHidden = false
+        title = "Puentes"
+        view.backgroundColor = AppStyle.Color.F2
     }
 }
