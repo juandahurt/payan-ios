@@ -7,10 +7,14 @@
 
 import UIKit
 
-class PYCViewController: PYBaseViewController {
+class PYCViewController: PYBaseViewController, PYCViewLogic {
     @IBOutlet private weak var tableView: UITableView!
     
-    init() {
+    var interactor: PYCBusinessLogic
+    
+    init(interactor: PYCBusinessLogic) {
+        self.interactor = interactor
+        
         let nibName = String(describing: Self.self)
         super.init(nibName: nibName, bundle: nil)
     }
@@ -23,7 +27,8 @@ class PYCViewController: PYBaseViewController {
         super.viewDidLoad()
         
         setupSubviews()
-        showLoading(hidesSubviews: false)
+        
+        interactor.getPlaces()
     }
     
     private func setupSubviews() {
@@ -35,12 +40,20 @@ class PYCViewController: PYBaseViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "a")
         tableView.dataSource = self
     }
+    
+    func showLoading() {
+        super.showLoading(hidesSubviews: false)
+    }
+    
+    func updatePlacesTable() {
+        tableView.reloadData()
+    }
 }
 
 
 extension PYCViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        interactor.places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -17,7 +17,7 @@ class PYHRouter: PYHRoutingLogic {
     }
     
     func showCategory() {
-        let vc = PYCViewController()
+        let vc = PYCateogryModule.setup(with: navigationController).associatedViewController
         navigationController.pushViewController(vc, animated: true)
     }
 }

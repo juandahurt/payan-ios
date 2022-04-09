@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0692752801F5770068AA79 /* PYCBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0692742801F5770068AA79 /* PYCBusinessLogic.swift */; };
+		2F0692772801F5930068AA79 /* PYCViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0692762801F5930068AA79 /* PYCViewLogic.swift */; };
+		2F0692792801F5CA0068AA79 /* PYCPresentationLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0692782801F5CA0068AA79 /* PYCPresentationLogic.swift */; };
+		2F06927B2801F6360068AA79 /* PYCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927A2801F6360068AA79 /* PYCInteractor.swift */; };
+		2F06927D2801F6C50068AA79 /* PYCategoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */; };
+		2F06927F2801F7B90068AA79 /* PYCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927E2801F7B90068AA79 /* PYCPresenter.swift */; };
+		2F0692842801F8F10068AA79 /* PYCRoutingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */; };
 		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
 		2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */; };
 		2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */; };
@@ -93,6 +100,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F0692742801F5770068AA79 /* PYCBusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCBusinessLogic.swift; sourceTree = "<group>"; };
+		2F0692762801F5930068AA79 /* PYCViewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCViewLogic.swift; sourceTree = "<group>"; };
+		2F0692782801F5CA0068AA79 /* PYCPresentationLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCPresentationLogic.swift; sourceTree = "<group>"; };
+		2F06927A2801F6360068AA79 /* PYCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCInteractor.swift; sourceTree = "<group>"; };
+		2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCategoryModule.swift; sourceTree = "<group>"; };
+		2F06927E2801F7B90068AA79 /* PYCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCPresenter.swift; sourceTree = "<group>"; };
+		2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCRoutingLogic.swift; sourceTree = "<group>"; };
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
 		2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesViewDataSource.swift; sourceTree = "<group>"; };
 		2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHAppVersionType.swift; sourceTree = "<group>"; };
@@ -200,8 +214,28 @@
 		2F06926E2801F3D90068AA79 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				2F06927A2801F6360068AA79 /* PYCInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2F0692722801F54F0068AA79 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2F06927E2801F7B90068AA79 /* PYCPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2F0692732801F5630068AA79 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2F0692742801F5770068AA79 /* PYCBusinessLogic.swift */,
+				2F0692762801F5930068AA79 /* PYCViewLogic.swift */,
+				2F0692782801F5CA0068AA79 /* PYCPresentationLogic.swift */,
+				2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		2F44E21127FCBAD30026FDBC /* Protocols */ = {
@@ -294,8 +328,11 @@
 		2F8C80FC28010CBA00A8E7FD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2F0692732801F5630068AA79 /* Protocols */,
+				2F0692722801F54F0068AA79 /* Presenter */,
 				2F06926E2801F3D90068AA79 /* Interactor */,
 				2F8C80FD28010CD700A8E7FD /* UI */,
+				2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -883,14 +920,17 @@
 			files = (
 				3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */,
 				3D51104526F7167600D24DD9 /* Loadable.swift in Sources */,
+				2F0692772801F5930068AA79 /* PYCViewLogic.swift in Sources */,
 				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
 				3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */,
+				2F06927D2801F6C50068AA79 /* PYCategoryModule.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
 				2F63C87927FCD36C00857056 /* PYHAppVersion.swift in Sources */,
 				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
 				2F4C8E9627FA552000AC9C54 /* PYModalManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
+				2F0692792801F5CA0068AA79 /* PYCPresentationLogic.swift in Sources */,
 				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
 				2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */,
 				2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */,
@@ -902,6 +942,7 @@
 				2F4979B427FBE04B0008028F /* PYHPlaceCategoriesView.swift in Sources */,
 				2F8C810728010E6700A8E7FD /* PYHRoutingLogic.swift in Sources */,
 				2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */,
+				2F0692752801F5770068AA79 /* PYCBusinessLogic.swift in Sources */,
 				2F8C810128010CED00A8E7FD /* PYCViewController.swift in Sources */,
 				2F8C810528010D6800A8E7FD /* PYHRouter.swift in Sources */,
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
@@ -910,12 +951,14 @@
 				2F8D512D2800C5E600ADCC64 /* PYHDataAccessLogic.swift in Sources */,
 				2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */,
 				2F63C88227FCD62500857056 /* PYHInteractor.swift in Sources */,
+				2F06927F2801F7B90068AA79 /* PYCPresenter.swift in Sources */,
 				2F8C810B28010EE900A8E7FD /* PYHPlaceCategoriesViewDelegate.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */,
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
+				2F0692842801F8F10068AA79 /* PYCRoutingLogic.swift in Sources */,
 				2F8D51322800C76C00ADCC64 /* PYHPresenter.swift in Sources */,
 				2F8D512F2800C72500ADCC64 /* PYHPresentationLogic.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
@@ -939,6 +982,7 @@
 				3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
 				2F9F3F6727FCFEFB00924275 /* PYBaseViewController.swift in Sources */,
+				2F06927B2801F6360068AA79 /* PYCInteractor.swift in Sources */,
 				3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */,
 				3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */,
 				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,
