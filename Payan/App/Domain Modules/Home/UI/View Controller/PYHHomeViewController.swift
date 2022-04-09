@@ -8,6 +8,8 @@
 import UIKit
 import CoreGraphics
 
+#warning("TODO: find a way to get the categories and set them to the corresponding view")
+
 class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
     @IBOutlet private weak var hiLabel: UILabel!
     @IBOutlet private weak var categoriesView: PYHPlaceCategoriesView!
@@ -61,14 +63,6 @@ class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
     }
     
     private func setupSubviews() {
-        
-        
-//        tabBarController?.tabBar.transform = .init(translationX: 0, y: 20)
-//        self.view.transform = CGAffineTransform(translationX: 0, y: 200)
-//        tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 200)
-//        tabBarController?.tabBar.alpha = 0
-//        tabBarController?.tabBar.center = tabBarController?.tabBar.center.applying(.init(translationX: 0, y: 50)) ?? tabBarController?.tabBar.center as! CGPoint
-        
         view.backgroundColor = AppStyle.Color.F1
         
         hiLabel.font = AppStyle.Font.get(.semiBold, size: .title)
@@ -81,8 +75,8 @@ class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
     
     private func setupShadows() {
         categoriesView.contentView.layer.shadowColor = UIColor.black.withAlphaComponent(0.05).cgColor
-        categoriesView.contentView.layer.shadowOffset = .init(width: 0, height: 4)
-        categoriesView.contentView.layer.shadowRadius = 25
+        categoriesView.contentView.layer.shadowOffset = .init(width: 0, height: 6)
+        categoriesView.contentView.layer.shadowRadius = 16
         categoriesView.contentView.layer.shadowOpacity = 1
     }
 }
@@ -99,6 +93,14 @@ extension PYHHomeViewController: PYHPlaceCategoriesViewDataSource {
     }
     
     func placesCategoriesView(_ view: PYHPlaceCategoriesView, categoryImageAt index: Int) -> UIImage {
-        UIImage(named: "museum")!
+        if index == 0 {
+            return UIImage(named: "church")!
+        } else if index == 1 {
+            return UIImage(named: "museum")!
+        } else if index == 2 {
+            return UIImage(named: "park")!
+        } else {
+            return UIImage(named: "bridge")!
+        }
     }
 }
