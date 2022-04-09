@@ -14,7 +14,8 @@ final class PYHomeModule {
     private init(navigationController: UINavigationController) {
         let presenter = PYHPresenter()
         let interactor = PYHInteractor(presenter: presenter)
-        associatedViewController = PYHViewController(interactor: interactor)
+        let router = PYHRouter(navigationController: navigationController)
+        associatedViewController = PYHViewController(interactor: interactor, router: router)
         presenter.view = associatedViewController as? PYHViewLogic
         
         let title = "Inicio"

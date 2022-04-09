@@ -10,7 +10,8 @@ import UIKit
 
 
 protocol PYHViewLogic: AnyObject {
-    var interactor: PYHInteractor { get }
+    var interactor: PYHBusinessLogic { get }
+    var router: PYHRoutingLogic { get }
     
     func showLoading()
     func hideLoading()

@@ -14,11 +14,12 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     @IBOutlet private weak var hiLabel: UILabel!
     @IBOutlet private weak var categoriesView: PYHPlaceCategoriesView!
     
-    var interactor: PYHInteractor
+    var interactor: PYHBusinessLogic
+    var router: PYHRoutingLogic
     
-    init(interactor: PYHInteractor) {
+    init(interactor: PYHBusinessLogic, router: PYHRoutingLogic) {
         self.interactor = interactor
-        
+        self.router = router
         let nibName = String(describing: Self.self)
         super.init(nibName: nibName, bundle: nil)
     }
@@ -71,6 +72,7 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
         
         categoriesView.contentView.layer.cornerRadius = 5
         categoriesView.dataSource = self
+        categoriesView.delegate = self
     }
     
     private func setupShadows() {
@@ -102,5 +104,12 @@ extension PYHViewController: PYHPlaceCategoriesViewDataSource {
         } else {
             return UIImage(named: "bridge")!
         }
+    }
+}
+
+
+extension PYHViewController: PYHPlaceCategoriesViewDelegate {
+    func placesCategoriesView(_ view: PYHPlaceCategoriesView, didSelectCategoryAt index: Int) {
+        router.showCategory()
     }
 }

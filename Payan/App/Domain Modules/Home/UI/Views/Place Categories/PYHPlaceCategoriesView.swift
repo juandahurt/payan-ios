@@ -21,6 +21,8 @@ class PYHPlaceCategoriesView: UIView {
         }
     }
     
+    weak var delegate: PYHPlaceCategoriesViewDelegate?
+    
     private var numberOfCategories = 0
     
     override init(frame: CGRect) {
@@ -84,5 +86,9 @@ extension PYHPlaceCategoriesView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 50, height: 70)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate?.placesCategoriesView(self, didSelectCategoryAt: indexPath.row)
     }
 }
