@@ -17,6 +17,8 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     var interactor: PYHBusinessLogic
     var router: PYHRoutingLogic
     
+    private var tabBarHasBeenHiddenOnce = false
+    
     init(interactor: PYHBusinessLogic, router: PYHRoutingLogic) {
         self.interactor = interactor
         self.router = router
@@ -41,7 +43,10 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        setTabBarVisible(visible: false, animated: false)
+        if !tabBarHasBeenHiddenOnce {
+            setTabBarVisible(visible: false, animated: false)
+            tabBarHasBeenHiddenOnce = true
+        }
     }
     
     func showLoading() {
