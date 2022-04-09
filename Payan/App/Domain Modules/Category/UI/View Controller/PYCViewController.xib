@@ -9,8 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYPViewController" customModule="Payan" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYCViewController" customModule="Payan" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="6Q4-YO-AYR" id="cRT-Tt-Se1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,18 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" restorationIdentifier="asd" translatesAutoresizingMaskIntoConstraints="NO" id="2bd-tX-0UF">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Q4-YO-AYR">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" name="F1"/>
-                </view>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="F2"/>
             <constraints>
-                <constraint firstItem="2bd-tX-0UF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="SWo-Gw-DBI"/>
-                <constraint firstItem="2bd-tX-0UF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="X86-Zs-N8d"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2bd-tX-0UF" secondAttribute="trailing" id="mCX-Au-8e6"/>
-                <constraint firstAttribute="bottom" secondItem="2bd-tX-0UF" secondAttribute="bottom" id="vxZ-iN-LPH"/>
+                <constraint firstAttribute="bottom" secondItem="6Q4-YO-AYR" secondAttribute="bottom" id="9NG-FH-fT9"/>
+                <constraint firstItem="6Q4-YO-AYR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="E2V-0b-Y1c"/>
+                <constraint firstItem="6Q4-YO-AYR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gw4-8l-vb2"/>
+                <constraint firstItem="6Q4-YO-AYR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="nD7-nL-VuJ"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>

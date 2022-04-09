@@ -24,8 +24,8 @@
 		2F63C87927FCD36C00857056 /* PYHAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C87827FCD36C00857056 /* PYHAppVersion.swift */; };
 		2F63C87F27FCD5F600857056 /* Emogger in Frameworks */ = {isa = PBXBuildFile; productRef = 2F63C87E27FCD5F600857056 /* Emogger */; };
 		2F63C88227FCD62500857056 /* PYHInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C88127FCD62500857056 /* PYHInteractor.swift */; };
-		2F8C810128010CED00A8E7FD /* PYPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C80FF28010CED00A8E7FD /* PYPViewController.swift */; };
-		2F8C810228010CED00A8E7FD /* PYPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C810028010CED00A8E7FD /* PYPViewController.xib */; };
+		2F8C810128010CED00A8E7FD /* PYCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C80FF28010CED00A8E7FD /* PYCViewController.swift */; };
+		2F8C810228010CED00A8E7FD /* PYCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C810028010CED00A8E7FD /* PYCViewController.xib */; };
 		2F8C810528010D6800A8E7FD /* PYHRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C810428010D6800A8E7FD /* PYHRouter.swift */; };
 		2F8C810728010E6700A8E7FD /* PYHRoutingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C810628010E6700A8E7FD /* PYHRoutingLogic.swift */; };
 		2F8C810B28010EE900A8E7FD /* PYHPlaceCategoriesViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C810A28010EE900A8E7FD /* PYHPlaceCategoriesViewDelegate.swift */; };
@@ -112,8 +112,8 @@
 		2F63C87B27FCD51700857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F63C87C27FCD58C00857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F63C88127FCD62500857056 /* PYHInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHInteractor.swift; sourceTree = "<group>"; };
-		2F8C80FF28010CED00A8E7FD /* PYPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPViewController.swift; sourceTree = "<group>"; };
-		2F8C810028010CED00A8E7FD /* PYPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPViewController.xib; sourceTree = "<group>"; };
+		2F8C80FF28010CED00A8E7FD /* PYCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCViewController.swift; sourceTree = "<group>"; };
+		2F8C810028010CED00A8E7FD /* PYCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCViewController.xib; sourceTree = "<group>"; };
 		2F8C810428010D6800A8E7FD /* PYHRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHRouter.swift; sourceTree = "<group>"; };
 		2F8C810628010E6700A8E7FD /* PYHRoutingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHRoutingLogic.swift; sourceTree = "<group>"; };
 		2F8C810A28010EE900A8E7FD /* PYHPlaceCategoriesViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesViewDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +197,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F06926E2801F3D90068AA79 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		2F44E21127FCBAD30026FDBC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,12 +291,13 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		2F8C80FC28010CBA00A8E7FD /* Place */ = {
+		2F8C80FC28010CBA00A8E7FD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2F06926E2801F3D90068AA79 /* Interactor */,
 				2F8C80FD28010CD700A8E7FD /* UI */,
 			);
-			path = Place;
+			path = Category;
 			sourceTree = "<group>";
 		};
 		2F8C80FD28010CD700A8E7FD /* UI */ = {
@@ -303,8 +311,8 @@
 		2F8C80FE28010CDC00A8E7FD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2F8C80FF28010CED00A8E7FD /* PYPViewController.swift */,
-				2F8C810028010CED00A8E7FD /* PYPViewController.xib */,
+				2F8C80FF28010CED00A8E7FD /* PYCViewController.swift */,
+				2F8C810028010CED00A8E7FD /* PYCViewController.xib */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -758,7 +766,7 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2F8C80FC28010CBA00A8E7FD /* Place */,
+				2F8C80FC28010CBA00A8E7FD /* Category */,
 				3D0E9C31270A647400B593AD /* Base */,
 				3D3A3854270A548400E2EF94 /* Main */,
 				3D3A3848270A53C700E2EF94 /* Home */,
@@ -853,7 +861,7 @@
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */,
 				3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */,
-				2F8C810228010CED00A8E7FD /* PYPViewController.xib in Resources */,
+				2F8C810228010CED00A8E7FD /* PYCViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */,
 				2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */,
@@ -894,7 +902,7 @@
 				2F4979B427FBE04B0008028F /* PYHPlaceCategoriesView.swift in Sources */,
 				2F8C810728010E6700A8E7FD /* PYHRoutingLogic.swift in Sources */,
 				2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */,
-				2F8C810128010CED00A8E7FD /* PYPViewController.swift in Sources */,
+				2F8C810128010CED00A8E7FD /* PYCViewController.swift in Sources */,
 				2F8C810528010D6800A8E7FD /* PYHRouter.swift in Sources */,
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
 				3D3A3850270A541400E2EF94 /* PYHViewController.swift in Sources */,
