@@ -10,7 +10,7 @@ import CoreGraphics
 
 #warning("TODO: find a way to get the categories and set them to the corresponding view")
 
-class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
+class PYHViewController: PYBaseViewController, PYHViewLogic {
     @IBOutlet private weak var hiLabel: UILabel!
     @IBOutlet private weak var categoriesView: PYHPlaceCategoriesView!
     
@@ -82,7 +82,7 @@ class PYHHomeViewController: PYBaseViewController, PYHViewLogic {
 }
 
 
-extension PYHHomeViewController: PYHPlaceCategoriesViewDataSource {
+extension PYHViewController: PYHPlaceCategoriesViewDataSource {
     func placesCategoriesView(numberOfCategoriesIn view: PYHPlaceCategoriesView) -> Int {
         4
     }

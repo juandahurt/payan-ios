@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYHHomeViewController" customModule="Payan" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYHViewController" customModule="Payan" customModuleProvider="target">
             <connections>
                 <outlet property="categoriesView" destination="MSk-2R-XkQ" id="Hhs-Fa-isC"/>
                 <outlet property="hiLabel" destination="o4n-rk-ee5" id="bUQ-V4-t9y"/>

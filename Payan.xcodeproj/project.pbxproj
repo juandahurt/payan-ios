@@ -47,8 +47,8 @@
 		3D27BF01270A565A007143C8 /* MainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF00270A565A007143C8 /* MainModule.swift */; };
 		3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF06270A568B007143C8 /* MainRouter.swift */; };
 		3D3A384A270A53D300E2EF94 /* PYHomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A3849270A53D300E2EF94 /* PYHomeModule.swift */; };
-		3D3A3850270A541400E2EF94 /* PYHHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A384E270A541400E2EF94 /* PYHHomeViewController.swift */; };
-		3D3A3851270A541400E2EF94 /* PYHHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3A384F270A541400E2EF94 /* PYHHomeViewController.xib */; };
+		3D3A3850270A541400E2EF94 /* PYHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A384E270A541400E2EF94 /* PYHViewController.swift */; };
+		3D3A3851270A541400E2EF94 /* PYHViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3A384F270A541400E2EF94 /* PYHViewController.xib */; };
 		3D3C031B278F953400771AC6 /* LoggerAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */; };
 		3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D426B3626F804F90019FEBA /* TextFieldForm.swift */; };
 		3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */; };
@@ -124,8 +124,8 @@
 		3D27BF00270A565A007143C8 /* MainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModule.swift; sourceTree = "<group>"; };
 		3D27BF06270A568B007143C8 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3D3A3849270A53D300E2EF94 /* PYHomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHomeModule.swift; sourceTree = "<group>"; };
-		3D3A384E270A541400E2EF94 /* PYHHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHHomeViewController.swift; sourceTree = "<group>"; };
-		3D3A384F270A541400E2EF94 /* PYHHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHHomeViewController.xib; sourceTree = "<group>"; };
+		3D3A384E270A541400E2EF94 /* PYHViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHViewController.swift; sourceTree = "<group>"; };
+		3D3A384F270A541400E2EF94 /* PYHViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHViewController.xib; sourceTree = "<group>"; };
 		3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerAppDelegate.swift; sourceTree = "<group>"; };
 		3D426B3626F804F90019FEBA /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
 		3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
@@ -322,8 +322,8 @@
 		3D0E9C2C270A639800B593AD /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3D3A384E270A541400E2EF94 /* PYHHomeViewController.swift */,
-				3D3A384F270A541400E2EF94 /* PYHHomeViewController.xib */,
+				3D3A384E270A541400E2EF94 /* PYHViewController.swift */,
+				3D3A384F270A541400E2EF94 /* PYHViewController.xib */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -814,7 +814,7 @@
 				2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */,
 				2F4979BC27FBE8180008028F /* PYHCategoryCollectionViewCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
-				3D3A3851270A541400E2EF94 /* PYHHomeViewController.xib in Resources */,
+				3D3A3851270A541400E2EF94 /* PYHViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,7 +846,7 @@
 				2F4979B427FBE04B0008028F /* PYHPlaceCategoriesView.swift in Sources */,
 				2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */,
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
-				3D3A3850270A541400E2EF94 /* PYHHomeViewController.swift in Sources */,
+				3D3A3850270A541400E2EF94 /* PYHViewController.swift in Sources */,
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
 				2F8D512D2800C5E600ADCC64 /* PYHDataAccessLogic.swift in Sources */,
 				2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */,
