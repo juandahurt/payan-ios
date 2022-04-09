@@ -37,6 +37,10 @@ struct AppStyle {
             UIColor(named: "F1") ?? .gray
         }
         
+        static var F2: UIColor {
+            UIColor(named: "F2") ?? .gray
+        }
+        
         static var textFieldForm: UIColor {
             UIColor(named: "TextFieldForm") ?? .lightGray
         }

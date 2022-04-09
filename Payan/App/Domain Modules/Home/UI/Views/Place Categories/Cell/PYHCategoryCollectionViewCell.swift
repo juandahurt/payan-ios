@@ -24,6 +24,7 @@ class PYHCategoryCollectionViewCell: UICollectionViewCell {
         
         imageContainer.layer.cornerRadius = imageContainer.frame.width / 2
         imageContainer.layer.borderColor = AppStyle.Color.N8.cgColor
+        imageContainer.backgroundColor = AppStyle.Color.F2
         imageContainer.layer.borderWidth = 1
     }
     
