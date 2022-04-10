@@ -19,18 +19,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let navigationController = UINavigationController()
-        navigationController.navigationBar.backgroundColor = AppStyle.Color.F2
-        navigationController.navigationBar.tintColor = AppStyle.Color.N1
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppStyle.Font.get(.medium, size: .secondTitle)]
+        navigationController.navigationBar.shadowImage = UIImage()
         let navBarButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
         navBarButtonAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0), NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
         
         window?.rootViewController = navigationController
         
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.font: AppStyle.Font.get(.medium, size: .secondTitle),
+            NSAttributedString.Key.foregroundColor: AppStyle.Color.N1
+        ]
+        if #available(iOS 15, *) {
+            UINavigationBar.appearance().isTranslucent = true
+        } else {
+            UINavigationBar.appearance().isTranslucent = false
+        }
+        UINavigationBar.appearance().tintColor = AppStyle.Color.N1
+        UINavigationBar.appearance().barTintColor = UIColor.white
+        UINavigationBar.appearance().backgroundColor = AppStyle.Color.F2
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back")
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back")
         
-        SkeletonAppearance.default.tintColor = AppStyle.Color.skeleton
+        UIApplication.shared.statusBarStyle = .darkContent
         
         let module = MainModule.setup(with: navigationController)
         module.show()
