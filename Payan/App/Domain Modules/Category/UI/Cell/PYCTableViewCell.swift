@@ -22,6 +22,7 @@ class PYCTableViewCell: UITableViewCell {
     
     private func setupView() {
         #warning("TODO: remove dummy data")
+        backgroundColor = AppStyle.Color.F2
         titleLabel.font = AppStyle.Font.get(.medium, size: .subtitle)
         titleLabel.textColor = AppStyle.Color.N1
         titleLabel.text = "El morro de Tulcán"
