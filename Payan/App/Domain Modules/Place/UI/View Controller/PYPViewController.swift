@@ -22,6 +22,7 @@ class PYPViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
+        setupTableView()
     }
     
     private func setupSubviews() {
@@ -29,6 +30,23 @@ class PYPViewController: UIViewController {
     }
     
     private func setupTableView() {
+        let headerNibName = String(describing: PYPHeaderTableViewCell.self)
+        tableView.register(UINib(nibName: headerNibName, bundle: nil), forCellReuseIdentifier: PYPHeaderTableViewCell.reuseIdentifier)
+        tableView.dataSource = self
+        tableView.backgroundColor = .clear
+        tableView.separatorColor = .clear
+    }
+}
+
+
+extension PYPViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PYPHeaderTableViewCell.reuseIdentifier, for: indexPath)
         
+        return cell
     }
 }

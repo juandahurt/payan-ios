@@ -14,6 +14,8 @@
 		2F06927D2801F6C50068AA79 /* PYCategoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */; };
 		2F06927F2801F7B90068AA79 /* PYCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927E2801F7B90068AA79 /* PYCPresenter.swift */; };
 		2F0692842801F8F10068AA79 /* PYCRoutingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */; };
+		2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C5A28038D0800086C10 /* PYBadge.swift */; };
+		2F329C5D28038D3D00086C10 /* PYBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F329C5C28038D3D00086C10 /* PYBadge.xib */; };
 		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
 		2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */; };
 		2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */; };
@@ -119,6 +121,8 @@
 		2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCategoryModule.swift; sourceTree = "<group>"; };
 		2F06927E2801F7B90068AA79 /* PYCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCPresenter.swift; sourceTree = "<group>"; };
 		2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCRoutingLogic.swift; sourceTree = "<group>"; };
+		2F329C5A28038D0800086C10 /* PYBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYBadge.swift; sourceTree = "<group>"; };
+		2F329C5C28038D3D00086C10 /* PYBadge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYBadge.xib; sourceTree = "<group>"; };
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
 		2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesViewDataSource.swift; sourceTree = "<group>"; };
 		2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHAppVersionType.swift; sourceTree = "<group>"; };
@@ -261,6 +265,15 @@
 				2F8CADEE28024A4900F166E0 /* PYCDataAccessLogic.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2F329C5928038CDF00086C10 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				2F329C5A28038D0800086C10 /* PYBadge.swift */,
+				2F329C5C28038D3D00086C10 /* PYBadge.xib */,
+			);
+			path = Badge;
 			sourceTree = "<group>";
 		};
 		2F44E21127FCBAD30026FDBC /* Protocols */ = {
@@ -654,6 +667,7 @@
 		3D51102626F6D52500D24DD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2F329C5928038CDF00086C10 /* Badge */,
 				2F4C8E8727FA4ED100AC9C54 /* Modal */,
 				3DF1E8F3273C335D002466E0 /* Carousel */,
 				3D67706E273C1A5100FE1E55 /* Squishable View */,
@@ -1004,6 +1018,7 @@
 			files = (
 				2F7BD79A280371A000588C52 /* PYPHeaderTableViewCell.xib in Resources */,
 				3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */,
+				2F329C5D28038D3D00086C10 /* PYBadge.xib in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */,
 				3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */,
@@ -1063,6 +1078,7 @@
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
 				3D3A3850270A541400E2EF94 /* PYHViewController.swift in Sources */,
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
+				2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */,
 				2F7BD7892803625E00588C52 /* PYHTime.swift in Sources */,
 				2F8D512D2800C5E600ADCC64 /* PYHDataAccessLogic.swift in Sources */,
 				2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */,
