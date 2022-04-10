@@ -13,4 +13,5 @@ protocol PYHBusinessLogic {
     var presenter: PYHPresenter { get }
     
     func checkCurrentVersion()
+    func checkCurrentTime()
 }

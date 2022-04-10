@@ -30,4 +30,21 @@ final class PYHInteractor: PYHBusinessLogic {
             }
         }
     }
+    
+    func checkCurrentTime() {
+        let calender = Calendar.current
+        let date = Date()
+        let hour = calender.component(.hour, from: date)
+        
+        var time: PYHTime
+        if hour < 12 {
+            time = .day
+        } else if hour >= 12 && hour <= 18 {
+            time = .afternoon
+        } else {
+            time = .night
+        }
+        
+        presenter.showCurrentTime(time)
+    }
 }
