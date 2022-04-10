@@ -9,8 +9,8 @@ import Foundation
 
 
 protocol PYCBusinessLogic {
-    #warning("TODO: create place model")
-    var places: [String] { get }
+    var places: [PYCPlace] { get }
+    var worker: PYCDataAccessLogic { get }
     var presenter: PYCPresentationLogic { get }
     
     func getPlaces()
