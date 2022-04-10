@@ -19,10 +19,6 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
         super.init(nibName: nibName, bundle: nil)
     }
     
-    deinit {
-        print("DEINIT")
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
