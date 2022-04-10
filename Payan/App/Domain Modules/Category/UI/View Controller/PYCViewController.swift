@@ -33,6 +33,7 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
     
     private func setupSubviews() {
         navigationBarIsHidden = false
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         title = "Puentes"
         
         view.backgroundColor = AppStyle.Color.F2

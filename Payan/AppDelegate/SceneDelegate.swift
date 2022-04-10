@@ -20,10 +20,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navigationController = UINavigationController()
         navigationController.navigationBar.backgroundColor = AppStyle.Color.F2
+        navigationController.navigationBar.barTintColor = AppStyle.Color.F2
         navigationController.navigationBar.tintColor = AppStyle.Color.N1
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppStyle.Font.get(.medium, size: .secondTitle)]
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: AppStyle.Font.get(.medium, size: .secondTitle),
+            NSAttributedString.Key.foregroundColor: AppStyle.Color.N1
+        ]
         let navBarButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
         navBarButtonAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0), NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
+        UIApplication.shared.statusBarStyle = .darkContent
         
         window?.rootViewController = navigationController
         
