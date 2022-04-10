@@ -8,7 +8,7 @@
 import Foundation
 
 
-protocol PYCViewLogic {
+protocol PYCViewLogic: AnyObject {
     var interactor: PYCBusinessLogic { get }
     
     func showLoading()

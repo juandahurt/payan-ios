@@ -10,16 +10,23 @@ import UIKit
 
 
 final class PYCateogryModule {
-    let associatedViewController: UIViewController
+    private let view: PYCViewLogic
+    private var router: PYCRoutingLogic
     
     private init(navigationController: UINavigationController) {
         let presenter = PYCPresenter()
         let interactor = PYCInteractor(presenter: presenter)
-        associatedViewController = PYCViewController(interactor: interactor)
-        presenter.view = associatedViewController as? PYCViewLogic
+        view = PYCViewController(interactor: interactor)
+        router = PYCRouter(navigationController: navigationController)
+        router.viewController = view as? UIViewController
+        presenter.view = view
     }
     
     static func setup(with navigationController: UINavigationController) -> PYCateogryModule {
         PYCateogryModule(navigationController: navigationController)
+    }
+    
+    func show() {
+        router.show()
     }
 }
