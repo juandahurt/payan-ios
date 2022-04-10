@@ -30,23 +30,53 @@ class PYPViewController: UIViewController {
     }
     
     private func setupTableView() {
-        let headerNibName = String(describing: PYPHeaderTableViewCell.self)
-        tableView.register(UINib(nibName: headerNibName, bundle: nil), forCellReuseIdentifier: PYPHeaderTableViewCell.reuseIdentifier)
+        registerCells()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.backgroundColor = .clear
         tableView.separatorColor = .clear
+//        tableView.color
+    }
+    
+    private func registerCells() {
+        let headerNibName = String(describing: PYPHeaderTableViewCell.self)
+        tableView.register(UINib(nibName: headerNibName, bundle: nil), forCellReuseIdentifier: PYPHeaderTableViewCell.reuseIdentifier)
+        
+        let imageNibName = String(describing: PYPImageTableViewCell.self)
+        tableView.register(UINib(nibName: imageNibName, bundle: nil), forCellReuseIdentifier: PYPImageTableViewCell.reuseIdentifier)
     }
 }
 
 
 extension PYPViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PYPHeaderTableViewCell.reuseIdentifier, for: indexPath)
+        let cell: UITableViewCell
+        
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: PYPHeaderTableViewCell.reuseIdentifier, for: indexPath)
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: PYPImageTableViewCell.reuseIdentifier, for: indexPath)
+        }
+        
+        let bgView = UIView()
+        bgView.backgroundColor = .clear
+        cell.selectedBackgroundView = bgView
         
         return cell
+    }
+}
+
+
+extension PYPViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return UITableView.automaticDimension
+        } else {
+            return UIScreen.main.bounds.height * 0.45
+        }
     }
 }
