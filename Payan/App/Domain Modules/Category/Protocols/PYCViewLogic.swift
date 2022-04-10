@@ -10,6 +10,7 @@ import Foundation
 
 protocol PYCViewLogic: AnyObject {
     var interactor: PYCBusinessLogic { get }
+    var router: PYCRoutingLogic { get }
     
     func showLoading()
     func hideLoading()

@@ -23,4 +23,10 @@ class PYCRouter: PYCRoutingLogic {
         }
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func showPlace() {
+        #warning("TODO: instance the place module")
+        let vc = PYPViewController()
+        navigationController.pushViewController(vc, animated: true)
+    }
 }

@@ -16,8 +16,8 @@ final class PYCateogryModule {
     private init(navigationController: UINavigationController) {
         let presenter = PYCPresenter()
         let interactor = PYCInteractor(presenter: presenter)
-        view = PYCViewController(interactor: interactor)
         router = PYCRouter(navigationController: navigationController)
+        view = PYCViewController(interactor: interactor, router: router)
         router.viewController = view as? UIViewController
         presenter.view = view
     }

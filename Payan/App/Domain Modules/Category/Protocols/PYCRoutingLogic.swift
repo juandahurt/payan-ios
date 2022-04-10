@@ -11,5 +11,7 @@ import UIKit
 
 protocol PYCRoutingLogic {
     var viewController: UIViewController? { get set }
+    
     func show()
+    func showPlace()
 }
