@@ -76,7 +76,7 @@ extension PYPViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             return UITableView.automaticDimension
         } else {
-            return UIScreen.main.bounds.height * 0.45
+            return tableView.frame.width - 40
         }
     }
 }

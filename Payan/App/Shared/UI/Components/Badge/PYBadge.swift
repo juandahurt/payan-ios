@@ -28,6 +28,7 @@ class PYBadge: UIView {
         contentView.layer.cornerRadius = 2
         
         titleLabel.text = "MUSEO"
+        titleLabel.textColor = AppStyle.Color.F2
         titleLabel.font = AppStyle.Font.get(.medium, size: .footer)
     }
 }
