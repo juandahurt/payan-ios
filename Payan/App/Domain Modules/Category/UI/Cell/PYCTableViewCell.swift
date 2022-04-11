@@ -5,6 +5,7 @@
 //  Created by Juan Hurtado on 9/04/22.
 //
 
+import Kingfisher
 import UIKit
 
 class PYCTableViewCell: UITableViewCell {
@@ -35,7 +36,8 @@ class PYCTableViewCell: UITableViewCell {
         subtitleLabel.numberOfLines = 0
         subtitleLabel.lineBreakMode = .byWordWrapping
         
-        placeImageView?.load(fromUrl: URL(string: "https://payan-dev-images.s3.us-east-2.amazonaws.com/san-jose.jpg")!)
+        placeImageView.kf.indicatorType = .activity
+        placeImageView.kf.setImage(with: URL(string: "https://payan-dev-images.s3.us-east-2.amazonaws.com/san-jose.jpg")!)
         placeImageView.layer.cornerRadius = 5
         
         dividerView.backgroundColor = AppStyle.Color.N8
