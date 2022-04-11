@@ -26,6 +26,8 @@
 		2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */; };
 		2F4979BB27FBE8180008028F /* PYHCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */; };
 		2F4979BC27FBE8180008028F /* PYHCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4979BA27FBE8180008028F /* PYHCategoryCollectionViewCell.xib */; };
+		2F4AA14728048224002681C3 /* PYPDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AA14528048224002681C3 /* PYPDescriptionTableViewCell.swift */; };
+		2F4AA14828048224002681C3 /* PYPDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AA14628048224002681C3 /* PYPDescriptionTableViewCell.xib */; };
 		2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4C8E8E27FA514200AC9C54 /* PYModal.xib */; };
 		2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9027FA528F00AC9C54 /* PYModal.swift */; };
 		2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */; };
@@ -135,6 +137,8 @@
 		2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHPlaceCategoriesView.xib; sourceTree = "<group>"; };
 		2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F4979BA27FBE8180008028F /* PYHCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		2F4AA14528048224002681C3 /* PYPDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		2F4AA14628048224002681C3 /* PYPDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		2F4C8E8E27FA514200AC9C54 /* PYModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYModal.xib; sourceTree = "<group>"; };
 		2F4C8E9027FA528F00AC9C54 /* PYModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModal.swift; sourceTree = "<group>"; };
 		2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
@@ -343,6 +347,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		2F4AA14428048211002681C3 /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				2F4AA14528048224002681C3 /* PYPDescriptionTableViewCell.swift */,
+				2F4AA14628048224002681C3 /* PYPDescriptionTableViewCell.xib */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
 		2F4C8E8727FA4ED100AC9C54 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +428,7 @@
 		2F7BD794280370C400588C52 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2F4AA14428048211002681C3 /* Description */,
 				2F329C5E280393BA00086C10 /* Image */,
 				2F7BD7962803718C00588C52 /* Header */,
 			);
@@ -1042,6 +1056,7 @@
 				3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */,
 				2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */,
 				3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */,
+				2F4AA14828048224002681C3 /* PYPDescriptionTableViewCell.xib in Resources */,
 				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
 				2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */,
 				2F4979BC27FBE8180008028F /* PYHCategoryCollectionViewCell.xib in Resources */,
@@ -1079,6 +1094,7 @@
 				2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */,
 				2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */,
 				2F8CADF128024AF700F166E0 /* PYCWorker.swift in Sources */,
+				2F4AA14728048224002681C3 /* PYPDescriptionTableViewCell.swift in Sources */,
 				2F8D51342800C7B900ADCC64 /* PYHViewLogic.swift in Sources */,
 				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
 				3DF1E8FE273C391A002466E0 /* CarouselViewController.swift in Sources */,

@@ -35,7 +35,6 @@ class PYPViewController: UIViewController {
         tableView.delegate = self
         tableView.backgroundColor = .clear
         tableView.separatorColor = .clear
-//        tableView.color
     }
     
     private func registerCells() {
@@ -44,13 +43,16 @@ class PYPViewController: UIViewController {
         
         let imageNibName = String(describing: PYPImageTableViewCell.self)
         tableView.register(UINib(nibName: imageNibName, bundle: nil), forCellReuseIdentifier: PYPImageTableViewCell.reuseIdentifier)
+        
+        let descriptionNibName = String(describing: PYPDescriptionTableViewCell.self)
+        tableView.register(UINib(nibName: descriptionNibName, bundle: nil), forCellReuseIdentifier: PYPDescriptionTableViewCell.reuseIdentifier)
     }
 }
 
 
 extension PYPViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,8 +60,10 @@ extension PYPViewController: UITableViewDataSource {
         
         if indexPath.row == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: PYPHeaderTableViewCell.reuseIdentifier, for: indexPath)
-        } else {
+        } else if indexPath.row == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: PYPImageTableViewCell.reuseIdentifier, for: indexPath)
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: PYPDescriptionTableViewCell.reuseIdentifier, for: indexPath)
         }
         
         let bgView = UIView()
@@ -73,10 +77,10 @@ extension PYPViewController: UITableViewDataSource {
 
 extension PYPViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return UITableView.automaticDimension
-        } else {
+        if indexPath.row == 1 {
             return tableView.frame.width - 40
+        } else {
+            return UITableView.automaticDimension
         }
     }
 }
