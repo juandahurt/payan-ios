@@ -34,15 +34,22 @@
                         <constraint firstAttribute="height" constant="148" id="ckA-Gz-uRH"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3kF-AK-UMI" customClass="PYHCityView" customModule="Payan" customModuleProvider="target">
+                    <rect key="frame" x="20" y="334" width="374" height="128"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="N8"/>
             <constraints>
                 <constraint firstItem="o4n-rk-ee5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Ck2-1d-y4h"/>
                 <constraint firstItem="o4n-rk-ee5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="FPD-jz-hjz"/>
+                <constraint firstItem="3kF-AK-UMI" firstAttribute="top" secondItem="MSk-2R-XkQ" secondAttribute="bottom" constant="20" id="HW7-2Y-AHO"/>
                 <constraint firstItem="MSk-2R-XkQ" firstAttribute="top" secondItem="o4n-rk-ee5" secondAttribute="bottom" constant="20" id="Rw2-Ro-f1A"/>
                 <constraint firstItem="MSk-2R-XkQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bPc-Fp-mV1"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MSk-2R-XkQ" secondAttribute="trailing" constant="20" id="gFI-CU-ReX"/>
+                <constraint firstItem="3kF-AK-UMI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mMa-2J-2E2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3kF-AK-UMI" secondAttribute="trailing" constant="20" id="uyI-9B-Upj"/>
             </constraints>
             <point key="canvasLocation" x="38" y="50"/>
         </view>

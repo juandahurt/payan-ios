@@ -19,6 +19,8 @@
 		2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */; };
 		2F329C64280393E300086C10 /* PYPImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F329C62280393E300086C10 /* PYPImageTableViewCell.xib */; };
 		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
+		2F41A13E2804AD16006F5556 /* PYHCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F41A13D2804AD16006F5556 /* PYHCityView.xib */; };
+		2F41A1402804AD21006F5556 /* PYHCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41A13F2804AD21006F5556 /* PYHCityView.swift */; };
 		2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */; };
 		2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */; };
 		2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21D27FCCF580026FDBC /* PYHWorker.swift */; };
@@ -130,6 +132,8 @@
 		2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPImageTableViewCell.swift; sourceTree = "<group>"; };
 		2F329C62280393E300086C10 /* PYPImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPImageTableViewCell.xib; sourceTree = "<group>"; };
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
+		2F41A13D2804AD16006F5556 /* PYHCityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHCityView.xib; sourceTree = "<group>"; };
+		2F41A13F2804AD21006F5556 /* PYHCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCityView.swift; sourceTree = "<group>"; };
 		2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesViewDataSource.swift; sourceTree = "<group>"; };
 		2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHAppVersionType.swift; sourceTree = "<group>"; };
 		2F44E21D27FCCF580026FDBC /* PYHWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHWorker.swift; sourceTree = "<group>"; };
@@ -293,6 +297,15 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		2F41A13C2804ACF7006F5556 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				2F41A13D2804AD16006F5556 /* PYHCityView.xib */,
+				2F41A13F2804AD21006F5556 /* PYHCityView.swift */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
 		2F44E21127FCBAD30026FDBC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +336,7 @@
 		2F4979B227FBDFD70008028F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2F41A13C2804ACF7006F5556 /* City */,
 				2F4979B527FBE0AA0008028F /* Place Categories */,
 			);
 			path = Views;
@@ -1045,6 +1059,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F7BD79A280371A000588C52 /* PYPHeaderTableViewCell.xib in Resources */,
+				2F41A13E2804AD16006F5556 /* PYHCityView.xib in Resources */,
 				2F329C64280393E300086C10 /* PYPImageTableViewCell.xib in Resources */,
 				3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */,
 				2F329C5D28038D3D00086C10 /* PYBadge.xib in Resources */,
@@ -1140,6 +1155,7 @@
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */,
 				2F4979BB27FBE8180008028F /* PYHCategoryCollectionViewCell.swift in Sources */,
+				2F41A1402804AD21006F5556 /* PYHCityView.swift in Sources */,
 				2F8D512B2800C5AD00ADCC64 /* PYHBusinessLogic.swift in Sources */,
 				3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */,
 				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,
