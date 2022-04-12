@@ -11,9 +11,11 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
     @IBOutlet private weak var tableView: UITableView!
     
     var interactor: PYCBusinessLogic
+    var router: PYCRoutingLogic
     
-    init(interactor: PYCBusinessLogic) {
+    init(interactor: PYCBusinessLogic, router: PYCRoutingLogic) {
         self.interactor = interactor
+        self.router = router
         
         let nibName = String(describing: Self.self)
         super.init(nibName: nibName, bundle: nil)
@@ -45,6 +47,7 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
         let nibName = String(describing: PYCTableViewCell.self)
         tableView.register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: PYCTableViewCell.reuseIdentifier)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.separatorColor = .clear
     }
     
@@ -81,5 +84,9 @@ extension PYCViewController: UITableViewDataSource {
 extension PYCViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router.showPlace()
     }
 }

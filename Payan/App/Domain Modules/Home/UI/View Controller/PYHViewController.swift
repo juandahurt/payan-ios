@@ -38,6 +38,7 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
         setupShadows()
         
         interactor.checkCurrentVersion()
+        interactor.checkCurrentTime()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,6 +72,10 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
             isDismissable: dismissable
         )
         PYModalManager.shared.showModal(using: config, inside: parent)
+    }
+    
+    func updateHiLabel(with text: String) {
+        hiLabel.text = text
     }
     
     private func setupSubviews() {

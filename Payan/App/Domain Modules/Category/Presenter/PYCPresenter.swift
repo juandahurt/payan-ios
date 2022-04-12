@@ -9,7 +9,7 @@ import Foundation
 
 
 class PYCPresenter: PYCPresentationLogic {
-    var view: PYCViewLogic?
+    weak var view: PYCViewLogic?
     
     func showLoading() {
         view?.showLoading()

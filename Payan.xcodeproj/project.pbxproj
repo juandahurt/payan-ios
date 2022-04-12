@@ -14,7 +14,13 @@
 		2F06927D2801F6C50068AA79 /* PYCategoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */; };
 		2F06927F2801F7B90068AA79 /* PYCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927E2801F7B90068AA79 /* PYCPresenter.swift */; };
 		2F0692842801F8F10068AA79 /* PYCRoutingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */; };
+		2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C5A28038D0800086C10 /* PYBadge.swift */; };
+		2F329C5D28038D3D00086C10 /* PYBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F329C5C28038D3D00086C10 /* PYBadge.xib */; };
+		2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */; };
+		2F329C64280393E300086C10 /* PYPImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F329C62280393E300086C10 /* PYPImageTableViewCell.xib */; };
 		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
+		2F41A13E2804AD16006F5556 /* PYHCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F41A13D2804AD16006F5556 /* PYHCityView.xib */; };
+		2F41A1402804AD21006F5556 /* PYHCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F41A13F2804AD21006F5556 /* PYHCityView.swift */; };
 		2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */; };
 		2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */; };
 		2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21D27FCCF580026FDBC /* PYHWorker.swift */; };
@@ -22,6 +28,8 @@
 		2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */; };
 		2F4979BB27FBE8180008028F /* PYHCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */; };
 		2F4979BC27FBE8180008028F /* PYHCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4979BA27FBE8180008028F /* PYHCategoryCollectionViewCell.xib */; };
+		2F4AA14728048224002681C3 /* PYPDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AA14528048224002681C3 /* PYPDescriptionTableViewCell.swift */; };
+		2F4AA14828048224002681C3 /* PYPDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4AA14628048224002681C3 /* PYPDescriptionTableViewCell.xib */; };
 		2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F4C8E8E27FA514200AC9C54 /* PYModal.xib */; };
 		2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9027FA528F00AC9C54 /* PYModal.swift */; };
 		2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */; };
@@ -31,6 +39,12 @@
 		2F63C87927FCD36C00857056 /* PYHAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C87827FCD36C00857056 /* PYHAppVersion.swift */; };
 		2F63C87F27FCD5F600857056 /* Emogger in Frameworks */ = {isa = PBXBuildFile; productRef = 2F63C87E27FCD5F600857056 /* Emogger */; };
 		2F63C88227FCD62500857056 /* PYHInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C88127FCD62500857056 /* PYHInteractor.swift */; };
+		2F7BD7892803625E00588C52 /* PYHTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD7882803625E00588C52 /* PYHTime.swift */; };
+		2F7BD78C280367DC00588C52 /* PYCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD78B280367DC00588C52 /* PYCRouter.swift */; };
+		2F7BD79228036ED000588C52 /* PYPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD79028036ED000588C52 /* PYPViewController.swift */; };
+		2F7BD79328036ED000588C52 /* PYPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BD79128036ED000588C52 /* PYPViewController.xib */; };
+		2F7BD799280371A000588C52 /* PYPHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD797280371A000588C52 /* PYPHeaderTableViewCell.swift */; };
+		2F7BD79A280371A000588C52 /* PYPHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BD798280371A000588C52 /* PYPHeaderTableViewCell.xib */; };
 		2F898C2E2802211100528BF2 /* PYCTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F898C2C2802211100528BF2 /* PYCTableViewCell.swift */; };
 		2F898C2F2802211100528BF2 /* PYCTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F898C2D2802211100528BF2 /* PYCTableViewCell.xib */; };
 		2F898C312802257200528BF2 /* UIImageView+loadFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F898C302802257200528BF2 /* UIImageView+loadFromUrl.swift */; };
@@ -113,7 +127,13 @@
 		2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCategoryModule.swift; sourceTree = "<group>"; };
 		2F06927E2801F7B90068AA79 /* PYCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCPresenter.swift; sourceTree = "<group>"; };
 		2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCRoutingLogic.swift; sourceTree = "<group>"; };
+		2F329C5A28038D0800086C10 /* PYBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYBadge.swift; sourceTree = "<group>"; };
+		2F329C5C28038D3D00086C10 /* PYBadge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYBadge.xib; sourceTree = "<group>"; };
+		2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPImageTableViewCell.swift; sourceTree = "<group>"; };
+		2F329C62280393E300086C10 /* PYPImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPImageTableViewCell.xib; sourceTree = "<group>"; };
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
+		2F41A13D2804AD16006F5556 /* PYHCityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHCityView.xib; sourceTree = "<group>"; };
+		2F41A13F2804AD21006F5556 /* PYHCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCityView.swift; sourceTree = "<group>"; };
 		2F44E21227FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHPlaceCategoriesViewDataSource.swift; sourceTree = "<group>"; };
 		2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHAppVersionType.swift; sourceTree = "<group>"; };
 		2F44E21D27FCCF580026FDBC /* PYHWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHWorker.swift; sourceTree = "<group>"; };
@@ -121,6 +141,8 @@
 		2F4979B627FBE0C10008028F /* PYHPlaceCategoriesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHPlaceCategoriesView.xib; sourceTree = "<group>"; };
 		2F4979B927FBE8180008028F /* PYHCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F4979BA27FBE8180008028F /* PYHCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		2F4AA14528048224002681C3 /* PYPDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		2F4AA14628048224002681C3 /* PYPDescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPDescriptionTableViewCell.xib; sourceTree = "<group>"; };
 		2F4C8E8E27FA514200AC9C54 /* PYModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYModal.xib; sourceTree = "<group>"; };
 		2F4C8E9027FA528F00AC9C54 /* PYModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModal.swift; sourceTree = "<group>"; };
 		2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+NibLoadable.swift"; sourceTree = "<group>"; };
@@ -132,6 +154,12 @@
 		2F63C87B27FCD51700857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F63C87C27FCD58C00857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F63C88127FCD62500857056 /* PYHInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHInteractor.swift; sourceTree = "<group>"; };
+		2F7BD7882803625E00588C52 /* PYHTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHTime.swift; sourceTree = "<group>"; };
+		2F7BD78B280367DC00588C52 /* PYCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCRouter.swift; sourceTree = "<group>"; };
+		2F7BD79028036ED000588C52 /* PYPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPViewController.swift; sourceTree = "<group>"; };
+		2F7BD79128036ED000588C52 /* PYPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPViewController.xib; sourceTree = "<group>"; };
+		2F7BD797280371A000588C52 /* PYPHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		2F7BD798280371A000588C52 /* PYPHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		2F898C2C2802211100528BF2 /* PYCTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCTableViewCell.swift; sourceTree = "<group>"; };
 		2F898C2D2802211100528BF2 /* PYCTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCTableViewCell.xib; sourceTree = "<group>"; };
 		2F898C302802257200528BF2 /* UIImageView+loadFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadFromUrl.swift"; sourceTree = "<group>"; };
@@ -251,6 +279,33 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		2F329C5928038CDF00086C10 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				2F329C5A28038D0800086C10 /* PYBadge.swift */,
+				2F329C5C28038D3D00086C10 /* PYBadge.xib */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		2F329C5E280393BA00086C10 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */,
+				2F329C62280393E300086C10 /* PYPImageTableViewCell.xib */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		2F41A13C2804ACF7006F5556 /* City */ = {
+			isa = PBXGroup;
+			children = (
+				2F41A13D2804AD16006F5556 /* PYHCityView.xib */,
+				2F41A13F2804AD21006F5556 /* PYHCityView.swift */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
 		2F44E21127FCBAD30026FDBC /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +320,7 @@
 			children = (
 				2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */,
 				2F63C87827FCD36C00857056 /* PYHAppVersion.swift */,
+				2F7BD7882803625E00588C52 /* PYHTime.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -280,6 +336,7 @@
 		2F4979B227FBDFD70008028F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2F41A13C2804ACF7006F5556 /* City */,
 				2F4979B527FBE0AA0008028F /* Place Categories */,
 			);
 			path = Views;
@@ -302,6 +359,15 @@
 				2F4979BA27FBE8180008028F /* PYHCategoryCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2F4AA14428048211002681C3 /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				2F4AA14528048224002681C3 /* PYPDescriptionTableViewCell.swift */,
+				2F4AA14628048224002681C3 /* PYPDescriptionTableViewCell.xib */,
+			);
+			path = Description;
 			sourceTree = "<group>";
 		};
 		2F4C8E8727FA4ED100AC9C54 /* Modal */ = {
@@ -339,6 +405,59 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		2F7BD78A280367D300588C52 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2F7BD78B280367DC00588C52 /* PYCRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2F7BD78D28036D4D00588C52 /* Place */ = {
+			isa = PBXGroup;
+			children = (
+				2F7BD78E28036D6600588C52 /* UI */,
+			);
+			path = Place;
+			sourceTree = "<group>";
+		};
+		2F7BD78E28036D6600588C52 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2F7BD794280370C400588C52 /* Cells */,
+				2F7BD78F28036D8600588C52 /* View Controller */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2F7BD78F28036D8600588C52 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2F7BD79028036ED000588C52 /* PYPViewController.swift */,
+				2F7BD79128036ED000588C52 /* PYPViewController.xib */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		2F7BD794280370C400588C52 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2F4AA14428048211002681C3 /* Description */,
+				2F329C5E280393BA00086C10 /* Image */,
+				2F7BD7962803718C00588C52 /* Header */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		2F7BD7962803718C00588C52 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				2F7BD797280371A000588C52 /* PYPHeaderTableViewCell.swift */,
+				2F7BD798280371A000588C52 /* PYPHeaderTableViewCell.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		2F898C2B280220FA00528BF2 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +470,7 @@
 		2F8C80FC28010CBA00A8E7FD /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2F7BD78A280367D300588C52 /* Router */,
 				2F8CADED28024A3500F166E0 /* Workers */,
 				2F8CADEA2802485900F166E0 /* Entities */,
 				2F0692732801F5630068AA79 /* Protocols */,
@@ -589,6 +709,7 @@
 		3D51102626F6D52500D24DD9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2F329C5928038CDF00086C10 /* Badge */,
 				2F4C8E8727FA4ED100AC9C54 /* Modal */,
 				3DF1E8F3273C335D002466E0 /* Carousel */,
 				3D67706E273C1A5100FE1E55 /* Squishable View */,
@@ -845,6 +966,7 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2F7BD78D28036D4D00588C52 /* Place */,
 				2F8C80FC28010CBA00A8E7FD /* Category */,
 				3D0E9C31270A647400B593AD /* Base */,
 				3D3A3854270A548400E2EF94 /* Main */,
@@ -936,7 +1058,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F7BD79A280371A000588C52 /* PYPHeaderTableViewCell.xib in Resources */,
+				2F41A13E2804AD16006F5556 /* PYHCityView.xib in Resources */,
+				2F329C64280393E300086C10 /* PYPImageTableViewCell.xib in Resources */,
 				3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */,
+				2F329C5D28038D3D00086C10 /* PYBadge.xib in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */,
 				3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */,
@@ -945,11 +1071,13 @@
 				3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */,
 				2F4979B727FBE0C10008028F /* PYHPlaceCategoriesView.xib in Resources */,
 				3DF1E8FF273C391A002466E0 /* CarouselViewController.xib in Resources */,
+				2F4AA14828048224002681C3 /* PYPDescriptionTableViewCell.xib in Resources */,
 				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
 				2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */,
 				2F4979BC27FBE8180008028F /* PYHCategoryCollectionViewCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* PYHViewController.xib in Resources */,
+				2F7BD79328036ED000588C52 /* PYPViewController.xib in Resources */,
 				2F898C2F2802211100528BF2 /* PYCTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -967,6 +1095,7 @@
 				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
 				3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */,
+				2F7BD799280371A000588C52 /* PYPHeaderTableViewCell.swift in Sources */,
 				2F06927D2801F6C50068AA79 /* PYCategoryModule.swift in Sources */,
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
 				2F63C87927FCD36C00857056 /* PYHAppVersion.swift in Sources */,
@@ -980,10 +1109,12 @@
 				2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */,
 				2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */,
 				2F8CADF128024AF700F166E0 /* PYCWorker.swift in Sources */,
+				2F4AA14728048224002681C3 /* PYPDescriptionTableViewCell.swift in Sources */,
 				2F8D51342800C7B900ADCC64 /* PYHViewLogic.swift in Sources */,
 				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
 				3DF1E8FE273C391A002466E0 /* CarouselViewController.swift in Sources */,
 				2F4979B427FBE04B0008028F /* PYHPlaceCategoriesView.swift in Sources */,
+				2F7BD78C280367DC00588C52 /* PYCRouter.swift in Sources */,
 				2F898C312802257200528BF2 /* UIImageView+loadFromUrl.swift in Sources */,
 				2F8C810728010E6700A8E7FD /* PYHRoutingLogic.swift in Sources */,
 				2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */,
@@ -993,9 +1124,12 @@
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
 				3D3A3850270A541400E2EF94 /* PYHViewController.swift in Sources */,
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
+				2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */,
+				2F7BD7892803625E00588C52 /* PYHTime.swift in Sources */,
 				2F8D512D2800C5E600ADCC64 /* PYHDataAccessLogic.swift in Sources */,
 				2F44E21327FCBAEB0026FDBC /* PYHPlaceCategoriesViewDataSource.swift in Sources */,
 				2F63C88227FCD62500857056 /* PYHInteractor.swift in Sources */,
+				2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */,
 				2F06927F2801F7B90068AA79 /* PYCPresenter.swift in Sources */,
 				2F8C810B28010EE900A8E7FD /* PYHPlaceCategoriesViewDelegate.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
@@ -1021,6 +1155,7 @@
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */,
 				2F4979BB27FBE8180008028F /* PYHCategoryCollectionViewCell.swift in Sources */,
+				2F41A1402804AD21006F5556 /* PYHCityView.swift in Sources */,
 				2F8D512B2800C5AD00ADCC64 /* PYHBusinessLogic.swift in Sources */,
 				3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */,
 				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,
@@ -1033,6 +1168,7 @@
 				2F06927B2801F6360068AA79 /* PYCInteractor.swift in Sources */,
 				3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */,
 				3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */,
+				2F7BD79228036ED000588C52 /* PYPViewController.swift in Sources */,
 				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

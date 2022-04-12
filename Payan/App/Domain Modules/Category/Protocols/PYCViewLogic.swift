@@ -8,8 +8,9 @@
 import Foundation
 
 
-protocol PYCViewLogic {
+protocol PYCViewLogic: AnyObject {
     var interactor: PYCBusinessLogic { get }
+    var router: PYCRoutingLogic { get }
     
     func showLoading()
     func hideLoading()
