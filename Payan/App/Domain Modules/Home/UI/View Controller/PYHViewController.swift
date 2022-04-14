@@ -79,7 +79,6 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     }
     
     private func setupSubviews() {
-        navigationBarIsHidden = true
         view.backgroundColor = AppStyle.Color.F1
         
         hiLabel.font = AppStyle.Font.get(.semiBold, size: .title)
