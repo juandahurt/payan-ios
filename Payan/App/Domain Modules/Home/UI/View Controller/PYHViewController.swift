@@ -33,8 +33,10 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerHeader()
         registerCells()
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
         setupLayout()
         setupHeaders()
         applySnapshot()
@@ -52,15 +54,18 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     }
     
     private func registerCells() {
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        let collectionNibName = String(describing: PYHCollectionCollectionViewCell.self)
+        collectionView.register(UINib(nibName: collectionNibName, bundle: nil), forCellWithReuseIdentifier: PYHCollectionCollectionViewCell.reuseIdentifier)
+    }
+    
+    private func registerHeader() {
         let headerNibName = String(describing: PYHHeaderCollectionReusableView.self)
         collectionView.register(UINib(nibName: headerNibName, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PYHHeaderCollectionReusableView.reuseIdentifier)
     }
     
     private func makeDataSource() -> DataSource {
         DataSource(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-            cell.backgroundColor = .gray
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYHCollectionCollectionViewCell.reuseIdentifier, for: indexPath)
             return cell
         }
     }
@@ -148,5 +153,12 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
 
     func updateHiLabel(with text: String) {
 //        hiLabel.text = text
+    }
+}
+
+
+extension PYHViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router.showCategory()
     }
 }
