@@ -9,6 +9,7 @@ import Foundation
 
 
 final class PYHInteractor: PYHBusinessLogic {
+    var sections: [PYHSection] = []
     var worker: PYHDataAccessLogic
     var presenter: PYHPresenter
     

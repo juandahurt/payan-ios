@@ -9,6 +9,7 @@ import Foundation
 
 
 protocol PYHBusinessLogic {
+    var sections: [PYHSection] { get set }
     var worker: PYHDataAccessLogic { get }
     var presenter: PYHPresenter { get }
     

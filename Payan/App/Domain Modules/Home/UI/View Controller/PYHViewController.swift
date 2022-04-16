@@ -6,18 +6,19 @@
 //
 
 import UIKit
-import CoreGraphics
-
-#warning("TODO: find a way to get the categories and set them to the corresponding view")
 
 class PYHViewController: PYBaseViewController, PYHViewLogic {
-    @IBOutlet private weak var hiLabel: UILabel!
-    @IBOutlet private weak var categoriesView: PYHPlaceCategoriesView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var interactor: PYHBusinessLogic
     var router: PYHRoutingLogic
     
     private var tabBarHasBeenHiddenOnce = false
+    
+    typealias DataSource = UICollectionViewDiffableDataSource<PYHSection, PYHSectionItem>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<PYHSection, PYHSectionItem>
+    
+    lazy var dataSource: DataSource = makeDataSource()
     
     init(interactor: PYHBusinessLogic, router: PYHRoutingLogic) {
         self.interactor = interactor
@@ -32,13 +33,13 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
-        
-        setupSubviews()
-        setupShadows()
-        
-        interactor.checkCurrentVersion()
-        interactor.checkCurrentTime()
+        registerCells()
+        collectionView.dataSource = dataSource
+        setupLayout()
+        setupHeaders()
+        applySnapshot()
+        collectionView.backgroundColor = AppStyle.Color.F2
+        view.backgroundColor = AppStyle.Color.F2
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,19 +51,90 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
         }
     }
     
+    private func registerCells() {
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        let headerNibName = String(describing: PYHHeaderCollectionReusableView.self)
+        collectionView.register(UINib(nibName: headerNibName, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PYHHeaderCollectionReusableView.reuseIdentifier)
+    }
+    
+    private func makeDataSource() -> DataSource {
+        DataSource(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+            cell.backgroundColor = .gray
+            return cell
+        }
+    }
+    
+    private func setupLayout() {
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { section, _ in
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalHeight(1),
+                heightDimension: .fractionalHeight(1)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = .init(top: 0, leading: 7.5, bottom: 0, trailing: 7.5)
+            
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .absolute(140)
+            )
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+            group.contentInsets = .init(top: 15, leading: 12.5, bottom: 0, trailing: 12.5)
+            
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
+            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+            header.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
+
+            let section = NSCollectionLayoutSection(group: group)
+            section.boundarySupplementaryItems = [header]
+            
+            return section
+        })
+    }
+    
+    func setupHeaders() {
+        dataSource.supplementaryViewProvider = { [weak self] supplementaryView, elementKind, indexPath in
+            guard let self = self else { return nil }
+            
+            if elementKind == UICollectionView.elementKindSectionHeader {
+                let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PYHHeaderCollectionReusableView.reuseIdentifier, for: indexPath)
+//                header.backgroundColor = .gray
+                return header
+            }
+            
+            return nil
+        }
+    }
+    
+    private func applySnapshot() {
+        var snapshot = Snapshot()
+        let section = PYHSection()
+        snapshot.appendSections([section])
+        snapshot.appendItems(
+            [
+                PYHSectionItem(),
+                PYHSectionItem(),
+                PYHSectionItem(),
+                PYHSectionItem()
+            ],
+            toSection: section
+        )
+        dataSource.apply(snapshot)
+    }
+
     func showLoading() {
         super.showLoading()
     }
-    
+
     override func hideLoading() {
         super.hideLoading()
-        
+
         setTabBarVisible(visible: true, animated: true)
     }
-    
+
     func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool) {
         guard let parent = parent else { return }
-        
+
         let config = PYModalConfig(
             image: image,
             height: 350,
@@ -73,58 +145,8 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
         )
         PYModalManager.shared.showModal(using: config, inside: parent)
     }
-    
+
     func updateHiLabel(with text: String) {
-        hiLabel.text = text
-    }
-    
-    private func setupSubviews() {
-        view.backgroundColor = AppStyle.Color.F1
-        
-        hiLabel.font = AppStyle.Font.get(.semiBold, size: .title)
-        hiLabel.text = "Buenos días"
-        hiLabel.textColor = AppStyle.Color.N1
-        
-        categoriesView.contentView.layer.cornerRadius = 5
-        categoriesView.dataSource = self
-        categoriesView.delegate = self
-    }
-    
-    private func setupShadows() {
-        categoriesView.contentView.layer.shadowColor = UIColor.black.withAlphaComponent(0.05).cgColor
-        categoriesView.contentView.layer.shadowOffset = .init(width: 0, height: 6)
-        categoriesView.contentView.layer.shadowRadius = 16
-        categoriesView.contentView.layer.shadowOpacity = 1
-    }
-}
-
-
-extension PYHViewController: PYHPlaceCategoriesViewDataSource {
-    func placesCategoriesView(numberOfCategoriesIn view: PYHPlaceCategoriesView) -> Int {
-        4
-    }
-    
-    func placesCategoriesView(_ view: PYHPlaceCategoriesView, categoryTitleAt index: Int) -> String {
-        let categories = ["Iglesias", "Museos", "Parques", "Puentes"]
-        return categories[index]
-    }
-    
-    func placesCategoriesView(_ view: PYHPlaceCategoriesView, categoryImageAt index: Int) -> UIImage {
-        if index == 0 {
-            return UIImage(named: "church")!
-        } else if index == 1 {
-            return UIImage(named: "museum")!
-        } else if index == 2 {
-            return UIImage(named: "park")!
-        } else {
-            return UIImage(named: "bridge")!
-        }
-    }
-}
-
-
-extension PYHViewController: PYHPlaceCategoriesViewDelegate {
-    func placesCategoriesView(_ view: PYHPlaceCategoriesView, didSelectCategoryAt index: Int) {
-        router.showCategory()
+//        hiLabel.text = text
     }
 }
