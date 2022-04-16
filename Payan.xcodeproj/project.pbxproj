@@ -39,6 +39,8 @@
 		2F772CD62809F6DE003D311D /* PYHSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CD52809F6DE003D311D /* PYHSectionItem.swift */; };
 		2F772CDA280B1326003D311D /* PYHCollectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CD8280B1326003D311D /* PYHCollectionCollectionViewCell.swift */; };
 		2F772CDB280B1326003D311D /* PYHCollectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F772CD9280B1326003D311D /* PYHCollectionCollectionViewCell.xib */; };
+		2F772CDF280B28FC003D311D /* PYHBasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CDD280B28FC003D311D /* PYHBasicCollectionViewCell.swift */; };
+		2F772CE0280B28FC003D311D /* PYHBasicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F772CDE280B28FC003D311D /* PYHBasicCollectionViewCell.xib */; };
 		2F7BD7892803625E00588C52 /* PYHTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD7882803625E00588C52 /* PYHTime.swift */; };
 		2F7BD78C280367DC00588C52 /* PYCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD78B280367DC00588C52 /* PYCRouter.swift */; };
 		2F7BD79228036ED000588C52 /* PYPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD79028036ED000588C52 /* PYPViewController.swift */; };
@@ -155,6 +157,8 @@
 		2F772CD52809F6DE003D311D /* PYHSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionItem.swift; sourceTree = "<group>"; };
 		2F772CD8280B1326003D311D /* PYHCollectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCollectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F772CD9280B1326003D311D /* PYHCollectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHCollectionCollectionViewCell.xib; sourceTree = "<group>"; };
+		2F772CDD280B28FC003D311D /* PYHBasicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHBasicCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F772CDE280B28FC003D311D /* PYHBasicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHBasicCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F7BD7882803625E00588C52 /* PYHTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHTime.swift; sourceTree = "<group>"; };
 		2F7BD78B280367DC00588C52 /* PYCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCRouter.swift; sourceTree = "<group>"; };
 		2F7BD79028036ED000588C52 /* PYPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPViewController.swift; sourceTree = "<group>"; };
@@ -367,6 +371,7 @@
 		2F772CCA2809C7BA003D311D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2F772CDC280B288D003D311D /* Basic */,
 				2F772CD7280B1303003D311D /* Collection */,
 			);
 			path = Cells;
@@ -388,6 +393,15 @@
 				2F772CD9280B1326003D311D /* PYHCollectionCollectionViewCell.xib */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		2F772CDC280B288D003D311D /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				2F772CDD280B28FC003D311D /* PYHBasicCollectionViewCell.swift */,
+				2F772CDE280B28FC003D311D /* PYHBasicCollectionViewCell.xib */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 		2F7BD78A280367D300588C52 /* Router */ = {
@@ -1082,6 +1096,7 @@
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* PYHViewController.xib in Resources */,
 				2F7BD79328036ED000588C52 /* PYPViewController.xib in Resources */,
+				2F772CE0280B28FC003D311D /* PYHBasicCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,6 +1152,7 @@
 				2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */,
 				2F06927F2801F7B90068AA79 /* PYCPresenter.swift in Sources */,
 				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
+				2F772CDF280B28FC003D311D /* PYHBasicCollectionViewCell.swift in Sources */,
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */,

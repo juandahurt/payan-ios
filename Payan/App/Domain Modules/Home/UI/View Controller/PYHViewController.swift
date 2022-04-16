@@ -56,6 +56,9 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     private func registerCells() {
         let collectionNibName = String(describing: PYHCollectionCollectionViewCell.self)
         collectionView.register(UINib(nibName: collectionNibName, bundle: nil), forCellWithReuseIdentifier: PYHCollectionCollectionViewCell.reuseIdentifier)
+        
+        let basicNibName = String(describing: PYHBasicCollectionViewCell.self)
+        collectionView.register(UINib(nibName: basicNibName, bundle: nil), forCellWithReuseIdentifier: PYHBasicCollectionViewCell.reuseIdentifier)
     }
     
     private func registerHeader() {
@@ -65,35 +68,66 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     
     private func makeDataSource() -> DataSource {
         DataSource(collectionView: collectionView) { collectionView, indexPath, itemIdentifier in
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYHCollectionCollectionViewCell.reuseIdentifier, for: indexPath)
-            return cell
+            if indexPath.section == 0 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYHCollectionCollectionViewCell.reuseIdentifier, for: indexPath)
+                return cell
+            } else {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYHBasicCollectionViewCell.reuseIdentifier, for: indexPath)
+                return cell
+            }
         }
     }
     
     private func setupLayout() {
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { section, _ in
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalHeight(1),
-                heightDimension: .fractionalHeight(1)
-            )
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = .init(top: 0, leading: 7.5, bottom: 0, trailing: 7.5)
-            
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(140)
-            )
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
-            group.contentInsets = .init(top: 15, leading: 12.5, bottom: 0, trailing: 12.5)
-            
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(60))
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-            header.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
+            if section == 0 {
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalHeight(1),
+                    heightDimension: .fractionalHeight(1)
+                )
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = .init(top: 0, leading: 7.5, bottom: 0, trailing: 7.5)
+                
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .absolute(140)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+                group.contentInsets = .init(top: 15, leading: 12.5, bottom: 0, trailing: 12.5)
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(70))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+                header.contentInsets = .init(top: 40, leading: 20, bottom: 0, trailing: 20)
 
-            let section = NSCollectionLayoutSection(group: group)
-            section.boundarySupplementaryItems = [header]
-            
-            return section
+                let section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = [header]
+                section.contentInsets = .init(top: 0, leading: 0, bottom: 20, trailing: 0)
+                
+                return section
+            } else {
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalHeight(1),
+                    heightDimension: .fractionalHeight(1)
+                )
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .absolute(140),
+                    heightDimension: .absolute(140)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                group.contentInsets = .init(top: 15, leading: 0, bottom: 0, trailing: 15)
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(70))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+
+                let section = NSCollectionLayoutSection(group: group)
+                section.boundarySupplementaryItems = [header]
+                section.contentInsets = .init(top: 0, leading: 20, bottom: 20, trailing: 20)
+                section.orthogonalScrollingBehavior = .continuous
+                
+                return section
+            }
         })
     }
     
@@ -102,8 +136,12 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
             guard let self = self else { return nil }
             
             if elementKind == UICollectionView.elementKindSectionHeader {
-                let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PYHHeaderCollectionReusableView.reuseIdentifier, for: indexPath)
-//                header.backgroundColor = .gray
+                let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PYHHeaderCollectionReusableView.reuseIdentifier, for: indexPath) as! PYHHeaderCollectionReusableView
+                if indexPath.section == 1 {
+                    header.titleLabel.text = "Próceres"
+                    header.subtitleLabel.removeFromSuperview()
+                }
+                header.secondaryButton.isHidden = true
                 return header
             }
             
@@ -113,17 +151,22 @@ class PYHViewController: PYBaseViewController, PYHViewLogic {
     
     private func applySnapshot() {
         var snapshot = Snapshot()
-        let section = PYHSection()
-        snapshot.appendSections([section])
-        snapshot.appendItems(
-            [
-                PYHSectionItem(),
-                PYHSectionItem(),
-                PYHSectionItem(),
-                PYHSectionItem()
-            ],
-            toSection: section
-        )
+        let sections = [
+            PYHSection(),
+            PYHSection()
+        ]
+        snapshot.appendSections(sections)
+        for section in sections {
+            snapshot.appendItems(
+                [
+                    PYHSectionItem(),
+                    PYHSectionItem(),
+                    PYHSectionItem(),
+                    PYHSectionItem()
+                ],
+                toSection: section
+            )
+        }
         dataSource.apply(snapshot)
     }
 

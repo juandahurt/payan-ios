@@ -29,6 +29,7 @@ class PYHCollectionCollectionViewCell: UICollectionViewCell {
         subtitleLabel.textColor = AppStyle.Color.F2
         subBackgroundView.backgroundColor = .black.withAlphaComponent(0.35)
         imageView.contentMode = .scaleAspectFill
+        imageView.kf.indicatorType = .activity
         
         titleLabel.text = "Museos"
         subtitleLabel.text = "12 lugares"
