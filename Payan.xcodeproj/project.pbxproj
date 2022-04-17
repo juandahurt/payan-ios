@@ -29,6 +29,8 @@
 		2F4C8E9627FA552000AC9C54 /* PYModalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */; };
 		2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */; };
 		2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F52870327FA927000F65F95 /* PYModalConfig.swift */; };
+		2F5827AC280B40540085E444 /* PYHInnerCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5827AA280B40540085E444 /* PYHInnerCardCollectionViewCell.swift */; };
+		2F5827AD280B40540085E444 /* PYHInnerCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F5827AB280B40540085E444 /* PYHInnerCardCollectionViewCell.xib */; };
 		2F63C87927FCD36C00857056 /* PYHAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C87827FCD36C00857056 /* PYHAppVersion.swift */; };
 		2F63C87F27FCD5F600857056 /* Emogger in Frameworks */ = {isa = PBXBuildFile; productRef = 2F63C87E27FCD5F600857056 /* Emogger */; };
 		2F63C88227FCD62500857056 /* PYHInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C88127FCD62500857056 /* PYHInteractor.swift */; };
@@ -145,6 +147,8 @@
 		2F4C8E9527FA552000AC9C54 /* PYModalManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModalManager.swift; sourceTree = "<group>"; };
 		2F52870127FA8FBB00F65F95 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		2F52870327FA927000F65F95 /* PYModalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModalConfig.swift; sourceTree = "<group>"; };
+		2F5827AA280B40540085E444 /* PYHInnerCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHInnerCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F5827AB280B40540085E444 /* PYHInnerCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHInnerCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F63C87827FCD36C00857056 /* PYHAppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHAppVersion.swift; sourceTree = "<group>"; };
 		2F63C87A27FCD49900857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F63C87B27FCD51700857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
@@ -353,6 +357,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2F5827A9280B3EEC0085E444 /* Inner Card */ = {
+			isa = PBXGroup;
+			children = (
+				2F5827AA280B40540085E444 /* PYHInnerCardCollectionViewCell.swift */,
+				2F5827AB280B40540085E444 /* PYHInnerCardCollectionViewCell.xib */,
+			);
+			path = "Inner Card";
+			sourceTree = "<group>";
+		};
 		2F63C87D27FCD5F600857056 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +384,7 @@
 		2F772CCA2809C7BA003D311D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2F5827A9280B3EEC0085E444 /* Inner Card */,
 				2F772CDC280B288D003D311D /* Basic */,
 				2F772CD7280B1303003D311D /* Collection */,
 			);
@@ -1093,6 +1107,7 @@
 				2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */,
 				2F772CDB280B1326003D311D /* PYHCollectionCollectionViewCell.xib in Resources */,
 				2F772CCF2809C919003D311D /* PYHHeaderCollectionReusableView.xib in Resources */,
+				2F5827AD280B40540085E444 /* PYHInnerCardCollectionViewCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* PYHViewController.xib in Resources */,
 				2F7BD79328036ED000588C52 /* PYPViewController.xib in Resources */,
@@ -1124,6 +1139,7 @@
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
 				2F0692792801F5CA0068AA79 /* PYCPresentationLogic.swift in Sources */,
 				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
+				2F5827AC280B40540085E444 /* PYHInnerCardCollectionViewCell.swift in Sources */,
 				2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */,
 				2F772CDA280B1326003D311D /* PYHCollectionCollectionViewCell.swift in Sources */,
 				2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */,
