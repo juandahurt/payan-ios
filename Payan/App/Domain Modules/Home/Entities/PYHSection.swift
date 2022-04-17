@@ -11,11 +11,13 @@ class PYHSection {
     var id: String = ""
     var layout: PYHSectionLayout = .grid
     var itemLayout: PYHItemLayout
+    var header: PYHSectionHeader
     var items: [PYHSectionItem]
     
-    init(layout: PYHSectionLayout, itemLayout: PYHItemLayout, items: [PYHSectionItem]) {
+    init(layout: PYHSectionLayout, itemLayout: PYHItemLayout, header: PYHSectionHeader, items: [PYHSectionItem]) {
         self.layout = layout
         self.itemLayout = itemLayout
+        self.header = header
         self.items = items
     }
 }

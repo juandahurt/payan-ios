@@ -47,6 +47,8 @@
 		2F79DF7B280C67E2005DAAA1 /* PYHSectionLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF7A280C67E2005DAAA1 /* PYHSectionLayoutFactory.swift */; };
 		2F79DF7D280C7DC6005DAAA1 /* PYHItemLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF7C280C7DC6005DAAA1 /* PYHItemLayout.swift */; };
 		2F79DF7F280C891C005DAAA1 /* PYHSectionItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF7E280C891C005DAAA1 /* PYHSectionItemFactory.swift */; };
+		2F79DF81280C9C81005DAAA1 /* PYHSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF80280C9C81005DAAA1 /* PYHSectionHeader.swift */; };
+		2F79DF83280C9F1D005DAAA1 /* PYHHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF82280C9F1D005DAAA1 /* PYHHeaderButton.swift */; };
 		2F7BD78C280367DC00588C52 /* PYCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD78B280367DC00588C52 /* PYCRouter.swift */; };
 		2F7BD79228036ED000588C52 /* PYPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD79028036ED000588C52 /* PYPViewController.swift */; };
 		2F7BD79328036ED000588C52 /* PYPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BD79128036ED000588C52 /* PYPViewController.xib */; };
@@ -100,8 +102,6 @@
 		3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */; };
 		3D51103A26F7125600D24DD9 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */; };
 		3D51104526F7167600D24DD9 /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51104426F7167600D24DD9 /* Loadable.swift */; };
-		3D5402BA2778CA2F00256BCD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5402B82778CA2F00256BCD /* HeaderView.swift */; };
-		3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D5402B92778CA2F00256BCD /* HeaderView.xib */; };
 		3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */; };
 		3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67706F273C1A6800FE1E55 /* SquishableView.swift */; };
 		3D69C11F27446FEA002982B3 /* UtilButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69C11E27446FEA002982B3 /* UtilButton.swift */; };
@@ -170,6 +170,8 @@
 		2F79DF7A280C67E2005DAAA1 /* PYHSectionLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionLayoutFactory.swift; sourceTree = "<group>"; };
 		2F79DF7C280C7DC6005DAAA1 /* PYHItemLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHItemLayout.swift; sourceTree = "<group>"; };
 		2F79DF7E280C891C005DAAA1 /* PYHSectionItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionItemFactory.swift; sourceTree = "<group>"; };
+		2F79DF80280C9C81005DAAA1 /* PYHSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionHeader.swift; sourceTree = "<group>"; };
+		2F79DF82280C9F1D005DAAA1 /* PYHHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHHeaderButton.swift; sourceTree = "<group>"; };
 		2F7BD78B280367DC00588C52 /* PYCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCRouter.swift; sourceTree = "<group>"; };
 		2F7BD79028036ED000588C52 /* PYPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPViewController.swift; sourceTree = "<group>"; };
 		2F7BD79128036ED000588C52 /* PYPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPViewController.xib; sourceTree = "<group>"; };
@@ -217,8 +219,6 @@
 		3D51102D26F70DDD00D24DD9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		3D51103926F7125600D24DD9 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		3D51104426F7167600D24DD9 /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
-		3D5402B82778CA2F00256BCD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		3D5402B92778CA2F00256BCD /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Preview.swift"; sourceTree = "<group>"; };
 		3D67706F273C1A6800FE1E55 /* SquishableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableView.swift; sourceTree = "<group>"; };
 		3D69C11E27446FEA002982B3 /* UtilButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilButton.swift; sourceTree = "<group>"; };
@@ -322,6 +322,8 @@
 				2F63C87827FCD36C00857056 /* PYHAppVersion.swift */,
 				2F772CD52809F6DE003D311D /* PYHSectionItem.swift */,
 				2F79DF7C280C7DC6005DAAA1 /* PYHItemLayout.swift */,
+				2F79DF80280C9C81005DAAA1 /* PYHSectionHeader.swift */,
+				2F79DF82280C9F1D005DAAA1 /* PYHHeaderButton.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -632,7 +634,6 @@
 			children = (
 				3D6678C1271391AF00A34C70 /* Presenter */,
 				3D6678C0271391A800A34C70 /* Router */,
-				3D6678BF2713919200A34C70 /* View */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -815,14 +816,6 @@
 			path = Preview;
 			sourceTree = "<group>";
 		};
-		3D6678BF2713919200A34C70 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3D6678C2271391B600A34C70 /* Cells */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		3D6678C0271391A800A34C70 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -837,15 +830,6 @@
 				3D0E9C3D270A67C600B593AD /* BasePresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3D6678C2271391B600A34C70 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				3D5402B82778CA2F00256BCD /* HeaderView.swift */,
-				3D5402B92778CA2F00256BCD /* HeaderView.xib */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		3D67706E273C1A5100FE1E55 /* Squishable View */ = {
@@ -1114,7 +1098,6 @@
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
 				2F9507452809326800297452 /* PYCTitleCollectionViewCell.xib in Resources */,
 				2F4C8E8F27FA514200AC9C54 /* PYModal.xib in Resources */,
-				3D5402BB2778CA2F00256BCD /* HeaderView.xib in Resources */,
 				2F8C810228010CED00A8E7FD /* PYCViewController.xib in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */,
@@ -1161,6 +1144,7 @@
 				2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */,
 				2F772CDA280B1326003D311D /* PYHCollectionCollectionViewCell.swift in Sources */,
 				2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */,
+				2F79DF83280C9F1D005DAAA1 /* PYHHeaderButton.swift in Sources */,
 				2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */,
 				2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */,
 				2F8CADF128024AF700F166E0 /* PYCWorker.swift in Sources */,
@@ -1205,12 +1189,12 @@
 				3D79ACA927239DA900ECB567 /* RESTError.swift in Sources */,
 				2F8CADEC2802486F00F166E0 /* PYCPlace.swift in Sources */,
 				3D3A384A270A53D300E2EF94 /* PYHomeModule.swift in Sources */,
-				3D5402BA2778CA2F00256BCD /* HeaderView.swift in Sources */,
 				3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */,
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */,
 				2F772CD62809F6DE003D311D /* PYHSectionItem.swift in Sources */,
+				2F79DF81280C9C81005DAAA1 /* PYHSectionHeader.swift in Sources */,
 				2F8D512B2800C5AD00ADCC64 /* PYHBusinessLogic.swift in Sources */,
 				3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */,
 				3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */,

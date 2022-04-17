@@ -92,17 +92,10 @@ class PYHViewController: PYBaseViewController {
             
             if elementKind == UICollectionView.elementKindSectionHeader {
                 let header = self.collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: PYHHeaderCollectionReusableView.reuseIdentifier, for: indexPath) as! PYHHeaderCollectionReusableView
-                header.secondaryButton.isHidden = true
-                if indexPath.section == 2 {
-                    header.titleLabel.text = "Próceres"
-                    header.subtitleLabel.removeFromSuperview()
-                }
-                if indexPath.section == 1 {
-                    header.titleLabel.text = "Universidades"
-                    header.subtitleLabel.removeFromSuperview()
-                    header.secondaryButton.isHidden = false
-                    header.secondaryButton.setTitle("Ver todas", for: .normal)
-                }
+                let currentSection = self.sections[indexPath.section]
+                header.title = currentSection.header.title
+                header.subtitle = currentSection.header.subtitle
+                header.buttonTitle = currentSection.header.secondaryButton?.title
                 header.backgroundColor = AppStyle.Color.F2
                 return header
             }

@@ -14,6 +14,25 @@ class PYHHeaderCollectionReusableView: UICollectionReusableView {
     
     static let reuseIdentifier = "PYHHeaderCollectionReusableView"
     
+    var title: String = "" {
+        didSet {
+            titleLabel.text = title
+        }
+    }
+    
+    var subtitle: String? {
+        didSet {
+            subtitleLabel.text = subtitle
+        }
+    }
+    
+    var buttonTitle: String? {
+        didSet {
+            secondaryButton.setTitle(buttonTitle, for: .normal)
+            secondaryButton.isHidden = buttonTitle == nil
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
@@ -26,9 +45,5 @@ class PYHHeaderCollectionReusableView: UICollectionReusableView {
         subtitleLabel.textColor = AppStyle.Color.N4
         secondaryButton.titleLabel?.font = AppStyle.Font.get(.medium, size: .footer)
         secondaryButton.tintColor = AppStyle.Color.B1
-        
-        titleLabel.text = "Explora lugares"
-        subtitleLabel.text = "Adentrate en la ciudad blanca"
-        secondaryButton.setTitle("Ver más", for: .normal)
     }
 }
