@@ -6,13 +6,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYHViewController" customModule="Payan" customModuleProvider="target">
             <connections>
-                <outlet property="categoriesView" destination="MSk-2R-XkQ" id="Hhs-Fa-isC"/>
-                <outlet property="hiLabel" destination="o4n-rk-ee5" id="bUQ-V4-t9y"/>
+                <outlet property="collectionView" destination="HOa-ls-x3p" id="Oy9-EM-uvR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,35 +21,24 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4n-rk-ee5">
-                    <rect key="frame" x="20" y="64" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSk-2R-XkQ" customClass="PYHPlaceCategoriesView" customModule="Payan" customModuleProvider="target">
-                    <rect key="frame" x="20" y="105" width="374" height="148"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="148" id="ckA-Gz-uRH"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3kF-AK-UMI" customClass="PYHCityView" customModule="Payan" customModuleProvider="target">
-                    <rect key="frame" x="20" y="334" width="374" height="128"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HOa-ls-x3p">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pzh-lo-k3R">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="N8"/>
             <constraints>
-                <constraint firstItem="o4n-rk-ee5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Ck2-1d-y4h"/>
-                <constraint firstItem="o4n-rk-ee5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="FPD-jz-hjz"/>
-                <constraint firstItem="3kF-AK-UMI" firstAttribute="top" secondItem="MSk-2R-XkQ" secondAttribute="bottom" constant="20" id="HW7-2Y-AHO"/>
-                <constraint firstItem="MSk-2R-XkQ" firstAttribute="top" secondItem="o4n-rk-ee5" secondAttribute="bottom" constant="20" id="Rw2-Ro-f1A"/>
-                <constraint firstItem="MSk-2R-XkQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bPc-Fp-mV1"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MSk-2R-XkQ" secondAttribute="trailing" constant="20" id="gFI-CU-ReX"/>
-                <constraint firstItem="3kF-AK-UMI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mMa-2J-2E2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3kF-AK-UMI" secondAttribute="trailing" constant="20" id="uyI-9B-Upj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HOa-ls-x3p" secondAttribute="trailing" id="0Gz-1U-eJ6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HOa-ls-x3p" secondAttribute="bottom" id="nDZ-8O-q6K"/>
+                <constraint firstItem="HOa-ls-x3p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xFZ-a2-jvo"/>
+                <constraint firstItem="HOa-ls-x3p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zav-4F-HES"/>
             </constraints>
             <point key="canvasLocation" x="38" y="50"/>
         </view>
@@ -58,5 +47,8 @@
         <namedColor name="N8">
             <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

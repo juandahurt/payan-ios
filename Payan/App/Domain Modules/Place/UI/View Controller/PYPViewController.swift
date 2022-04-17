@@ -59,9 +59,9 @@ extension PYPViewController: UITableViewDataSource {
         let cell: UITableViewCell
         
         if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: PYPHeaderTableViewCell.reuseIdentifier, for: indexPath)
-        } else if indexPath.row == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: PYPImageTableViewCell.reuseIdentifier, for: indexPath)
+        } else if indexPath.row == 1 {
+            cell = tableView.dequeueReusableCell(withIdentifier: PYPHeaderTableViewCell.reuseIdentifier, for: indexPath)
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: PYPDescriptionTableViewCell.reuseIdentifier, for: indexPath)
         }
@@ -77,8 +77,8 @@ extension PYPViewController: UITableViewDataSource {
 
 extension PYPViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 1 {
-            return tableView.frame.width - 40
+        if indexPath.row == 0 {
+            return tableView.frame.height * 0.4
         } else {
             return UITableView.automaticDimension
         }

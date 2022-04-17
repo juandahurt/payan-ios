@@ -16,5 +16,5 @@ protocol PYHViewLogic: AnyObject {
     func showLoading()
     func hideLoading()
     func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool)
-    func updateHiLabel(with text: String)
+    func renderSections(_ sections: [PYHSection])
 }

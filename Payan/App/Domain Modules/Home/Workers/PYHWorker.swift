@@ -20,4 +20,8 @@ class PYHWorker: PYHDataAccessLogic {
             completion?(res.data!)
         }).disposed(by: disposeBag)
     }
+    
+    func getData(completion: ([PYHSection]) -> Void) {
+        fatalError("Not implemented yet!")
+    }
 }

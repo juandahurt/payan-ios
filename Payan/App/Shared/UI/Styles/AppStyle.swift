@@ -76,6 +76,7 @@ struct AppStyle {
             case subtitle = 14
             case body = 12
             case footer = 10
+            case small = 8
         }
         
         enum Weight: String {

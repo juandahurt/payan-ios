@@ -21,8 +21,8 @@ class PYPImageTableViewCell: UITableViewCell {
     func setupView() {
         backgroundColor = .clear
         
+        placeImageView.contentMode = .scaleAspectFill
         placeImageView.kf.indicatorType = .activity
-        placeImageView.kf.setImage(with: URL(string: "https://payan-dev-images.s3.us-east-2.amazonaws.com/70af431a36f7c0e548b1e8b147927155.jpg")!)
-        placeImageView.layer.cornerRadius = 5
+        placeImageView.kf.setImage(with: URL(string: "https://payan-dev-images.s3.us-east-2.amazonaws.com/san-jose.jpg")!)
     }
 }

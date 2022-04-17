@@ -47,18 +47,7 @@ class PYHPresenter: PYHPresentationLogic {
         )
     }
     
-    func showCurrentTime(_ time: PYHTime) {
-        var text = ""
-        
-        switch time {
-        case .day:
-            text = "Buenos días"
-        case .afternoon:
-            text = "Buenas tardes"
-        case .night:
-            text = "Buenas noches"
-        }
-        
-        view?.updateHiLabel(with: text)
+    func showSections(_ sections: [PYHSection]) {
+        view?.renderSections(sections)
     }
 }

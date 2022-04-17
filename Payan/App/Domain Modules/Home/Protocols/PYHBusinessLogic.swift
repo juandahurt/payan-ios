@@ -10,8 +10,8 @@ import Foundation
 
 protocol PYHBusinessLogic {
     var worker: PYHDataAccessLogic { get }
-    var presenter: PYHPresenter { get }
+    var presenter: PYHPresentationLogic { get }
     
     func checkCurrentVersion()
-    func checkCurrentTime()
+    func getHomeData()
 }
