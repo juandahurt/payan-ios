@@ -5,8 +5,10 @@
 //  Created by Juan Hurtado on 15/04/22.
 //
 
+import UIKit
 import Foundation
 
-enum PYHSectionLayout: String {
-    case grid = "grid"
+enum PYHSectionLayout {
+    case grid
+    case horizontal(Double, Double)
 }

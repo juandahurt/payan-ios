@@ -10,6 +10,14 @@ import Foundation
 class PYHSection {
     var id: String = ""
     var layout: PYHSectionLayout = .grid
+    var itemLayout: PYHItemLayout
+    var items: [PYHSectionItem]
+    
+    init(layout: PYHSectionLayout, itemLayout: PYHItemLayout, items: [PYHSectionItem]) {
+        self.layout = layout
+        self.itemLayout = itemLayout
+        self.items = items
+    }
 }
 
 extension PYHSection: Hashable {

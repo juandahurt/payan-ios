@@ -9,9 +9,8 @@ import Foundation
 
 
 final class PYHInteractor: PYHBusinessLogic {
-    var sections: [PYHSection] = []
     var worker: PYHDataAccessLogic
-    var presenter: PYHPresenter
+    var presenter: PYHPresentationLogic
     
     init(presenter: PYHPresenter, worker: PYHDataAccessLogic = PYHWorker()) {
         self.presenter = presenter
@@ -33,20 +32,10 @@ final class PYHInteractor: PYHBusinessLogic {
         }
     }
     
-    func checkCurrentTime() {
-        let calender = Calendar.current
-        let date = Date()
-        let hour = calender.component(.hour, from: date)
-        
-        var time: PYHTime
-        if hour < 12 {
-            time = .day
-        } else if hour >= 12 && hour <= 18 {
-            time = .afternoon
-        } else {
-            time = .night
+    func getHomeData() {
+        worker.getData { [weak self] sections in
+            guard let self = self else { return }
+            self.presenter.showSections(sections)
         }
-        
-        presenter.showCurrentTime(time)
     }
 }

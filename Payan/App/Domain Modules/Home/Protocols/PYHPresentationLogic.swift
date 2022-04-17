@@ -15,5 +15,5 @@ protocol PYHPresentationLogic {
     func showLoading()
     func hideLoading()
     func showAppNeedsUpdate(_ type: PYHAppVersionType)
-    func showCurrentTime(_ time: PYHTime)
+    func showSections(_ sections: [PYHSection])
 }

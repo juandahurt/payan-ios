@@ -13,7 +13,7 @@ final class PYHomeModule {
     
     private init(navigationController: UINavigationController) {
         let presenter = PYHPresenter()
-        let interactor = PYHInteractor(presenter: presenter)
+        let interactor = PYHInteractor(presenter: presenter, worker: PYHMockWorker())
         let router = PYHRouter(navigationController: navigationController)
         associatedViewController = PYHViewController(interactor: interactor, router: router)
         presenter.view = associatedViewController as? PYHViewLogic
