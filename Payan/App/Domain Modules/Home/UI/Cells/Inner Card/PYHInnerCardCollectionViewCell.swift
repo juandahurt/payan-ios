@@ -24,6 +24,7 @@ class PYHInnerCardCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupView() {
+        isSkeletonable = true
         layer.cornerRadius = 8
         
         subBackgroundView.backgroundColor = .black.withAlphaComponent(0.2)
@@ -44,9 +45,25 @@ class PYHInnerCardCollectionViewCell: UICollectionViewCell {
         secondaryImageView.contentMode = .scaleAspectFit
         secondaryImageView.kf.indicatorType = .activity
         
-        titleLabel.text = "Universidad del Cauca"
-        subtitleLabel.text = "Pública"
-        imageView.kf.setImage(with: URL(string: "https://upload.wikimedia.org/wikipedia/commons/2/23/Unicauca_-_El_Carmen_1.jpg")!)
-        secondaryImageView.kf.setImage(with: URL(string: "http://web.unicauca.edu.co/seminarioredmovil/images/unicauca.png")!)
+        titleLabel.text = ""
+        subtitleLabel.text = ""
+    }
+    
+    func setTitle(_ title: String) {
+        titleLabel.text = title
+    }
+    
+    func setSubtitle(_ subtitle: String) {
+        subtitleLabel.text = subtitle
+    }
+    
+    func setImage(_ url: String) {
+        guard let url = URL(string: url) else { return }
+        imageView.kf.setImage(with: url)
+    }
+    
+    func setSecondaryImage(_ url: String) {
+        guard let url = URL(string: url) else { return }
+        secondaryImageView.kf.setImage(with: url)
     }
 }

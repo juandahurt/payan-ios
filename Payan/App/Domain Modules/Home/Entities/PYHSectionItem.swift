@@ -12,7 +12,6 @@ class PYHSectionItem {
     var id: String = ""
 }
 
-
 extension PYHSectionItem: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -22,3 +21,6 @@ extension PYHSectionItem: Hashable {
         lhs.id == rhs.id
     }
 }
+
+// MARK: - Loading section item
+class PYHLoadingSectionItem: PYHSectionItem {}

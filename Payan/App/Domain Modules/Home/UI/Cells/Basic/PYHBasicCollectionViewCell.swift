@@ -21,14 +21,22 @@ class PYHBasicCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
+        isSkeletonable = true
         layer.cornerRadius = 5
         subBackgroundView.backgroundColor = .black.withAlphaComponent(0.2)
         imageView.contentMode = .scaleAspectFill
         titleLabel.textColor = AppStyle.Color.F2
         titleLabel.font = AppStyle.Font.get(.medium, size: .footer)
         imageView.kf.indicatorType = .activity
-        
-        imageView.kf.setImage(with: URL(string: "https://upload.wikimedia.org/wikipedia/commons/7/79/Josehilariolopez1.png")!)
-        titleLabel.text = "Nombre del prócer"
+        titleLabel.text = ""
+    }
+    
+    func setTitle(_ title: String) {
+        titleLabel.text = title
+    }
+    
+    func setImage(_ url: String) {
+        guard let url = URL(string: url) else { return }
+        imageView.kf.setImage(with: url)
     }
 }

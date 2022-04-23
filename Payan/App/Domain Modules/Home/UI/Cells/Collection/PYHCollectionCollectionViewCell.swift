@@ -22,6 +22,7 @@ class PYHCollectionCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupView() {
+        isSkeletonable = true
         layer.cornerRadius = 5
         titleLabel.font = AppStyle.Font.get(.medium, size: .body)
         titleLabel.textColor = AppStyle.Color.F2
@@ -30,9 +31,20 @@ class PYHCollectionCollectionViewCell: UICollectionViewCell {
         subBackgroundView.backgroundColor = .black.withAlphaComponent(0.35)
         imageView.contentMode = .scaleAspectFill
         imageView.kf.indicatorType = .activity
-        
-        titleLabel.text = "Museos"
-        subtitleLabel.text = "12 lugares"
-        imageView.kf.setImage(with: URL(string: "https://payan-dev-images.s3.us-east-2.amazonaws.com/san-jose.jpg")!)
+        titleLabel.text = ""
+        subtitleLabel.text = ""
+    }
+    
+    func setTitle(_ title: String) {
+        titleLabel.text = title
+    }
+    
+    func setSubtitle(_ subtitle: String) {
+        subtitleLabel.text = subtitle
+    }
+    
+    func setImage(_ url: String) {
+        guard let url = URL(string: url) else { return }
+        imageView.kf.setImage(with: url)
     }
 }

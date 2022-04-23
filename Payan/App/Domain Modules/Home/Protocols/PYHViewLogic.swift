@@ -12,9 +12,7 @@ import UIKit
 protocol PYHViewLogic: AnyObject {
     var interactor: PYHBusinessLogic { get }
     var router: PYHRoutingLogic { get }
-    
-    func showLoading()
-    func hideLoading()
+
     func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool)
     func renderSections(_ sections: [PYHSection])
 }

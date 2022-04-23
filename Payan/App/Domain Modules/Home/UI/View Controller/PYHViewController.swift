@@ -77,10 +77,14 @@ class PYHViewController: PYBaseViewController {
     }
     
     private func makeDataSource() -> DataSource {
-        DataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, _ in
+        DataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
             guard let self = self else { return nil }
             let currentSection = self.sections[indexPath.section]
-            return PYHSectionItemFactory.createSectionItemCell(for: currentSection.itemLayout, inside: collectionView, indexPath: indexPath)
+            let cell = PYHSectionItemFactory.createSectionItemCell(for: currentSection.itemLayout, item: item, inside: collectionView, indexPath: indexPath)
+            if item is PYHLoadingSectionItem {
+                cell.showSkeleton()
+            }
+            return cell
         }
     }
     
@@ -103,6 +107,9 @@ class PYHViewController: PYBaseViewController {
                 header.subtitle = currentSection.header.subtitle
                 header.buttonTitle = currentSection.header.secondaryButton?.title
                 header.backgroundColor = AppStyle.Color.F2
+                if currentSection.items.contains(where: { $0 is PYHLoadingSectionItem }) {
+                    header.showSkeleton()
+                }
                 return header
             }
             
@@ -123,14 +130,14 @@ class PYHViewController: PYBaseViewController {
         )
         PYModalManager.shared.showModal(using: config, inside: parent)
     }
+    
+    private func isLoading() -> Bool {
+        return sections.first(where: { $0.items.contains(where: { $0 is PYHLoadingSectionItem }) }) != nil
+    }
 }
 
 
 extension PYHViewController: PYHViewLogic {
-    func showLoading() {
-        
-    }
-    
     func renderSections(_ sections: [PYHSection]) {
         self.sections = sections
         var snapshot = Snapshot()
@@ -141,6 +148,7 @@ extension PYHViewController: PYHViewLogic {
         }
         
         dataSource.apply(snapshot, animatingDifferences: true)
+        collectionView.isScrollEnabled = !isLoading()
     }
 }
 

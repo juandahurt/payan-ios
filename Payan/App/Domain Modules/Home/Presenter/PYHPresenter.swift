@@ -13,11 +13,15 @@ class PYHPresenter: PYHPresentationLogic {
     weak var view: PYHViewLogic?
     
     func showLoading() {
-        view?.showLoading()
-    }
-    
-    func hideLoading() {
-        view?.hideLoading()
+        let basicHeader = PYHSectionHeader(
+            title: ""
+        )
+        let sections = [
+            PYHSection(layout: .grid, itemLayout: .collection, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()]),
+            PYHSection(layout: .horizontal(140, 250), itemLayout: .basic, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()]),
+            PYHSection(layout: .horizontal(250, 140), itemLayout: .innerCard, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()])
+        ]
+        view?.renderSections(sections)
     }
     
     func showAppNeedsUpdate(_ type: PYHAppVersionType) {
