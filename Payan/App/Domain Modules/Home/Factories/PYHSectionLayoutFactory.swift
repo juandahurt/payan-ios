@@ -26,7 +26,7 @@ class PYHSectionLayoutFactory {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
             group.contentInsets = .init(top: 15, leading: 12.5, bottom: 0, trailing: 12.5)
             
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(70))
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
             let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
             header.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
 
@@ -49,7 +49,7 @@ class PYHSectionLayoutFactory {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
             group.contentInsets = .init(top: 15, leading: 0, bottom: 0, trailing: 15)
             
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(70))
+            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
             let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
 
             let section = NSCollectionLayoutSection(group: group)
