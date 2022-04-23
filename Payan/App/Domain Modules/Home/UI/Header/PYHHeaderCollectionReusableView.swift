@@ -41,9 +41,9 @@ class PYHHeaderCollectionReusableView: UICollectionReusableView {
     private func setupView() {
         titleLabel.font = AppStyle.Font.get(.medium, size: .secondTitle)
         titleLabel.textColor = AppStyle.Color.N1
-        subtitleLabel.font = AppStyle.Font.get(.regular, size: .body)
+        subtitleLabel.font = AppStyle.Font.get(.regular, size: .footer)
         subtitleLabel.textColor = AppStyle.Color.N4
-        secondaryButton.titleLabel?.font = AppStyle.Font.get(.medium, size: .footer)
+        secondaryButton.titleLabel?.font = AppStyle.Font.get(.medium, size: .body)
         secondaryButton.tintColor = AppStyle.Color.B1
     }
 }

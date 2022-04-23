@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol PYHRoutingLogic {
+    var viewController: UIViewController? { get set }
+    
+    func show()
     func showCategory()
 }
