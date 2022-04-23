@@ -15,7 +15,7 @@ class PYHMockWorker: PYHDataAccessLogic {
     
     func getData(completion: ([PYHSection]) -> Void) {
         let headerWithButton = PYHSectionHeader(
-            title: "Universidaddes",
+            title: "Universidades",
             secondaryButton: PYHHeaderButton(title: "Ver todas")
         )
         let basicHeader = PYHSectionHeader(
@@ -26,9 +26,9 @@ class PYHMockWorker: PYHDataAccessLogic {
             subtitle: "Andentrate en la ciudad blanca"
         )
         let sections = [
-            PYHSection(layout: .horizontal(140, 250), itemLayout: .basic, header: headerWithButton, items: [PYHSectionItem(), PYHSectionItem(), PYHSectionItem(), PYHSectionItem()]),
-            PYHSection(layout: .horizontal(260, 160), itemLayout: .innerCard, header: headerWithSubtitle, items: [PYHSectionItem()]),
-            PYHSection(layout: .grid, itemLayout: .collection, header: basicHeader, items: [PYHSectionItem(),PYHSectionItem(), PYHSectionItem()]),
+            PYHSection(layout: .grid, itemLayout: .collection, header: headerWithSubtitle, items: [PYHSectionItem(),PYHSectionItem(), PYHSectionItem(), PYHSectionItem()]),
+            PYHSection(layout: .horizontal(140, 250), itemLayout: .basic, header: basicHeader, items: [PYHSectionItem(), PYHSectionItem(), PYHSectionItem(), PYHSectionItem()]),
+            PYHSection(layout: .horizontal(260, 160), itemLayout: .innerCard, header: headerWithButton, items: [PYHSectionItem()]),
         ]
         completion(sections)
     }

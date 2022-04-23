@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="HOa-ls-x3p">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pzh-lo-k3R">
                         <size key="itemSize" width="128" height="128"/>
@@ -36,11 +36,11 @@
             <color key="backgroundColor" name="N8"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HOa-ls-x3p" secondAttribute="trailing" id="0Gz-1U-eJ6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HOa-ls-x3p" secondAttribute="bottom" id="nDZ-8O-q6K"/>
+                <constraint firstAttribute="bottom" secondItem="HOa-ls-x3p" secondAttribute="bottom" id="pcr-tf-XcU"/>
                 <constraint firstItem="HOa-ls-x3p" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xFZ-a2-jvo"/>
                 <constraint firstItem="HOa-ls-x3p" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zav-4F-HES"/>
             </constraints>
-            <point key="canvasLocation" x="38" y="50"/>
+            <point key="canvasLocation" x="37.681159420289859" y="49.553571428571423"/>
         </view>
     </objects>
     <resources>

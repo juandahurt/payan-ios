@@ -10,24 +10,22 @@ import UIKit
 
 final class PYHomeModule {
     let associatedViewController: UIViewController
+    var router: PYHRoutingLogic
     
     private init(navigationController: UINavigationController) {
         let presenter = PYHPresenter()
         let interactor = PYHInteractor(presenter: presenter, worker: PYHMockWorker())
-        let router = PYHRouter(navigationController: navigationController)
+        router = PYHRouter(navigationController: navigationController)
         associatedViewController = PYHViewController(interactor: interactor, router: router)
         presenter.view = associatedViewController as? PYHViewLogic
-        
-        let title = "Inicio"
-        let image = UIImage(named: "home")?.withTintColor(AppStyle.Color.G7)
-        let selectedImage = UIImage(named: "home")?.withTintColor(AppStyle.Color.G2).withRenderingMode(.alwaysOriginal)
-        
-        associatedViewController.tabBarItem.title = title
-        associatedViewController.tabBarItem.image = image
-        associatedViewController.tabBarItem.selectedImage = selectedImage
+        router.viewController = associatedViewController
     }
     
     static func setup(with navigationController: UINavigationController) -> PYHomeModule {
         PYHomeModule(navigationController: navigationController)
+    }
+    
+    func show() {
+        router.show()
     }
 }

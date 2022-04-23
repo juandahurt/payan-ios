@@ -36,11 +36,15 @@ class PYHViewController: PYBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupSubviews()
+        interactor.getHomeData()
+    }
+    
+    private func setupSubviews() {
+        title = "Payán"
         view.backgroundColor = AppStyle.Color.F2
         setupCollectionView()
-        
-        interactor.getHomeData()
+        tabBarController?.tabBar.isHidden = true
     }
     
     private func setupCollectionView() {
@@ -52,6 +56,8 @@ class PYHViewController: PYBaseViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = self
         collectionView.backgroundColor = AppStyle.Color.F2
+        let bottomSafeAreaInset = view.safeAreaInsets.bottom
+        collectionView.contentInset = .init(top: 0, left: 0, bottom: bottomSafeAreaInset, right: 0)
     }
     
     private func registerCells() {
@@ -134,7 +140,7 @@ extension PYHViewController: PYHViewLogic {
             snapshot.appendItems(section.items, toSection: section)
         }
         
-        dataSource.apply(snapshot)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }
 
