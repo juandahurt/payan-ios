@@ -13,7 +13,6 @@ protocol PYHPresentationLogic {
     var view: PYHViewLogic? { get }
     
     func showLoading()
-    func hideLoading()
     func showAppNeedsUpdate(_ type: PYHAppVersionType)
     func showSections(_ sections: [PYHSection])
 }

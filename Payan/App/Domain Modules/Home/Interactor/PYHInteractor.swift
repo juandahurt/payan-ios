@@ -22,7 +22,6 @@ final class PYHInteractor: PYHBusinessLogic {
         worker.getLastVersion { [weak self] version in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.presenter.hideLoading()
                 if let currVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
                     if currVersion < version.number {
                         self.presenter.showAppNeedsUpdate(version.type)
@@ -33,6 +32,7 @@ final class PYHInteractor: PYHBusinessLogic {
     }
     
     func getHomeData() {
+        presenter.showLoading()
         worker.getData { [weak self] sections in
             guard let self = self else { return }
             self.presenter.showSections(sections)
