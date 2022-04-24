@@ -38,7 +38,7 @@
 		2F772CCE2809C919003D311D /* PYHHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CCC2809C919003D311D /* PYHHeaderCollectionReusableView.swift */; };
 		2F772CCF2809C919003D311D /* PYHHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F772CCD2809C919003D311D /* PYHHeaderCollectionReusableView.xib */; };
 		2F772CD22809F53E003D311D /* PYHSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CD12809F53E003D311D /* PYHSection.swift */; };
-		2F772CD42809F5EB003D311D /* PYHSectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CD32809F5EB003D311D /* PYHSectionLayout.swift */; };
+		2F772CD42809F5EB003D311D /* PYHSectionLayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CD32809F5EB003D311D /* PYHSectionLayoutType.swift */; };
 		2F772CD62809F6DE003D311D /* PYHSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CD52809F6DE003D311D /* PYHSectionItem.swift */; };
 		2F772CDA280B1326003D311D /* PYHCollectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CD8280B1326003D311D /* PYHCollectionCollectionViewCell.swift */; };
 		2F772CDB280B1326003D311D /* PYHCollectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F772CD9280B1326003D311D /* PYHCollectionCollectionViewCell.xib */; };
@@ -81,6 +81,7 @@
 		2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */; };
 		2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */; };
 		2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB042815E707005BF493 /* PYNetworkError.swift */; };
+		2FA3BB072815EE9E005BF493 /* PYHSectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB062815EE9E005BF493 /* PYHSectionLayout.swift */; };
 		2FF5CF412809B499001B8FFE /* PYCItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5CF3F2809B499001B8FFE /* PYCItemCollectionViewCell.swift */; };
 		2FF5CF422809B499001B8FFE /* PYCItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */; };
 		3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C1F270A59CC00B593AD /* MainViewController.swift */; };
@@ -165,7 +166,7 @@
 		2F772CCC2809C919003D311D /* PYHHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		2F772CCD2809C919003D311D /* PYHHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		2F772CD12809F53E003D311D /* PYHSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSection.swift; sourceTree = "<group>"; };
-		2F772CD32809F5EB003D311D /* PYHSectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionLayout.swift; sourceTree = "<group>"; };
+		2F772CD32809F5EB003D311D /* PYHSectionLayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionLayoutType.swift; sourceTree = "<group>"; };
 		2F772CD52809F6DE003D311D /* PYHSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionItem.swift; sourceTree = "<group>"; };
 		2F772CD8280B1326003D311D /* PYHCollectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHCollectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F772CD9280B1326003D311D /* PYHCollectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHCollectionCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 		2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkRequest.swift; sourceTree = "<group>"; };
 		2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkMethod.swift; sourceTree = "<group>"; };
 		2FA3BB042815E707005BF493 /* PYNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkError.swift; sourceTree = "<group>"; };
+		2FA3BB062815EE9E005BF493 /* PYHSectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionLayout.swift; sourceTree = "<group>"; };
 		2FF5CF3F2809B499001B8FFE /* PYCItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		3D0E9C1F270A59CC00B593AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -336,13 +338,14 @@
 			isa = PBXGroup;
 			children = (
 				2F772CD12809F53E003D311D /* PYHSection.swift */,
-				2F772CD32809F5EB003D311D /* PYHSectionLayout.swift */,
+				2F772CD32809F5EB003D311D /* PYHSectionLayoutType.swift */,
 				2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */,
 				2F63C87827FCD36C00857056 /* PYHAppVersion.swift */,
 				2F772CD52809F6DE003D311D /* PYHSectionItem.swift */,
 				2F79DF7C280C7DC6005DAAA1 /* PYHItemLayout.swift */,
 				2F79DF80280C9C81005DAAA1 /* PYHSectionHeader.swift */,
 				2F79DF82280C9F1D005DAAA1 /* PYHHeaderButton.swift */,
+				2FA3BB062815EE9E005BF493 /* PYHSectionLayout.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1172,6 +1175,7 @@
 				2F4C8E9127FA528F00AC9C54 /* PYModal.swift in Sources */,
 				2F8CADF128024AF700F166E0 /* PYCWorker.swift in Sources */,
 				2F4AA14728048224002681C3 /* PYPDescriptionTableViewCell.swift in Sources */,
+				2FA3BB072815EE9E005BF493 /* PYHSectionLayout.swift in Sources */,
 				2F8D51342800C7B900ADCC64 /* PYHViewLogic.swift in Sources */,
 				2FF5CF412809B499001B8FFE /* PYCItemCollectionViewCell.swift in Sources */,
 				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
@@ -1204,7 +1208,7 @@
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
 				2F9507442809326800297452 /* PYCTitleCollectionViewCell.swift in Sources */,
 				2F79DF7B280C67E2005DAAA1 /* PYHSectionLayoutFactory.swift in Sources */,
-				2F772CD42809F5EB003D311D /* PYHSectionLayout.swift in Sources */,
+				2F772CD42809F5EB003D311D /* PYHSectionLayoutType.swift in Sources */,
 				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,
 				3D3C031B278F953400771AC6 /* LoggerAppDelegate.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,

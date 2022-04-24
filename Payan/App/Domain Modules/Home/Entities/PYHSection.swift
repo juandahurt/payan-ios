@@ -9,7 +9,7 @@ import Foundation
 
 class PYHSection {
     var id: String = ""
-    var layout: PYHSectionLayout = .grid
+    var layout: PYHSectionLayout
     var itemLayout: PYHItemLayout
     var header: PYHSectionHeader
     var items: [PYHSectionItem]

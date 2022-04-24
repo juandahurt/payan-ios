@@ -10,7 +10,7 @@ import UIKit
 
 class PYHSectionLayoutFactory {
     static func createSectionLayout(for section: PYHSection) -> NSCollectionLayoutSection {
-        switch section.layout {
+        switch section.layout.type {
         case .grid:
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalHeight(1),
@@ -35,7 +35,14 @@ class PYHSectionLayoutFactory {
             section.contentInsets = .init(top: 0, leading: 0, bottom: 30, trailing: 0)
             
             return section
-        case .horizontal(let width, let height):
+        case .horizontal:
+            var width: CGFloat = 100
+            var height: CGFloat = 100
+            if let dimensions = section.layout.dimensions {
+                width = CGFloat(dimensions.width)
+                height = CGFloat(dimensions.height)
+            }
+            
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .fractionalHeight(1)

@@ -16,10 +16,13 @@ class PYHPresenter: PYHPresentationLogic {
         let basicHeader = PYHSectionHeader(
             title: ""
         )
+        let gridLayout = PYHSectionLayout(type: .grid, dimensions: nil)
+        let horizontalLayout = PYHSectionLayout(type: .horizontal, dimensions: .init(width: 140, height: 250))
+        let horizontalLayout2 = PYHSectionLayout(type: .horizontal, dimensions: .init(width: 250, height: 140))
         let sections = [
-            PYHSection(layout: .grid, itemLayout: .collection, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()]),
-            PYHSection(layout: .horizontal(140, 250), itemLayout: .basic, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()]),
-            PYHSection(layout: .horizontal(250, 140), itemLayout: .innerCard, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()])
+            PYHSection(layout: gridLayout, itemLayout: .collection, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()]),
+            PYHSection(layout: horizontalLayout, itemLayout: .basic, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()]),
+            PYHSection(layout: horizontalLayout2, itemLayout: .innerCard, header: basicHeader, items: [PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem(), PYHLoadingSectionItem()])
         ]
         view?.renderSections(sections)
     }
