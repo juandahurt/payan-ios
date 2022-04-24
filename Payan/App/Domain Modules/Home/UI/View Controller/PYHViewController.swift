@@ -5,6 +5,7 @@
 //  Created by juandahurt on 3/10/21.
 //
 
+import SkeletonView
 import UIKit
 
 class PYHViewController: PYBaseViewController {
@@ -82,7 +83,7 @@ class PYHViewController: PYBaseViewController {
             let currentSection = self.sections[indexPath.section]
             let cell = PYHSectionItemFactory.createSectionItemCell(for: currentSection.itemLayout, item: item, inside: collectionView, indexPath: indexPath)
             if item is PYHLoadingSectionItem {
-                cell.showSkeleton()
+                cell.showAnimatedSkeleton()
             }
             return cell
         }
@@ -107,9 +108,6 @@ class PYHViewController: PYBaseViewController {
                 header.subtitle = currentSection.header.subtitle
                 header.buttonTitle = currentSection.header.secondaryButton?.title
                 header.backgroundColor = AppStyle.Color.F2
-                if currentSection.items.contains(where: { $0 is PYHLoadingSectionItem }) {
-                    header.showSkeleton()
-                }
                 return header
             }
             
