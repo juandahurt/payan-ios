@@ -29,6 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = navigationController
         
+        SkeletonAppearance.default.tintColor = AppStyle.Color.G8
+        
         let module = PYHomeModule.setup(with: navigationController)
         module.show()
         
