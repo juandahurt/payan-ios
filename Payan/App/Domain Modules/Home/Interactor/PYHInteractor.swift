@@ -12,7 +12,7 @@ final class PYHInteractor: PYHBusinessLogic {
     var worker: PYHDataAccessLogic
     var presenter: PYHPresentationLogic
     
-    init(presenter: PYHPresenter, worker: PYHDataAccessLogic = PYHWorker()) {
+    init(presenter: PYHPresenter, worker: PYHDataAccessLogic) {
         self.presenter = presenter
         self.worker = worker
     }
@@ -33,9 +33,16 @@ final class PYHInteractor: PYHBusinessLogic {
     
     func getHomeData() {
         presenter.showLoading()
-        worker.getData { [weak self] sections in
+        worker.getData { [weak self] res in
             guard let self = self else { return }
-            self.presenter.showSections(sections)
+            switch res {
+            case .success(let sections):
+                DispatchQueue.main.async {
+                    self.presenter.showSections(sections)
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

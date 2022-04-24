@@ -7,12 +7,7 @@
 
 import Foundation
 
-struct PYHSectionLayout {
-    let type: PYHSectionLayoutType
-    let dimensions: PYHSectionItemDimensions?
-}
-
-struct PYHSectionItemDimensions {
-    let width: Int
-    let height: Int
+enum PYHSectionLayout: String, Decodable {
+    case grid = "grid"
+    case horizontal = "horizontal"
 }

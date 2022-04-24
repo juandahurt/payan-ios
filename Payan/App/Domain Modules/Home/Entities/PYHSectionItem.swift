@@ -8,8 +8,26 @@
 import Foundation
 
 
-class PYHSectionItem {
+class PYHSectionItem: Decodable {
     var id: String = ""
+    let title: String
+    let image: String
+    
+    enum CodingKeys: CodingKey {
+        case title, image
+    }
+    
+    required init(from decoder: Decoder) throws {
+        id = ""
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decode(String.self, forKey: .title)
+        image = try container.decode(String.self, forKey: .image)
+    }
+    
+    init() {
+        title = ""
+        image = ""
+    }
 }
 
 extension PYHSectionItem: Hashable {

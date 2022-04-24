@@ -10,7 +10,7 @@ import UIKit
 
 class PYHSectionLayoutFactory {
     static func createSectionLayout(for section: PYHSection) -> NSCollectionLayoutSection {
-        switch section.layout.type {
+        switch section.layout {
         case .grid:
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalHeight(1),
@@ -38,7 +38,7 @@ class PYHSectionLayoutFactory {
         case .horizontal:
             var width: CGFloat = 100
             var height: CGFloat = 100
-            if let dimensions = section.layout.dimensions {
+            if let dimensions = section.itemLayout.dimensions {
                 width = CGFloat(dimensions.width)
                 height = CGFloat(dimensions.height)
             }

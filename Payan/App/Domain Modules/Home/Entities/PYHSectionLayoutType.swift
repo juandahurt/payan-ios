@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-enum PYHSectionLayoutType: String {
+enum PYHSectionLayoutType: String, Decodable {
     case grid = "grid"
     case horizontal = "horizontal"
 }

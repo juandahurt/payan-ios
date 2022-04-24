@@ -81,7 +81,7 @@ class PYHViewController: PYBaseViewController {
         DataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
             guard let self = self else { return nil }
             let currentSection = self.sections[indexPath.section]
-            let cell = PYHSectionItemFactory.createSectionItemCell(for: currentSection.itemLayout, item: item, inside: collectionView, indexPath: indexPath)
+            let cell = PYHSectionItemFactory.createSectionItemCell(for: currentSection.itemLayout.type, item: item, inside: collectionView, indexPath: indexPath)
             if item is PYHLoadingSectionItem {
                 cell.showAnimatedSkeleton()
             }

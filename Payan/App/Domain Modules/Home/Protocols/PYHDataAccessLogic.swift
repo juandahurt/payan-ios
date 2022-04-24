@@ -10,5 +10,5 @@ import Foundation
 
 protocol PYHDataAccessLogic {
     func getLastVersion(completion: ((PYHAppVersion) -> Void)?)
-    func getData(completion: @escaping ([PYHSection]) -> Void)
+    func getData(completion: @escaping (Result<[PYHSection], Error>) -> Void)
 }

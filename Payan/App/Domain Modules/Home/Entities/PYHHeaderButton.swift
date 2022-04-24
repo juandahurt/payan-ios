@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct PYHHeaderButton {
+struct PYHHeaderButton: Decodable {
     var title: String
 }

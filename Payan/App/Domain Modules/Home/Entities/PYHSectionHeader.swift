@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PYHSectionHeader {
+struct PYHSectionHeader: Decodable {
     var title: String
     var subtitle: String?
     var secondaryButton: PYHHeaderButton?
