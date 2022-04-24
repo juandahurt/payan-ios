@@ -19,6 +19,7 @@
 		2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */; };
 		2F329C64280393E300086C10 /* PYPImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F329C62280393E300086C10 /* PYPImageTableViewCell.xib */; };
 		2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34D96327FB85C300E0B2E1 /* PYButton.swift */; };
+		2F43441B2815A184001E8910 /* PYNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43441A2815A184001E8910 /* PYNetworkManager.swift */; };
 		2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */; };
 		2F44E21E27FCCF580026FDBC /* PYHWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F44E21D27FCCF580026FDBC /* PYHWorker.swift */; };
 		2F4AA14728048224002681C3 /* PYPDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AA14528048224002681C3 /* PYPDescriptionTableViewCell.swift */; };
@@ -77,6 +78,9 @@
 		2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */; };
 		2F9F3F6727FCFEFB00924275 /* PYBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F3F6627FCFEFB00924275 /* PYBaseViewController.swift */; };
 		2F9F3F6A27FD000900924275 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9F3F6927FD000900924275 /* NVActivityIndicatorView */; };
+		2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */; };
+		2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */; };
+		2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB042815E707005BF493 /* PYNetworkError.swift */; };
 		2FF5CF412809B499001B8FFE /* PYCItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5CF3F2809B499001B8FFE /* PYCItemCollectionViewCell.swift */; };
 		2FF5CF422809B499001B8FFE /* PYCItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */; };
 		3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C1F270A59CC00B593AD /* MainViewController.swift */; };
@@ -140,6 +144,7 @@
 		2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPImageTableViewCell.swift; sourceTree = "<group>"; };
 		2F329C62280393E300086C10 /* PYPImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPImageTableViewCell.xib; sourceTree = "<group>"; };
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
+		2F43441A2815A184001E8910 /* PYNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkManager.swift; sourceTree = "<group>"; };
 		2F44E21A27FCCE4B0026FDBC /* PYHAppVersionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHAppVersionType.swift; sourceTree = "<group>"; };
 		2F44E21D27FCCF580026FDBC /* PYHWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHWorker.swift; sourceTree = "<group>"; };
 		2F4AA14528048224002681C3 /* PYPDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPDescriptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +199,9 @@
 		2F9507432809326800297452 /* PYCTitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCTitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F9AFAE027FA3AFF006DC8D6 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F9F3F6627FCFEFB00924275 /* PYBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYBaseViewController.swift; sourceTree = "<group>"; };
+		2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkRequest.swift; sourceTree = "<group>"; };
+		2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkMethod.swift; sourceTree = "<group>"; };
+		2FA3BB042815E707005BF493 /* PYNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkError.swift; sourceTree = "<group>"; };
 		2FF5CF3F2809B499001B8FFE /* PYCItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		3D0E9C1F270A59CC00B593AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +319,17 @@
 				2F329C62280393E300086C10 /* PYPImageTableViewCell.xib */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		2F4344192815A13C001E8910 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2F43441A2815A184001E8910 /* PYNetworkManager.swift */,
+				2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */,
+				2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */,
+				2FA3BB042815E707005BF493 /* PYNetworkError.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		2F44E21727FCCDFB0026FDBC /* Entities */ = {
@@ -862,6 +881,7 @@
 		3D79AC9B2723926E00ECB567 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2F4344192815A13C001E8910 /* Networking */,
 				3D496F82277E34C4009BFF74 /* Analytics */,
 				3D79AC9C2723928900ECB567 /* REST Client */,
 			);
@@ -1127,6 +1147,8 @@
 				2F0692772801F5930068AA79 /* PYCViewLogic.swift in Sources */,
 				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
 				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
+				2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */,
+				2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */,
 				3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */,
 				2F7BD799280371A000588C52 /* PYPHeaderTableViewCell.swift in Sources */,
 				2F772CCE2809C919003D311D /* PYHHeaderCollectionReusableView.swift in Sources */,
@@ -1143,6 +1165,7 @@
 				2F5827AC280B40540085E444 /* PYHInnerCardCollectionViewCell.swift in Sources */,
 				2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */,
 				2F772CDA280B1326003D311D /* PYHCollectionCollectionViewCell.swift in Sources */,
+				2F43441B2815A184001E8910 /* PYNetworkManager.swift in Sources */,
 				2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */,
 				2F79DF83280C9F1D005DAAA1 /* PYHHeaderButton.swift in Sources */,
 				2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */,
@@ -1175,6 +1198,7 @@
 				2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */,
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
 				2F0692842801F8F10068AA79 /* PYCRoutingLogic.swift in Sources */,
+				2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */,
 				2F8D51322800C76C00ADCC64 /* PYHPresenter.swift in Sources */,
 				2F8D512F2800C72500ADCC64 /* PYHPresentationLogic.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
