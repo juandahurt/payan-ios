@@ -148,7 +148,7 @@ extension PYHViewController: PYHViewLogic {
         }
         
         dataSource.apply(snapshot, animatingDifferences: true)
-        collectionView.isScrollEnabled = !isLoading()
+        collectionView.isUserInteractionEnabled = !isLoading()
     }
 }
 
