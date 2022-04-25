@@ -11,10 +11,11 @@ import Foundation
 class PYHSectionItem: Decodable {
     var id: String = ""
     let title: String
+    let subtitle: String?
     let image: String
     
     enum CodingKeys: CodingKey {
-        case title, image
+        case title, image, subtitle
     }
     
     required init(from decoder: Decoder) throws {
@@ -22,11 +23,13 @@ class PYHSectionItem: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         title = try container.decode(String.self, forKey: .title)
         image = try container.decode(String.self, forKey: .image)
+        subtitle = try container.decodeIfPresent(String.self, forKey: .subtitle)
     }
     
     init() {
         title = ""
         image = ""
+        subtitle = nil
     }
 }
 

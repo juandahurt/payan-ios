@@ -22,7 +22,7 @@ class PYHSectionItemFactory {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYHCollectionCollectionViewCell.reuseIdentifier, for: indexPath) as! PYHCollectionCollectionViewCell
             if !(item is PYHLoadingSectionItem) {
                 cell.setTitle(item.title)
-                cell.setSubtitle("12 elementos")
+                cell.setSubtitle(item.subtitle ?? "")
                 cell.setImage(item.image)
             }
             return cell
@@ -30,7 +30,7 @@ class PYHSectionItemFactory {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYHInnerCardCollectionViewCell.reuseIdentifier, for: indexPath) as! PYHInnerCardCollectionViewCell
             if !(item is PYHLoadingSectionItem) {
                 cell.setTitle(item.title)
-                cell.setSubtitle("Pública")
+                cell.setSubtitle(item.subtitle ?? "")
                 cell.setImage(item.image)
                 cell.setSecondaryImage("http://web.unicauca.edu.co/seminarioredmovil/images/unicauca.png")
             }
