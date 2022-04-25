@@ -2,13 +2,12 @@
 //  PYHSectionLayout.swift
 //  Payan
 //
-//  Created by Juan Hurtado on 15/04/22.
+//  Created by Juan Hurtado on 24/04/22.
 //
 
-import UIKit
 import Foundation
 
-enum PYHSectionLayout {
-    case grid
-    case horizontal(Double, Double)
+enum PYHSectionLayout: String, Decodable {
+    case grid = "grid"
+    case horizontal = "horizontal"
 }

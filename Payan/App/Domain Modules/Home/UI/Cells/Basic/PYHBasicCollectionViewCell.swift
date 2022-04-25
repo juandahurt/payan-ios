@@ -23,7 +23,7 @@ class PYHBasicCollectionViewCell: UICollectionViewCell {
     private func setupView() {
         isSkeletonable = true
         layer.cornerRadius = 5
-        subBackgroundView.backgroundColor = .black.withAlphaComponent(0.2)
+        subBackgroundView.backgroundColor = .black.withAlphaComponent(0.35)
         imageView.contentMode = .scaleAspectFill
         titleLabel.textColor = AppStyle.Color.F2
         titleLabel.font = AppStyle.Font.get(.medium, size: .footer)

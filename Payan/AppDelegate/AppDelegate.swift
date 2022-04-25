@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     private var services: [UIApplicationDelegate] = [
         LoggerAppDelegate(),
-        RESTClientAppDelegate(),
+        PYNetworkingAppDelegate(),
         FirebaseAppDelegate(),
         AnalyticsAppDelegate()
     ]

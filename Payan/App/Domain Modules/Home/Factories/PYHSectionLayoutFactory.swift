@@ -35,7 +35,14 @@ class PYHSectionLayoutFactory {
             section.contentInsets = .init(top: 0, leading: 0, bottom: 30, trailing: 0)
             
             return section
-        case .horizontal(let width, let height):
+        case .horizontal:
+            var width: CGFloat = 100
+            var height: CGFloat = 100
+            if let dimensions = section.itemLayout.dimensions {
+                width = CGFloat(dimensions.width)
+                height = CGFloat(dimensions.height)
+            }
+            
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
                 heightDimension: .fractionalHeight(1)

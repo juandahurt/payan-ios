@@ -21,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="207" height="170"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIL-lR-fyp">
-                        <rect key="frame" x="0.0" y="0.0" width="207" height="170"/>
+                        <rect key="frame" x="0.0" y="135" width="207" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32d-dn-z0C">
-                                <rect key="frame" x="10" y="139" width="187" height="21"/>
+                                <rect key="frame" x="10" y="4" width="187" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -34,6 +34,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="32d-dn-z0C" secondAttribute="bottom" constant="10" id="3Y5-EP-57H"/>
                             <constraint firstAttribute="trailing" secondItem="32d-dn-z0C" secondAttribute="trailing" constant="10" id="Dnh-de-jDN"/>
+                            <constraint firstAttribute="height" constant="35" id="MVG-f5-hWB"/>
                             <constraint firstItem="32d-dn-z0C" firstAttribute="leading" secondItem="LIL-lR-fyp" secondAttribute="leading" constant="10" id="hRC-OT-ijj"/>
                         </constraints>
                     </view>
@@ -45,7 +46,6 @@
                 <constraint firstAttribute="trailing" secondItem="LIL-lR-fyp" secondAttribute="trailing" id="Iny-oA-6ao"/>
                 <constraint firstAttribute="bottom" secondItem="IPF-4L-ax1" secondAttribute="bottom" id="JJu-1q-8ds"/>
                 <constraint firstAttribute="bottom" secondItem="LIL-lR-fyp" secondAttribute="bottom" id="Nr0-hC-hMn"/>
-                <constraint firstItem="LIL-lR-fyp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="OUg-KZ-Qtc"/>
                 <constraint firstAttribute="trailing" secondItem="IPF-4L-ax1" secondAttribute="trailing" id="aLe-dp-r2Q"/>
                 <constraint firstItem="IPF-4L-ax1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pCt-al-Shd"/>
                 <constraint firstItem="LIL-lR-fyp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zzs-W3-ngI"/>

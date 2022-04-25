@@ -23,11 +23,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController.navigationBar.backgroundColor = AppStyle.Color.F2
         navigationController.navigationBar.tintColor = AppStyle.Color.N1
-        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppStyle.Font.get(.medium, size: .secondTitle), NSAttributedString.Key.foregroundColor: AppStyle.Color.N1]
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: AppStyle.Font.get(.medium, size: .title), NSAttributedString.Key.foregroundColor: AppStyle.Color.N1]
         let navBarButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
         navBarButtonAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0), NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
         
         window?.rootViewController = navigationController
+        
+        SkeletonAppearance.default.tintColor = AppStyle.Color.N8
         
         let module = PYHomeModule.setup(with: navigationController)
         module.show()

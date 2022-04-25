@@ -2,13 +2,17 @@
 //  PYHItemLayout.swift
 //  Payan
 //
-//  Created by Juan Hurtado on 17/04/22.
+//  Created by Juan Hurtado on 24/04/22.
 //
 
 import Foundation
 
-enum PYHItemLayout {
-    case basic
-    case collection
-    case innerCard
+struct PYHItemLayout: Decodable {
+    let type: PYHItemLayoutType
+    let dimensions: PYHSectionItemDimensions?
+}
+
+struct PYHSectionItemDimensions: Decodable {
+    let width: Int
+    let height: Int
 }
