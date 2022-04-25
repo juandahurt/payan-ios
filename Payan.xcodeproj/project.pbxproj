@@ -43,6 +43,7 @@
 		2F772CDB280B1326003D311D /* PYHCollectionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F772CD9280B1326003D311D /* PYHCollectionCollectionViewCell.xib */; };
 		2F772CDF280B28FC003D311D /* PYHBasicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CDD280B28FC003D311D /* PYHBasicCollectionViewCell.swift */; };
 		2F772CE0280B28FC003D311D /* PYHBasicCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F772CDE280B28FC003D311D /* PYHBasicCollectionViewCell.xib */; };
+		2F78195128170E820096E342 /* NetworkingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78195028170E820096E342 /* NetworkingAppDelegate.swift */; };
 		2F79DF7B280C67E2005DAAA1 /* PYHSectionLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF7A280C67E2005DAAA1 /* PYHSectionLayoutFactory.swift */; };
 		2F79DF7D280C7DC6005DAAA1 /* PYHItemLayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF7C280C7DC6005DAAA1 /* PYHItemLayoutType.swift */; };
 		2F79DF7F280C891C005DAAA1 /* PYHSectionItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF7E280C891C005DAAA1 /* PYHSectionItemFactory.swift */; };
@@ -121,7 +122,6 @@
 		3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8CCDF527263CBC00CB7EED /* UIBottomSheet.xib */; };
 		3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5327333FA700CC107B /* SecondaryButton.swift */; };
 		3DA93B5727333FE000CC107B /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA93B5627333FE000CC107B /* SquishableButton.swift */; };
-		3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */; };
 		3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */; };
 		3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */; };
 		3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */; };
@@ -173,6 +173,7 @@
 		2F772CD9280B1326003D311D /* PYHCollectionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHCollectionCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F772CDD280B28FC003D311D /* PYHBasicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHBasicCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F772CDE280B28FC003D311D /* PYHBasicCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYHBasicCollectionViewCell.xib; sourceTree = "<group>"; };
+		2F78195028170E820096E342 /* NetworkingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingAppDelegate.swift; sourceTree = "<group>"; };
 		2F79DF7A280C67E2005DAAA1 /* PYHSectionLayoutFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionLayoutFactory.swift; sourceTree = "<group>"; };
 		2F79DF7C280C7DC6005DAAA1 /* PYHItemLayoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHItemLayoutType.swift; sourceTree = "<group>"; };
 		2F79DF7E280C891C005DAAA1 /* PYHSectionItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionItemFactory.swift; sourceTree = "<group>"; };
@@ -247,7 +248,6 @@
 		3DA1113C27823B02008DF4DE /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		3DA93B5327333FA700CC107B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		3DA93B5627333FE000CC107B /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
-		3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTClientAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAppDelegate.swift; sourceTree = "<group>"; };
 		3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsAppDelegate.swift; sourceTree = "<group>"; };
 		3DC9BFF026F98DA400D4DE6E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
@@ -937,10 +937,10 @@
 		3DB9D542277F54ED00E4D45A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3DB9D543277F552500E4D45A /* RESTClientAppDelegate.swift */,
 				3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */,
 				3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */,
 				3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */,
+				2F78195028170E820096E342 /* NetworkingAppDelegate.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1241,8 +1241,8 @@
 				3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
 				2F9F3F6727FCFEFB00924275 /* PYBaseViewController.swift in Sources */,
+				2F78195128170E820096E342 /* NetworkingAppDelegate.swift in Sources */,
 				2F06927B2801F6360068AA79 /* PYCInteractor.swift in Sources */,
-				3DB9D544277F552500E4D45A /* RESTClientAppDelegate.swift in Sources */,
 				3D6678B927127A0200A34C70 /* UIViewController+Preview.swift in Sources */,
 				2F7BD79228036ED000588C52 /* PYPViewController.swift in Sources */,
 				3DDA079726F8E5D400016204 /* MainButton.swift in Sources */,

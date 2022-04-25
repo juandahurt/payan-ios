@@ -13,7 +13,6 @@ class PYHNetworkWorker: PYHDataAccessLogic {
     }
     
     func getData(completion: @escaping (Result<[PYHSection], Error>) -> Void) {
-        PYNetworkManager.provideBaseUrl("https://payan-dev.vercel.app")
         let request = PYNetworkRequest(endpoint: "feed")
         PYNetworkManager.shared.exec(request: request) { result in
             switch result {
