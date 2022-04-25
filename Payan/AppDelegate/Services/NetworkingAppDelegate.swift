@@ -10,7 +10,7 @@ import UIKit
 
 final class PYNetworkingAppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        PYNetworkManager.provideBaseUrl("https://payan-dev.vercel.app")
+        PYNetworkManager.provideBaseUrl(Environment.current.apiUrl)
         return true
     }
 }
