@@ -57,4 +57,8 @@ class PYHPresenter: PYHPresentationLogic {
     func showSections(_ sections: [PYHSection]) {
         view?.renderSections(sections)
     }
+    
+    func showError() {
+        view?.showGenericError()
+    }
 }

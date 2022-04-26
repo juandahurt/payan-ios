@@ -87,6 +87,8 @@
 		2FA3BB0F2815F8CA005BF493 /* PYHNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0E2815F8CA005BF493 /* PYHNetworkWorker.swift */; };
 		2FF5CF412809B499001B8FFE /* PYCItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5CF3F2809B499001B8FFE /* PYCItemCollectionViewCell.swift */; };
 		2FF5CF422809B499001B8FFE /* PYCItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */; };
+		2FFD11A328176F62000BC581 /* PYGenericErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */; };
+		2FFD11A428176F62000BC581 /* PYGenericErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FFD11A228176F62000BC581 /* PYGenericErrorViewController.xib */; };
 		3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C1F270A59CC00B593AD /* MainViewController.swift */; };
 		3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */; };
 		3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C32270A647D00B593AD /* BaseRouter.swift */; };
@@ -211,6 +213,8 @@
 		2FA3BB0E2815F8CA005BF493 /* PYHNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHNetworkWorker.swift; sourceTree = "<group>"; };
 		2FF5CF3F2809B499001B8FFE /* PYCItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYGenericErrorViewController.swift; sourceTree = "<group>"; };
+		2FFD11A228176F62000BC581 /* PYGenericErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYGenericErrorViewController.xib; sourceTree = "<group>"; };
 		3D0E9C1F270A59CC00B593AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		3D0E9C32270A647D00B593AD /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
@@ -626,6 +630,7 @@
 		2F9F3F6527FCFEEE00924275 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				2FFD11A028176F44000BC581 /* Generic Error */,
 				2F9F3F6627FCFEFB00924275 /* PYBaseViewController.swift */,
 			);
 			path = Screens;
@@ -638,6 +643,15 @@
 				2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */,
 			);
 			path = Item;
+			sourceTree = "<group>";
+		};
+		2FFD11A028176F44000BC581 /* Generic Error */ = {
+			isa = PBXGroup;
+			children = (
+				2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */,
+				2FFD11A228176F62000BC581 /* PYGenericErrorViewController.xib */,
+			);
+			path = "Generic Error";
 			sourceTree = "<group>";
 		};
 		3D0E9C26270A5E2500B593AD /* Tab Bar View Controller */ = {
@@ -1134,6 +1148,7 @@
 				2F4AA14828048224002681C3 /* PYPDescriptionTableViewCell.xib in Resources */,
 				3D8CCDF727263CBC00CB7EED /* UIBottomSheet.xib in Resources */,
 				2F52870227FA8FBB00F65F95 /* Poppins-Medium.ttf in Resources */,
+				2FFD11A428176F62000BC581 /* PYGenericErrorViewController.xib in Resources */,
 				2F772CDB280B1326003D311D /* PYHCollectionCollectionViewCell.xib in Resources */,
 				2F772CCF2809C919003D311D /* PYHHeaderCollectionReusableView.xib in Resources */,
 				2F5827AD280B40540085E444 /* PYHInnerCardCollectionViewCell.xib in Resources */,
@@ -1211,6 +1226,7 @@
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
 				2F0692842801F8F10068AA79 /* PYCRoutingLogic.swift in Sources */,
 				2FA3BB0B2815F49E005BF493 /* PYHPage.swift in Sources */,
+				2FFD11A328176F62000BC581 /* PYGenericErrorViewController.swift in Sources */,
 				2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */,
 				2F8D51322800C76C00ADCC64 /* PYHPresenter.swift in Sources */,
 				2F8D512F2800C72500ADCC64 /* PYHPresentationLogic.swift in Sources */,

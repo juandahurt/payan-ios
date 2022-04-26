@@ -11,6 +11,15 @@ import NVActivityIndicatorView
 
 
 class PYBaseViewController: UIViewController {
+    /// Shows the generic error.
+    /// - Parameter delegate: generic error delegate
+    func showGenericError(onDisappear: @escaping () -> Void) {
+        let vc = PYGenericErrorViewController()
+        vc.modalPresentationStyle = .currentContext
+        vc.onDisappear = onDisappear
+        navigationController?.present(vc, animated: false)
+    }
+    
     /// Shows or hides the tab bar.
     ///
     /// This cannot be called before viewDidLayoutSubviews(), because the frame is not set before this time.

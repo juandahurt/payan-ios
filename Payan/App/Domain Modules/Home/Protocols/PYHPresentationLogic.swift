@@ -15,4 +15,5 @@ protocol PYHPresentationLogic {
     func showLoading()
     func showAppNeedsUpdate(_ type: PYHAppVersionType)
     func showSections(_ sections: [PYHSection])
+    func showError()
 }

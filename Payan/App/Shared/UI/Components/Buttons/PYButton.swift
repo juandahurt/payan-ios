@@ -18,13 +18,13 @@ class PYButton: UIButton {
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        
         setup()
     }
     
     private func setup() {
-        layer.cornerRadius = 8
+        layer.cornerRadius = 4
         titleLabel?.font = AppStyle.Font.get(.semiBold, size: .subtitle)
+        contentEdgeInsets = .init(top: 8, left: 12, bottom: 8, right: 12)
         updateColors()
         
         self.addTarget(self, action: #selector(onPressed(_:)), for: .touchDown)
@@ -50,12 +50,14 @@ class PYButton: UIButton {
     
     private func updateColors() {
         backgroundColor = getBackgroundColor()
-        titleLabel?.textColor = getTitleColor()
+        setTitleColor(getTitleColor(), for: .normal)
     }
     
     private func getBackgroundColor() -> UIColor {
         if type == .loud {
             return AppStyle.Color.G2
+        } else if type == .quiet {
+            return AppStyle.Color.G8
         }
         return .gray
     }
@@ -64,6 +66,8 @@ class PYButton: UIButton {
         // TODO: Support all the types
         if type == .loud {
             return .white
+        } else if type == .quiet {
+            return AppStyle.Color.G2
         }
         return .black
     }
@@ -71,6 +75,8 @@ class PYButton: UIButton {
     private func getPressedColor() -> UIColor {
         if type == .loud {
             return AppStyle.Color.G1
+        } else if type == .quiet {
+            return AppStyle.Color.G7
         }
         return .black
     }
