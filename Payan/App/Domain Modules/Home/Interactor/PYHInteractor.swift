@@ -35,14 +35,15 @@ final class PYHInteractor: PYHBusinessLogic {
         presenter.showLoading()
         worker.getData { [weak self] res in
             guard let self = self else { return }
-            switch res {
-            case .success(let sections):
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch res {
+                case .success(let sections):
                     self.presenter.showSections(sections)
+                case .failure(_):
+                    self.presenter.showError()
                 }
-            case .failure(let error):
-                print(error)
             }
+            
         }
     }
 }

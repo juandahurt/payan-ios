@@ -148,6 +148,13 @@ extension PYHViewController: PYHViewLogic {
         dataSource.apply(snapshot, animatingDifferences: true)
         collectionView.isUserInteractionEnabled = !isLoading()
     }
+    
+    func showGenericError() {
+        showGenericError { [weak self] in
+            guard let self = self else { return }
+            self.interactor.getHomeData()
+        }
+    }
 }
 
 extension PYHViewController: UICollectionViewDelegate {

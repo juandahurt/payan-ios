@@ -15,4 +15,5 @@ protocol PYHViewLogic: AnyObject {
 
     func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool)
     func renderSections(_ sections: [PYHSection])
+    func showGenericError()
 }
