@@ -55,9 +55,9 @@ class PYButton: UIButton {
     
     private func getBackgroundColor() -> UIColor {
         if type == .loud {
-            return AppStyle.Color.G2
+            return AppStyle.Color.G1
         } else if type == .quiet {
-            return AppStyle.Color.G8
+            return AppStyle.Color.N8
         }
         return .gray
     }
