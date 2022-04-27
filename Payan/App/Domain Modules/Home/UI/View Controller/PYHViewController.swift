@@ -159,6 +159,7 @@ extension PYHViewController: PYHViewLogic {
 
 extension PYHViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        router.showCategory()
+        guard let url = URL(string: sections[indexPath.section].items[indexPath.row].link) else { return }
+        PYRoutingManager.shared.open(url: url)
     }
 }

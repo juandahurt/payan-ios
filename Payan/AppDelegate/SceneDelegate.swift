@@ -31,6 +31,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         SkeletonAppearance.default.tintColor = AppStyle.Color.N8
         
+        PYRoutingManager.shared.addModule(
+            PYCateogryModule(navigationController: navigationController)
+        )
+        
         let module = PYHomeModule.setup(with: navigationController)
         module.show()
         

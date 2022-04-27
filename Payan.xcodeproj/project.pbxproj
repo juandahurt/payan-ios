@@ -134,6 +134,8 @@
 		3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */; };
 		3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C526F2A4D300FD24CF /* Assets.xcassets */; };
 		3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C726F2A4D300FD24CF /* LaunchScreen.storyboard */; };
+		6DB6E4F12818A5720002A77C /* PYRoutingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6E4F02818A5720002A77C /* PYRoutingManager.swift */; };
+		6DB6E4F52818A96E0002A77C /* PYModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6E4F42818A96E0002A77C /* PYModule.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -264,6 +266,8 @@
 		3DF708C526F2A4D300FD24CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DF708C826F2A4D300FD24CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF708CA26F2A4D300FD24CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DB6E4F02818A5720002A77C /* PYRoutingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYRoutingManager.swift; sourceTree = "<group>"; };
+		6DB6E4F42818A96E0002A77C /* PYModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModule.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -904,6 +908,7 @@
 		3D79AC9B2723926E00ECB567 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6DB6E4EF2818A4EF0002A77C /* Routing */,
 				2F4344192815A13C001E8910 /* Networking */,
 				3D496F82277E34C4009BFF74 /* Analytics */,
 				3D79AC9C2723928900ECB567 /* REST Client */,
@@ -1058,6 +1063,15 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		6DB6E4EF2818A4EF0002A77C /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				6DB6E4F02818A5720002A77C /* PYRoutingManager.swift */,
+				6DB6E4F42818A96E0002A77C /* PYModule.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1192,6 +1206,7 @@
 				2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */,
 				2F772CDA280B1326003D311D /* PYHCollectionCollectionViewCell.swift in Sources */,
 				2F43441B2815A184001E8910 /* PYNetworkManager.swift in Sources */,
+				6DB6E4F12818A5720002A77C /* PYRoutingManager.swift in Sources */,
 				2F4C8E9427FA546000AC9C54 /* UIView+NibLoadable.swift in Sources */,
 				2F79DF83280C9F1D005DAAA1 /* PYHHeaderButton.swift in Sources */,
 				2F44E21B27FCCE4B0026FDBC /* PYHAppVersionType.swift in Sources */,
@@ -1214,6 +1229,7 @@
 				3D3A3850270A541400E2EF94 /* PYHViewController.swift in Sources */,
 				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
 				2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */,
+				6DB6E4F52818A96E0002A77C /* PYModule.swift in Sources */,
 				2F8D512D2800C5E600ADCC64 /* PYHDataAccessLogic.swift in Sources */,
 				2F63C88227FCD62500857056 /* PYHInteractor.swift in Sources */,
 				2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */,

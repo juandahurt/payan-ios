@@ -9,24 +9,24 @@ import Foundation
 import UIKit
 
 
-final class PYCateogryModule {
-    private let view: PYCViewLogic
-    private var router: PYCRoutingLogic
+final class PYCateogryModule: PYModule {
+    var route: String = "collection"
+    var navigationController: UINavigationController
     
-    private init(navigationController: UINavigationController) {
+    private let view: PYCViewLogic
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
         let presenter = PYCPresenter()
         let interactor = PYCInteractor(presenter: presenter)
-        router = PYCRouter(navigationController: navigationController)
-        view = PYCViewController(interactor: interactor, router: router)
-        router.viewController = view as? UIViewController
+        view = PYCViewController(interactor: interactor)
         presenter.view = view
     }
     
-    static func setup(with navigationController: UINavigationController) -> PYCateogryModule {
-        PYCateogryModule(navigationController: navigationController)
-    }
-    
-    func show() {
-        router.show()
+    func open(params: [URLQueryItem]) {
+        guard params.count == 1, params[0].name == "type", let typeId = params[0].value else { return }
+        guard let vc = view as? UIViewController else { return }
+        view.typeId = typeId
+        navigationController.pushViewController(vc, animated: true)
     }
 }
