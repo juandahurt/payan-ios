@@ -85,15 +85,9 @@
 		2FF5CF422809B499001B8FFE /* PYCItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */; };
 		2FFD11A328176F62000BC581 /* PYGenericErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */; };
 		2FFD11A428176F62000BC581 /* PYGenericErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FFD11A228176F62000BC581 /* PYGenericErrorViewController.xib */; };
-		3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C1F270A59CC00B593AD /* MainViewController.swift */; };
 		3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */; };
-		3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C32270A647D00B593AD /* BaseRouter.swift */; };
-		3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C3D270A67C600B593AD /* BasePresenter.swift */; };
-		3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C41270A693200B593AD /* MainPresenter.swift */; };
 		3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C4B270A74CA00B593AD /* Utility.swift */; };
 		3D0ECF792782496100847E0D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ECF782782496100847E0D /* Environment.swift */; };
-		3D27BF01270A565A007143C8 /* MainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF00270A565A007143C8 /* MainModule.swift */; };
-		3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27BF06270A568B007143C8 /* MainRouter.swift */; };
 		3D3A384A270A53D300E2EF94 /* PYFeedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A3849270A53D300E2EF94 /* PYFeedModule.swift */; };
 		3D3A3850270A541400E2EF94 /* PYFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A384E270A541400E2EF94 /* PYFeedViewController.swift */; };
 		3D3A3851270A541400E2EF94 /* PYFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D3A384F270A541400E2EF94 /* PYFeedViewController.xib */; };
@@ -209,15 +203,9 @@
 		2FF5CF402809B499001B8FFE /* PYCItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCItemCollectionViewCell.xib; sourceTree = "<group>"; };
 		2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYGenericErrorViewController.swift; sourceTree = "<group>"; };
 		2FFD11A228176F62000BC581 /* PYGenericErrorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYGenericErrorViewController.xib; sourceTree = "<group>"; };
-		3D0E9C1F270A59CC00B593AD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3D0E9C27270A5E5500B593AD /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		3D0E9C32270A647D00B593AD /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
-		3D0E9C3D270A67C600B593AD /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
-		3D0E9C41270A693200B593AD /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		3D0E9C4B270A74CA00B593AD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		3D0ECF782782496100847E0D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		3D27BF00270A565A007143C8 /* MainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModule.swift; sourceTree = "<group>"; };
-		3D27BF06270A568B007143C8 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3D3A3849270A53D300E2EF94 /* PYFeedModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedModule.swift; sourceTree = "<group>"; };
 		3D3A384E270A541400E2EF94 /* PYFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedViewController.swift; sourceTree = "<group>"; };
 		3D3A384F270A541400E2EF94 /* PYFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYFeedViewController.xib; sourceTree = "<group>"; };
@@ -655,39 +643,6 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
-		3D0E9C31270A647400B593AD /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				3D6678C1271391AF00A34C70 /* Presenter */,
-				3D6678C0271391A800A34C70 /* Router */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		3D0E9C40270A692600B593AD /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3D0E9C41270A693200B593AD /* MainPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		3D27BF04270A567B007143C8 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3D27BF06270A568B007143C8 /* MainRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3D27BF05270A5680007143C8 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3D0E9C1F270A59CC00B593AD /* MainViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		3D3A3848270A53C700E2EF94 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -710,25 +665,6 @@
 				2F772CCB2809C7BF003D311D /* Header */,
 				2F772CCA2809C7BA003D311D /* Cells */,
 				3D0E9C2C270A639800B593AD /* View Controller */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		3D3A3854270A548400E2EF94 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				3D3A3855270A548900E2EF94 /* UI */,
-				3D27BF00270A565A007143C8 /* MainModule.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		3D3A3855270A548900E2EF94 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				3D0E9C40270A692600B593AD /* Presenter */,
-				3D27BF05270A5680007143C8 /* View */,
-				3D27BF04270A567B007143C8 /* Router */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -840,22 +776,6 @@
 				3D6678B827127A0200A34C70 /* UIViewController+Preview.swift */,
 			);
 			path = Preview;
-			sourceTree = "<group>";
-		};
-		3D6678C0271391A800A34C70 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				3D0E9C32270A647D00B593AD /* BaseRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		3D6678C1271391AF00A34C70 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				3D0E9C3D270A67C600B593AD /* BasePresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		3D67706E273C1A5100FE1E55 /* Squishable View */ = {
@@ -1028,8 +948,6 @@
 			children = (
 				2F7BD78D28036D4D00588C52 /* Place */,
 				2F8C80FC28010CBA00A8E7FD /* Category */,
-				3D0E9C31270A647400B593AD /* Base */,
-				3D3A3854270A548400E2EF94 /* Main */,
 				3D3A3848270A53C700E2EF94 /* Home */,
 			);
 			path = "Domain Modules";
@@ -1165,7 +1083,6 @@
 				2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */,
 				2F0692772801F5930068AA79 /* PYCViewLogic.swift in Sources */,
 				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
-				3D0E9C33270A647D00B593AD /* BaseRouter.swift in Sources */,
 				2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */,
 				2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */,
 				3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */,
@@ -1175,7 +1092,6 @@
 				3D0E9C28270A5E5500B593AD /* TabBarViewController.swift in Sources */,
 				2F772CD22809F53E003D311D /* PYFeedSection.swift in Sources */,
 				2F79DF7D280C7DC6005DAAA1 /* PYFeedItemLayoutType.swift in Sources */,
-				3D0E9C3E270A67C600B593AD /* BasePresenter.swift in Sources */,
 				2FA3BB092815F24D005BF493 /* PYServerResponse.swift in Sources */,
 				2F4C8E9627FA552000AC9C54 /* PYModalManager.swift in Sources */,
 				3D51101726F6CD7A00D24DD9 /* AppStyle.swift in Sources */,
@@ -1204,14 +1120,12 @@
 				3D79ACA62723995900ECB567 /* RESTServerResponse.swift in Sources */,
 				2FA3BB0D2815F573005BF493 /* PYFeedItemLayout.swift in Sources */,
 				3D3A3850270A541400E2EF94 /* PYFeedViewController.swift in Sources */,
-				3D27BF01270A565A007143C8 /* MainModule.swift in Sources */,
 				2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */,
 				6DB6E4F52818A96E0002A77C /* PYModule.swift in Sources */,
 				2F8D512D2800C5E600ADCC64 /* PYFeedDataAccessLogic.swift in Sources */,
 				2F63C88227FCD62500857056 /* PYFeedInteractor.swift in Sources */,
 				2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */,
 				2F06927F2801F7B90068AA79 /* PYCPresenter.swift in Sources */,
-				3D0E9C42270A693200B593AD /* MainPresenter.swift in Sources */,
 				2F772CDF280B28FC003D311D /* PYFeedBasicCollectionViewCell.swift in Sources */,
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
@@ -1237,7 +1151,6 @@
 				3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */,
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
-				3D27BF07270A568B007143C8 /* MainRouter.swift in Sources */,
 				2F772CD62809F6DE003D311D /* PYFeedSectionItem.swift in Sources */,
 				2F79DF81280C9C81005DAAA1 /* PYFeedSectionHeader.swift in Sources */,
 				2F8D512B2800C5AD00ADCC64 /* PYFeedBusinessLogic.swift in Sources */,
@@ -1246,7 +1159,6 @@
 				3DA93B5427333FA700CC107B /* SecondaryButton.swift in Sources */,
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
 				2F79DF7F280C891C005DAAA1 /* PYFeedSectionItemFactory.swift in Sources */,
-				3D0E9C21270A59CC00B593AD /* MainViewController.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
 				2F9F3F6727FCFEFB00924275 /* PYBaseViewController.swift in Sources */,
 				2F78195128170E820096E342 /* PYNetworkingAppDelegate.swift in Sources */,
