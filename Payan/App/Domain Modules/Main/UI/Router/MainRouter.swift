@@ -19,7 +19,7 @@ final class MainRouter: BaseRouter {
         let vc = MainViewController()
         
         vc.viewControllers = [
-            PYHomeModule.setup(with: navigationController).associatedViewController
+            PYFeedModule.setup(with: navigationController).associatedViewController
         ]
         
         navigationController.pushViewController(vc, animated: true)

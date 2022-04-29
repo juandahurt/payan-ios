@@ -34,7 +34,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         PYRoutingManager.provideNavigationController(navigationController)
         PYRoutingManager.shared.addModule(PYCateogryModule())
         
-        let module = PYHomeModule.setup(with: navigationController)
+        let module = PYFeedModule.setup(with: navigationController)
         module.show()
         
         window?.makeKeyAndVisible()
