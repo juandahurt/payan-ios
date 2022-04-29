@@ -643,7 +643,7 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
-		3D3A3848270A53C700E2EF94 /* Home */ = {
+		3D3A3848270A53C700E2EF94 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				2F79DF79280C67CF005DAAA1 /* Factories */,
@@ -656,7 +656,7 @@
 				3D3A384C270A53F000E2EF94 /* UI */,
 				3D3A3849270A53D300E2EF94 /* PYFeedModule.swift */,
 			);
-			path = Home;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		3D3A384C270A53F000E2EF94 /* UI */ = {
@@ -948,7 +948,7 @@
 			children = (
 				2F7BD78D28036D4D00588C52 /* Place */,
 				2F8C80FC28010CBA00A8E7FD /* Category */,
-				3D3A3848270A53C700E2EF94 /* Home */,
+				3D3A3848270A53C700E2EF94 /* Feed */,
 			);
 			path = "Domain Modules";
 			sourceTree = "<group>";
