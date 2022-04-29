@@ -8,24 +8,14 @@
 import Foundation
 import UIKit
 
-final class PYFeedModule {
-    let associatedViewController: UIViewController
-    var router: PYFeedRoutingLogic
+final class PYFeedModule: PYModule {
+    var host: String = "feed"
     
-    private init(navigationController: UINavigationController) {
+    func getViewController(params: [URLQueryItem]) -> UIViewController? {
         let presenter = PYFeedPresenter()
         let interactor = PYFeedInteractor(presenter: presenter, worker: PYFeedNetworkWorker())
-        router = PYFeedRouter(navigationController: navigationController)
-        associatedViewController = PYFeedViewController(interactor: interactor, router: router)
-        presenter.view = associatedViewController as? PYFeedViewLogic
-        router.viewController = associatedViewController
-    }
-    
-    static func setup(with navigationController: UINavigationController) -> PYFeedModule {
-        PYFeedModule(navigationController: navigationController)
-    }
-    
-    func show() {
-        router.show()
+        let vc = PYFeedViewController(interactor: interactor)
+        presenter.view = vc
+        return vc
     }
 }

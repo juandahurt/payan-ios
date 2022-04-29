@@ -11,7 +11,6 @@ import UIKit
 
 protocol PYFeedViewLogic: AnyObject {
     var interactor: PYFeedBusinessLogic { get }
-    var router: PYFeedRoutingLogic { get }
 
     func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool)
     func renderSections(_ sections: [PYFeedSection])

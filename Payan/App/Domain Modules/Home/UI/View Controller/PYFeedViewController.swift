@@ -12,7 +12,6 @@ class PYFeedViewController: PYBaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var interactor: PYFeedBusinessLogic
-    var router: PYFeedRoutingLogic
     
     private var tabBarHasBeenHiddenOnce = false
     
@@ -23,9 +22,8 @@ class PYFeedViewController: PYBaseViewController {
     
     var sections: [PYFeedSection] = []
     
-    init(interactor: PYFeedBusinessLogic, router: PYFeedRoutingLogic) {
+    init(interactor: PYFeedBusinessLogic) {
         self.interactor = interactor
-        self.router = router
         
         let nibName = String(describing: Self.self)
         super.init(nibName: nibName, bundle: nil)

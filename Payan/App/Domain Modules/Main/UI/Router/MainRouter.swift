@@ -18,9 +18,9 @@ final class MainRouter: BaseRouter {
     func show(using presenter: MainPresenter) {
         let vc = MainViewController()
         
-        vc.viewControllers = [
-            PYFeedModule.setup(with: navigationController).associatedViewController
-        ]
+//        vc.viewControllers = [
+//            PYFeedModule.setup(with: navigationController).associatedViewController
+//        ]
         
         navigationController.pushViewController(vc, animated: true)
         navigationController.viewControllers = [vc]

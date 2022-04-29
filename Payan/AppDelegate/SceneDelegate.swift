@@ -32,10 +32,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         SkeletonAppearance.default.tintColor = AppStyle.Color.N8
         
         PYRoutingManager.provideNavigationController(navigationController)
-        PYRoutingManager.shared.addModule(PYCateogryModule())
-        
-        let module = PYFeedModule.setup(with: navigationController)
-        module.show()
+        let modules: [PYModule] = [
+            PYFeedModule(),
+            PYCateogryModule()
+        ]
+        modules.forEach { PYRoutingManager.shared.addModule($0) }
+        PYRoutingManager.shared.open(url: URL(string: "payan://feed")!)
         
         window?.makeKeyAndVisible()
     }
