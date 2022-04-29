@@ -13,15 +13,22 @@ class PYRoutingManager {
     static var shared: PYRoutingManager {
         get {
             if _shared == nil {
-                _shared = PYRoutingManager()
+                fatalError("You have not provided a navigation controller. Use the provideNavigationController() method.")
             }
             return _shared!
         }
     }
     
     private var modules: [PYModule] = []
+    private var navigationController: UINavigationController
     
-    private init() {}
+    private init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    static func provideNavigationController(_ navigationController: UINavigationController) {
+        Self._shared = PYRoutingManager(navigationController: navigationController)
+    }
     
     func addModule(_ module: PYModule) {
         modules.append(module)
@@ -31,7 +38,8 @@ class PYRoutingManager {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             return
         }
-        guard let module = modules.first(where: { $0.route == components.host }) else { return }
-        module.open(params: components.queryItems ?? [])
+        guard let module = modules.first(where: { $0.host == components.host }) else { return }
+        guard let vc = module.getViewController(params: components.queryItems ?? []) else { return }
+        navigationController.pushViewController(vc, animated: true)
     }
 }

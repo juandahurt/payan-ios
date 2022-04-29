@@ -13,7 +13,6 @@
 		2F06927B2801F6360068AA79 /* PYCInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927A2801F6360068AA79 /* PYCInteractor.swift */; };
 		2F06927D2801F6C50068AA79 /* PYCategoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */; };
 		2F06927F2801F7B90068AA79 /* PYCPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927E2801F7B90068AA79 /* PYCPresenter.swift */; };
-		2F0692842801F8F10068AA79 /* PYCRoutingLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */; };
 		2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C5A28038D0800086C10 /* PYBadge.swift */; };
 		2F329C5D28038D3D00086C10 /* PYBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F329C5C28038D3D00086C10 /* PYBadge.xib */; };
 		2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */; };
@@ -49,7 +48,6 @@
 		2F79DF7F280C891C005DAAA1 /* PYHSectionItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF7E280C891C005DAAA1 /* PYHSectionItemFactory.swift */; };
 		2F79DF81280C9C81005DAAA1 /* PYHSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF80280C9C81005DAAA1 /* PYHSectionHeader.swift */; };
 		2F79DF83280C9F1D005DAAA1 /* PYHHeaderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F79DF82280C9F1D005DAAA1 /* PYHHeaderButton.swift */; };
-		2F7BD78C280367DC00588C52 /* PYCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD78B280367DC00588C52 /* PYCRouter.swift */; };
 		2F7BD79228036ED000588C52 /* PYPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD79028036ED000588C52 /* PYPViewController.swift */; };
 		2F7BD79328036ED000588C52 /* PYPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BD79128036ED000588C52 /* PYPViewController.xib */; };
 		2F7BD799280371A000588C52 /* PYPHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD797280371A000588C52 /* PYPHeaderTableViewCell.swift */; };
@@ -145,7 +143,6 @@
 		2F06927A2801F6360068AA79 /* PYCInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCInteractor.swift; sourceTree = "<group>"; };
 		2F06927C2801F6C50068AA79 /* PYCategoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCategoryModule.swift; sourceTree = "<group>"; };
 		2F06927E2801F7B90068AA79 /* PYCPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCPresenter.swift; sourceTree = "<group>"; };
-		2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCRoutingLogic.swift; sourceTree = "<group>"; };
 		2F329C5A28038D0800086C10 /* PYBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYBadge.swift; sourceTree = "<group>"; };
 		2F329C5C28038D3D00086C10 /* PYBadge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYBadge.xib; sourceTree = "<group>"; };
 		2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -183,7 +180,6 @@
 		2F79DF7E280C891C005DAAA1 /* PYHSectionItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionItemFactory.swift; sourceTree = "<group>"; };
 		2F79DF80280C9C81005DAAA1 /* PYHSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHSectionHeader.swift; sourceTree = "<group>"; };
 		2F79DF82280C9F1D005DAAA1 /* PYHHeaderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHHeaderButton.swift; sourceTree = "<group>"; };
-		2F7BD78B280367DC00588C52 /* PYCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCRouter.swift; sourceTree = "<group>"; };
 		2F7BD79028036ED000588C52 /* PYPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPViewController.swift; sourceTree = "<group>"; };
 		2F7BD79128036ED000588C52 /* PYPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYPViewController.xib; sourceTree = "<group>"; };
 		2F7BD797280371A000588C52 /* PYPHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -311,7 +307,6 @@
 				2F0692742801F5770068AA79 /* PYCBusinessLogic.swift */,
 				2F0692762801F5930068AA79 /* PYCViewLogic.swift */,
 				2F0692782801F5CA0068AA79 /* PYCPresentationLogic.swift */,
-				2F0692832801F8F10068AA79 /* PYCRoutingLogic.swift */,
 				2F8CADEE28024A4900F166E0 /* PYCDataAccessLogic.swift */,
 			);
 			path = Protocols;
@@ -472,14 +467,6 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
-		2F7BD78A280367D300588C52 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				2F7BD78B280367DC00588C52 /* PYCRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		2F7BD78D28036D4D00588C52 /* Place */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,7 +515,6 @@
 		2F8C80FC28010CBA00A8E7FD /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				2F7BD78A280367D300588C52 /* Router */,
 				2F8CADED28024A3500F166E0 /* Workers */,
 				2F8CADEA2802485900F166E0 /* Entities */,
 				2F0692732801F5630068AA79 /* Protocols */,
@@ -1218,7 +1204,6 @@
 				2FF5CF412809B499001B8FFE /* PYCItemCollectionViewCell.swift in Sources */,
 				3D8CCDF627263CBC00CB7EED /* UIBottomSheet.swift in Sources */,
 				3DF1E8FE273C391A002466E0 /* CarouselViewController.swift in Sources */,
-				2F7BD78C280367DC00588C52 /* PYCRouter.swift in Sources */,
 				2F898C312802257200528BF2 /* UIImageView+loadFromUrl.swift in Sources */,
 				2F8C810728010E6700A8E7FD /* PYHRoutingLogic.swift in Sources */,
 				2F0692752801F5770068AA79 /* PYCBusinessLogic.swift in Sources */,
@@ -1240,7 +1225,6 @@
 				3D79ACA0272394BA00ECB567 /* RESTEndpoint.swift in Sources */,
 				2F34D96427FB85C300E0B2E1 /* PYButton.swift in Sources */,
 				3D677070273C1A6800FE1E55 /* SquishableView.swift in Sources */,
-				2F0692842801F8F10068AA79 /* PYCRoutingLogic.swift in Sources */,
 				2FA3BB0B2815F49E005BF493 /* PYHPage.swift in Sources */,
 				2FFD11A328176F62000BC581 /* PYGenericErrorViewController.swift in Sources */,
 				2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */,

@@ -9,9 +9,7 @@ import Foundation
 import UIKit
 
 protocol PYModule {
-    typealias Params = [URLQueryItem]
-    var route: String { get }
-    var navigationController: UINavigationController { get }
+    var host: String { get }
     
-    func open(params: [URLQueryItem])
+    func getViewController(params: [URLQueryItem]) -> UIViewController?
 }

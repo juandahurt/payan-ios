@@ -10,23 +10,15 @@ import UIKit
 
 
 final class PYCateogryModule: PYModule {
-    var route: String = "collection"
-    var navigationController: UINavigationController
+    var host: String = "collection"
     
-    private let view: PYCViewLogic
-    
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    func getViewController(params: [URLQueryItem]) -> UIViewController? {
+        guard params.count == 1, params[0].name == "type", let typeId = params[0].value else { return nil }
         let presenter = PYCPresenter()
         let interactor = PYCInteractor(presenter: presenter)
-        view = PYCViewController(interactor: interactor)
-        presenter.view = view
-    }
-    
-    func open(params: [URLQueryItem]) {
-        guard params.count == 1, params[0].name == "type", let typeId = params[0].value else { return }
-        guard let vc = view as? UIViewController else { return }
-        view.typeId = typeId
-        navigationController.pushViewController(vc, animated: true)
+        let vc = PYCViewController(interactor: interactor)
+        vc.typeId = typeId
+        presenter.view = vc
+        return vc
     }
 }
