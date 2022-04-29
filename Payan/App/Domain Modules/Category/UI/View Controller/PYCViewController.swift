@@ -10,12 +10,11 @@ import UIKit
 class PYCViewController: PYBaseViewController, PYCViewLogic {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var typeId: String = ""
     var interactor: PYCBusinessLogic
-    var router: PYCRoutingLogic
     
-    init(interactor: PYCBusinessLogic, router: PYCRoutingLogic) {
+    init(interactor: PYCBusinessLogic) {
         self.interactor = interactor
-        self.router = router
         
         let nibName = String(describing: Self.self)
         super.init(nibName: nibName, bundle: nil)
@@ -81,7 +80,7 @@ extension PYCViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            router.showPlace()
+//            router.showPlace()
         }
     }
     

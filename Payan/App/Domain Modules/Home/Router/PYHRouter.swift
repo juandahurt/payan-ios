@@ -18,8 +18,9 @@ class PYHRouter: PYHRoutingLogic {
     }
     
     func showCategory() {
-        let module = PYCateogryModule.setup(with: navigationController)
-        module.show()
+        
+//        let module = PYCateogryModule.setup(with: navigationController)
+//        module.show()
     }
     
     func show() {

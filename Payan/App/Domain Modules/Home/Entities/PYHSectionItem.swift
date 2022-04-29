@@ -13,9 +13,10 @@ class PYHSectionItem: Decodable {
     let title: String
     let subtitle: String?
     let image: String
+    let link: String
     
     enum CodingKeys: CodingKey {
-        case title, image, subtitle
+        case title, image, subtitle, link
     }
     
     required init(from decoder: Decoder) throws {
@@ -24,12 +25,14 @@ class PYHSectionItem: Decodable {
         title = try container.decode(String.self, forKey: .title)
         image = try container.decode(String.self, forKey: .image)
         subtitle = try container.decodeIfPresent(String.self, forKey: .subtitle)
+        link = try container.decode(String.self, forKey: .link)
     }
     
     init() {
         title = ""
         image = ""
         subtitle = nil
+        link = ""
     }
 }
 
