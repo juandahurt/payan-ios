@@ -1,5 +1,5 @@
 //
-//  PYFeedSectionItem.swift
+//  PYFeedSectionElement.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 15/04/22.
@@ -8,7 +8,7 @@
 import Foundation
 
 
-class PYFeedSectionItem: Decodable {
+class PYFeedSectionElement: Decodable {
     var id: String = ""
     let title: String
     let subtitle: String?
@@ -36,15 +36,15 @@ class PYFeedSectionItem: Decodable {
     }
 }
 
-extension PYFeedSectionItem: Hashable {
+extension PYFeedSectionElement: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-    static func == (lhs: PYFeedSectionItem, rhs: PYFeedSectionItem) -> Bool {
+    static func == (lhs: PYFeedSectionElement, rhs: PYFeedSectionElement) -> Bool {
         lhs.id == rhs.id
     }
 }
 
 // MARK: - Loading section item
-class PYFeedLoadingSectionItem: PYFeedSectionItem {}
+class PYFeedLoadingSectionElement: PYFeedSectionElement {}

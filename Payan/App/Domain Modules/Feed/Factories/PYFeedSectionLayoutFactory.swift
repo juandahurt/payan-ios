@@ -38,7 +38,7 @@ class PYFeedSectionLayoutFactory {
         case .horizontal:
             var width: CGFloat = 100
             var height: CGFloat = 100
-            if let dimensions = section.itemLayout.dimensions {
+            if let dimensions = section.elementLayout.dimensions {
                 width = CGFloat(dimensions.width)
                 height = CGFloat(dimensions.height)
             }

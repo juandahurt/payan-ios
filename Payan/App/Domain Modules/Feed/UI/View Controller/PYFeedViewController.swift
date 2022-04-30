@@ -15,8 +15,8 @@ class PYFeedViewController: PYBaseViewController {
     
     private var tabBarHasBeenHiddenOnce = false
     
-    typealias DataSource = UICollectionViewDiffableDataSource<PYFeedSection, PYFeedSectionItem>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<PYFeedSection, PYFeedSectionItem>
+    typealias DataSource = UICollectionViewDiffableDataSource<PYFeedSection, PYFeedSectionElement>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<PYFeedSection, PYFeedSectionElement>
     
     lazy var dataSource: DataSource = makeDataSource()
     
@@ -76,11 +76,11 @@ class PYFeedViewController: PYBaseViewController {
     }
     
     private func makeDataSource() -> DataSource {
-        DataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
+        DataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, element in
             guard let self = self else { return nil }
             let currentSection = self.sections[indexPath.section]
-            let cell = PYFeedSectionItemFactory.createSectionItemCell(for: currentSection.itemLayout.type, item: item, inside: collectionView, indexPath: indexPath)
-            if item is PYFeedLoadingSectionItem {
+            let cell = PYFeedSectionElementFactory.createSectionElemetCell(for: currentSection.elementLayout.type, element: element, inside: collectionView, indexPath: indexPath)
+            if element is PYFeedLoadingSectionElement {
                 cell.showAnimatedSkeleton()
             }
             return cell
@@ -128,7 +128,7 @@ class PYFeedViewController: PYBaseViewController {
     }
     
     private func isLoading() -> Bool {
-        return sections.first(where: { $0.items.contains(where: { $0 is PYFeedLoadingSectionItem }) }) != nil
+        return sections.first(where: { $0.elements.contains(where: { $0 is PYFeedLoadingSectionElement }) }) != nil
     }
 }
 
@@ -140,7 +140,7 @@ extension PYFeedViewController: PYFeedViewLogic {
         
         snapshot.appendSections(sections)
         for section in sections {
-            snapshot.appendItems(section.items, toSection: section)
+            snapshot.appendItems(section.elements, toSection: section)
         }
         
         dataSource.apply(snapshot, animatingDifferences: true)
@@ -157,7 +157,7 @@ extension PYFeedViewController: PYFeedViewLogic {
 
 extension PYFeedViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let url = URL(string: sections[indexPath.section].items[indexPath.row].link) else { return }
+        guard let url = URL(string: sections[indexPath.section].elements[indexPath.row].link) else { return }
         PYRoutingManager.shared.open(url: url)
     }
 }

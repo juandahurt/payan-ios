@@ -16,13 +16,13 @@ class PYFeedPresenter: PYFeedPresentationLogic {
         let basicHeader = PYFeedSectionHeader(
             title: ""
         )
-        let itemLayout = PYFeedItemLayout(type: .basic, dimensions: nil)
-        let itemLayout2 = PYFeedItemLayout(type: .basic, dimensions: .init(width: 140, height: 250))
-        let itemLayout3 = PYFeedItemLayout(type: .basic, dimensions: .init(width: 140, height: 250))
+        let elementLayout = PYFeedElementLayout(type: .basic, dimensions: nil)
+        let elementLayout2 = PYFeedElementLayout(type: .basic, dimensions: .init(width: 240, height: 160))
+        let elementLayout3 = PYFeedElementLayout(type: .basic, dimensions: .init(width: 140, height: 250))
         let sections = [
-            PYFeedSection(layout: .grid, itemLayout: itemLayout, header: basicHeader, items: [PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem()]),
-            PYFeedSection(layout: .horizontal, itemLayout: itemLayout2, header: basicHeader, items: [PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem()]),
-            PYFeedSection(layout: .horizontal, itemLayout: itemLayout3, header: basicHeader, items: [PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem(), PYFeedLoadingSectionItem()])
+            PYFeedSection(layout: .grid, elementLayout: elementLayout, header: basicHeader, elements: [PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement()]),
+            PYFeedSection(layout: .horizontal, elementLayout: elementLayout2, header: basicHeader, elements: [PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement()]),
+            PYFeedSection(layout: .horizontal, elementLayout: elementLayout3, header: basicHeader, elements: [PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement(), PYFeedLoadingSectionElement()])
         ]
         view?.renderSections(sections)
     }

@@ -10,30 +10,28 @@ import Foundation
 class PYFeedSection: Decodable {
     var id: String = ""
     var layout: PYFeedSectionLayout
-    var itemLayout: PYFeedItemLayout
+    var elementLayout: PYFeedElementLayout
     var header: PYFeedSectionHeader
-    var items: [PYFeedSectionItem]
+    var elements: [PYFeedSectionElement]
     
     enum CodingKeys: String, CodingKey {
-        case layout, header
-        case items = "elements"
-        case itemLayout = "elementLayout"
+        case layout, header, elements, elementLayout
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = ""
         layout = try container.decode(PYFeedSectionLayout.self, forKey: .layout)
-        itemLayout = try container.decode(PYFeedItemLayout.self, forKey: .itemLayout)
+        elementLayout = try container.decode(PYFeedElementLayout.self, forKey: .elementLayout)
         header = try container.decode(PYFeedSectionHeader.self, forKey: .header)
-        items = try container.decode([PYFeedSectionItem].self, forKey: .items)
+        elements = try container.decode([PYFeedSectionElement].self, forKey: .elements)
     }
     
-    init(layout: PYFeedSectionLayout, itemLayout: PYFeedItemLayout, header: PYFeedSectionHeader, items: [PYFeedSectionItem]) {
+    init(layout: PYFeedSectionLayout, elementLayout: PYFeedElementLayout, header: PYFeedSectionHeader, elements: [PYFeedSectionElement]) {
         self.layout = layout
-        self.itemLayout = itemLayout
+        self.elementLayout = elementLayout
         self.header = header
-        self.items = items
+        self.elements = elements
     }
 }
 
