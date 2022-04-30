@@ -7,11 +7,24 @@
 
 import Foundation
 
-#warning("TODO: implement data access logic")
 class PYCWorker: PYCDataAccessLogic {
-    func getPlaces(completion: (([PYCPlace]) -> Void)?) {
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1) {
-            completion?(PYCPlace.dummy)
+    func getPlaces(withTypeId typeId: String, completion: @escaping (Result<PYCollection, Error>) -> Void) {
+        let request = PYNetworkRequest(endpoint: "collection?typeId=\(typeId)")
+        PYNetworkManager.shared.exec(request: request) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    let decodedResponse = try decoder.decode(PYServerResponse<PYCollection>.self, from: data)
+                    if let collection = decodedResponse.data {
+                        completion(.success(collection))
+                    }
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }

@@ -22,4 +22,8 @@ class PYCTitleCollectionViewCell: UICollectionViewCell {
         titleLabel.textColor = AppStyle.Color.N1
         titleLabel.text = "Museos"
     }
+    
+    func setTitle(_ title: String) {
+        titleLabel.text = title
+    }
 }

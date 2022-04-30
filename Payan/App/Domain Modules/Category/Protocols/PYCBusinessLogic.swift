@@ -9,9 +9,8 @@ import Foundation
 
 
 protocol PYCBusinessLogic {
-    var places: [PYCPlace] { get }
     var worker: PYCDataAccessLogic { get }
     var presenter: PYCPresentationLogic { get }
     
-    func getPlaces()
+    func getPlaces(withTypeId typeId: String)
 }

@@ -19,7 +19,7 @@ class PYCPresenter: PYCPresentationLogic {
         view?.hideLoading()
     }
     
-    func showPlaces() {
-        view?.updatePlacesTable()
+    func showPlaces(_ collection: PYCollection) {
+        view?.renderCollection(collection)
     }
 }

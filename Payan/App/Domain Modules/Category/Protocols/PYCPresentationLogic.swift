@@ -13,5 +13,5 @@ protocol PYCPresentationLogic {
     
     func showLoading()
     func hideLoading()
-    func showPlaces()
+    func showPlaces(_ collection: PYCollection)
 }

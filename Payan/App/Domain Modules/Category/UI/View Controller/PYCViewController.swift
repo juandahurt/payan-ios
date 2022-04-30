@@ -12,6 +12,7 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
     
     var typeId: String = ""
     var interactor: PYCBusinessLogic
+    private var collection: PYCollection?
     
     init(interactor: PYCBusinessLogic) {
         self.interactor = interactor
@@ -28,7 +29,7 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
         super.viewDidLoad()
         
         setupSubviews()
-        interactor.getPlaces()
+        interactor.getPlaces(withTypeId: typeId)
     }
     
     private func setupSubviews() {
@@ -39,15 +40,9 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
     private func setupCollectionView() {
         registerCells()
         collectionView.backgroundColor = AppStyle.Color.F2
-//        let layout = UICollectionViewFlowLayout()
-//        layout.minimumLineSpacing = 1
-//        layout.minimumInteritemSpacing = 1
-//
         let bottomSafeAreaHeight = view.safeAreaInsets.bottom
         collectionView.contentInset = .init(top: 0, left: 0, bottom: bottomSafeAreaHeight, right: 0)
         collectionView.delegate = self
-//        (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumLineSpacing = 1
-//        (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing = 0.5
         collectionView.dataSource = self
     }
     
@@ -63,9 +58,9 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
         super.showLoading()
     }
     
-    func updatePlacesTable() {
-        
-//        tableView.reloadData()
+    func renderCollection(_ collection: PYCollection) {
+        self.collection = collection
+        collectionView.reloadData()
     }
 }
 
@@ -94,13 +89,12 @@ extension PYCViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            title = "Museos"
+            title = collection?.title ?? ""
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            #warning("TODO: set collection title")
             title = ""
         }
     }
@@ -109,10 +103,13 @@ extension PYCViewController: UICollectionViewDelegateFlowLayout {
 extension PYCViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCTitleCollectionViewCell.reuseIdentifier, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCTitleCollectionViewCell.reuseIdentifier, for: indexPath) as! PYCTitleCollectionViewCell
+            cell.setTitle(collection?.title ?? "")
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCItemCollectionViewCell.reuseIdentifier, for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCItemCollectionViewCell.reuseIdentifier, for: indexPath) as! PYCItemCollectionViewCell
+            cell.setImage(collection?.elements[indexPath.row].image ?? "")
+            cell.setTitle(collection?.elements[indexPath.row].title ?? "")
             return cell
         }
     }
@@ -125,7 +122,7 @@ extension PYCViewController: UICollectionViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return 20
+            return collection?.elements.count ?? 0
         }
     }
 }

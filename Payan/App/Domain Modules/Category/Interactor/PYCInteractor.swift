@@ -9,23 +9,26 @@ import Foundation
 
 
 class PYCInteractor: PYCBusinessLogic {
-    var places: [PYCPlace]
     var worker: PYCDataAccessLogic
     var presenter: PYCPresentationLogic
     
     init(presenter: PYCPresentationLogic, worker: PYCDataAccessLogic = PYCWorker()) {
-        places = []
         self.presenter = presenter
         self.worker = worker
     }
     
-    func getPlaces() {
+    func getPlaces(withTypeId typeId: String) {
         presenter.showLoading()
-        worker.getPlaces { [weak self] places in
+        worker.getPlaces(withTypeId: typeId) { [weak self] res in
             guard let self = self else { return }
-            self.places = places
-            self.presenter.hideLoading()
-            self.presenter.showPlaces()
+            DispatchQueue.main.async {
+                self.presenter.hideLoading()
+                switch res {
+                case .success(let collection):
+                    self.presenter.showPlaces(collection)
+                case .failure(_): break
+                }
+            }
         }
     }
 }

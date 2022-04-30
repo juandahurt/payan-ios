@@ -22,12 +22,19 @@ class PYCItemCollectionViewCell: UICollectionViewCell {
 
     
     private func setupView() {
-        subBackgroundView.backgroundColor = .black.withAlphaComponent(0.2)
+        subBackgroundView.backgroundColor = .black.withAlphaComponent(0.35)
         itemImageView.contentMode = .scaleAspectFill
         itemNameLabel.font = AppStyle.Font.get(.medium, size: .footer)
         itemNameLabel.textColor = AppStyle.Color.F2
-        
-        itemImageView.kf.setImage(with: URL(string: "https://payan-dev-images.s3.us-east-2.amazonaws.com/san-jose.jpg")!)
-        itemNameLabel.text = "Nombre del museo"
+        itemNameLabel.text = ""
+    }
+    
+    func setImage(_ url: String) {
+        guard let url = URL(string: url) else { return }
+        itemImageView.kf.setImage(with: url)
+    }
+    
+    func setTitle(_ title: String) {
+        itemNameLabel.text = title
     }
 }

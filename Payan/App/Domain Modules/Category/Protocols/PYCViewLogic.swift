@@ -14,5 +14,5 @@ protocol PYCViewLogic: AnyObject {
     
     func showLoading()
     func hideLoading()
-    func updatePlacesTable()
+    func renderCollection(_ colleciton: PYCollection)
 }

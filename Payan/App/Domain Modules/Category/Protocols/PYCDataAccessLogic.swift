@@ -9,5 +9,5 @@ import Foundation
 
 
 protocol PYCDataAccessLogic {
-    func getPlaces(completion: (([PYCPlace]) -> Void)?)
+    func getPlaces(withTypeId typeId: String, completion: @escaping (Result<PYCollection, Error>) -> Void)
 }
