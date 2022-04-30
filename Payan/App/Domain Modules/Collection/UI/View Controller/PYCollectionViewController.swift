@@ -1,5 +1,5 @@
 //
-//  PYCViewController.swift
+//  PYCollectionViewController.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 8/04/22.
@@ -7,14 +7,14 @@
 
 import UIKit
 
-class PYCViewController: PYBaseViewController, PYCViewLogic {
+class PYCollectionViewController: PYBaseViewController, PYCollectionViewLogic {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var typeId: String = ""
-    var interactor: PYCBusinessLogic
+    var interactor: PYCollectionBusinessLogic
     private var collection: PYCollection?
     
-    init(interactor: PYCBusinessLogic) {
+    init(interactor: PYCollectionBusinessLogic) {
         self.interactor = interactor
         
         let nibName = String(describing: Self.self)
@@ -29,7 +29,7 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
         super.viewDidLoad()
         
         setupSubviews()
-        interactor.getPlaces(withTypeId: typeId)
+        interactor.getCollection(withTypeId: typeId)
     }
     
     private func setupSubviews() {
@@ -47,11 +47,11 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
     }
     
     private func registerCells() {
-        let titleNibName = String(describing: PYCTitleCollectionViewCell.self)
-        collectionView.register(UINib(nibName: titleNibName, bundle: nil), forCellWithReuseIdentifier: PYCTitleCollectionViewCell.reuseIdentifier)
+        let titleNibName = String(describing: PYCollectionTitleCollectionViewCell.self)
+        collectionView.register(UINib(nibName: titleNibName, bundle: nil), forCellWithReuseIdentifier: PYCollectionTitleCollectionViewCell.reuseIdentifier)
         
-        let itemNibName = String(describing: PYCItemCollectionViewCell.self)
-        collectionView.register(UINib(nibName: itemNibName, bundle: nil), forCellWithReuseIdentifier: PYCItemCollectionViewCell.reuseIdentifier)
+        let elementNibName = String(describing: PYCollectionElementCollectionViewCell.self)
+        collectionView.register(UINib(nibName: elementNibName, bundle: nil), forCellWithReuseIdentifier: PYCollectionElementCollectionViewCell.reuseIdentifier)
     }
     
     func showLoading() {
@@ -64,7 +64,7 @@ class PYCViewController: PYBaseViewController, PYCViewLogic {
     }
 }
 
-extension PYCViewController: UICollectionViewDelegateFlowLayout {
+extension PYCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = UIScreen.main.bounds.width
         if indexPath.section == 0 {
@@ -75,7 +75,7 @@ extension PYCViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-//            router.showPlace()
+            #warning("TODO: go to element detatils!")
         }
     }
     
@@ -100,14 +100,14 @@ extension PYCViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension PYCViewController: UICollectionViewDataSource {
+extension PYCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCTitleCollectionViewCell.reuseIdentifier, for: indexPath) as! PYCTitleCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCollectionTitleCollectionViewCell.reuseIdentifier, for: indexPath) as! PYCollectionTitleCollectionViewCell
             cell.setTitle(collection?.title ?? "")
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCItemCollectionViewCell.reuseIdentifier, for: indexPath) as! PYCItemCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCollectionElementCollectionViewCell.reuseIdentifier, for: indexPath) as! PYCollectionElementCollectionViewCell
             cell.setImage(collection?.elements[indexPath.row].image ?? "")
             cell.setTitle(collection?.elements[indexPath.row].title ?? "")
             return cell

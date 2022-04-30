@@ -1,5 +1,5 @@
 //
-//  PYCWorker.swift
+//  PYCollectionWorker.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 9/04/22.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-class PYCWorker: PYCDataAccessLogic {
-    func getPlaces(withTypeId typeId: String, completion: @escaping (Result<PYCollection, Error>) -> Void) {
+class PYCollectionWorker: PYCollectionDataAccessLogic {
+    func getCollection(withTypeId typeId: String, completion: @escaping (Result<PYCollection, Error>) -> Void) {
         let request = PYNetworkRequest(endpoint: "collection?typeId=\(typeId)")
         PYNetworkManager.shared.exec(request: request) { result in
             switch result {

@@ -9,5 +9,5 @@ import Foundation
 
 struct PYCollection: Decodable {
     var title: String
-    var elements: [PYCPlace]
+    var elements: [PYCollectionPlace]
 }

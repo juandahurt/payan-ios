@@ -1,5 +1,5 @@
 //
-//  PYCViewLogic.swift
+//  PYCollectionViewLogic.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 9/04/22.
@@ -8,9 +8,9 @@
 import Foundation
 
 
-protocol PYCViewLogic: AnyObject {
+protocol PYCollectionViewLogic: AnyObject {
     var typeId: String { get set }
-    var interactor: PYCBusinessLogic { get }
+    var interactor: PYCollectionBusinessLogic { get }
     
     func showLoading()
     func hideLoading()

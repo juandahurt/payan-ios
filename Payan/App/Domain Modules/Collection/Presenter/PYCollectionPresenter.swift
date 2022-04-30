@@ -1,5 +1,5 @@
 //
-//  PYCPresenter.swift
+//  PYCollectionPresenter.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 9/04/22.
@@ -8,8 +8,8 @@
 import Foundation
 
 
-class PYCPresenter: PYCPresentationLogic {
-    weak var view: PYCViewLogic?
+class PYCollectionPresenter: PYCollectionPresentationLogic {
+    weak var view: PYCollectionViewLogic?
     
     func showLoading() {
         view?.showLoading()
@@ -19,7 +19,7 @@ class PYCPresenter: PYCPresentationLogic {
         view?.hideLoading()
     }
     
-    func showPlaces(_ collection: PYCollection) {
+    func showCollection(_ collection: PYCollection) {
         view?.renderCollection(collection)
     }
 }

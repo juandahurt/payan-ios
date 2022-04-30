@@ -1,5 +1,5 @@
 //
-//  PYCInteractor.swift
+//  PYCollectionInteractor.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 9/04/22.
@@ -8,24 +8,24 @@
 import Foundation
 
 
-class PYCInteractor: PYCBusinessLogic {
-    var worker: PYCDataAccessLogic
-    var presenter: PYCPresentationLogic
+class PYCollectionInteractor: PYCollectionBusinessLogic {
+    var worker: PYCollectionDataAccessLogic
+    var presenter: PYCollectionPresentationLogic
     
-    init(presenter: PYCPresentationLogic, worker: PYCDataAccessLogic = PYCWorker()) {
+    init(presenter: PYCollectionPresentationLogic, worker: PYCollectionDataAccessLogic = PYCollectionWorker()) {
         self.presenter = presenter
         self.worker = worker
     }
     
-    func getPlaces(withTypeId typeId: String) {
+    func getCollection(withTypeId typeId: String) {
         presenter.showLoading()
-        worker.getPlaces(withTypeId: typeId) { [weak self] res in
+        worker.getCollection(withTypeId: typeId) { [weak self] res in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.presenter.hideLoading()
                 switch res {
                 case .success(let collection):
-                    self.presenter.showPlaces(collection)
+                    self.presenter.showCollection(collection)
                 case .failure(_): break
                 }
             }
