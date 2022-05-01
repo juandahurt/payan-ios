@@ -3,7 +3,7 @@
 set -eo pipefail
 
 xcodebuild -project Payan.xcodeproj \
-            -scheme Payan\ (dev) \
+            -scheme Payan_dev \
             -sdk iphoneos \
             -configuration AppStoreDistribution \
             -archivePath $PWD/build/Payan.xcarchive \
