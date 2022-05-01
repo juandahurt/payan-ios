@@ -11,7 +11,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
       - name: Install gpg
-        run: brew install gnupg@2.3.6
+        run: brew install gnupg
       - name: Change Provisiong Profiles permissions
         run: chmod +x ./.github/secrets/decrypt_secrets.sh
       - name: Setup provisioning profile
