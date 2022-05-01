@@ -22,6 +22,7 @@ class PYCollectionElementCollectionViewCell: UICollectionViewCell {
 
     
     private func setupView() {
+        isSkeletonable = true
         subBackgroundView.backgroundColor = .black.withAlphaComponent(0.35)
         elementImageView.contentMode = .scaleAspectFill
         titleLabel.font = AppStyle.Font.get(.medium, size: .footer)

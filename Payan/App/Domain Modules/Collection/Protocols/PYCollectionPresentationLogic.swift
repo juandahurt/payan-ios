@@ -12,6 +12,5 @@ protocol PYCollectionPresentationLogic {
     var view: PYCollectionViewLogic? { get }
     
     func showLoading()
-    func hideLoading()
     func showCollection(_ collection: PYCollection)
 }

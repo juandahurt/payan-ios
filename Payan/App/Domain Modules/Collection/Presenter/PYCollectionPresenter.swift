@@ -12,11 +12,8 @@ class PYCollectionPresenter: PYCollectionPresentationLogic {
     weak var view: PYCollectionViewLogic?
     
     func showLoading() {
-        view?.showLoading()
-    }
-    
-    func hideLoading() {
-        view?.hideLoading()
+        let loadingCollection = PYLoadingCollection()
+        view?.renderCollection(loadingCollection)
     }
     
     func showCollection(_ collection: PYCollection) {

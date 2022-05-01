@@ -12,7 +12,5 @@ protocol PYCollectionViewLogic: AnyObject {
     var typeId: String { get set }
     var interactor: PYCollectionBusinessLogic { get }
     
-    func showLoading()
-    func hideLoading()
-    func renderCollection(_ colleciton: PYCollection)
+    func renderCollection(_ collection: PYCollection)
 }

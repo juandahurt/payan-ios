@@ -5,6 +5,7 @@
 //  Created by Juan Hurtado on 8/04/22.
 //
 
+import SkeletonView
 import UIKit
 
 class PYCollectionViewController: PYBaseViewController, PYCollectionViewLogic {
@@ -108,8 +109,14 @@ extension PYCollectionViewController: UICollectionViewDataSource {
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCollectionElementCollectionViewCell.reuseIdentifier, for: indexPath) as! PYCollectionElementCollectionViewCell
-            cell.setImage(collection?.elements[indexPath.row].image ?? "")
-            cell.setTitle(collection?.elements[indexPath.row].title ?? "")
+            if collection is PYLoadingCollection {
+                cell.showAnimatedSkeleton()
+            } else {
+                cell.stopSkeletonAnimation()
+                cell.hideSkeleton()
+                cell.setImage(collection?.elements[indexPath.row].image ?? "")
+                cell.setTitle(collection?.elements[indexPath.row].title ?? "")
+            }
             return cell
         }
     }

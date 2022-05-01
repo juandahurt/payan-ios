@@ -22,7 +22,6 @@ class PYCollectionInteractor: PYCollectionBusinessLogic {
         worker.getCollection(withTypeId: typeId) { [weak self] res in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.presenter.hideLoading()
                 switch res {
                 case .success(let collection):
                     self.presenter.showCollection(collection)
