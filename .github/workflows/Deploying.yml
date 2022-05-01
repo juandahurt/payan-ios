@@ -9,15 +9,21 @@ jobs:
     runs-on: macOS-latest
     environment: development
     steps:
-      - name: Checkout repository
+      - name: checkout repository
         uses: actions/checkout@v1
-      - name: Archiving project
+      - name: setup archive script
+        run: chmod +x ./.github/scripts/archive_dev_app.sh
+      - name: archiving project
         env:
           PR_NUMBER: $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
         run: ./.github/scripts/archive_dev_app.sh
-      - name: Exporting .ipa
+      - name: setup ipa export script
+        run: chmod +x ./.github/scripts/export_ipa.sh
+      - name: exporting .ipa
         run: ./.github/scripts/export_ipa.sh
-      - name: Publishing app
+      - name: setup publish script
+        run: chmod +x ./.github/scripts/publish_testflight.sh
+      - name: publishing app
         if: success()
         env:
           APPLEID_USERNAME: ${{ secrets.APPLEID_USERNAME }}
