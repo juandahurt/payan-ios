@@ -12,6 +12,8 @@ jobs:
         uses: actions/checkout@v1
       - name: Install gpg
         run: brew install gnupg
+      - name: Change Provisiong Profiles permissions
+        run: chmod +x ./.github/secrets/decrypt_secrets.sh
       - name: Setup provisioning profile
         env:
           IOS_KEYS: ${{ secrets.IOS_KEYS }}
