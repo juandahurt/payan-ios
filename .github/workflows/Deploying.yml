@@ -7,6 +7,7 @@ jobs:
   deploy:
     name: Deploying dev version to Testflight
     runs-on: macOS-latest
+    environment: development
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
