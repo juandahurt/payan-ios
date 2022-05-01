@@ -1,4 +1,5 @@
 #!/bin/sh
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 set -eo pipefail
 
 gpg --quiet --batch --yes --decrypt --passphrase="$IOS_KEYS" --output ./.github/secrets/payan_profile.mobileprovision ./.github/secrets/payan_profile.mobileprovision.gpg
