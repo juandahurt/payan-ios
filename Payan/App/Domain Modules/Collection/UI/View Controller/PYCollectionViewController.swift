@@ -8,7 +8,7 @@
 import SkeletonView
 import UIKit
 
-class PYCollectionViewController: PYBaseViewController, PYCollectionViewLogic {
+class PYCollectionViewController: PYBaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var typeId: String = ""
@@ -53,15 +53,6 @@ class PYCollectionViewController: PYBaseViewController, PYCollectionViewLogic {
         
         let elementNibName = String(describing: PYCollectionElementCollectionViewCell.self)
         collectionView.register(UINib(nibName: elementNibName, bundle: nil), forCellWithReuseIdentifier: PYCollectionElementCollectionViewCell.reuseIdentifier)
-    }
-    
-    func showLoading() {
-        super.showLoading()
-    }
-    
-    func renderCollection(_ collection: PYCollection) {
-        self.collection = collection
-        collectionView.reloadData()
     }
 }
 
@@ -130,6 +121,21 @@ extension PYCollectionViewController: UICollectionViewDataSource {
             return 1
         } else {
             return collection?.elements.count ?? 0
+        }
+    }
+}
+
+
+extension PYCollectionViewController: PYCollectionViewLogic {
+    func renderCollection(_ collection: PYCollection) {
+        self.collection = collection
+        collectionView.reloadData()
+    }
+    
+    func showGenericError() {
+        showGenericError { [weak self] in
+            guard let self = self else { return }
+            self.interactor.getCollection(withTypeId: self.typeId)
         }
     }
 }
