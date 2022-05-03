@@ -81,6 +81,7 @@
 		2FA3BB0B2815F49E005BF493 /* PYFeedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0A2815F49E005BF493 /* PYFeedPage.swift */; };
 		2FA3BB0D2815F573005BF493 /* PYFeedElementLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0C2815F573005BF493 /* PYFeedElementLayout.swift */; };
 		2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */; };
+		2FBF588F2821C1810044A34E /* UIViewController+genericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF588E2821C1810044A34E /* UIViewController+genericError.swift */; };
 		2FF5CF412809B499001B8FFE /* PYCollectionElementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5CF3F2809B499001B8FFE /* PYCollectionElementCollectionViewCell.swift */; };
 		2FF5CF422809B499001B8FFE /* PYCollectionElementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5CF402809B499001B8FFE /* PYCollectionElementCollectionViewCell.xib */; };
 		2FFD11A328176F62000BC581 /* PYGenericErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */; };
@@ -200,6 +201,7 @@
 		2FA3BB0A2815F49E005BF493 /* PYFeedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedPage.swift; sourceTree = "<group>"; };
 		2FA3BB0C2815F573005BF493 /* PYFeedElementLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedElementLayout.swift; sourceTree = "<group>"; };
 		2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedNetworkWorker.swift; sourceTree = "<group>"; };
+		2FBF588E2821C1810044A34E /* UIViewController+genericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+genericError.swift"; sourceTree = "<group>"; };
 		2FF5CF3F2809B499001B8FFE /* PYCollectionElementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionElementCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FF5CF402809B499001B8FFE /* PYCollectionElementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCollectionElementCollectionViewCell.xib; sourceTree = "<group>"; };
 		2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYGenericErrorViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			children = (
 				2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */,
 				2F898C302802257200528BF2 /* UIImageView+loadFromUrl.swift */,
+				2FBF588E2821C1810044A34E /* UIViewController+genericError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1142,6 +1145,7 @@
 				2F8D512F2800C72500ADCC64 /* PYFeedPresentationLogic.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
 				2F9507442809326800297452 /* PYCollectionTitleCollectionViewCell.swift in Sources */,
+				2FBF588F2821C1810044A34E /* UIViewController+genericError.swift in Sources */,
 				2F79DF7B280C67E2005DAAA1 /* PYFeedSectionLayoutFactory.swift in Sources */,
 				2F772CD42809F5EB003D311D /* PYFeedSectionLayoutType.swift in Sources */,
 				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,
