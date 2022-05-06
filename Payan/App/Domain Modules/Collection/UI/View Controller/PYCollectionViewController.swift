@@ -53,6 +53,9 @@ class PYCollectionViewController: PYBaseViewController {
         
         let elementNibName = String(describing: PYCollectionElementCollectionViewCell.self)
         collectionView.register(UINib(nibName: elementNibName, bundle: nil), forCellWithReuseIdentifier: PYCollectionElementCollectionViewCell.reuseIdentifier)
+        
+        let oversizedNibName = String(describing: PYOversizedElementCollectionViewCell.self)
+        collectionView.register(UINib(nibName: oversizedNibName, bundle: nil), forCellWithReuseIdentifier: PYOversizedElementCollectionViewCell.reuseIdentifier)
     }
 }
 
@@ -62,7 +65,8 @@ extension PYCollectionViewController: UICollectionViewDelegateFlowLayout {
         if indexPath.section == 0 {
             return CGSize(width: screenWidth, height: 100)
         }
-        return CGSize(width: (screenWidth / 3) - CGFloat(2), height: (screenWidth / 3) - CGFloat(2))
+        guard let collection = collection else { return .zero }
+        return PYCollectionCellSizeFactory.createSize(for: collection.layout)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -99,14 +103,12 @@ extension PYCollectionViewController: UICollectionViewDataSource {
             cell.setTitle(collection?.title ?? "")
             return cell
         } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYCollectionElementCollectionViewCell.reuseIdentifier, for: indexPath) as! PYCollectionElementCollectionViewCell
+            let cell = PYCollectionCellFactory.createCell(for: collection!.layout, element: collection!.elements[indexPath.row], inside: collectionView, indexPath: indexPath)
             if collection is PYLoadingCollection {
                 cell.showAnimatedSkeleton()
             } else {
                 cell.stopSkeletonAnimation()
                 cell.hideSkeleton()
-                cell.setImage(collection?.elements[indexPath.row].image ?? "")
-                cell.setTitle(collection?.elements[indexPath.row].title ?? "")
             }
             return cell
         }

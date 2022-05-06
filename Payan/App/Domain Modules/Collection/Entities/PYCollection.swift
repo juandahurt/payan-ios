@@ -10,10 +10,12 @@ import Foundation
 class PYCollection: Decodable {
     var title: String
     var elements: [PYCollectionElement]
+    var layout: PYCollectionLayout
     
     init(title: String = "", elements: [PYCollectionElement] = []) {
         self.title = title
         self.elements = elements
+        self.layout = .normal
     }
 }
 
