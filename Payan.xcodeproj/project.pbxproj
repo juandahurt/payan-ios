@@ -13,6 +13,8 @@
 		2F06927B2801F6360068AA79 /* PYCollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927A2801F6360068AA79 /* PYCollectionInteractor.swift */; };
 		2F06927D2801F6C50068AA79 /* PYCollectionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927C2801F6C50068AA79 /* PYCollectionModule.swift */; };
 		2F06927F2801F7B90068AA79 /* PYCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927E2801F7B90068AA79 /* PYCollectionPresenter.swift */; };
+		2F250B622825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F250B602825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift */; };
+		2F250B632825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F250B612825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib */; };
 		2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C5A28038D0800086C10 /* PYBadge.swift */; };
 		2F329C5D28038D3D00086C10 /* PYBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F329C5C28038D3D00086C10 /* PYBadge.xib */; };
 		2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */; };
@@ -137,6 +139,8 @@
 		2F06927A2801F6360068AA79 /* PYCollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionInteractor.swift; sourceTree = "<group>"; };
 		2F06927C2801F6C50068AA79 /* PYCollectionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionModule.swift; sourceTree = "<group>"; };
 		2F06927E2801F7B90068AA79 /* PYCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionPresenter.swift; sourceTree = "<group>"; };
+		2F250B602825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOversizedElementCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F250B612825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYOversizedElementCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F329C5A28038D0800086C10 /* PYBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYBadge.swift; sourceTree = "<group>"; };
 		2F329C5C28038D3D00086C10 /* PYBadge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYBadge.xib; sourceTree = "<group>"; };
 		2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -298,6 +302,15 @@
 				2F8CADEE28024A4900F166E0 /* PYCollectionDataAccessLogic.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2F250B5F2825AE87008D34B7 /* Oversized Element */ = {
+			isa = PBXGroup;
+			children = (
+				2F250B602825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift */,
+				2F250B612825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib */,
+			);
+			path = "Oversized Element";
 			sourceTree = "<group>";
 		};
 		2F329C5928038CDF00086C10 /* Badge */ = {
@@ -579,6 +592,7 @@
 		2F9507402809324900297452 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2F250B5F2825AE87008D34B7 /* Oversized Element */,
 				2FF5CF3E2809B488001B8FFE /* Element */,
 				2F9507412809324F00297452 /* Title */,
 			);
@@ -1073,6 +1087,7 @@
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* PYFeedViewController.xib in Resources */,
 				2F7BD79328036ED000588C52 /* PYPViewController.xib in Resources */,
+				2F250B632825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib in Resources */,
 				2F772CE0280B28FC003D311D /* PYFeedBasicCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1158,6 +1173,7 @@
 				3D3A384A270A53D300E2EF94 /* PYFeedModule.swift in Sources */,
 				3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */,
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
+				2F250B622825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				2F772CD62809F6DE003D311D /* PYFeedSectionElement.swift in Sources */,
 				2F79DF81280C9C81005DAAA1 /* PYFeedSectionHeader.swift in Sources */,
