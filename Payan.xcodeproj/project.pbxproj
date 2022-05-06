@@ -13,6 +13,11 @@
 		2F06927B2801F6360068AA79 /* PYCollectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927A2801F6360068AA79 /* PYCollectionInteractor.swift */; };
 		2F06927D2801F6C50068AA79 /* PYCollectionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927C2801F6C50068AA79 /* PYCollectionModule.swift */; };
 		2F06927F2801F7B90068AA79 /* PYCollectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927E2801F7B90068AA79 /* PYCollectionPresenter.swift */; };
+		2F250B622825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F250B602825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift */; };
+		2F250B632825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F250B612825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib */; };
+		2F250B652825B1D8008D34B7 /* PYCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F250B642825B1D8008D34B7 /* PYCollectionLayout.swift */; };
+		2F250B682825B28C008D34B7 /* PYCollectionCellFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F250B672825B28C008D34B7 /* PYCollectionCellFactory.swift */; };
+		2F250B6E2825B7EC008D34B7 /* PYCollectionCellSizeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F250B6D2825B7EC008D34B7 /* PYCollectionCellSizeFactory.swift */; };
 		2F329C5B28038D0800086C10 /* PYBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C5A28038D0800086C10 /* PYBadge.swift */; };
 		2F329C5D28038D3D00086C10 /* PYBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F329C5C28038D3D00086C10 /* PYBadge.xib */; };
 		2F329C63280393E300086C10 /* PYPImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */; };
@@ -81,6 +86,7 @@
 		2FA3BB0B2815F49E005BF493 /* PYFeedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0A2815F49E005BF493 /* PYFeedPage.swift */; };
 		2FA3BB0D2815F573005BF493 /* PYFeedElementLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0C2815F573005BF493 /* PYFeedElementLayout.swift */; };
 		2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */; };
+		2FBF588F2821C1810044A34E /* UIViewController+genericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF588E2821C1810044A34E /* UIViewController+genericError.swift */; };
 		2FF5CF412809B499001B8FFE /* PYCollectionElementCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF5CF3F2809B499001B8FFE /* PYCollectionElementCollectionViewCell.swift */; };
 		2FF5CF422809B499001B8FFE /* PYCollectionElementCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FF5CF402809B499001B8FFE /* PYCollectionElementCollectionViewCell.xib */; };
 		2FFD11A328176F62000BC581 /* PYGenericErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */; };
@@ -136,6 +142,11 @@
 		2F06927A2801F6360068AA79 /* PYCollectionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionInteractor.swift; sourceTree = "<group>"; };
 		2F06927C2801F6C50068AA79 /* PYCollectionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionModule.swift; sourceTree = "<group>"; };
 		2F06927E2801F7B90068AA79 /* PYCollectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionPresenter.swift; sourceTree = "<group>"; };
+		2F250B602825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOversizedElementCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F250B612825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYOversizedElementCollectionViewCell.xib; sourceTree = "<group>"; };
+		2F250B642825B1D8008D34B7 /* PYCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionLayout.swift; sourceTree = "<group>"; };
+		2F250B672825B28C008D34B7 /* PYCollectionCellFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionCellFactory.swift; sourceTree = "<group>"; };
+		2F250B6D2825B7EC008D34B7 /* PYCollectionCellSizeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionCellSizeFactory.swift; sourceTree = "<group>"; };
 		2F329C5A28038D0800086C10 /* PYBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYBadge.swift; sourceTree = "<group>"; };
 		2F329C5C28038D3D00086C10 /* PYBadge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYBadge.xib; sourceTree = "<group>"; };
 		2F329C61280393E300086C10 /* PYPImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +211,7 @@
 		2FA3BB0A2815F49E005BF493 /* PYFeedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedPage.swift; sourceTree = "<group>"; };
 		2FA3BB0C2815F573005BF493 /* PYFeedElementLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedElementLayout.swift; sourceTree = "<group>"; };
 		2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedNetworkWorker.swift; sourceTree = "<group>"; };
+		2FBF588E2821C1810044A34E /* UIViewController+genericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+genericError.swift"; sourceTree = "<group>"; };
 		2FF5CF3F2809B499001B8FFE /* PYCollectionElementCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionElementCollectionViewCell.swift; sourceTree = "<group>"; };
 		2FF5CF402809B499001B8FFE /* PYCollectionElementCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCollectionElementCollectionViewCell.xib; sourceTree = "<group>"; };
 		2FFD11A128176F62000BC581 /* PYGenericErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYGenericErrorViewController.swift; sourceTree = "<group>"; };
@@ -298,6 +310,24 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		2F250B5F2825AE87008D34B7 /* Oversized Element */ = {
+			isa = PBXGroup;
+			children = (
+				2F250B602825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift */,
+				2F250B612825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib */,
+			);
+			path = "Oversized Element";
+			sourceTree = "<group>";
+		};
+		2F250B662825B278008D34B7 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				2F250B672825B28C008D34B7 /* PYCollectionCellFactory.swift */,
+				2F250B6D2825B7EC008D34B7 /* PYCollectionCellSizeFactory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
 		2F329C5928038CDF00086C10 /* Badge */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +407,7 @@
 			children = (
 				2F4C8E9327FA546000AC9C54 /* UIView+NibLoadable.swift */,
 				2F898C302802257200528BF2 /* UIImageView+loadFromUrl.swift */,
+				2FBF588E2821C1810044A34E /* UIViewController+genericError.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +530,7 @@
 		2F8C80FC28010CBA00A8E7FD /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				2F250B662825B278008D34B7 /* Factories */,
 				2F8CADED28024A3500F166E0 /* Workers */,
 				2F8CADEA2802485900F166E0 /* Entities */,
 				2F0692732801F5630068AA79 /* Protocols */,
@@ -541,6 +573,7 @@
 			children = (
 				2F8CADEB2802486F00F166E0 /* PYCollectionElement.swift */,
 				6D46485C281D9B21001FACC0 /* PYCollection.swift */,
+				2F250B642825B1D8008D34B7 /* PYCollectionLayout.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -576,6 +609,7 @@
 		2F9507402809324900297452 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2F250B5F2825AE87008D34B7 /* Oversized Element */,
 				2FF5CF3E2809B488001B8FFE /* Element */,
 				2F9507412809324F00297452 /* Title */,
 			);
@@ -1070,6 +1104,7 @@
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* PYFeedViewController.xib in Resources */,
 				2F7BD79328036ED000588C52 /* PYPViewController.xib in Resources */,
+				2F250B632825AED8008D34B7 /* PYOversizedElementCollectionViewCell.xib in Resources */,
 				2F772CE0280B28FC003D311D /* PYFeedBasicCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1087,6 +1122,7 @@
 				2F0692772801F5930068AA79 /* PYCollectionViewLogic.swift in Sources */,
 				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
 				2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */,
+				2F250B652825B1D8008D34B7 /* PYCollectionLayout.swift in Sources */,
 				2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */,
 				6D46485D281D9B21001FACC0 /* PYCollection.swift in Sources */,
 				3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */,
@@ -1142,18 +1178,22 @@
 				2F8D512F2800C72500ADCC64 /* PYFeedPresentationLogic.swift in Sources */,
 				3D79ACA2272397EC00ECB567 /* RESTMethod.swift in Sources */,
 				2F9507442809326800297452 /* PYCollectionTitleCollectionViewCell.swift in Sources */,
+				2FBF588F2821C1810044A34E /* UIViewController+genericError.swift in Sources */,
 				2F79DF7B280C67E2005DAAA1 /* PYFeedSectionLayoutFactory.swift in Sources */,
 				2F772CD42809F5EB003D311D /* PYFeedSectionLayoutType.swift in Sources */,
 				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,
 				3D3C031B278F953400771AC6 /* LoggerAppDelegate.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
+				2F250B6E2825B7EC008D34B7 /* PYCollectionCellSizeFactory.swift in Sources */,
 				3D69C11F27446FEA002982B3 /* UtilButton.swift in Sources */,
 				2F8CADEF28024A4900F166E0 /* PYCollectionDataAccessLogic.swift in Sources */,
 				3D79ACA927239DA900ECB567 /* RESTError.swift in Sources */,
+				2F250B682825B28C008D34B7 /* PYCollectionCellFactory.swift in Sources */,
 				2F8CADEC2802486F00F166E0 /* PYCollectionElement.swift in Sources */,
 				3D3A384A270A53D300E2EF94 /* PYFeedModule.swift in Sources */,
 				3DC9BFF126F98DA400D4DE6E /* ScrollableViewController.swift in Sources */,
 				3D79AC9E272392A800ECB567 /* RESTClient.swift in Sources */,
+				2F250B622825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
 				2F772CD62809F6DE003D311D /* PYFeedSectionElement.swift in Sources */,
 				2F79DF81280C9C81005DAAA1 /* PYFeedSectionHeader.swift in Sources */,

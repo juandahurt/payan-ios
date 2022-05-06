@@ -82,6 +82,8 @@ class PYFeedViewController: PYBaseViewController {
             let cell = PYFeedSectionElementFactory.createSectionElemetCell(for: currentSection.elementLayout.type, element: element, inside: collectionView, indexPath: indexPath)
             if element is PYFeedLoadingSectionElement {
                 cell.showAnimatedSkeleton()
+            } else {
+                cell.hideSkeleton()
             }
             return cell
         }

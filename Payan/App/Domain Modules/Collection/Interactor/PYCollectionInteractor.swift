@@ -25,7 +25,8 @@ class PYCollectionInteractor: PYCollectionBusinessLogic {
                 switch res {
                 case .success(let collection):
                     self.presenter.showCollection(collection)
-                case .failure(_): break
+                case .failure(_):
+                    self.presenter.showGenericError()
                 }
             }
         }

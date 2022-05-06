@@ -13,4 +13,5 @@ protocol PYCollectionViewLogic: AnyObject {
     var interactor: PYCollectionBusinessLogic { get }
     
     func renderCollection(_ collection: PYCollection)
+    func showGenericError()
 }

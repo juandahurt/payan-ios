@@ -19,4 +19,8 @@ class PYCollectionPresenter: PYCollectionPresentationLogic {
     func showCollection(_ collection: PYCollection) {
         view?.renderCollection(collection)
     }
+    
+    func showGenericError() {
+        view?.showGenericError()
+    }
 }

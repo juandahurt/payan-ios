@@ -13,4 +13,5 @@ protocol PYCollectionPresentationLogic {
     
     func showLoading()
     func showCollection(_ collection: PYCollection)
+    func showGenericError()
 }
