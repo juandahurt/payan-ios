@@ -71,7 +71,9 @@ extension PYCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            #warning("TODO: go to element detatils!")
+            guard let _ = collection else { return }
+            #warning("TODO: remove mock element id")
+            PYRoutingManager.shared.open(url: URL(string: "payan://element?id=123")!)
         }
     }
     
