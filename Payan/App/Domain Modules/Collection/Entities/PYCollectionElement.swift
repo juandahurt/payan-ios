@@ -11,4 +11,5 @@ import Foundation
 struct PYCollectionElement: Decodable {
     var title: String
     var image: String
+    var deeplink: String
 }
