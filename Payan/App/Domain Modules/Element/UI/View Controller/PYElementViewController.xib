@@ -9,9 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYPViewController" customModule="Payan" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PYElementViewController" customModule="Payan" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="O2y-An-RtS" id="DhN-hS-mtF"/>
+                <outlet property="collectionView" destination="Gmt-wq-yj4" id="eLD-8e-bYW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,18 +20,24 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O2y-An-RtS">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Gmt-wq-yj4">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                </tableView>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HUa-Nm-TUF">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O2y-An-RtS" secondAttribute="bottom" id="3Fk-Ev-SgG"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O2y-An-RtS" secondAttribute="trailing" id="6vc-WJ-CVp"/>
-                <constraint firstItem="O2y-An-RtS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DMl-fV-I09"/>
-                <constraint firstItem="O2y-An-RtS" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lMD-KF-kVV"/>
+                <constraint firstItem="Gmt-wq-yj4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="BMT-Wk-HaA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gmt-wq-yj4" secondAttribute="trailing" id="RHR-sf-gx0"/>
+                <constraint firstItem="Gmt-wq-yj4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TVS-0U-IMj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Gmt-wq-yj4" secondAttribute="bottom" id="ozl-E1-cY8"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="53.571428571428569"/>
         </view>

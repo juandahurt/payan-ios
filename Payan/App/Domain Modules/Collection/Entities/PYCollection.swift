@@ -21,7 +21,7 @@ class PYCollection: Decodable {
 
 class PYLoadingCollection: PYCollection {
     init() {
-        super.init(title: "", elements: [PYCollectionElement](repeating: PYCollectionElement(title: "", image: ""), count: 12))
+        super.init(title: "", elements: [PYCollectionElement](repeating: PYCollectionElement(title: "", image: "", deeplink: ""), count: 12))
     }
     
     required init(from decoder: Decoder) throws {
