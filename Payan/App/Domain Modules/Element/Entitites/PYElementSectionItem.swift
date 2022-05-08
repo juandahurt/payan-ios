@@ -10,15 +10,19 @@ import Foundation
 class PYElementSectionItem: Decodable {
     var id: String
     var image: String?
-  
+    var title: String?
+    var subtitle: String?
+    
     enum CodingKeys: CodingKey {
-        case image
+        case image, title, subtitle
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = UUID().uuidString
         image = try container.decodeIfPresent(String.self, forKey: .image)
+        title = try container.decodeIfPresent(String.self, forKey: .title)
+        subtitle = try container.decodeIfPresent(String.self, forKey: .subtitle)
     }
     
     init() {

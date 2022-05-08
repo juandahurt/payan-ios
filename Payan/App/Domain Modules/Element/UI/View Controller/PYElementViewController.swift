@@ -40,44 +40,84 @@ class PYElementViewController: UIViewController {
         setupLayout()
         collectionView.dataSource = dataSource
         collectionView.delegate = self
+        collectionView.backgroundColor = AppStyle.Color.F2
     }
     
     private func setupLayout() {
-        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { _, _ in
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalHeight(1),
-                heightDimension: .fractionalHeight(1)
-            )
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(0.4)
-            )
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
-            let section = NSCollectionLayoutSection(group: group)
-            section.contentInsets = .init(top: 0, leading: 0, bottom: 30, trailing: 0)
-            
-            return section
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIndex, _ in
+            guard let self = self else { return nil }
+            let section = self.sections[sectionIndex]
+            switch section.itemLayout {
+            case .image:
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalHeight(1),
+                    heightDimension: .fractionalHeight(1)
+                )
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .fractionalHeight(0.4)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = .init(top: 0, leading: 0, bottom: 30, trailing: 0)
+                
+                return section
+            case .title:
+                let itemSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalHeight(1),
+                    heightDimension: .fractionalHeight(1)
+                )
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                let groupSize = NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1),
+                    heightDimension: .estimated(40)
+                )
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = .init(top: 0, leading: 20, bottom: 30, trailing: 20)
+                
+                return section
+            }
         })
     }
     
     private func registerCells() {
         let imageNibName = String(describing: PYElementImageCollectionViewCell.self)
         collectionView.register(UINib(nibName: imageNibName, bundle: nil), forCellWithReuseIdentifier: PYElementImageCollectionViewCell.reuseIdentifier)
+        
+        let titleNibName = String(describing: PYElementTitleCollectionViewCell.self)
+        collectionView.register(UINib(nibName: titleNibName, bundle: nil), forCellWithReuseIdentifier: PYElementTitleCollectionViewCell.reuseIdentifier)
     }
     
     private func createDataSource() -> DataSource {
         DataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
             guard let self = self else { return nil }
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYElementImageCollectionViewCell.reuseIdentifier, for: indexPath) as! PYElementImageCollectionViewCell
-            if item is PYElementSectionLoadingItem {
-                cell.showAnimatedSkeleton()
-            } else {
-                if let image = self.sections[indexPath.section].items[indexPath.row].image {
-                    cell.setImage(image)
+            let layout = self.sections[indexPath.section].itemLayout
+            switch layout {
+            case .image:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYElementImageCollectionViewCell.reuseIdentifier, for: indexPath) as! PYElementImageCollectionViewCell
+                if item is PYElementSectionLoadingItem {
+                    cell.showAnimatedSkeleton()
+                } else {
+                    if let image = item.image {
+                        cell.setImage(image)
+                    }
                 }
+                return cell
+            case .title:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYElementTitleCollectionViewCell.reuseIdentifier, for: indexPath) as! PYElementTitleCollectionViewCell
+                if item is PYElementSectionLoadingItem {
+                    cell.showAnimatedSkeleton()
+                } else {
+                    if let title = item.title, let subtitle = item.subtitle {
+                        cell.setTitle(title)
+                        cell.setSubtitle(subtitle)
+                    }
+                }
+                return cell
             }
-            return cell
+            
         }
     }
     

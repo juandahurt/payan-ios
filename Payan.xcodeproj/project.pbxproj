@@ -44,6 +44,8 @@
 		2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F52870327FA927000F65F95 /* PYModalConfig.swift */; };
 		2F5827AC280B40540085E444 /* PYFeedInnerCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5827AA280B40540085E444 /* PYFeedInnerCardCollectionViewCell.swift */; };
 		2F5827AD280B40540085E444 /* PYFeedInnerCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F5827AB280B40540085E444 /* PYFeedInnerCardCollectionViewCell.xib */; };
+		2F62379B2828161A00A7BF84 /* PYElementTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6237992828161A00A7BF84 /* PYElementTitleCollectionViewCell.swift */; };
+		2F62379C2828161A00A7BF84 /* PYElementTitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F62379A2828161A00A7BF84 /* PYElementTitleCollectionViewCell.xib */; };
 		2F63C87F27FCD5F600857056 /* Emogger in Frameworks */ = {isa = PBXBuildFile; productRef = 2F63C87E27FCD5F600857056 /* Emogger */; };
 		2F63C88227FCD62500857056 /* PYFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C88127FCD62500857056 /* PYFeedInteractor.swift */; };
 		2F772CCE2809C919003D311D /* PYFeedHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F772CCC2809C919003D311D /* PYFeedHeaderCollectionReusableView.swift */; };
@@ -181,6 +183,8 @@
 		2F52870327FA927000F65F95 /* PYModalConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModalConfig.swift; sourceTree = "<group>"; };
 		2F5827AA280B40540085E444 /* PYFeedInnerCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedInnerCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		2F5827AB280B40540085E444 /* PYFeedInnerCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYFeedInnerCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		2F6237992828161A00A7BF84 /* PYElementTitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYElementTitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F62379A2828161A00A7BF84 /* PYElementTitleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYElementTitleCollectionViewCell.xib; sourceTree = "<group>"; };
 		2F63C87A27FCD49900857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F63C87B27FCD51700857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F63C87C27FCD58C00857056 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
@@ -474,6 +478,15 @@
 			path = "Inner Card";
 			sourceTree = "<group>";
 		};
+		2F623798282812F300A7BF84 /* Title */ = {
+			isa = PBXGroup;
+			children = (
+				2F6237992828161A00A7BF84 /* PYElementTitleCollectionViewCell.swift */,
+				2F62379A2828161A00A7BF84 /* PYElementTitleCollectionViewCell.xib */,
+			);
+			path = Title;
+			sourceTree = "<group>";
+		};
 		2F63C87D27FCD5F600857056 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -570,6 +583,7 @@
 		2F7BD794280370C400588C52 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				2F623798282812F300A7BF84 /* Title */,
 				2F27813D2826F03F00595CAC /* Image */,
 			);
 			path = Cells;
@@ -1146,6 +1160,7 @@
 				2F772CDB280B1326003D311D /* PYFeedCollectionCollectionViewCell.xib in Resources */,
 				2F772CCF2809C919003D311D /* PYFeedHeaderCollectionReusableView.xib in Resources */,
 				2F5827AD280B40540085E444 /* PYFeedInnerCardCollectionViewCell.xib in Resources */,
+				2F62379C2828161A00A7BF84 /* PYElementTitleCollectionViewCell.xib in Resources */,
 				3D51102E26F70DDD00D24DD9 /* Poppins-Regular.ttf in Resources */,
 				3D3A3851270A541400E2EF94 /* PYFeedViewController.xib in Resources */,
 				2F7BD79328036ED000588C52 /* PYElementViewController.xib in Resources */,
@@ -1251,6 +1266,7 @@
 				2F250B622825AED8008D34B7 /* PYOversizedElementCollectionViewCell.swift in Sources */,
 				2F2781442826F1C200595CAC /* PYElementViewLogic.swift in Sources */,
 				3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */,
+				2F62379B2828161A00A7BF84 /* PYElementTitleCollectionViewCell.swift in Sources */,
 				2F772CD62809F6DE003D311D /* PYFeedSectionElement.swift in Sources */,
 				2F79DF81280C9C81005DAAA1 /* PYFeedSectionHeader.swift in Sources */,
 				2F8D512B2800C5AD00ADCC64 /* PYFeedBusinessLogic.swift in Sources */,

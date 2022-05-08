@@ -22,7 +22,6 @@ class PYElementImageCollectionViewCell: UICollectionViewCell {
     private func setupSubviews() {
         isSkeletonable = true
         backgroundColor = AppStyle.Color.F1
-//        imageView.contentMode = .fit
     }
     
     func setImage(_ url: String) {
