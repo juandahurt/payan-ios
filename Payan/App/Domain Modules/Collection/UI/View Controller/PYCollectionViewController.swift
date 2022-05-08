@@ -71,7 +71,9 @@ extension PYCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            #warning("TODO: go to element detatils!")
+            guard let collection = collection else { return }
+            guard let url = URL(string: collection.elements[indexPath.row].deeplink) else { return }
+            PYRoutingManager.shared.open(url: url)
         }
     }
     

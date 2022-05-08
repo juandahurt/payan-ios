@@ -4,13 +4,6 @@
 <dict>
 	<key>API_URL</key>
 	<string>$(BASE_URL)</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>CFBundleDisplayName</key>
 	<string>$(APP_NAME)</string>
 	<key>CFBundleExecutable</key>
@@ -31,6 +24,11 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Regular.ttf</string>
@@ -73,5 +71,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
