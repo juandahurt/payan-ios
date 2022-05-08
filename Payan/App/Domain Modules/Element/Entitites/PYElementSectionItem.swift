@@ -12,9 +12,10 @@ class PYElementSectionItem: Decodable {
     var image: String?
     var title: String?
     var subtitle: String?
+    var content: String?
     
     enum CodingKeys: CodingKey {
-        case image, title, subtitle
+        case image, title, subtitle, content
     }
     
     required init(from decoder: Decoder) throws {
@@ -23,6 +24,7 @@ class PYElementSectionItem: Decodable {
         image = try container.decodeIfPresent(String.self, forKey: .image)
         title = try container.decodeIfPresent(String.self, forKey: .title)
         subtitle = try container.decodeIfPresent(String.self, forKey: .subtitle)
+        content = try container.decodeIfPresent(String.self, forKey: .content)
     }
     
     init() {
