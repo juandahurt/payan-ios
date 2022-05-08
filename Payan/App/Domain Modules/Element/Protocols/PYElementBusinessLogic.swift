@@ -9,6 +9,7 @@ import Foundation
 
 protocol PYElementBusinessLogic {
     var presenter: PYElementPresentationLogic { get }
+    var worker: PYElementDataAccessLogic { get }
     
-    func getElementData()
+    func getElementData(id: String)
 }

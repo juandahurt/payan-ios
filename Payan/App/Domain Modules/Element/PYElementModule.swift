@@ -14,7 +14,8 @@ final class PYElementModule: PYModule {
     func getViewController(params: [URLQueryItem]) -> UIViewController? {
         guard params.count == 1, params[0].name == "id", let id = params[0].value else { return nil }
         let presenter = PYElementPresenter()
-        let interactor = PYElementInteractor(presenter: presenter)
+        let worker = PYElementNetworkWorker()
+        let interactor = PYElementInteractor(presenter: presenter, worker: worker)
         let vc = PYElementViewController(interactor: interactor)
         vc.id = id
         presenter.view = vc

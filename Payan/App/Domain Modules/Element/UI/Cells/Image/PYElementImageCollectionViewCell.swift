@@ -6,6 +6,7 @@
 //
 
 import Kingfisher
+import SkeletonView
 import UIKit
 
 class PYElementImageCollectionViewCell: UICollectionViewCell {
@@ -19,7 +20,9 @@ class PYElementImageCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupSubviews() {
-        imageView.contentMode = .scaleAspectFill
+        isSkeletonable = true
+        backgroundColor = AppStyle.Color.F1
+//        imageView.contentMode = .fit
     }
     
     func setImage(_ url: String) {

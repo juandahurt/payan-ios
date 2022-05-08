@@ -9,12 +9,25 @@ import Foundation
 
 class PYElementInteractor: PYElementBusinessLogic {
     var presenter: PYElementPresentationLogic
+    var worker: PYElementDataAccessLogic
     
-    init(presenter: PYElementPresentationLogic) {
+    init(presenter: PYElementPresentationLogic, worker: PYElementDataAccessLogic) {
         self.presenter = presenter
+        self.worker = worker
     }
     
-    func getElementData() {
+    func getElementData(id: String) {
         presenter.showLoading()
+        worker.getElementData(id: id) { [weak self] result in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let sections):
+                    self.presenter.showSections(sections)
+                case .failure(_):
+                    #warning("TODO: show generic error")
+                }
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ class PYElementPresenter: PYElementPresentationLogic {
     
     func showLoading() {
         let sections = [
-            PYElementSection(layout: .image, items: [PYElementSectionLoadingItem()])
+            PYElementSection(itemLayout: .image, items: [PYElementSectionLoadingItem()])
         ]
         view?.renderSections(sections)
     }

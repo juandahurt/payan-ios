@@ -12,6 +12,7 @@ class PYElementViewController: UIViewController {
     
     let interactor: PYElementBusinessLogic
     var id: String = ""
+    var sections: [PYElementSection] = []
     
     typealias DataSource = UICollectionViewDiffableDataSource<PYElementSection, PYElementSectionItem>
     typealias Snapshot = NSDiffableDataSourceSnapshot<PYElementSection, PYElementSectionItem>
@@ -31,13 +32,14 @@ class PYElementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
-        interactor.getElementData()
+        interactor.getElementData(id: id)
     }
     
     private func setupCollectionView() {
         registerCells()
         setupLayout()
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
     }
     
     private func setupLayout() {
@@ -65,9 +67,16 @@ class PYElementViewController: UIViewController {
     }
     
     private func createDataSource() -> DataSource {
-        DataSource(collectionView: collectionView) { collectionView, indexPath, item in
+        DataSource(collectionView: collectionView) { [weak self] collectionView, indexPath, item in
+            guard let self = self else { return nil }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYElementImageCollectionViewCell.reuseIdentifier, for: indexPath) as! PYElementImageCollectionViewCell
-            cell.setImage("http://www.radiosuperpopayan.com/wp-content/uploads/2018/08/museo-natural.jpg")
+            if item is PYElementSectionLoadingItem {
+                cell.showAnimatedSkeleton()
+            } else {
+                if let image = self.sections[indexPath.section].items[indexPath.row].image {
+                    cell.setImage(image)
+                }
+            }
             return cell
         }
     }
@@ -80,6 +89,7 @@ class PYElementViewController: UIViewController {
 
 extension PYElementViewController: PYElementViewLogic {
     func renderSections(_ sections: [PYElementSection]) {
+        self.sections = sections
         var snapshot = Snapshot()
         
         snapshot.appendSections(sections)
@@ -88,5 +98,21 @@ extension PYElementViewController: PYElementViewLogic {
         }
         
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+extension PYElementViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let index = sections.firstIndex(where: { $0.itemLayout == .image }) else { return }
+        guard let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: index)) else { return }
+        if scrollView.contentOffset.y > 10 {
+            UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0, options: []) {
+                cell.contentView.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+            }
+        } else {
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0, options: []) {
+                cell.contentView.transform = .identity
+            }
+        }
     }
 }

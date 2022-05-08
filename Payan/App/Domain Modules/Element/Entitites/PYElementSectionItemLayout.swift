@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum PYElementSectionItemLayout: String {
+enum PYElementSectionItemLayout: String, Decodable {
     case image = "image"
+    case title = "title"
 }
