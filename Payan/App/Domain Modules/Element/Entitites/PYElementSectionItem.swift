@@ -20,3 +20,5 @@ extension PYElementSectionItem: Hashable {
         hasher.combine(id)
     }
 }
+
+class PYElementSectionLoadingItem: PYElementSectionItem {}

@@ -10,6 +10,7 @@ import UIKit
 class PYElementViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let interactor: PYElementBusinessLogic
     var id: String = ""
     
     typealias DataSource = UICollectionViewDiffableDataSource<PYElementSection, PYElementSectionItem>
@@ -17,7 +18,8 @@ class PYElementViewController: UIViewController {
     
     lazy var dataSource = createDataSource()
     
-    init() {
+    init(interactor: PYElementBusinessLogic) {
+        self.interactor = interactor
         let nibName = String(describing: Self.self)
         super.init(nibName: nibName, bundle: nil)
     }
@@ -29,10 +31,7 @@ class PYElementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
-        
-        let section = PYElementSection()
-        section.items = [PYElementSectionItem()]
-        renderSections([section])
+        interactor.getElementData()
     }
     
     private func setupCollectionView() {

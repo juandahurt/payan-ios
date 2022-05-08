@@ -7,6 +7,8 @@
 
 import Foundation
 
-protocol PYElementViewLogic {
+protocol PYElementViewLogic: AnyObject {
+    var interactor: PYElementBusinessLogic { get }
+    
     func renderSections(_ sections: [PYElementSection])
 }
