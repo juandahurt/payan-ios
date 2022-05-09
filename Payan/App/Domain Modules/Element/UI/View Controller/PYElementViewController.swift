@@ -63,17 +63,13 @@ class PYElementViewController: UIViewController {
                 section.contentInsets = .init(top: 0, leading: 0, bottom: 30, trailing: 0)
                 
                 return section
-            case .title:
+            case .title, .text:
                 let itemSize = NSCollectionLayoutSize(
-                    widthDimension: .fractionalHeight(1),
-                    heightDimension: .fractionalHeight(1)
-                )
-                let item = NSCollectionLayoutItem(layoutSize: itemSize)
-                let groupSize = NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(1),
                     heightDimension: .estimated(40)
                 )
-                let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: item, count: 1)
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = .init(top: 0, leading: 20, bottom: 30, trailing: 20)
                 
@@ -88,6 +84,9 @@ class PYElementViewController: UIViewController {
         
         let titleNibName = String(describing: PYElementTitleCollectionViewCell.self)
         collectionView.register(UINib(nibName: titleNibName, bundle: nil), forCellWithReuseIdentifier: PYElementTitleCollectionViewCell.reuseIdentifier)
+        
+        let textNibName = String(describing: PYElementTextCollectionViewCell.self)
+        collectionView.register(UINib(nibName: textNibName, bundle: nil), forCellWithReuseIdentifier: PYElementTextCollectionViewCell.reuseIdentifier)
     }
     
     private func createDataSource() -> DataSource {
@@ -116,8 +115,17 @@ class PYElementViewController: UIViewController {
                     }
                 }
                 return cell
+            case .text:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PYElementTextCollectionViewCell.reuseIdentifier, for: indexPath) as! PYElementTextCollectionViewCell
+                if item is PYElementSectionLoadingItem {
+                    cell.showAnimatedSkeleton()
+                } else {
+                    if let content = item.content {
+                        cell.setContent(content)
+                    }
+                }
+                return cell
             }
-            
         }
     }
     

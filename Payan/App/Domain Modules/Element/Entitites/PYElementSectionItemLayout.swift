@@ -10,4 +10,5 @@ import Foundation
 enum PYElementSectionItemLayout: String, Decodable {
     case image = "image"
     case title = "title"
+    case text = "text"
 }
