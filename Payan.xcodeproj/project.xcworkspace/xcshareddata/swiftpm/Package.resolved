@@ -119,6 +119,15 @@
         }
       },
       {
+        "package": "PYLayout",
+        "repositoryURL": "https://github.com/juandahurt/PYLayout",
+        "state": {
+          "branch": null,
+          "revision": "23f27fa13febfa0d57ce9105dd8d0d65da26781b",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "RxSwift",
         "repositoryURL": "https://github.com/ReactiveX/RxSwift",
         "state": {

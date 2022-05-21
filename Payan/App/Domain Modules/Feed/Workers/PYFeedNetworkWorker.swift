@@ -8,16 +8,16 @@
 import Foundation
 
 class PYFeedNetworkWorker: PYFeedDataAccessLogic {
-    func getData(completion: @escaping (Result<[PYFeedSection], Error>) -> Void) {
+    func getData(completion: @escaping (Result<PYFeedPageDTO, Error>) -> Void) {
         let request = PYNetworkRequest(endpoint: "feed")
         PYNetworkManager.shared.exec(request: request) { result in
             switch result {
             case .success(let data):
                 do {
                     let decoder = JSONDecoder()
-                    let decodedResponse = try decoder.decode(PYServerResponse<PYFeedPage>.self, from: data)
+                    let decodedResponse = try decoder.decode(PYServerResponse<PYFeedPageDTO>.self, from: data)
                     if let page = decodedResponse.data {
-                        completion(.success(page.sections))
+                        completion(.success(page))
                     }
                 } catch {
                     completion(.failure(error))

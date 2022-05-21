@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 
 
-protocol PYFeedViewLogic: AnyObject {
-    var interactor: PYFeedBusinessLogic { get }
-
-    func showUpdateModal(image: UIImage, title: String, content: String, dismissable: Bool)
-    func renderSections(_ sections: [PYFeedSection])
-    func showGenericError()
+protocol PYFeedViewLogic {
+    func renderData(_ pageData: PYFeedPageDTO)
 }

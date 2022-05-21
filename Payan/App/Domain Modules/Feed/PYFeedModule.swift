@@ -7,15 +7,13 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 final class PYFeedModule: PYModule {
     var host: String = "feed"
     
     func getViewController(params: [URLQueryItem]) -> UIViewController? {
-        let presenter = PYFeedPresenter()
-        let interactor = PYFeedInteractor(presenter: presenter, worker: PYFeedNetworkWorker())
-        let vc = PYFeedViewController(interactor: interactor)
-        presenter.view = vc
-        return vc
+        let view = PYFeedPageView()
+        return UIHostingController(rootView: view)
     }
 }
