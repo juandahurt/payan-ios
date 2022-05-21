@@ -10,7 +10,6 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     private var services: [UIApplicationDelegate] = [
-        LoggerAppDelegate(),
         PYNetworkingAppDelegate(),
         FirebaseAppDelegate(),
         AnalyticsAppDelegate()

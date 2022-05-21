@@ -47,7 +47,6 @@
 		2F52870427FA927000F65F95 /* PYModalConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F52870327FA927000F65F95 /* PYModalConfig.swift */; };
 		2F62379B2828161A00A7BF84 /* PYElementTitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6237992828161A00A7BF84 /* PYElementTitleCollectionViewCell.swift */; };
 		2F62379C2828161A00A7BF84 /* PYElementTitleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F62379A2828161A00A7BF84 /* PYElementTitleCollectionViewCell.xib */; };
-		2F63C87F27FCD5F600857056 /* Emogger in Frameworks */ = {isa = PBXBuildFile; productRef = 2F63C87E27FCD5F600857056 /* Emogger */; };
 		2F63C88227FCD62500857056 /* PYFeedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F63C88127FCD62500857056 /* PYFeedInteractor.swift */; };
 		2F78195128170E820096E342 /* PYNetworkingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78195028170E820096E342 /* PYNetworkingAppDelegate.swift */; };
 		2F7BD79228036ED000588C52 /* PYElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD79028036ED000588C52 /* PYElementViewController.swift */; };
@@ -89,7 +88,6 @@
 		3D0E9C4C270A74CA00B593AD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0E9C4B270A74CA00B593AD /* Utility.swift */; };
 		3D0ECF792782496100847E0D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ECF782782496100847E0D /* Environment.swift */; };
 		3D3A384A270A53D300E2EF94 /* PYFeedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A3849270A53D300E2EF94 /* PYFeedModule.swift */; };
-		3D3C031B278F953400771AC6 /* LoggerAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */; };
 		3D426B3726F804F90019FEBA /* TextFieldForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D426B3626F804F90019FEBA /* TextFieldForm.swift */; };
 		3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */; };
 		3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F86277E353C009BFF74 /* AnalyticsEngine.swift */; };
@@ -159,6 +157,7 @@
 		2F329C5C28038D3D00086C10 /* PYBadge.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYBadge.xib; sourceTree = "<group>"; };
 		2F34D96327FB85C300E0B2E1 /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
 		2F3C17122825E7DD00560209 /* PYElementModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYElementModule.swift; sourceTree = "<group>"; };
+		2F40F5E42839640800BF2007 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F43441A2815A184001E8910 /* PYNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkManager.swift; sourceTree = "<group>"; };
 		2F4C8E8E27FA514200AC9C54 /* PYModal.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYModal.xib; sourceTree = "<group>"; };
 		2F4C8E9027FA528F00AC9C54 /* PYModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModal.swift; sourceTree = "<group>"; };
@@ -205,7 +204,6 @@
 		3D0E9C4B270A74CA00B593AD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		3D0ECF782782496100847E0D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		3D3A3849270A53D300E2EF94 /* PYFeedModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedModule.swift; sourceTree = "<group>"; };
-		3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerAppDelegate.swift; sourceTree = "<group>"; };
 		3D426B3626F804F90019FEBA /* TextFieldForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldForm.swift; sourceTree = "<group>"; };
 		3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		3D496F86277E353C009BFF74 /* AnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngine.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 				2F9AFADB27FA3701006DC8D6 /* Kingfisher in Frameworks */,
 				2F9AFAD327FA366B006DC8D6 /* RxCocoa in Frameworks */,
 				2F9AFAD027FA3626006DC8D6 /* Willow in Frameworks */,
-				2F63C87F27FCD5F600857056 /* Emogger in Frameworks */,
 				2F9AFAD527FA366B006DC8D6 /* RxSwift in Frameworks */,
 				2F9AFAD827FA36CB006DC8D6 /* SkeletonView in Frameworks */,
 			);
@@ -587,6 +584,7 @@
 				2F63C87A27FCD49900857056 /* Emogger */,
 				2F63C87B27FCD51700857056 /* Emogger */,
 				2F63C87C27FCD58C00857056 /* Emogger */,
+				2F40F5E42839640800BF2007 /* Emogger */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -854,7 +852,6 @@
 			children = (
 				3DB9D545277F573F00E4D45A /* FirebaseAppDelegate.swift */,
 				3DB9D547277F584C00E4D45A /* AnalyticsAppDelegate.swift */,
-				3D3C031A278F953400771AC6 /* LoggerAppDelegate.swift */,
 				2F78195028170E820096E342 /* PYNetworkingAppDelegate.swift */,
 			);
 			path = Services;
@@ -989,7 +986,6 @@
 				2F9AFAD727FA36CB006DC8D6 /* SkeletonView */,
 				2F9AFADA27FA3701006DC8D6 /* Kingfisher */,
 				2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */,
-				2F63C87E27FCD5F600857056 /* Emogger */,
 				2F9F3F6927FD000900924275 /* NVActivityIndicatorView */,
 				2FC270E82837F08D00770B46 /* PYLayout */,
 			);
@@ -1133,7 +1129,6 @@
 				2F9507442809326800297452 /* PYCollectionTitleCollectionViewCell.swift in Sources */,
 				2FBF588F2821C1810044A34E /* UIViewController+genericError.swift in Sources */,
 				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,
-				3D3C031B278F953400771AC6 /* LoggerAppDelegate.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
 				2F250B6E2825B7EC008D34B7 /* PYCollectionCellSizeFactory.swift in Sources */,
 				3D69C11F27446FEA002982B3 /* UtilButton.swift in Sources */,
@@ -1327,7 +1322,7 @@
 		3DF708CE26F2A4D300FD24CF /* Development */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = DevIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
@@ -1428,10 +1423,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2F63C87E27FCD5F600857056 /* Emogger */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Emogger;
-		};
 		2F9AFACF27FA3626006DC8D6 /* Willow */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F9AFACE27FA3626006DC8D6 /* XCRemoteSwiftPackageReference "Willow" */;

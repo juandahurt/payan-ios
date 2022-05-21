@@ -5,5 +5,5 @@
 //  Created by juandahurt on 2/01/22.
 //
 
-APP_NAME = Payan (dev)
+APP_NAME = Payan (Dev)
 BASE_URL = https:/$()/payan-dev.vercel.app
