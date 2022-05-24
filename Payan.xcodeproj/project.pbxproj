@@ -51,6 +51,7 @@
 		2F78195128170E820096E342 /* PYNetworkingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78195028170E820096E342 /* PYNetworkingAppDelegate.swift */; };
 		2F7BD79228036ED000588C52 /* PYElementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7BD79028036ED000588C52 /* PYElementViewController.swift */; };
 		2F7BD79328036ED000588C52 /* PYElementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7BD79128036ED000588C52 /* PYElementViewController.xib */; };
+		2F832F1F283D84A000702E71 /* PYHeroPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F832F1E283D84A000702E71 /* PYHeroPreview.swift */; };
 		2F898C312802257200528BF2 /* UIImageView+loadFromUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F898C302802257200528BF2 /* UIImageView+loadFromUrl.swift */; };
 		2F8C810128010CED00A8E7FD /* PYCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C80FF28010CED00A8E7FD /* PYCollectionViewController.swift */; };
 		2F8C810228010CED00A8E7FD /* PYCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F8C810028010CED00A8E7FD /* PYCollectionViewController.xib */; };
@@ -169,6 +170,7 @@
 		2F78195028170E820096E342 /* PYNetworkingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkingAppDelegate.swift; sourceTree = "<group>"; };
 		2F7BD79028036ED000588C52 /* PYElementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYElementViewController.swift; sourceTree = "<group>"; };
 		2F7BD79128036ED000588C52 /* PYElementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYElementViewController.xib; sourceTree = "<group>"; };
+		2F832F1E283D84A000702E71 /* PYHeroPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroPreview.swift; sourceTree = "<group>"; };
 		2F898C302802257200528BF2 /* UIImageView+loadFromUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+loadFromUrl.swift"; sourceTree = "<group>"; };
 		2F8C80FF28010CED00A8E7FD /* PYCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionViewController.swift; sourceTree = "<group>"; };
 		2F8C810028010CED00A8E7FD /* PYCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PYCollectionViewController.xib; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			children = (
 				2F19514628394F3B007B0E73 /* PYPlaceCategory.swift */,
 				2F19514828394F9A007B0E73 /* PYFeedPage.swift */,
+				2F832F1E283D84A000702E71 /* PYHeroPreview.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1051,6 +1054,7 @@
 				2F0692792801F5CA0068AA79 /* PYCollectionPresentationLogic.swift in Sources */,
 				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
 				2FD8836F2828724C00C3859B /* PYElementTextCollectionViewCell.swift in Sources */,
+				2F832F1F283D84A000702E71 /* PYHeroPreview.swift in Sources */,
 				2F2781482827452200595CAC /* PYElementPresentationLogic.swift in Sources */,
 				2F2781502827506300595CAC /* PYElementSectionItemLayout.swift in Sources */,
 				2F2781542827534200595CAC /* PYElementPage.swift in Sources */,

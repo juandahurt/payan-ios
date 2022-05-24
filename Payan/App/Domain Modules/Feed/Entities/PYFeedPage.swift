@@ -9,8 +9,9 @@ import Foundation
 
 struct PYFeedPage: Decodable {
     var placeCategories: [PYPlaceCategory]
+    var heroes: [PYHeroPreview]
 }
 
 extension PYFeedPage {
-    static let empty = PYFeedPage(placeCategories: [])
+    static let empty = PYFeedPage(placeCategories: [], heroes: [])
 }
