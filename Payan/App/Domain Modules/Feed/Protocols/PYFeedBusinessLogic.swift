@@ -10,7 +10,6 @@ import Foundation
 
 protocol PYFeedBusinessLogic {
     var worker: PYFeedDataAccessLogic { get }
-    var presenter: PYFeedPresentationLogic { get }
     
-    func getHomeData()
+    func getFeedData(completion: @escaping (Result<PYFeedPageDTO,Error>) -> Void)
 }

@@ -9,5 +9,5 @@ import Foundation
 
 
 protocol PYFeedDataAccessLogic {
-    func getData(completion: @escaping (Result<[PYFeedSection], Error>) -> Void)
+    func getData(completion: @escaping (Result<PYFeedPageDTO, Error>) -> Void)
 }

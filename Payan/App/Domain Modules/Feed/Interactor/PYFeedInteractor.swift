@@ -10,23 +10,19 @@ import Foundation
 
 final class PYFeedInteractor: PYFeedBusinessLogic {
     var worker: PYFeedDataAccessLogic
-    var presenter: PYFeedPresentationLogic
     
-    init(presenter: PYFeedPresenter, worker: PYFeedDataAccessLogic) {
-        self.presenter = presenter
+    init(worker: PYFeedDataAccessLogic) {
         self.worker = worker
     }
     
-    func getHomeData() {
-        presenter.showLoading()
-        worker.getData { [weak self] res in
-            guard let self = self else { return }
+    func getFeedData(completion: @escaping (Result<PYFeedPageDTO,Error>) -> Void) {
+        worker.getData { res in
             DispatchQueue.main.async {
                 switch res {
-                case .success(let sections):
-                    self.presenter.showSections(sections)
-                case .failure(_):
-                    self.presenter.showError()
+                case .success(let data):
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
             
