@@ -70,13 +70,13 @@
 		2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */; };
 		2F9F3F6727FCFEFB00924275 /* PYBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9F3F6627FCFEFB00924275 /* PYBaseViewController.swift */; };
 		2F9F3F6A27FD000900924275 /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9F3F6927FD000900924275 /* NVActivityIndicatorView */; };
+		2FA03DF7283C51940094976A /* Purace in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA03DF6283C51940094976A /* Purace */; };
 		2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */; };
 		2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */; };
 		2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB042815E707005BF493 /* PYNetworkError.swift */; };
 		2FA3BB092815F24D005BF493 /* PYServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB082815F24D005BF493 /* PYServerResponse.swift */; };
 		2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */; };
 		2FBF588F2821C1810044A34E /* UIViewController+genericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF588E2821C1810044A34E /* UIViewController+genericError.swift */; };
-		2FC270E92837F08D00770B46 /* PYLayout in Frameworks */ = {isa = PBXBuildFile; productRef = 2FC270E82837F08D00770B46 /* PYLayout */; };
 		2FC270EB2837F0AB00770B46 /* PYFeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */; };
 		2FD8836F2828724C00C3859B /* PYElementTextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD8836D2828724C00C3859B /* PYElementTextCollectionViewCell.swift */; };
 		2FD883702828724C00C3859B /* PYElementTextCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD8836E2828724C00C3859B /* PYElementTextCollectionViewCell.xib */; };
@@ -241,12 +241,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F9F3F6A27FD000900924275 /* NVActivityIndicatorView in Frameworks */,
-				2FC270E92837F08D00770B46 /* PYLayout in Frameworks */,
 				2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */,
 				2F9AFADB27FA3701006DC8D6 /* Kingfisher in Frameworks */,
 				2F9AFAD327FA366B006DC8D6 /* RxCocoa in Frameworks */,
 				2F9AFAD027FA3626006DC8D6 /* Willow in Frameworks */,
 				2F9AFAD527FA366B006DC8D6 /* RxSwift in Frameworks */,
+				2FA03DF7283C51940094976A /* Purace in Frameworks */,
 				2F9AFAD827FA36CB006DC8D6 /* SkeletonView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -948,7 +948,7 @@
 				2F9AFADA27FA3701006DC8D6 /* Kingfisher */,
 				2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */,
 				2F9F3F6927FD000900924275 /* NVActivityIndicatorView */,
-				2FC270E82837F08D00770B46 /* PYLayout */,
+				2FA03DF6283C51940094976A /* Purace */,
 			);
 			productName = Payan;
 			productReference = 3DF708B926F2A4D200FD24CF /* Payan.app */;
@@ -984,7 +984,7 @@
 				2F9AFAD927FA3701006DC8D6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2F9F3F6827FD000900924275 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
-				2FC270E72837F08D00770B46 /* XCRemoteSwiftPackageReference "PYLayout" */,
+				2FA03DF5283C51940094976A /* XCRemoteSwiftPackageReference "Purace" */,
 			);
 			productRefGroup = 3DF708BA26F2A4D200FD24CF /* Products */;
 			projectDirPath = "";
@@ -1368,12 +1368,12 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		2FC270E72837F08D00770B46 /* XCRemoteSwiftPackageReference "PYLayout" */ = {
+		2FA03DF5283C51940094976A /* XCRemoteSwiftPackageReference "Purace" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/juandahurt/PYLayout";
+			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
 				kind = exactVersion;
-				version = 1.0.0;
+				version = 1.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1414,10 +1414,10 @@
 			package = 2F9F3F6827FD000900924275 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
 			productName = NVActivityIndicatorView;
 		};
-		2FC270E82837F08D00770B46 /* PYLayout */ = {
+		2FA03DF6283C51940094976A /* Purace */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2FC270E72837F08D00770B46 /* XCRemoteSwiftPackageReference "PYLayout" */;
-			productName = PYLayout;
+			package = 2FA03DF5283C51940094976A /* XCRemoteSwiftPackageReference "Purace" */;
+			productName = Purace;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -119,12 +119,12 @@
         }
       },
       {
-        "package": "PYLayout",
-        "repositoryURL": "https://github.com/juandahurt/PYLayout",
+        "package": "Purace",
+        "repositoryURL": "https://github.com/juandahurt/Purace",
         "state": {
           "branch": null,
-          "revision": "23f27fa13febfa0d57ce9105dd8d0d65da26781b",
-          "version": "1.0.0"
+          "revision": "c7f06c32d12901e1eb1e25895429d5249bd01e3e",
+          "version": "1.2.0"
         }
       },
       {
