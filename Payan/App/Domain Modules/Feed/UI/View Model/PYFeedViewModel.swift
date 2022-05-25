@@ -10,7 +10,7 @@ import Foundation
 class PYFeedViewModel: ObservableObject {
     @Published var loadedPercentage: Double = 0
     @Published var isLoading: Bool = true
-    @Published var feedData: PYFeedPageDTO = .empty
+    @Published var feedData: PYFeedPage = .empty
     @Published var snackbarIsVisible = false
     
     lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in

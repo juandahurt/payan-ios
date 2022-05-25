@@ -10,5 +10,5 @@ import UIKit
 
 
 protocol PYFeedViewLogic {
-    func renderData(_ pageData: PYFeedPageDTO)
+    func renderData(_ pageData: PYFeedPage)
 }

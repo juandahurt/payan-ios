@@ -45,11 +45,8 @@ struct PYFeedPageView: View {
                 PuraceTextView("Próceres", fontSize: 20, textColor: PuraceStyle.Color.N1)
                 PuraceTextView("Algunos personajes ilustres de la ciudad", fontSize: 14, textColor: PuraceStyle.Color.N4)
             }.padding(.bottom)
-            PuraceCollectionCardView(cards: [
-                MockCard("https://www.biografiasyvidas.com/biografia/c/fotos/caldas_francisco_jose_2.jpg"),
-                MockCard("https://upload.wikimedia.org/wikipedia/commons/a/ac/Froil%C3%A1n_Largacha_Hurtado.jpg"),
-                MockCard("https://upload.wikimedia.org/wikipedia/commons/8/86/Camilo_Torres_y_Tenorio.jpg")
-            ]).padding(.bottom)
+            PuraceCollectionCardView(cards: viewModel.feedData.heroes)
+                .padding(.bottom)
             PuraceButtonView("Ver todos", fontSize: 14, type: .quiet)
         }
     }
@@ -89,12 +86,14 @@ struct PYFeedPageView: View {
     }
 }
 
-struct MockCard: PuraceCollectionCardData {
-    var deepLink: String = ""
-    var backgroundImage: URL?
-    var title: String = "Froilán Largacha Hurtado"
-    
-    init(_ url: String) {
-        self.backgroundImage = URL(string: url)
+extension PYHeroPreview: PuraceCollectionCardData {
+    var deepLink: String { // TODO: remove!!
+        ""
+    }
+    var backgroundImage: URL? {
+        URL(string: image)
+    }
+    var title: String {
+        name
     }
 }
