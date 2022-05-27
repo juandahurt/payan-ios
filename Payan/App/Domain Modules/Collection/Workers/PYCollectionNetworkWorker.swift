@@ -1,5 +1,5 @@
 //
-//  PYCollectionWorker.swift
+//  PYCollectionNetworkWorker.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 9/04/22.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-class PYCollectionWorker: PYCollectionDataAccessLogic {
-    func getCollection(withTypeId typeId: String, completion: @escaping (Result<PYCollection, Error>) -> Void) {
-        let request = PYNetworkRequest(endpoint: "collection?typeId=\(typeId)")
+class PYCollectionNetworkWorker: PYCollectionDataAccessLogic {
+    func getCollection(ofType type: String, categoryId: String?, completion: @escaping (Result<PYCollection, Error>) -> Void) {
+        let request = PYNetworkRequest(endpoint: "collection?type=\(type)&category_id=\(categoryId ?? "")")
         PYNetworkManager.shared.exec(request: request) { result in
             switch result {
             case .success(let data):

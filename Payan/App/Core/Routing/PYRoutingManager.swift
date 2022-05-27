@@ -42,4 +42,8 @@ class PYRoutingManager {
         guard let vc = module.getViewController(params: components.queryItems ?? []) else { return }
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func pop(animated: Bool = true) {
+        navigationController.popViewController(animated: animated)
+    }
 }

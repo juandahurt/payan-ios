@@ -8,8 +8,14 @@
 import Foundation
 
 
-struct PYCollectionElement: Decodable {
+struct PYCollectionElement: Decodable, Identifiable {
+    var id: String = UUID().uuidString
     var title: String
     var image: String
-    var deeplink: String
+    var deepLink: String
+    
+    enum CodingKeys: String, CodingKey {
+        case title, deepLink
+        case image = "image_url"
+    }
 }

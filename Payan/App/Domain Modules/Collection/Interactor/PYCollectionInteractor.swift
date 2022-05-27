@@ -10,23 +10,19 @@ import Foundation
 
 class PYCollectionInteractor: PYCollectionBusinessLogic {
     var worker: PYCollectionDataAccessLogic
-    var presenter: PYCollectionPresentationLogic
     
-    init(presenter: PYCollectionPresentationLogic, worker: PYCollectionDataAccessLogic = PYCollectionWorker()) {
-        self.presenter = presenter
+    init(worker: PYCollectionDataAccessLogic = PYCollectionNetworkWorker()) {
         self.worker = worker
     }
     
-    func getCollection(withTypeId typeId: String) {
-        presenter.showLoading()
-        worker.getCollection(withTypeId: typeId) { [weak self] res in
-            guard let self = self else { return }
+    func getCollection(ofType type: String, categoryId: String?, completion: @escaping (Result<PYCollection,Error>) -> Void) {
+        worker.getCollection(ofType: type, categoryId: categoryId) { res in
             DispatchQueue.main.async {
                 switch res {
                 case .success(let collection):
-                    self.presenter.showCollection(collection)
-                case .failure(_):
-                    self.presenter.showGenericError()
+                    completion(.success(collection))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
         }
