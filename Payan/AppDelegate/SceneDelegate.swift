@@ -5,7 +5,6 @@
 //  Created by juandahurt on 15/09/21.
 //
 
-import SkeletonView
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -21,14 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navBarAppearance.configureWithOpaqueBackground()
         navBarAppearance.shadowColor = .clear
         navBarAppearance.backgroundColor = .white
-        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.font: AppStyle.Font.get(.medium, size: .title), NSAttributedString.Key.foregroundColor: AppStyle.Color.N1]
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         let navigationController = UINavigationController()
         let navBarButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
         navBarButtonAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0), NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
         window?.rootViewController = navigationController
         
-        SkeletonAppearance.default.tintColor = AppStyle.Color.N8
         
         PYRoutingManager.provideNavigationController(navigationController)
         let modules: [PYModule] = [

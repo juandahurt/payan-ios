@@ -101,15 +101,6 @@
         }
       },
       {
-        "package": "NVActivityIndicatorView",
-        "repositoryURL": "https://github.com/ninjaprox/NVActivityIndicatorView.git",
-        "state": {
-          "branch": null,
-          "revision": "bcb52371f2259254bac6690f92bb474a61768c47",
-          "version": "5.1.1"
-        }
-      },
-      {
         "package": "Promises",
         "repositoryURL": "https://github.com/google/promises.git",
         "state": {
@@ -128,39 +119,12 @@
         }
       },
       {
-        "package": "RxSwift",
-        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
-        "state": {
-          "branch": "main",
-          "revision": "2d728df855393234f85c15b2201eb9d2efac3018",
-          "version": null
-        }
-      },
-      {
-        "package": "SkeletonView",
-        "repositoryURL": "https://github.com/Juanpe/SkeletonView.git",
-        "state": {
-          "branch": null,
-          "revision": "9e61ff3a85a3780a2cdfceae0257ad32fa8ae4d3",
-          "version": "1.29.2"
-        }
-      },
-      {
         "package": "SwiftProtobuf",
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
           "branch": null,
           "revision": "e1499bc69b9040b29184f7f2996f7bab467c1639",
           "version": "1.19.0"
-        }
-      },
-      {
-        "package": "Willow",
-        "repositoryURL": "https://github.com/Nike-Inc/Willow",
-        "state": {
-          "branch": null,
-          "revision": "816ff0129ca61cae3d00ca82dadce7f759d29ce9",
-          "version": "6.0.0"
         }
       }
     ]
