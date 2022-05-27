@@ -7,18 +7,23 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 
 final class PYCollectionModule: PYModule {
     var host: String = "collection"
     
     func getViewController(params: [URLQueryItem]) -> UIViewController? {
-        guard params.count == 1, params[0].name == "type", let typeId = params[0].value else { return nil }
-        let presenter = PYCollectionPresenter()
-        let interactor = PYCollectionInteractor(presenter: presenter)
-        let vc = PYCollectionViewController(interactor: interactor)
-        vc.typeId = typeId
-        presenter.view = vc
-        return vc
+        var type: String = ""
+        var categoryId: String?
+        params.forEach { param in
+            if param.name == "type" {
+                type = param.value ?? ""
+            }
+            if param.name == "category_id" {
+                categoryId = param.value ?? ""
+            }
+        }
+        return UIHostingController(rootView: PYCollectionPageView(type: type, categoryId: categoryId))
     }
 }

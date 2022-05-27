@@ -19,21 +19,27 @@ struct PYFeedPageView: View {
                 PuraceTextView("Adentrate en el corazón de la ciudad blanca", fontSize: 14, textColor: PuraceStyle.Color.N4)
             }.padding(.bottom)
             PuraceVerticalGridView(columns: 1, spacing: 5) {
-                if !viewModel.feedData.placeCategories.isEmpty {
-                    ForEach(viewModel.feedData.placeCategories.indices) { index in
-                        let category = viewModel.feedData.placeCategories[index]
-                        ZStack {
-                            PuraceImageView(url: URL(string: category.image))
-                                .scaledToFill()
-                                .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 135)
-                            Color.black
-                                .opacity(0.35)
-                            VStack(spacing: 5) {
-                                PuraceTextView(category.title, fontSize: 14, textColor: .white, weight: .medium)
-                                PuraceTextView("\(category.numberOfPlaces) lugares", textColor: .white)
-                            }
-                        }.cornerRadius(5)
+                ForEach(viewModel.feedData.placeCategories) { category in
+                    ZStack {
+                        PuraceImageView(url: URL(string: category.image))
+                            .aspectRatio(contentMode: .fill)
+                            .frame(height: 135)
+                            .clipped()
+                        Color.black
+                            .opacity(0.35)
+                        VStack(spacing: 5) {
+                            PuraceTextView(category.title, fontSize: 14, textColor: .white, weight: .medium)
+                            PuraceTextView("\(category.numberOfPlaces) lugares", textColor: .white)
+                        }
                     }
+                    .cornerRadius(5)
+                    .contentShape(Rectangle())
+                    .frame(height: 135)
+                    .onTapGesture {
+                        guard let url = URL(string: category.deeplink) else { return }
+                        PYRoutingManager.shared.open(url: url)
+                    }
+                        
                 }
             }.padding(.horizontal, 16)
         }
@@ -47,7 +53,10 @@ struct PYFeedPageView: View {
             }.padding(.bottom)
             PuraceCollectionCardView(cards: viewModel.feedData.heroes)
                 .padding(.bottom)
-            PuraceButtonView("Ver todos", fontSize: 14, type: .quiet)
+            PuraceButtonView("Ver todos", fontSize: 14, type: .quiet) {
+                guard let url = URL(string: "payan://collection?type=hero") else { return }
+                PYRoutingManager.shared.open(url: url)
+            }
         }
     }
     
@@ -80,7 +89,7 @@ struct PYFeedPageView: View {
             }
         }
         .background(Color.white)
-        .onAppear {
+        .onFirstAppear {
             viewModel.getData()
         }
     }

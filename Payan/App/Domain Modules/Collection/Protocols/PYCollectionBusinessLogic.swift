@@ -10,7 +10,6 @@ import Foundation
 
 protocol PYCollectionBusinessLogic {
     var worker: PYCollectionDataAccessLogic { get }
-    var presenter: PYCollectionPresentationLogic { get }
     
-    func getCollection(withTypeId typeId: String)
+    func getCollection(ofType type: String, categoryId: String?, completion: @escaping (Result<PYCollection, Error>) -> Void)
 }

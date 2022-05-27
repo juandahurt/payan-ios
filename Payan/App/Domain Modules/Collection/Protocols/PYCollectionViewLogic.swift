@@ -8,10 +8,7 @@
 import Foundation
 
 
-protocol PYCollectionViewLogic: AnyObject {
-    var typeId: String { get set }
-    var interactor: PYCollectionBusinessLogic { get }
-    
-    func renderCollection(_ collection: PYCollection)
-    func showGenericError()
+protocol PYCollectionViewLogic {
+    var type: String { get }
+    var categoryId: String? { get }
 }

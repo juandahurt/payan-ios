@@ -10,21 +10,27 @@ import Foundation
 class PYCollection: Decodable {
     var title: String
     var elements: [PYCollectionElement]
-    var layout: PYCollectionLayout
     
     init(title: String = "", elements: [PYCollectionElement] = []) {
         self.title = title
         self.elements = elements
-        self.layout = .normal
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case elements = "items"
     }
 }
 
-class PYLoadingCollection: PYCollection {
-    init() {
-        super.init(title: "", elements: [PYCollectionElement](repeating: PYCollectionElement(title: "", image: "", deeplink: ""), count: 12))
-    }
-    
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
-    }
+extension PYCollection {
+    static let skeleton = PYCollection(
+        title: "",
+        elements: [
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+        ]
+    )
 }

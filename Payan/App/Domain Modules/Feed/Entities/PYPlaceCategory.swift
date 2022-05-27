@@ -7,13 +7,15 @@
 
 import Foundation
 
-struct PYPlaceCategory: Decodable {
+struct PYPlaceCategory: Decodable, Identifiable {
+    var id: String = UUID().uuidString
     var image: String
     var title: String
     var numberOfPlaces: Int
+    var deeplink: String
     
     enum CodingKeys: String, CodingKey {
         case image = "image_url"
-        case title, numberOfPlaces
+        case title, numberOfPlaces, deeplink
     }
 }

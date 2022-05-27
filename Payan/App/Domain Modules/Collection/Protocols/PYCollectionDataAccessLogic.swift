@@ -9,5 +9,5 @@ import Foundation
 
 
 protocol PYCollectionDataAccessLogic {
-    func getCollection(withTypeId typeId: String, completion: @escaping (Result<PYCollection, Error>) -> Void)
+    func getCollection(ofType type: String, categoryId: String?, completion: @escaping (Result<PYCollection, Error>) -> Void)
 }
