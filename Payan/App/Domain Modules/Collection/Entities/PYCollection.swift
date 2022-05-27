@@ -23,5 +23,14 @@ class PYCollection: Decodable {
 }
 
 extension PYCollection {
-    static let empty = PYCollection(title: "", elements: [])
+    static let skeleton = PYCollection(
+        title: "",
+        elements: [
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
+        ]
+    )
 }

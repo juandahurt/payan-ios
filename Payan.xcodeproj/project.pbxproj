@@ -35,6 +35,7 @@
 		2FC270EB2837F0AB00770B46 /* PYFeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */; };
 		2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */; };
 		2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */; };
+		2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD72942284175AE002255A3 /* SkeletonUI */; };
 		3D0ECF792782496100847E0D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0ECF782782496100847E0D /* Environment.swift */; };
 		3D3A384A270A53D300E2EF94 /* PYFeedModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A3849270A53D300E2EF94 /* PYFeedModule.swift */; };
 		3D496F84277E34F3009BFF74 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D496F83277E34F3009BFF74 /* AnalyticsEvent.swift */; };
@@ -113,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */,
+				2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */,
 				2FA03DF7283C51940094976A /* Purace in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +462,7 @@
 			packageProductDependencies = (
 				2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */,
 				2FA03DF6283C51940094976A /* Purace */,
+				2FD72942284175AE002255A3 /* SkeletonUI */,
 			);
 			productName = Payan;
 			productReference = 3DF708B926F2A4D200FD24CF /* Payan.app */;
@@ -491,6 +494,7 @@
 			packageReferences = (
 				2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2FA03DF5283C51940094976A /* XCRemoteSwiftPackageReference "Purace" */,
+				2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 			);
 			productRefGroup = 3DF708BA26F2A4D200FD24CF /* Products */;
 			projectDirPath = "";
@@ -781,6 +785,14 @@
 				version = 1.2.0;
 			};
 		};
+		2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -793,6 +805,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FA03DF5283C51940094976A /* XCRemoteSwiftPackageReference "Purace" */;
 			productName = Purace;
+		};
+		2FD72942284175AE002255A3 /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

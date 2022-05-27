@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SkeletonUI
 import SwiftUI
 import Purace
 
@@ -27,6 +28,43 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
         columns = type == "hero" ? 2 : 1
     }
     
+    var skeleton: some View {
+        ScrollView {
+            PuraceVerticalGridView(columns: columns, spacing: 2) {
+                ForEach(0..<(type == "hero" ? 6 : 3)) { _ in
+                    Color.clear
+                        .skeleton(with: true)
+                        .shape(type: .rectangle)
+                        .animation(type: .none)
+                        .frame(height: correctHeight)
+                }
+            }.padding(.top, 60)
+        }
+    }
+    
+    var loaded: some View {
+        ScrollView {
+            PuraceTextView(viewModel.collection.title, fontSize: 22)
+                .padding(.bottom, 20)
+            PuraceVerticalGridView(columns: columns, spacing: 2) {
+                ForEach(viewModel.collection.elements) { element in
+                    ZStack {
+                        PuraceImageView(url: URL(string: element.image))
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
+                            .clipped()
+                        LinearGradient(colors: [.black.opacity(0.55), .clear], startPoint: .bottom, endPoint: .center)
+                        VStack(alignment: .center) {
+                            Spacer()
+                            PuraceTextView(element.title, fontSize: 14, textColor: .white, weight: .medium)
+                                .multilineTextAlignment(.center)
+                        }.padding()
+                    }
+                }
+            }
+        }
+    }
+    
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -39,25 +77,10 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 Spacer()
             }.padding()
                 .frame(height: 50)
-            ScrollView {
-                PuraceTextView(viewModel.collection.title, fontSize: 22)
-                    .padding(.bottom, 20)
-                PuraceVerticalGridView(columns: columns, spacing: 2) {
-                    ForEach(viewModel.collection.elements) { element in
-                        ZStack {
-                            PuraceImageView(url: URL(string: element.image))
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
-                                .clipped()
-                            LinearGradient(colors: [.black.opacity(0.55), .clear], startPoint: .bottom, endPoint: .center)
-                            VStack(alignment: .center) {
-                                Spacer()
-                                PuraceTextView(element.title, fontSize: 14, textColor: .white, weight: .medium)
-                                    .multilineTextAlignment(.center)
-                            }.padding()
-                        }
-                    }
-                }
+            if viewModel.isLoading {
+                skeleton
+            } else {
+                loaded
             }
         }.navigationBarHidden(true)
             .onFirstAppear {

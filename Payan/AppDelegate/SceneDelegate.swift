@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Purace
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -34,6 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         ]
         modules.forEach { PYRoutingManager.shared.addModule($0) }
         PYRoutingManager.shared.open(url: URL(string: "payan://feed")!)
+        PuraceManager.shared.configure()
         
         window?.makeKeyAndVisible()
     }
