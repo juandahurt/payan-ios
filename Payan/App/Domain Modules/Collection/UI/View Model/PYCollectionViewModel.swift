@@ -17,7 +17,6 @@ class PYCollectionViewModel: ObservableObject {
     }
     
     func getCollection(ofType type: String, categoryId: String?) {
-        print(type, categoryId)
         interactor.getCollection(ofType: type, categoryId: categoryId) { [weak self] res in
             guard let self = self else { return }
             switch res {

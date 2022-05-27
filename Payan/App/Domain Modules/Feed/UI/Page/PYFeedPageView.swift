@@ -53,7 +53,10 @@ struct PYFeedPageView: View {
             }.padding(.bottom)
             PuraceCollectionCardView(cards: viewModel.feedData.heroes)
                 .padding(.bottom)
-            PuraceButtonView("Ver todos", fontSize: 14, type: .quiet)
+            PuraceButtonView("Ver todos", fontSize: 14, type: .quiet) {
+                guard let url = URL(string: "payan://collection?type=hero") else { return }
+                PYRoutingManager.shared.open(url: url)
+            }
         }
     }
     
