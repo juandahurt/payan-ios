@@ -15,6 +15,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     var categoryId: String?
     
     @StateObject var viewModel = PYCollectionViewModel()
+    @State var title = ""
     
     let heroHeight = UIScreen.main.bounds.width * 0.8
     let placeHeight = UIScreen.main.bounds.height * 0.2
@@ -37,12 +38,24 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                     PYRoutingManager.shared.pop()
                 }
             Spacer()
+            PuraceTextView(title, fontSize: 16, weight: .medium)
+            Spacer()
+            Image(systemName: "chevron.left")
+                .foregroundColor(PuraceStyle.Color.N1)
+                .scaleEffect(1.2)
+                .opacity(0)
         }.padding()
             .frame(height: 50)
     }
     
     var collection: some View {
-        ScrollView {
+        OffsettableScrollView { value in
+            if value.y < -70 {
+                title = viewModel.collection.title
+            } else {
+                title = ""
+            }
+        } content: {
             PuraceTextView(viewModel.collection.title, fontSize: 22)
                 .padding(.bottom, 20)
                 .frame(height: 70)
