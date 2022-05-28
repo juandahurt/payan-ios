@@ -51,7 +51,11 @@ struct PYFeedPageView: View {
                 PuraceTextView("Próceres", fontSize: 20, textColor: PuraceStyle.Color.N1)
                 PuraceTextView("Algunos personajes ilustres de la ciudad", fontSize: 14, textColor: PuraceStyle.Color.N4)
             }.padding(.bottom)
-            PuraceCollectionCardView(cards: viewModel.feedData.heroes)
+            PuraceCollectionCardView(
+                firstCardSize: .init(width: UIScreen.main.bounds.width * 0.6, height: UIScreen.main.bounds.width * 0.7),
+                cards: viewModel.feedData.heroes
+            )
+                .frame(height: UIScreen.main.bounds.width * 0.7)
                 .padding(.bottom)
             PuraceButtonView("Ver todos", fontSize: 14, type: .quiet) {
                 guard let url = URL(string: "payan://collection?type=hero") else { return }

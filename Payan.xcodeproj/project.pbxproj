@@ -782,7 +782,7 @@
 			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
 				kind = exactVersion;
-				version = 1.2.0;
+				version = 1.3.0;
 			};
 		};
 		2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
