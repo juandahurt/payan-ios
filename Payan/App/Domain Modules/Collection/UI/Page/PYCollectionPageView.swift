@@ -15,6 +15,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     var categoryId: String?
     
     @StateObject var viewModel = PYCollectionViewModel()
+    @State var title = ""
     
     let heroHeight = UIScreen.main.bounds.width * 0.8
     let placeHeight = UIScreen.main.bounds.height * 0.2
@@ -28,24 +29,36 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
         columns = type == "hero" ? 2 : 1
     }
     
-    var skeleton: some View {
-        ScrollView {
-            PuraceVerticalGridView(columns: columns, spacing: 2) {
-                ForEach(0..<(type == "hero" ? 6 : 3)) { _ in
-                    Color.clear
-                        .skeleton(with: true)
-                        .shape(type: .rectangle)
-                        .animation(type: .none)
-                        .frame(height: correctHeight)
+    var navBar: some View {
+        HStack(alignment: .center) {
+            Image(systemName: "chevron.left")
+                .foregroundColor(PuraceStyle.Color.N1)
+                .scaleEffect(1.2)
+                .onTapGesture {
+                    PYRoutingManager.shared.pop()
                 }
-            }.padding(.top, 60)
-        }
+            Spacer()
+            PuraceTextView(title, fontSize: 16, weight: .medium)
+            Spacer()
+            Image(systemName: "chevron.left")
+                .foregroundColor(PuraceStyle.Color.N1)
+                .scaleEffect(1.2)
+                .opacity(0)
+        }.padding()
+            .frame(height: 50)
     }
     
-    var loaded: some View {
-        ScrollView {
+    var collection: some View {
+        OffsettableScrollView { value in
+            if value.y < -70 {
+                title = viewModel.collection.title
+            } else {
+                title = ""
+            }
+        } content: {
             PuraceTextView(viewModel.collection.title, fontSize: 22)
                 .padding(.bottom, 20)
+                .frame(height: 70)
             PuraceVerticalGridView(columns: columns, spacing: 2) {
                 ForEach(viewModel.collection.elements) { element in
                     ZStack {
@@ -60,28 +73,21 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                                 .multilineTextAlignment(.center)
                         }.padding()
                     }
+                    .skeleton(with: viewModel.isLoading)
+                    .shape(type: .rectangle)
+                    .animation(type: .linear())
+                    .appearance(type: .solid())
+                    .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
                 }
             }
+                .transition(.slide)
         }
     }
     
     var body: some View {
         VStack {
-            HStack(alignment: .center) {
-                Image(systemName: "chevron.left")
-                    .foregroundColor(PuraceStyle.Color.N1)
-                    .scaleEffect(1.2)
-                    .onTapGesture {
-                        PYRoutingManager.shared.pop()
-                    }
-                Spacer()
-            }.padding()
-                .frame(height: 50)
-            if viewModel.isLoading {
-                skeleton
-            } else {
-                loaded
-            }
+            navBar
+            collection
         }.navigationBarHidden(true)
             .onFirstAppear {
                 viewModel.getCollection(ofType: type, categoryId: categoryId)
