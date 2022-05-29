@@ -9,9 +9,11 @@ import Foundation
 
 struct PYPlace: Decodable {
     var title: String
+    var subtitle: String
     var image: String
+    var description: String?
 }
 
 extension PYPlace {
-    static let empty = PYPlace(title: "", image: "")
+    static let empty = PYPlace(title: "", subtitle: "", image: "")
 }

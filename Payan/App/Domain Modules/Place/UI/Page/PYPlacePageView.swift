@@ -43,7 +43,14 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     }
     
     var title: some View {
-        PuraceTextView(viewModel.place.title, fontSize: 18, weight: .medium)
+        VStack(spacing: 10) {
+            PuraceTextView(viewModel.place.title, fontSize: 18, weight: .medium)
+            PuraceTextView(viewModel.place.subtitle, fontSize: 12, textColor: PuraceStyle.Color.N4)
+        }
+    }
+    
+    var description: some View {
+        PuraceTextView(viewModel.place.description ?? "")
     }
     
     var body: some View {
@@ -53,6 +60,8 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     image
                     title
                         .padding(.top)
+                    description
+                        .padding()
                     Spacer()
                 }
             }
