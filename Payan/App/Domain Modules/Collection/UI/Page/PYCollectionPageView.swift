@@ -73,11 +73,16 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                                 .multilineTextAlignment(.center)
                         }.padding()
                     }
+                    .contentShape(Rectangle())
                     .skeleton(with: viewModel.isLoading)
                     .shape(type: .rectangle)
                     .animation(type: .linear())
                     .appearance(type: .solid())
                     .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
+                    .onTapGesture {
+                        guard let url = URL(string: element.deepLink) else { return }
+                        PYRoutingManager.shared.open(url: url)
+                    }
                 }
             }
                 .transition(.slide)
