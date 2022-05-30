@@ -31,7 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         PYRoutingManager.provideNavigationController(navigationController)
         let modules: [PYModule] = [
             PYFeedModule(),
-            PYCollectionModule()
+            PYCollectionModule(),
+            PYPlaceModule()
         ]
         modules.forEach { PYRoutingManager.shared.addModule($0) }
         PYRoutingManager.shared.open(url: URL(string: "payan://feed")!)
