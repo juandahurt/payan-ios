@@ -8,8 +8,10 @@
 import Foundation
 
 class PYPlaceViewModel: ObservableObject {
-    @Published var place: PYPlace = .empty
     let interactor: PYPlaceBusinessLogic
+    
+    @Published var place: PYPlace = .empty
+    @Published var isLoading = true
     
     init(interactor: PYPlaceBusinessLogic = PYPlaceInteractor()) {
         self.interactor = interactor
@@ -18,6 +20,7 @@ class PYPlaceViewModel: ObservableObject {
     func getPlace(id: String) {
         interactor.getPlace(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }
+            self.isLoading = false
             switch res {
             case .success(let place):
                 self.place = place

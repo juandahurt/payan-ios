@@ -48,6 +48,31 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             .frame(height: 50)
     }
     
+    func collectionElement(_ element: PYCollectionElement) -> some View {
+        ZStack {
+            PuraceImageView(url: URL(string: element.image))
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
+                .clipped()
+            LinearGradient(colors: [.black.opacity(0.55), .clear], startPoint: .bottom, endPoint: .center)
+            VStack(alignment: .center) {
+                Spacer()
+                PuraceTextView(element.title, fontSize: 14, textColor: .white, weight: .medium)
+                    .multilineTextAlignment(.center)
+            }.padding()
+        }
+        .contentShape(Rectangle())
+        .skeleton(with: viewModel.isLoading)
+        .shape(type: .rectangle)
+        .animation(type: .none)
+        .appearance(type: .solid())
+        .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
+        .onTapGesture {
+            guard let url = URL(string: element.deepLink) else { return }
+            PYRoutingManager.shared.open(url: url)
+        }
+    }
+    
     var collection: some View {
         OffsettableScrollView { value in
             if value.y < -70 {
@@ -61,28 +86,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 .frame(height: 70)
             PuraceVerticalGridView(columns: columns, spacing: 2) {
                 ForEach(viewModel.collection.elements) { element in
-                    ZStack {
-                        PuraceImageView(url: URL(string: element.image))
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
-                            .clipped()
-                        LinearGradient(colors: [.black.opacity(0.55), .clear], startPoint: .bottom, endPoint: .center)
-                        VStack(alignment: .center) {
-                            Spacer()
-                            PuraceTextView(element.title, fontSize: 14, textColor: .white, weight: .medium)
-                                .multilineTextAlignment(.center)
-                        }.padding()
-                    }
-                    .contentShape(Rectangle())
-                    .skeleton(with: viewModel.isLoading)
-                    .shape(type: .rectangle)
-                    .animation(type: .linear())
-                    .appearance(type: .solid())
-                    .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
-                    .onTapGesture {
-                        guard let url = URL(string: element.deepLink) else { return }
-                        PYRoutingManager.shared.open(url: url)
-                    }
+                    collectionElement(element)
                 }
             }
                 .transition(.slide)
