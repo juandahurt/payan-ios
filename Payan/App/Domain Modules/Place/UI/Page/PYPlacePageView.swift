@@ -140,7 +140,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 label.lineBreakMode = .byWordWrapping
                 label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
                 label.textColor = UIColor(PuraceStyle.Color.N1)
-                label.font = .systemFont(ofSize: 12)
+                label.font = UIFont(name: "Poppins-Regular", size: 12)
                 return label
             }
 
