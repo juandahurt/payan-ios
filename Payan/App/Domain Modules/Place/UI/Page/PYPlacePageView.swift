@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 import SwiftUI
 import Purace
 
@@ -14,6 +15,15 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     let topSafeAreaPadding: CGFloat
     @StateObject var viewModel = PYPlaceViewModel()
     @State var descriptionHeight: CGFloat = .zero
+    
+    @State private var placeLocation = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(
+            latitude: 2.443881,
+            longitude: -76.605059
+        ),
+        latitudinalMeters: 750,
+        longitudinalMeters: 750
+    )
     
     init(placeId: String) {
         self.placeId = placeId
@@ -95,6 +105,24 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             .padding(.top, viewModel.isLoading ? 15 : 0)
     }
     
+    var location: some View {
+        Map(coordinateRegion: $placeLocation, annotationItems: [viewModel.location]) { location in
+            MapMarker(coordinate: location.location, tint: PuraceStyle.Color.G1)
+        }
+    }
+    
+    var tabs: some View {
+        PuraceTabView(titles: ["Ubicación", "Imágenes"]) { index in
+            Group {
+                if index == 0 {
+                    location
+                } else {
+                    PuraceTextView("Not implemented yet!")
+                }
+            }.frame(height: UIScreen.main.bounds.height * 0.45)
+        }
+    }
+    
     var body: some View {
         ZStack {
             ScrollView {
@@ -104,6 +132,10 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                         .padding(.top)
                     description
                         .padding()
+                    if !viewModel.isLoading {
+                        tabs
+                            .frame(minHeight: UIScreen.main.bounds.height * 0.45)
+                    }
                     Spacer()
                 }
             }

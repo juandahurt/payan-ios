@@ -42,6 +42,7 @@
 		2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB042815E707005BF493 /* PYNetworkError.swift */; };
 		2FA3BB092815F24D005BF493 /* PYServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB082815F24D005BF493 /* PYServerResponse.swift */; };
 		2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */; };
+		2FA558112849605400E9B2B4 /* PYPlaceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA558102849605400E9B2B4 /* PYPlaceLocation.swift */; };
 		2FC270EB2837F0AB00770B46 /* PYFeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */; };
 		2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */; };
 		2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */; };
@@ -103,6 +104,7 @@
 		2FA3BB042815E707005BF493 /* PYNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkError.swift; sourceTree = "<group>"; };
 		2FA3BB082815F24D005BF493 /* PYServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYServerResponse.swift; sourceTree = "<group>"; };
 		2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedNetworkWorker.swift; sourceTree = "<group>"; };
+		2FA558102849605400E9B2B4 /* PYPlaceLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceLocation.swift; sourceTree = "<group>"; };
 		2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedPageView.swift; sourceTree = "<group>"; };
 		2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionPageView.swift; sourceTree = "<group>"; };
 		2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnFirstAppear.swift"; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				2F908E442843032E003BD450 /* PYPlace.swift */,
+				2FA558102849605400E9B2B4 /* PYPlaceLocation.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				2F19514C283954FB007B0E73 /* PYFeedViewModel.swift in Sources */,
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
 				2F908E422842D34B003BD450 /* PYPlaceBusinessLogic.swift in Sources */,
+				2FA558112849605400E9B2B4 /* PYPlaceLocation.swift in Sources */,
 				2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
 				2F78195128170E820096E342 /* PYNetworkingAppDelegate.swift in Sources */,
@@ -886,7 +890,7 @@
 			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
 				kind = exactVersion;
-				version = 1.4.0;
+				version = 1.5.0;
 			};
 		};
 		2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
