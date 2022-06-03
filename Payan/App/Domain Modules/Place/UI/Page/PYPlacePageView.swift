@@ -13,9 +13,11 @@ import Purace
 struct PYPlacePageView: View, PYPlaceViewLogic {
     var placeId: String
     let topSafeAreaPadding: CGFloat
+    let bottomSafeAreaPadding: CGFloat
     @StateObject var viewModel = PYPlaceViewModel()
     @State var descriptionHeight: CGFloat = .zero
-    
+    @State var scrollOffset: CGFloat = .zero
+    @State var imageOpacity: Double = 0.2
     @State private var placeLocation = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
             latitude: 2.443881,
@@ -29,6 +31,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         self.placeId = placeId
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         topSafeAreaPadding = window?.safeAreaInsets.top ?? .zero
+        bottomSafeAreaPadding = window?.safeAreaInsets.bottom ?? .zero
     }
     
     var navBar: some View {
@@ -56,9 +59,14 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 .shape(type: .rectangle)
                 .animation(type: .none)
                 .appearance(type: .solid())
-            LinearGradient(colors: [.black.opacity(0.4), .clear], startPoint: .top, endPoint: .center)
+            Color.black.opacity(imageOpacity)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
         }
         .frame(height: UIScreen.main.bounds.height * 0.4)
+    }
+    
+    func updateImageOpacity() {
+        imageOpacity = max(min(0.7, -scrollOffset * 0.0035), 0.15)
     }
     
     var title: some View {
@@ -125,7 +133,10 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     
     var body: some View {
         ZStack {
-            ScrollView {
+            OffsettableScrollView { value in
+                scrollOffset = value.y
+                updateImageOpacity()
+            } content: {
                 VStack {
                     image
                     title
@@ -135,9 +146,10 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     if !viewModel.isLoading {
                         tabs
                             .frame(minHeight: UIScreen.main.bounds.height * 0.45)
+                            .padding(.bottom, bottomSafeAreaPadding)
                     }
                     Spacer()
-                }
+                }.offset(x: 0, y: -15) // hack to fix unwanted blank space produced by scroll view
             }
             VStack {
                 navBar
