@@ -52,7 +52,7 @@ struct PYFeedPageView: View {
                 PuraceTextView("Algunos personajes ilustres de la ciudad", fontSize: 14, textColor: PuraceStyle.Color.N4)
             }.padding(.bottom)
             PuraceCollectionCardView(
-                firstCardSize: .init(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.width * 0.9),
+                firstCardSize: .init(width: UIScreen.main.bounds.width * 0.75, height: UIScreen.main.bounds.width * 0.92),
                 cards: viewModel.feedData.heroes
             )
                 .frame(height: UIScreen.main.bounds.width * 0.9)
@@ -78,7 +78,7 @@ struct PYFeedPageView: View {
                         VStack(spacing: 40) {
                             placeCategories
                             heroes
-                        }
+                        }.padding(.bottom)
                     }
                     VStack {
                         Spacer()
@@ -86,7 +86,7 @@ struct PYFeedPageView: View {
                             title: "Bienvenido",
                             type: .info,
                             isVisible: $viewModel.snackbarIsVisible
-                        )
+                        ).padding(.bottom)
                     }
                 }
                 

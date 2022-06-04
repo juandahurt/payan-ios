@@ -13,8 +13,9 @@ import Purace
 struct PYPlacePageView: View, PYPlaceViewLogic {
     var placeId: String
     let topSafeAreaPadding: CGFloat
-    let bottomSafeAreaPadding: CGFloat
+    
     @StateObject var viewModel = PYPlaceViewModel()
+    
     @State var descriptionHeight: CGFloat = .zero
     @State var scrollOffset: CGFloat = .zero
     @State var imageOpacity: Double = 0.2
@@ -31,7 +32,6 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         self.placeId = placeId
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
         topSafeAreaPadding = window?.safeAreaInsets.top ?? .zero
-        bottomSafeAreaPadding = window?.safeAreaInsets.bottom ?? .zero
     }
     
     var navBar: some View {
