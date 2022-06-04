@@ -127,7 +127,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 } else {
                     PuraceTextView("Not implemented yet!")
                 }
-            }.frame(height: UIScreen.main.bounds.height * 0.45)
+            }
         }
     }
     
@@ -138,18 +138,19 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 updateImageOpacity()
             } content: {
                 VStack {
-                    image
-                    title
-                        .padding(.top)
-                    description
-                        .padding()
+                    Group {
+                        image
+                        title
+                            .padding(.top)
+                        description
+                            .padding()
+                    }.offset(x: 0, y: -15)
                     if !viewModel.isLoading {
                         tabs
-                            .frame(minHeight: UIScreen.main.bounds.height * 0.45)
-                            .padding(.bottom, bottomSafeAreaPadding)
+                            .frame(height: UIScreen.main.bounds.height * 0.5)
                     }
-                    Spacer()
-                }.offset(x: 0, y: -15) // hack to fix unwanted blank space produced by scroll view
+                    Spacer(minLength: 0)
+                }
             }
             VStack {
                 navBar
