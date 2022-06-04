@@ -28,6 +28,9 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         longitudinalMeters: 750
     )
     
+    @State var navBarBackground: Color = .clear
+    @State var navBarForegroundColor: Color = .white
+    
     init(placeId: String) {
         self.placeId = placeId
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
@@ -36,16 +39,20 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     
     var navBar: some View {
         HStack(alignment: .center) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(.white)
-                .scaleEffect(1.2)
-                .onTapGesture {
-                    PYRoutingManager.shared.pop()
-                }
+            VStack(spacing: 0) {
+                Spacer()
+                Image(systemName: "chevron.left")
+                    .foregroundColor(navBarForegroundColor)
+                    .scaleEffect(1.2)
+                    .onTapGesture {
+                        PYRoutingManager.shared.pop()
+                    }
+                    .padding()
+            }
             Spacer()
-        }.padding()
-            .frame(height: 50)
-            .padding(.top, topSafeAreaPadding)
+        }
+            .frame(height: 50 + topSafeAreaPadding)
+            .background(navBarBackground)
     }
     
     var image: some View {
@@ -131,11 +138,22 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         }
     }
     
+    func tryToUpdateNavBar(basedOn scrollOffset: CGFloat) {
+        if scrollOffset < -UIScreen.main.bounds.height * 0.3 {
+            navBarBackground = .white
+            navBarForegroundColor = PuraceStyle.Color.N1
+        } else {
+            navBarBackground = .clear
+            navBarForegroundColor = .white
+        }
+    }
+    
     var body: some View {
         ZStack {
             OffsettableScrollView { value in
                 scrollOffset = value.y
                 updateImageOpacity()
+                tryToUpdateNavBar(basedOn: value.y)
             } content: {
                 VStack {
                     Group {
