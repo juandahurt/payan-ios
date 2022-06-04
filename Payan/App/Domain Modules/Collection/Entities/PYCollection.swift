@@ -31,6 +31,7 @@ extension PYCollection {
             PYCollectionElement(title: "", image: "", deepLink: ""),
             PYCollectionElement(title: "", image: "", deepLink: ""),
             PYCollectionElement(title: "", image: "", deepLink: ""),
+            PYCollectionElement(title: "", image: "", deepLink: ""),
         ]
     )
 }
