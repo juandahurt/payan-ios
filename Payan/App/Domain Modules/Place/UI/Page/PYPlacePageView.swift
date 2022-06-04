@@ -6,14 +6,30 @@
 //
 
 import Foundation
+import MapKit
 import SwiftUI
 import Purace
 
 struct PYPlacePageView: View, PYPlaceViewLogic {
     var placeId: String
     let topSafeAreaPadding: CGFloat
+    
     @StateObject var viewModel = PYPlaceViewModel()
+    
     @State var descriptionHeight: CGFloat = .zero
+    @State var scrollOffset: CGFloat = .zero
+    @State var imageOpacity: Double = 0.2
+    @State private var placeLocation = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(
+            latitude: 2.443881,
+            longitude: -76.605059
+        ),
+        latitudinalMeters: 750,
+        longitudinalMeters: 750
+    )
+    
+    @State var navBarBackground: Color = .clear
+    @State var navBarForegroundColor: Color = .white
     
     init(placeId: String) {
         self.placeId = placeId
@@ -23,16 +39,20 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     
     var navBar: some View {
         HStack(alignment: .center) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(.white)
-                .scaleEffect(1.2)
-                .onTapGesture {
-                    PYRoutingManager.shared.pop()
-                }
+            VStack(spacing: 0) {
+                Spacer()
+                Image(systemName: "chevron.left")
+                    .foregroundColor(navBarForegroundColor)
+                    .scaleEffect(1.2)
+                    .onTapGesture {
+                        PYRoutingManager.shared.pop()
+                    }
+                    .padding()
+            }
             Spacer()
-        }.padding()
-            .frame(height: 50)
-            .padding(.top, topSafeAreaPadding)
+        }
+            .frame(height: 50 + topSafeAreaPadding)
+            .background(navBarBackground)
     }
     
     var image: some View {
@@ -46,9 +66,14 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 .shape(type: .rectangle)
                 .animation(type: .none)
                 .appearance(type: .solid())
-            LinearGradient(colors: [.black.opacity(0.4), .clear], startPoint: .top, endPoint: .center)
+            Color.black.opacity(imageOpacity)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
         }
         .frame(height: UIScreen.main.bounds.height * 0.4)
+    }
+    
+    func updateImageOpacity() {
+        imageOpacity = max(min(0.7, -scrollOffset * 0.0035), 0.15)
     }
     
     var title: some View {
@@ -95,16 +120,54 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             .padding(.top, viewModel.isLoading ? 15 : 0)
     }
     
+    var location: some View {
+        Map(coordinateRegion: $placeLocation, annotationItems: [viewModel.location]) { location in
+            MapMarker(coordinate: location.location, tint: PuraceStyle.Color.G1)
+        }
+    }
+    
+    var tabs: some View {
+        PuraceTabView(titles: ["Ubicación", "Imágenes"]) { index in
+            Group {
+                if index == 0 {
+                    location
+                } else {
+                    PuraceTextView("Not implemented yet!")
+                }
+            }
+        }
+    }
+    
+    func tryToUpdateNavBar(basedOn scrollOffset: CGFloat) {
+        if scrollOffset < -UIScreen.main.bounds.height * 0.3 {
+            navBarBackground = .white
+            navBarForegroundColor = PuraceStyle.Color.N1
+        } else {
+            navBarBackground = .clear
+            navBarForegroundColor = .white
+        }
+    }
+    
     var body: some View {
         ZStack {
-            ScrollView {
+            OffsettableScrollView { value in
+                scrollOffset = value.y
+                updateImageOpacity()
+                tryToUpdateNavBar(basedOn: value.y)
+            } content: {
                 VStack {
-                    image
-                    title
-                        .padding(.top)
-                    description
-                        .padding()
-                    Spacer()
+                    Group {
+                        image
+                        title
+                            .padding(.top)
+                        description
+                            .padding()
+                    }.offset(x: 0, y: -15)
+                    if !viewModel.isLoading {
+                        tabs
+                            .frame(height: UIScreen.main.bounds.height * 0.5)
+                    }
+                    Spacer(minLength: 0)
                 }
             }
             VStack {
