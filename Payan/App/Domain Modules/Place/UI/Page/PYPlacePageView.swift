@@ -19,10 +19,10 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     @State var descriptionHeight: CGFloat = .zero
     @State var scrollOffset: CGFloat = .zero
     @State var imageOpacity: Double = 0.2
-    @State private var placeLocation = MKCoordinateRegion(
+    @State private var mapLocation = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
-            latitude: 2.443881,
-            longitude: -76.605059
+            latitude: 0,
+            longitude: 0
         ),
         latitudinalMeters: 750,
         longitudinalMeters: 750
@@ -121,11 +121,11 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     }
     
     var location: some View {
-        Map(coordinateRegion: $placeLocation, annotationItems: [viewModel.place.location]) { location in
-            MapMarker(coordinate: location.location, tint: PuraceStyle.Color.G1)
+        Map(coordinateRegion: $mapLocation, annotationItems: [viewModel.place.location]) { location in
+            MapMarker(coordinate: location.coordinates, tint: PuraceStyle.Color.G1)
         }.onReceive(viewModel.$isLoading) { loading in
             guard !loading else { return }
-            placeLocation.center = viewModel.place.location.location
+            mapLocation.center = viewModel.place.location.coordinates
         }
     }
     

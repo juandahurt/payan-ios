@@ -10,7 +10,7 @@ import MapKit
 
 struct PYPlaceLocation: Identifiable, Decodable {
     let id: UUID
-    let location: CLLocationCoordinate2D
+    let coordinates: CLLocationCoordinate2D
     
     enum CodingKeys: CodingKey {
         case lat, lon
@@ -21,7 +21,7 @@ struct PYPlaceLocation: Identifiable, Decodable {
         id = UUID()
         let lat = try container.decode(Double.self, forKey: .lat)
         let lon = try container.decode(Double.self, forKey: .lon)
-        location = CLLocationCoordinate2D(
+        coordinates = CLLocationCoordinate2D(
             latitude: lat,
             longitude: lon
         )
@@ -29,7 +29,7 @@ struct PYPlaceLocation: Identifiable, Decodable {
     
     init() {
         id = UUID()
-        location = CLLocationCoordinate2D(
+        coordinates = CLLocationCoordinate2D(
             latitude: 0,
             longitude: 0
         )
