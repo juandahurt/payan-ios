@@ -8,15 +8,30 @@
 import Foundation
 import MapKit
 
-struct PYPlaceLocation: Identifiable {
+struct PYPlaceLocation: Identifiable, Decodable {
     let id: UUID
     let location: CLLocationCoordinate2D
     
-    init(id: UUID = UUID(), lat: Double, lon: Double) {
-        self.id = id
-        self.location = CLLocationCoordinate2D(
+    enum CodingKeys: CodingKey {
+        case lat, lon
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = UUID()
+        let lat = try container.decode(Double.self, forKey: .lat)
+        let lon = try container.decode(Double.self, forKey: .lon)
+        location = CLLocationCoordinate2D(
             latitude: lat,
             longitude: lon
+        )
+    }
+    
+    init() {
+        id = UUID()
+        location = CLLocationCoordinate2D(
+            latitude: 0,
+            longitude: 0
         )
     }
 }

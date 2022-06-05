@@ -12,8 +12,9 @@ struct PYPlace: Decodable {
     var subtitle: String
     var image: String
     var description: String?
+    var location: PYPlaceLocation
 }
 
 extension PYPlace {
-    static let empty = PYPlace(title: "", subtitle: "", image: "")
+    static let empty = PYPlace(title: "", subtitle: "", image: "", location: .init())
 }

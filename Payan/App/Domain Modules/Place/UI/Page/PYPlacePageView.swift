@@ -121,8 +121,11 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     }
     
     var location: some View {
-        Map(coordinateRegion: $placeLocation, annotationItems: [viewModel.location]) { location in
+        Map(coordinateRegion: $placeLocation, annotationItems: [viewModel.place.location]) { location in
             MapMarker(coordinate: location.location, tint: PuraceStyle.Color.G1)
+        }.onReceive(viewModel.$isLoading) { loading in
+            guard !loading else { return }
+            placeLocation.center = viewModel.place.location.location
         }
     }
     
