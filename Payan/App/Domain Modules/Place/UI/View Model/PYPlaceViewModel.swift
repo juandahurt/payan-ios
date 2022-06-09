@@ -12,7 +12,6 @@ class PYPlaceViewModel: ObservableObject {
     
     @Published var place: PYPlace = .empty
     @Published var isLoading = true
-    @Published var location = PYPlaceLocation(lat: 2.443881, lon: -76.605059)
     
     init(interactor: PYPlaceBusinessLogic = PYPlaceInteractor()) {
         self.interactor = interactor
