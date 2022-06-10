@@ -114,8 +114,8 @@
         "repositoryURL": "https://github.com/juandahurt/Purace",
         "state": {
           "branch": null,
-          "revision": "f4135762aed197ecc7dab3c3cf87fe78878c96d4",
-          "version": "1.6.0"
+          "revision": "bde95a291146469d7cffe47dfb3c8ef50a8b31ed",
+          "version": "1.7.0"
         }
       },
       {
@@ -143,6 +143,15 @@
           "branch": null,
           "revision": "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
           "version": "1.9.0"
+        }
+      },
+      {
+        "package": "ViewExtractor",
+        "repositoryURL": "https://github.com/GeorgeElsham/ViewExtractor",
+        "state": {
+          "branch": null,
+          "revision": "09cc1e7bf7d1860b92b151bb0bf06ec25a9e9162",
+          "version": "1.1.0"
         }
       }
     ]

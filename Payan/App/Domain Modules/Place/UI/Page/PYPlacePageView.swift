@@ -129,13 +129,27 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         }
     }
     
+    var images: some View {
+        PuraceHorizontalGridView {
+            ForEach(viewModel.place.images.indices) { index in
+                Color.clear
+                    .background(
+                        PuraceImageView(url: URL(string: viewModel.place.images[index].url))
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                    )
+                    .clipped()
+            }
+        }
+    }
+    
     var tabs: some View {
-        PuraceTabView(titles: ["Ubicación", "Imágenes"]) { index in
+        PuraceTabView(titles: viewModel.tabTitles) { index in
             Group {
                 if index == 0 {
                     location
                 } else {
-                    PuraceTextView("Not implemented yet!")
+                    images
                 }
             }
         }
