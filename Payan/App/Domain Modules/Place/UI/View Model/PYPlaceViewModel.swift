@@ -17,6 +17,14 @@ class PYPlaceViewModel: ObservableObject {
         self.interactor = interactor
     }
     
+    var tabTitles: [String] {
+        var titles = ["Ubicación"]
+        if !place.images.isEmpty {
+            titles.append("Imágenes")
+        }
+        return titles
+    }
+    
     func getPlace(id: String) {
         interactor.getPlace(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }
