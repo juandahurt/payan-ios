@@ -62,12 +62,13 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
                 .clipped()
+                .animation(.none)
                 .skeleton(with: viewModel.isLoading)
+//                .animation(type: .linear())
                 .shape(type: .rectangle)
-                .animation(type: .none)
-                .appearance(type: .solid())
             Color.black.opacity(imageOpacity)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
+                .opacity(viewModel.isLoading ? 0 : 1)
         }
         .frame(height: UIScreen.main.bounds.height * 0.4)
     }
@@ -84,10 +85,8 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 }
                 PuraceTextView(viewModel.place.title, fontSize: 18, weight: .medium)
                     .multilineTextAlignment(.center)
-                    .skeleton(with: viewModel.isLoading)
+                    .skeleton(with: viewModel.isLoading, transition: .opacity)
                     .multiline(lines: 1)
-                    .animation(type: .none)
-                    .appearance(type: .solid())
                     .padding(.vertical, viewModel.isLoading ? 5 : 0)
                 if viewModel.isLoading {
                     Spacer(minLength: UIScreen.main.bounds.width * 0.3)
@@ -99,10 +98,8 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     Spacer(minLength: UIScreen.main.bounds.width * 0.35)
                 }
                 PuraceTextView(viewModel.place.subtitle, fontSize: 12, textColor: PuraceStyle.Color.N4)
-                    .skeleton(with: viewModel.isLoading)
+                    .skeleton(with: viewModel.isLoading, transition: .opacity)
                     .multiline(lines: 1)
-                    .animation(type: .none)
-                    .appearance(type: .solid())
                     .padding(.top, viewModel.isLoading ? 5 : 0)
                 if viewModel.isLoading {
                     Spacer(minLength: UIScreen.main.bounds.width * 0.35)
@@ -113,10 +110,10 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     
     var description: some View {
         DescriptionView(text: viewModel.place.description ?? "")
-            .skeleton(with: viewModel.isLoading)
+            .skeleton(with: viewModel.isLoading, transition: .opacity)
             .multiline(lines: 5, scales: [4: 0.5])
-            .animation(type: .none)
-            .appearance(type: .solid())
+//            .animation(type: .linear())
+//            .appearance(type: .solid())
             .padding(.top, viewModel.isLoading ? 15 : 0)
     }
     
@@ -156,12 +153,14 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     }
     
     func tryToUpdateNavBar(basedOn scrollOffset: CGFloat) {
-        if scrollOffset < -UIScreen.main.bounds.height * 0.3 {
-            navBarBackground = .white
-            navBarForegroundColor = PuraceStyle.Color.N1
-        } else {
-            navBarBackground = .clear
-            navBarForegroundColor = .white
+        withAnimation(.linear(duration: 0.15)) {
+            if scrollOffset < -UIScreen.main.bounds.height * 0.3 {
+                navBarBackground = .white
+                navBarForegroundColor = PuraceStyle.Color.N1
+            } else {
+                navBarBackground = .clear
+                navBarForegroundColor = .white
+            }
         }
     }
     
