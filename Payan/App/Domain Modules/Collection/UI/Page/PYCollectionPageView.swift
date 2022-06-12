@@ -49,24 +49,23 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     }
     
     func collectionElement(_ element: PYCollectionElement) -> some View {
-        ZStack {
-            PuraceImageView(url: URL(string: element.image))
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
-                .clipped()
-            LinearGradient(colors: [.black.opacity(0.55), .clear], startPoint: .bottom, endPoint: .center)
+        PuraceImageView(url: URL(string: element.image)) {
+            Color.black.opacity(0.25)
             VStack(alignment: .center) {
                 Spacer()
                 PuraceTextView(element.title, fontSize: 14, textColor: .white, weight: .medium)
                     .multilineTextAlignment(.center)
-            }.padding()
+            }
+            .padding()
+            .frame(maxHeight: correctHeight)
         }
-        .contentShape(Rectangle())
-        .skeleton(with: viewModel.isLoading)
+        .animation(.none)
+        .skeleton(with: viewModel.isLoading, transition: .opacity, animated: .none)
         .shape(type: .rectangle)
-        .animation(type: .none)
-        .appearance(type: .solid())
+        .aspectRatio(contentMode: .fill)
         .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
+        .clipped()
+        .contentShape(Rectangle())
         .onTapGesture {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
@@ -89,7 +88,6 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                     collectionElement(element)
                 }
             }
-                .transition(.slide)
         }
     }
     
