@@ -50,17 +50,24 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     
     func collectionElement(_ element: PYCollectionElement) -> some View {
         PuraceImageView(url: URL(string: element.image)) {
-            Color.black.opacity(0.25)
-            VStack(alignment: .center) {
-                Spacer()
-                PuraceTextView(element.title, fontSize: 14, textColor: .white, weight: .medium)
+            Color.black.opacity(0.20)
+            Group {
+                PuraceTextView(element.title, fontSize: 12, textColor: .white, weight: .medium)
                     .multilineTextAlignment(.center)
-            }
-            .padding()
-            .frame(maxHeight: correctHeight)
+                    .cornerRadius(5)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 6)
+                    .background (
+                        ZStack {
+                            Color.black.opacity(0.2)
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.white, lineWidth: 1)
+                        }
+                    )
+            }.padding(.horizontal)
         }
         .animation(.none)
-        .skeleton(with: viewModel.isLoading, transition: .opacity, animated: .none)
+        .skeleton(with: viewModel.isLoading, transition: .opacity)
         .shape(type: .rectangle)
         .aspectRatio(contentMode: .fill)
         .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
