@@ -20,6 +20,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     let heroHeight = UIScreen.main.bounds.width * 0.8
     let placeHeight = UIScreen.main.bounds.height * 0.2
     let correctHeight: CGFloat
+    let correctItemWidth: CGFloat
     let columns: Int
     
     init(type: String, categoryId: String?) {
@@ -27,6 +28,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
         self.categoryId = categoryId
         correctHeight = type == "hero" ? heroHeight : placeHeight
         columns = type == "hero" ? 2 : 1
+        correctItemWidth = type == "hero" ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width
     }
     
     var navBar: some View {
@@ -56,7 +58,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                     .multilineTextAlignment(.center)
                     .cornerRadius(5)
                     .padding(.vertical, 8)
-                    .padding(.horizontal, 6)
+                    .padding(.horizontal, 15)
                     .background (
                         ZStack {
                             Color.black.opacity(0.2)
@@ -64,7 +66,8 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                                 .stroke(.white, lineWidth: 1)
                         }
                     )
-            }.padding(.horizontal)
+                    .frame(maxWidth: correctItemWidth * 0.8)
+            }
         }
         .animation(.none)
         .skeleton(with: viewModel.isLoading, transition: .opacity)
