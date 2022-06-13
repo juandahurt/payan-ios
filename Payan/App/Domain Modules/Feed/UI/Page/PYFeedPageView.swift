@@ -57,7 +57,7 @@ struct PYFeedPageView: View {
             )
                 .frame(height: UIScreen.main.bounds.width * 0.9)
                 .padding(.bottom)
-            PuraceButtonView("Ver todos", fontSize: 14, type: .quiet) {
+            PuraceButtonView("Ver todos", fontSize: 14) {
                 guard let url = URL(string: "payan://collection?type=hero") else { return }
                 PYRoutingManager.shared.open(url: url)
             }

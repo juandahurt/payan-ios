@@ -13,8 +13,22 @@ class PYPlaceViewModel: ObservableObject {
     @Published var place: PYPlace = .empty
     @Published var isLoading = true
     
-    init(interactor: PYPlaceBusinessLogic = PYPlaceInteractor()) {
-        self.interactor = interactor
+    var cachePlace: PYPlace?
+    var hasReallyLoaded = false {
+        didSet {
+            if hasFakeLoaded {
+                isLoading = false
+                setPlace()
+            }
+        }
+    }
+    var hasFakeLoaded = false {
+        didSet {
+            if hasReallyLoaded {
+                isLoading = false
+                setPlace()
+            }
+        }
     }
     
     var tabTitles: [String] {
@@ -25,13 +39,27 @@ class PYPlaceViewModel: ObservableObject {
         return titles
     }
     
+    init(interactor: PYPlaceBusinessLogic = PYPlaceInteractor()) {
+        self.interactor = interactor
+    }
+    
+    private func setPlace() {
+        if let cachePlace = cachePlace {
+            place = cachePlace
+        }
+    }
+    
     func getPlace(id: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            guard let self = self else { return }
+            self.hasFakeLoaded = true
+        }
         interactor.getPlace(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }
-            self.isLoading = false
+            self.hasReallyLoaded = true
             switch res {
             case .success(let place):
-                self.place = place
+                self.cachePlace = place
             case .failure(_): break
             }
         }
