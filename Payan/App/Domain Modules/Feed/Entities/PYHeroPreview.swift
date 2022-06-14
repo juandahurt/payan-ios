@@ -10,9 +10,10 @@ import Foundation
 struct PYHeroPreview: Decodable {
     var name: String
     var image: String
+    var description: String
     
     enum CodingKeys: String, CodingKey {
-        case name
+        case name, description
         case image = "image_url"
     }
 }

@@ -109,4 +109,7 @@ extension PYHeroPreview: PuraceCollectionCardData {
     var title: String {
         name
     }
+    var subtitle: String {
+        description
+    }
 }
