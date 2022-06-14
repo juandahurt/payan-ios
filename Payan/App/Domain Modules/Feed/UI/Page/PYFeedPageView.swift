@@ -54,7 +54,12 @@ struct PYFeedPageView: View {
             PuraceCollectionCardView(
                 firstCardSize: .init(width: UIScreen.main.bounds.width * 0.75, height: UIScreen.main.bounds.width * 0.92),
                 cards: viewModel.feedData.heroes
-            )
+            ) { selectedCard in
+                if let hero = viewModel.feedData.heroes.first(where: { $0.title == selectedCard.title }) {
+                    guard let url = URL(string: hero.deepLink) else { return }
+                    PYRoutingManager.shared.open(url: url)
+                }
+            }
                 .frame(height: UIScreen.main.bounds.width * 0.9)
                 .padding(.bottom)
             PuraceButtonView("Ver todos", fontSize: 14) {
@@ -100,9 +105,6 @@ struct PYFeedPageView: View {
 }
 
 extension PYHeroPreview: PuraceCollectionCardData {
-    var deepLink: String { // TODO: remove!!
-        ""
-    }
     var backgroundImage: URL? {
         URL(string: image)
     }
