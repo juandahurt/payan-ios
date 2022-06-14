@@ -37,10 +37,36 @@ struct PYHeroPageView: View, PYHeroViewLogic {
             .frame(height: 50)
     }
     
+    var title: some View {
+        VStack(spacing: 10) {
+            PuraceTextView(viewModel.hero.name, fontSize: 18, weight: .medium)
+            PuraceTextView("1867 - 1934", fontSize: 12, textColor: PuraceStyle.Color.N4, weight: .medium)
+        }.padding()
+    }
+    
+    var image: some View {
+        ZStack {
+            PuraceStyle.Color.N8
+            PuraceImageView(url: URL(string: viewModel.hero.image))
+                .scaledToFit()
+                .frame(maxHeight: UIScreen.main.bounds.height * 0.4)
+        }
+    }
+    
+    var description: some View {
+        PuraceTextView(viewModel.hero.description)
+            .multilineTextAlignment(.leading)
+            .padding()
+    }
+    
     var body: some View {
         VStack {
             navBar
-            Text("Hola")
+            ScrollView {
+                title
+                image
+                description
+            }
             Spacer()
         }
             .navigationBarHidden(true)

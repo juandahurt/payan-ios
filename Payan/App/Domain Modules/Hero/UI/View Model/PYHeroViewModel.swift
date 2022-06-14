@@ -17,8 +17,15 @@ class PYHeroViewModel: ObservableObject {
     }
     
     func getHero(id: String) {
-        interactor.getHero(identifiedBy: id) { res in
-            dump(res)
+        interactor.getHero(identifiedBy: id) { [weak self] res in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch res {
+                case .success(let hero):
+                    self.hero = hero
+                case .failure(_): break
+                }
+            }
         }
     }
 }
