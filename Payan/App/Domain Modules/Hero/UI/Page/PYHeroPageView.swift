@@ -54,9 +54,26 @@ struct PYHeroPageView: View, PYHeroViewLogic {
     }
     
     var description: some View {
-        PuraceTextView(viewModel.hero.description)
-            .multilineTextAlignment(.leading)
+        HStack(spacing: 0) {
+            PuraceTextView(viewModel.hero.description)
+                .multilineTextAlignment(.leading)
+            Spacer(minLength: 0)
+        }
             .padding()
+    }
+    
+    var sections: some View {
+        VStack(spacing: 0) {
+            ForEach(0..<5) { _ in
+                PuraceAccordionView(title: "Biografía") {
+                    HStack(spacing: 0) {
+                        PuraceTextView("ahfjdhaflfahlsfhjkl alshlfjaksh ksdj kjh iuy nvcoiq kaoi nlj asdj opu ou es ounncp oi if aljpqoeiu falkfpq moi for i in arrat jasodf apoqp vd")
+                            .multilineTextAlignment(.leading)
+                        Spacer(minLength: 0)
+                    }.padding()
+                }
+            }
+        }
     }
     
     var body: some View {
@@ -66,6 +83,7 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 title
                 image
                 description
+                sections
             }
             Spacer()
         }
