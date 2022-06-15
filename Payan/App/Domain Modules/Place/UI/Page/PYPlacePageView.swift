@@ -64,7 +64,6 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 .clipped()
                 .animation(.none)
                 .skeleton(with: viewModel.isLoading)
-//                .animation(type: .linear())
                 .shape(type: .rectangle)
             Color.black.opacity(imageOpacity)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
@@ -109,11 +108,12 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     }
     
     var description: some View {
-        DescriptionView(text: viewModel.place.description ?? "")
-            .skeleton(with: viewModel.isLoading, transition: .opacity)
-            .multiline(lines: 5, scales: [4: 0.5])
-//            .animation(type: .linear())
-//            .appearance(type: .solid())
+        HStack(spacing: 0) {
+            PuraceTextView(viewModel.place.description ?? "")
+                .skeleton(with: viewModel.isLoading, transition: .opacity)
+                .multiline(lines: 5, scales: [0: 0.9, 2: 0.95, 4: 0.5])
+            Spacer(minLength: 0)
+        }
             .padding(.top, viewModel.isLoading ? 15 : 0)
     }
     
@@ -195,40 +195,6 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         .navigationBarHidden(true)
         .onFirstAppear {
             viewModel.getPlace(id: placeId)
-        }
-    }
-    
-    struct DescriptionView: View {
-        var text: String
-
-        @State private var height: CGFloat = .zero
-
-        var body: some View {
-            InternalLabelView(text: text, dynamicHeight: $height)
-                .frame(minHeight: height)
-        }
-
-        struct InternalLabelView: UIViewRepresentable {
-            var text: String
-            @Binding var dynamicHeight: CGFloat
-
-            func makeUIView(context: Context) -> UILabel {
-                let label = UILabel()
-                label.numberOfLines = 0
-                label.textAlignment = .justified
-                label.lineBreakMode = .byWordWrapping
-                label.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-                label.textColor = UIColor(PuraceStyle.Color.N1)
-                label.font = UIFont(name: "Poppins-Regular", size: 12)
-                return label
-            }
-
-            func updateUIView(_ uiView: UILabel, context: Context) {
-                uiView.text = text
-                DispatchQueue.main.async {
-                    dynamicHeight = uiView.sizeThatFits(CGSize(width: uiView.bounds.width, height: CGFloat.greatestFiniteMagnitude)).height
-                }
-            }
         }
     }
 }
