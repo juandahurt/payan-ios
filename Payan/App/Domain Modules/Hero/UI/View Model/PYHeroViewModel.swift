@@ -17,6 +17,10 @@ class PYHeroViewModel: ObservableObject {
         self.interactor = interactor
     }
     
+    func section(at index: Int) -> PYHeroSection {
+        hero.sections[index]
+    }
+    
     func getHero(id: String) {
         interactor.getHero(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }

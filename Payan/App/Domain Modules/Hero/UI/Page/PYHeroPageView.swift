@@ -82,10 +82,10 @@ struct PYHeroPageView: View, PYHeroViewLogic {
     
     var sections: some View {
         VStack(spacing: 0) {
-            ForEach(0..<5) { _ in
-                PuraceAccordionView(title: "Biografía") {
+            ForEach(viewModel.hero.sections.indices, id: \.self) { index in
+                PuraceAccordionView(title: viewModel.section(at: index).title) {
                     HStack(spacing: 0) {
-                        PuraceTextView("ahfjdhaflfahlsfhjkl alshlfjaksh ksdj kjh iuy nvcoiq kaoi nlj asdj opu ou es ounncp oi if aljpqoeiu falkfpq moi for i in arrat jasodf apoqp vd")
+                        PuraceTextView(viewModel.section(at: index).content)
                             .multilineTextAlignment(.leading)
                         Spacer(minLength: 0)
                     }.padding()

@@ -11,13 +11,14 @@ struct PYHero: Decodable {
     var name: String
     var image: String
     var description: String
+    var sections: [PYHeroSection]
     
     enum CodingKeys: String, CodingKey {
-        case name, description
+        case name, description, sections
         case image = "imageUrl"
     }
 }
 
 extension PYHero {
-    static let empty = PYHero(name: "", image: "", description: "")
+    static let empty = PYHero(name: "", image: "", description: "", sections: [])
 }

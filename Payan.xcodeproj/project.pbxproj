@@ -14,6 +14,7 @@
 		2F19514728394F3B007B0E73 /* PYPlaceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F19514628394F3B007B0E73 /* PYPlaceCategory.swift */; };
 		2F19514928394F9A007B0E73 /* PYFeedPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F19514828394F9A007B0E73 /* PYFeedPage.swift */; };
 		2F19514C283954FB007B0E73 /* PYFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F19514B283954FB007B0E73 /* PYFeedViewModel.swift */; };
+		2F1A66EF285A5B950063044F /* PYHeroSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1A66EE285A5B950063044F /* PYHeroSection.swift */; };
 		2F2B9FF328408B9200565D3E /* PYCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B9FF228408B9200565D3E /* PYCollectionViewModel.swift */; };
 		2F43441B2815A184001E8910 /* PYNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43441A2815A184001E8910 /* PYNetworkManager.swift */; };
 		2F5827672858D763006836E8 /* PYHeroBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5827662858D763006836E8 /* PYHeroBusinessLogic.swift */; };
@@ -83,6 +84,7 @@
 		2F19514628394F3B007B0E73 /* PYPlaceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceCategory.swift; sourceTree = "<group>"; };
 		2F19514828394F9A007B0E73 /* PYFeedPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedPage.swift; sourceTree = "<group>"; };
 		2F19514B283954FB007B0E73 /* PYFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedViewModel.swift; sourceTree = "<group>"; };
+		2F1A66EE285A5B950063044F /* PYHeroSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroSection.swift; sourceTree = "<group>"; };
 		2F2B9FF228408B9200565D3E /* PYCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionViewModel.swift; sourceTree = "<group>"; };
 		2F40F5E42839640800BF2007 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F43441A2815A184001E8910 /* PYNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkManager.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				2F58276B2858D79F006836E8 /* PYHero.swift */,
+				2F1A66EE285A5B950063044F /* PYHeroSection.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
 				2F908E422842D34B003BD450 /* PYPlaceBusinessLogic.swift in Sources */,
 				2FA558112849605400E9B2B4 /* PYPlaceLocation.swift in Sources */,
+				2F1A66EF285A5B950063044F /* PYHeroSection.swift in Sources */,
 				2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
 				2F68A1192852DD9300DCF1E6 /* PYPlaceImage.swift in Sources */,
