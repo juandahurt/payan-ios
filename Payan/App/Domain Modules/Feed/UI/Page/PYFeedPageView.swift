@@ -76,14 +76,18 @@ struct PYFeedPageView: View {
                     PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
                         .frame(width: 45, height: 70)
                     PuraceTextView("Llegando a Popayán...")
-                }
+                }.offset(x: 0, y: 10)
             } else {
                 ZStack {
-                    ScrollView {
-                        VStack(spacing: 40) {
-                            placeCategories
-                            heroes
-                        }.padding(.bottom)
+                    VStack {
+                        Color.white
+                            .frame(height: 1) // hack to fix transparent status bar when nav bar is hidden
+                        ScrollView {
+                            VStack(spacing: 40) {
+                                placeCategories
+                                heroes
+                            }.padding(.bottom)
+                        }
                     }
                     VStack {
                         Spacer()
@@ -94,13 +98,13 @@ struct PYFeedPageView: View {
                         ).padding(.bottom)
                     }
                 }
-                
             }
         }
         .background(Color.white)
         .onFirstAppear {
             viewModel.getData()
         }
+        .navigationBarHidden(true)
     }
 }
 

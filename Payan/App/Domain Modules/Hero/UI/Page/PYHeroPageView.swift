@@ -38,25 +38,60 @@ struct PYHeroPageView: View, PYHeroViewLogic {
     }
     
     var title: some View {
-        VStack(spacing: 10) {
-            PuraceTextView(viewModel.hero.name, fontSize: 18, weight: .medium)
-            PuraceTextView("1867 - 1934", fontSize: 12, textColor: PuraceStyle.Color.N4, weight: .medium)
+        VStack(spacing: viewModel.isLoading ? 15 : 10) {
+            HStack {
+                Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.2 : 0)
+                PuraceTextView(viewModel.hero.name, fontSize: 18, weight: .medium)
+                    .skeleton(with: viewModel.isLoading)
+                    .multiline(lines: 1)
+                Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.2 : 0)
+            }
+            HStack {
+                Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
+                PuraceTextView("1867 - 1934", fontSize: 12, textColor: PuraceStyle.Color.N4, weight: .medium)
+                    .skeleton(with: viewModel.isLoading)
+                    .multiline(lines: 1)
+                Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
+            }
         }.padding()
+            .padding(.vertical, viewModel.isLoading ? 10 : 0)
     }
     
     var image: some View {
         ZStack {
-            PuraceStyle.Color.N8
+            PuraceStyle.Color.G1.opacity(0.05)
             PuraceImageView(url: URL(string: viewModel.hero.image))
                 .scaledToFit()
-                .frame(maxHeight: UIScreen.main.bounds.height * 0.4)
+                .animation(.none)
         }
+        .skeleton(with: viewModel.isLoading)
+            .shape(type: .rectangle)
+            .frame(height: UIScreen.main.bounds.height * 0.4)
     }
     
     var description: some View {
-        PuraceTextView(viewModel.hero.description)
-            .multilineTextAlignment(.leading)
+        HStack(spacing: 0) {
+            PuraceTextView(viewModel.hero.description)
+                .multilineTextAlignment(.leading)
+                .skeleton(with: viewModel.isLoading)
+                .multiline(lines: 4, scales: [1: 0.9, 3: 0.6])
+            Spacer(minLength: 0)
+        }
             .padding()
+    }
+    
+    var sections: some View {
+        VStack(spacing: 0) {
+            ForEach(viewModel.hero.sections.indices, id: \.self) { index in
+                PuraceAccordionView(title: viewModel.section(at: index).title) {
+                    HStack(spacing: 0) {
+                        PuraceTextView(viewModel.section(at: index).content)
+                            .multilineTextAlignment(.leading)
+                        Spacer(minLength: 0)
+                    }.padding()
+                }
+            }
+        }.opacity(viewModel.isLoading ? 0 : 1)
     }
     
     var body: some View {
@@ -66,6 +101,7 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 title
                 image
                 description
+                sections
             }
             Spacer()
         }
