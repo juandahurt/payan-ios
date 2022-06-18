@@ -17,11 +17,9 @@ final class AnalyticsManager {
     
     func logEvent(_ event: AnalyticsEvent) {
         guard !engines.isEmpty else {
-            Console.log("You're trying to log \(event.name) event, but no engines have been registered!", level: .warn)
+            print("You're trying to log \(event.name) event, but no engines have been registered!")
             return
         }
-        
-        Console.log("Logging \(event.name) event", level: .info)
         for engine in engines {
             engine.logEvent(event)
         }

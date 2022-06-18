@@ -6,8 +6,7 @@
 //
 
 import UIKit
-import Willow
-import SkeletonView
+import Purace
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,36 +17,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.shadowColor = .clear
+        navBarAppearance.backgroundColor = .white
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
         let navigationController = UINavigationController()
-        navigationController.navigationBar.isHidden = true
+        let navBarButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
+        navBarButtonAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0), NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
         window?.rootViewController = navigationController
         
-        SkeletonAppearance.default.tintColor = AppStyle.Color.skeleton
         
-        let module = LaunchModule.setup(with: navigationController)
-        module.show()
+        PYRoutingManager.provideNavigationController(navigationController)
+        let modules: [PYModule] = [
+            PYFeedModule(),
+            PYCollectionModule(),
+            PYPlaceModule(),
+            PYHeroModule()
+        ]
+        modules.forEach { PYRoutingManager.shared.addModule($0) }
+        PYRoutingManager.shared.open(url: URL(string: "payan://feed")!)
+        PuraceManager.shared.configure()
         
         window?.makeKeyAndVisible()
-    }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-        Console.log("scene did disconnect", level: .event)
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        Console.log("scene did become active", level: .event)
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        Console.log("scene will resign active", level: .event)
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        Console.log("scene will enter foreground", level: .event)
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        Console.log("scene did enter background", level: .event)
     }
 }
 

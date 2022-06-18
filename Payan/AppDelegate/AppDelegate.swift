@@ -10,14 +10,12 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     private var services: [UIApplicationDelegate] = [
-        RESTClientAppDelegate(),
+        PYNetworkingAppDelegate(),
         FirebaseAppDelegate(),
         AnalyticsAppDelegate()
     ]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Console.log("did finish launching", level: .event)
-        
         for service in services {
             _ = service.application?(application, didFinishLaunchingWithOptions: launchOptions)
         }
