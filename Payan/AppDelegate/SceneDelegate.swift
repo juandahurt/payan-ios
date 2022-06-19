@@ -23,9 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navBarAppearance.backgroundColor = .white
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         let navigationController = UINavigationController()
-        let navBarButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
-        navBarButtonAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0), NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
-        
+        navigationController.navigationBar.isHidden = true
         UITabBar.appearance().backgroundImage = nil
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().barTintColor = .white

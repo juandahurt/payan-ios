@@ -39,7 +39,7 @@ struct PYMenuPageView: View {
     }
     
     var body: some View {
-        VStack {
+        ScrollView {
             PuraceTextView("Acerca de", fontSize: 22)
             VStack(spacing: 0) {
                 row(title: "¿Qué es Payán?")
@@ -49,5 +49,7 @@ struct PYMenuPageView: View {
             }.padding(.top)
             Spacer()
         }
+            .padding(.top, 25)
+            .navigationBarHidden(true)
     }
 }
