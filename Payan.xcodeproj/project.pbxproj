@@ -17,6 +17,9 @@
 		2F1A66EF285A5B950063044F /* PYHeroSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1A66EE285A5B950063044F /* PYHeroSection.swift */; };
 		2F2B9FF328408B9200565D3E /* PYCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B9FF228408B9200565D3E /* PYCollectionViewModel.swift */; };
 		2F43441B2815A184001E8910 /* PYNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43441A2815A184001E8910 /* PYNetworkManager.swift */; };
+		2F56992B285E646E00F2D4D3 /* PYMainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56992A285E646E00F2D4D3 /* PYMainPageView.swift */; };
+		2F56992E285E651700F2D4D3 /* PYMainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56992D285E651700F2D4D3 /* PYMainModule.swift */; };
+		2F569935285E730200F2D4D3 /* PYMenuPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F569934285E730200F2D4D3 /* PYMenuPageView.swift */; };
 		2F5827672858D763006836E8 /* PYHeroBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5827662858D763006836E8 /* PYHeroBusinessLogic.swift */; };
 		2F58276C2858D79F006836E8 /* PYHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58276B2858D79F006836E8 /* PYHero.swift */; };
 		2F58276F2858D878006836E8 /* PYHeroDataAccessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F58276E2858D878006836E8 /* PYHeroDataAccessLogic.swift */; };
@@ -88,6 +91,9 @@
 		2F2B9FF228408B9200565D3E /* PYCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionViewModel.swift; sourceTree = "<group>"; };
 		2F40F5E42839640800BF2007 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F43441A2815A184001E8910 /* PYNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkManager.swift; sourceTree = "<group>"; };
+		2F56992A285E646E00F2D4D3 /* PYMainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMainPageView.swift; sourceTree = "<group>"; };
+		2F56992D285E651700F2D4D3 /* PYMainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMainModule.swift; sourceTree = "<group>"; };
+		2F569934285E730200F2D4D3 /* PYMenuPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMenuPageView.swift; sourceTree = "<group>"; };
 		2F5827662858D763006836E8 /* PYHeroBusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroBusinessLogic.swift; sourceTree = "<group>"; };
 		2F58276B2858D79F006836E8 /* PYHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHero.swift; sourceTree = "<group>"; };
 		2F58276E2858D878006836E8 /* PYHeroDataAccessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroDataAccessLogic.swift; sourceTree = "<group>"; };
@@ -228,6 +234,47 @@
 				2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */,
 			);
 			path = Workers;
+			sourceTree = "<group>";
+		};
+		2F569928285E645100F2D4D3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2F569929285E645B00F2D4D3 /* UI */,
+				2F56992D285E651700F2D4D3 /* PYMainModule.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2F569929285E645B00F2D4D3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2F56992A285E646E00F2D4D3 /* PYMainPageView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2F569931285E72EC00F2D4D3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				2F569932285E72F200F2D4D3 /* UI */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		2F569932285E72F200F2D4D3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2F569933285E72FB00F2D4D3 /* Page */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2F569933285E72FB00F2D4D3 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				2F569934285E730200F2D4D3 /* PYMenuPageView.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 		2F5827642858D74F006836E8 /* Interactor */ = {
@@ -612,6 +659,8 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2F569931285E72EC00F2D4D3 /* Menu */,
+				2F569928285E645100F2D4D3 /* Main */,
 				2FDC76C3285827F800EAC03C /* Hero */,
 				2F908E312842D095003BD450 /* Place */,
 				2F8C80FC28010CBA00A8E7FD /* Collection */,
@@ -718,14 +767,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */,
+				2F56992B285E646E00F2D4D3 /* PYMainPageView.swift in Sources */,
 				2F5827742858DB16006836E8 /* PYHeroInteractor.swift in Sources */,
 				2F5827672858D763006836E8 /* PYHeroBusinessLogic.swift in Sources */,
 				2F0692772801F5930068AA79 /* PYCollectionViewLogic.swift in Sources */,
+				2F569935285E730200F2D4D3 /* PYMenuPageView.swift in Sources */,
 				2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */,
 				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
 				2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */,
 				2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */,
 				2F8789F52842846100C3A40F /* UIViewController+popGesture.swift in Sources */,
+				2F56992E285E651700F2D4D3 /* PYMainModule.swift in Sources */,
 				2F19514728394F3B007B0E73 /* PYPlaceCategory.swift in Sources */,
 				6D46485D281D9B21001FACC0 /* PYCollection.swift in Sources */,
 				2F908E3A2842D1DD003BD450 /* PYPlaceViewLogic.swift in Sources */,
@@ -998,7 +1050,7 @@
 			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
 				kind = exactVersion;
-				version = 1.10.0;
+				version = 1.10.1;
 			};
 		};
 		2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
