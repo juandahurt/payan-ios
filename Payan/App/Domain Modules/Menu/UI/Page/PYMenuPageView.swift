@@ -10,14 +10,29 @@ import SwiftUI
 import Purace
 
 struct PYMenuPageView: View {
-    func row(title: String) -> some View {
-        VStack(spacing: 0) {
+    @State var isModalVisible = false
+    @StateObject var viewModel: PYMenuViewModel
+    
+    init(viewModel: PYMenuViewModel = PYMenuViewModel()) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
+    func row(at index: Int) -> some View {
+        let item = viewModel.items[index]
+        return VStack(spacing: 0) {
             HStack {
-                PuraceTextView(title, weight: .medium)
+                Image(item.image)
+                PuraceTextView(item.title, weight: .medium)
                 Spacer()
-            }.padding(.leading)
+            }
+                .padding(.leading)
                 .padding(.vertical, 10)
-            Divider().opacity(0.6)
+            Divider()
+                .opacity(0.6)
+        }
+        .onTapGesture {
+            viewModel.select(item: item)
+            isModalVisible.toggle()
         }
     }
     
@@ -39,17 +54,19 @@ struct PYMenuPageView: View {
     }
     
     var body: some View {
-        ScrollView {
-            PuraceTextView("Acerca de", fontSize: 22)
-            VStack(spacing: 0) {
-                row(title: "¿Qué es Payán?")
-                row(title: "Código abierto")
-                row(title: "Enviar comentarios")
-                row(title: "Versión", subtitle: "2.0.0")
-            }.padding(.top)
-            Spacer()
+        ZStack {
+            ScrollView {
+                PuraceTextView("Acerca de", fontSize: 22)
+                VStack(spacing: 0) {
+                    ForEach(viewModel.items.indices) { index in
+                        row(at: index)
+                    }
+                }.padding(.top)
+                Spacer()
+            }
+                .padding(.top, 25)
+            PuraceModalView(title: viewModel.selectedItem?.title ?? "", content: viewModel.selectedItem?.content ?? "", isVisible: $isModalVisible)
         }
-            .padding(.top, 25)
             .navigationBarHidden(true)
     }
 }
