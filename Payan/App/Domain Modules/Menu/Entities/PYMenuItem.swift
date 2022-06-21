@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PYMenuItem {
+struct PYMenuItem: Decodable {
     var image: String
     var title: String
     var content: String

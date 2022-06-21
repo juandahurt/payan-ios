@@ -10,16 +10,29 @@ import SwiftUI
 import Purace
 
 struct PYMainPageView: View {
+    let tabItems: [PYMainTabItem]
+    
+    init() {
+        tabItems = [
+            .init(
+                image: "home",
+                view: AnyView(PYFeedPageView())
+            ),
+            .init(
+                image: "menu",
+                view: AnyView(PYMenuBuilder().buildModule())
+            ),
+        ]
+    }
+    
     var body: some View {
         TabView {
-            PYFeedPageView()
-                .tabItem {
-                    Image("home")
-                }
-            PYMenuPageView()
-                .tabItem {
-                    Image("menu")
-                }
+            ForEach(tabItems.indices) { index in
+                tabItems[index].view
+                    .tabItem {
+                        Image(tabItems[index].image)
+                    }
+            }
         }.accentColor(PuraceStyle.Color.G1)
     }
 }

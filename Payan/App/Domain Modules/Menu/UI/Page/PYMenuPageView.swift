@@ -30,6 +30,7 @@ struct PYMenuPageView: View {
             Divider()
                 .opacity(0.6)
         }
+        .background(Color.white)
         .onTapGesture {
             viewModel.select(item: item)
             isModalVisible.toggle()
@@ -58,7 +59,7 @@ struct PYMenuPageView: View {
             ScrollView {
                 PuraceTextView("Acerca de", fontSize: 22)
                 VStack(spacing: 0) {
-                    ForEach(viewModel.items.indices) { index in
+                    ForEach(viewModel.items.indices, id: \.self) { index in
                         row(at: index)
                     }
                 }.padding(.top)
@@ -68,5 +69,8 @@ struct PYMenuPageView: View {
             PuraceModalView(title: viewModel.selectedItem?.title ?? "", content: viewModel.selectedItem?.content ?? "", isVisible: $isModalVisible)
         }
             .navigationBarHidden(true)
+            .onFirstAppear {
+                viewModel.getItems()
+            }
     }
 }
