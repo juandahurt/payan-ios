@@ -8,17 +8,8 @@
 import Foundation
 
 struct PYMenuItem: Decodable {
-    var image: String
+    var image: String?
     var title: String
     var content: String
-}
-
-extension PYMenuItem {
-    static let defaultItems: [PYMenuItem] = [
-        .init(
-            image: "help",
-            title: "¿Qué es Payán?",
-            content: "Payán es un proyecto sin ánimo de lucro cuyo principal objetivo es mostrar al mundo al belleza e historia que esconde Popayán, Colombia."
-        )
-    ]
+    var isStatic: Bool
 }

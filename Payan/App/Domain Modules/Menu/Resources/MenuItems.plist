@@ -9,6 +9,8 @@
 		<string>help</string>
 		<key>content</key>
 		<string>Payán es un proyecto sin ánimo de lucro cuyo principal objetivo es mostrar al mundo al belleza e historia que esconde la ciudad de Popayán, Colombia.</string>
+		<key>isStatic</key>
+		<false/>
 	</dict>
 </array>
 </plist>

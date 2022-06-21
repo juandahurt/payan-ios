@@ -20,37 +20,38 @@ struct PYMenuPageView: View {
     func row(at index: Int) -> some View {
         let item = viewModel.items[index]
         return VStack(spacing: 0) {
-            HStack {
-                Image(item.image)
-                PuraceTextView(item.title, weight: .medium)
-                Spacer()
-            }
-                .padding(.leading)
+            if let image = item.image {
+                HStack {
+                    Image(image)
+                    PuraceTextView(item.title, weight: .medium)
+                    Spacer()
+                }
+                    .padding(.leading)
+                    .padding(.vertical, 10)
+            } else {
+                VStack(spacing: 5) {
+                    HStack {
+                        PuraceTextView(item.title, weight: .medium)
+                        Spacer()
+                    }
+                    HStack {
+                        PuraceTextView(item.content, textColor: PuraceStyle.Color.N4)
+                        Spacer()
+                    }
+                }.padding(.leading)
                 .padding(.vertical, 10)
+            }
+            
             Divider()
-                .opacity(0.6)
+                .padding(.horizontal)
+                .opacity(0.65)
         }
         .background(Color.white)
         .onTapGesture {
             viewModel.select(item: item)
-            isModalVisible.toggle()
-        }
-    }
-    
-    func row(title: String, subtitle: String) -> some View {
-        VStack(spacing: 0) {
-            VStack(spacing: 5) {
-                HStack {
-                    PuraceTextView(title, weight: .medium)
-                    Spacer()
-                }
-                HStack {
-                    PuraceTextView(subtitle, textColor: PuraceStyle.Color.N4)
-                    Spacer()
-                }
-            }.padding(.leading)
-            .padding(.vertical, 10)
-            Divider().opacity(0.6)
+            if !(viewModel.selectedItem?.isStatic ?? false) {
+                isModalVisible.toggle()
+            }
         }
     }
     

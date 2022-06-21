@@ -33,6 +33,18 @@ class PYMenuLocalWorker: PYMenuDataAccessLogic {
                 let items = try decoder.decode([PYMenuItem].self, from: data)
                 return items
             }
+            .map { (items: [PYMenuItem]) -> [PYMenuItem] in
+                // get actual version
+                var itemsCopy = items
+                if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                    itemsCopy.append(.init(
+                        title: "Versión",
+                        content: appVersion,
+                        isStatic: true)
+                    )
+                }
+                return itemsCopy
+            }
             .eraseToAnyPublisher()
     }
 }
