@@ -26,13 +26,14 @@ struct PYMainPageView: View {
     }
     
     var body: some View {
-        TabView {
-            ForEach(tabItems.indices) { index in
-                tabItems[index].view
-                    .tabItem {
-                        Image(tabItems[index].image)
-                    }
-            }
-        }.accentColor(PuraceStyle.Color.G1)
+//        TabView {
+//            ForEach(tabItems.indices) { index in
+//                tabItems[index].view
+//                    .tabItem {
+//                        Image(tabItems[index].image)
+//                    }
+//            }
+//        }.accentColor(PuraceStyle.Color.G1)
+        PYOnboardingPageView()
     }
 }
