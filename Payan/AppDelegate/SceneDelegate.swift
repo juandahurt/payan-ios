@@ -27,6 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UITabBar.appearance().backgroundImage = nil
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().barTintColor = .white
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(PuraceStyle.Color.G1)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(PuraceStyle.Color.G8)
         
         window?.rootViewController = navigationController
         
