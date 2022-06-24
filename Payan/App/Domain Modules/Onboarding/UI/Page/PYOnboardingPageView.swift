@@ -44,10 +44,44 @@ struct PYOnboardingPageView: View {
         }
     }
     
+    var heroesPage: some View {
+        VStack(spacing: 20) {
+            ZStack {
+                Image("shape-2")
+                Image("ob-4")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 114.5, height: 185.42)
+                    .clipped()
+                    .cornerRadius(10)
+                    .rotationEffect(.degrees(-12))
+                    .offset(x: -50, y: 0)
+                Image("ob-5")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 114.5, height: 185.42)
+                    .clipped()
+                    .cornerRadius(10)
+                    .rotationEffect(.degrees(10))
+                    .offset(x: 50, y: 0)
+                Image("ob-6")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 114.5, height: 185.42)
+                    .clipped()
+                    .cornerRadius(10)
+            }
+            PuraceTextView("Cuna de próceres", fontSize: 20)
+            PuraceTextView(" Popayán ha sido cuna de importantes personajes colombianos, incluyendo a expresidentes del país, líderes de la Independencia y poetas célebres.", textColor: PuraceStyle.Color.N4)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 40)
+        }
+    }
+    
     var body: some View {
         TabView {
             placesPage
-            PuraceTextView("hola")
+            heroesPage
         }.tabViewStyle(.page)
     }
 }
