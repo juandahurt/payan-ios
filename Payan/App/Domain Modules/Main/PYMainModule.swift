@@ -11,7 +11,10 @@ import SwiftUI
 
 final class PYMainModule {
     static func getViewController() -> UIViewController {
-        let view = PYMainPageView()
+        let worker = PYMainLocalWorker()
+        let interactor = PYMainInteractor(worker: worker)
+        let viewModel = PYMainViewModel(interactor: interactor)
+        let view = PYMainPageView(viewModel: viewModel)
         return UIHostingController(rootView: view)
     }
 }

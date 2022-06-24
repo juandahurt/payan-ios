@@ -13,6 +13,8 @@ struct PYOnboardingPageView: View {
     @State var selectedPage = 0
     @State var buttonOpacity: Double = 0
     
+    var continueOnTap: () -> Void
+    
     var placesPage: some View {
         VStack(spacing: 20) {
             ZStack {
@@ -43,7 +45,7 @@ struct PYOnboardingPageView: View {
             PuraceTextView("La ciudad blanca", fontSize: 20)
             PuraceTextView("Una de las ciudades más antiguas y mejor conservadas de América, lo que se ve reflejado en su centro histórico y tradiciones religiosas, reconocida por su arquitectura colonial y el cuidado de las fachadas.", textColor: PuraceStyle.Color.N4)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.65)
         }
     }
     
@@ -77,13 +79,15 @@ struct PYOnboardingPageView: View {
             PuraceTextView("Cuna de próceres", fontSize: 20)
             PuraceTextView(" Popayán ha sido cuna de importantes personajes colombianos, incluyendo a expresidentes del país, líderes de la Independencia y poetas célebres.", textColor: PuraceStyle.Color.N4)
                 .multilineTextAlignment(.center)
-                .padding(.horizontal, 40)
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.65)
         }
     }
     
     var continueButton: some View {
         Group {
-            PuraceButtonView("Ir a Popayán", fontSize: 16)
+            PuraceButtonView("Ir a Popayán", fontSize: 16) {
+                continueOnTap()
+            }
                 .opacity(buttonOpacity)
                 .animation(.easeIn(duration: 0.2))
         }.frame(height: UIScreen.main.bounds.height * 0.2)
