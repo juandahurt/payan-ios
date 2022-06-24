@@ -10,6 +10,9 @@ import SwiftUI
 import Purace
 
 struct PYOnboardingPageView: View {
+    @State var selectedPage = 0
+    @State var buttonOpacity: Double = 0
+    
     var placesPage: some View {
         VStack(spacing: 20) {
             ZStack {
@@ -78,10 +81,25 @@ struct PYOnboardingPageView: View {
         }
     }
     
+    var continueButton: some View {
+        Group {
+            PuraceButtonView("Ir a Popayán", fontSize: 16)
+                .opacity(buttonOpacity)
+                .animation(.easeIn(duration: 0.2))
+        }.frame(height: UIScreen.main.bounds.height * 0.2)
+    }
+    
     var body: some View {
-        TabView {
-            placesPage
-            heroesPage
-        }.tabViewStyle(.page)
+        VStack {
+            TabView(selection: $selectedPage) {
+                placesPage
+                    .tag(0)
+                heroesPage
+                    .tag(1)
+            }.tabViewStyle(.page)
+            continueButton
+        }.onChange(of: selectedPage) { newValue in
+            buttonOpacity = newValue == 1 ? 1 : 0
+        }
     }
 }
