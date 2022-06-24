@@ -61,7 +61,7 @@ struct PYFeedPageView: View {
                 }
             }
                 .frame(height: UIScreen.main.bounds.width * 0.9)
-                .padding(.bottom)
+                .padding(.bottom, 25)
             PuraceButtonView("Ver todos", fontSize: 14) {
                 guard let url = URL(string: "payan://collection?type=hero") else { return }
                 PYRoutingManager.shared.open(url: url)
@@ -76,7 +76,7 @@ struct PYFeedPageView: View {
                     PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
                         .frame(width: 45, height: 70)
                     PuraceTextView("Llegando a Popayán...")
-                }.offset(x: 0, y: 10)
+                }.offset(x: 0, y: 33)
             } else {
                 ZStack {
                     VStack {
@@ -86,7 +86,7 @@ struct PYFeedPageView: View {
                             VStack(spacing: 40) {
                                 placeCategories
                                 heroes
-                            }.padding(.bottom)
+                            }.padding(.vertical)
                         }
                     }
                     VStack {

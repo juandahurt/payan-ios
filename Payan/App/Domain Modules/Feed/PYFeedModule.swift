@@ -9,11 +9,8 @@ import Foundation
 import UIKit
 import SwiftUI
 
-final class PYFeedModule: PYModule {
-    var host: String = "feed"
-    
-    func getViewController(params: [URLQueryItem]) -> UIViewController? {
-        let view = PYFeedPageView()
-        return UIHostingController(rootView: view)
+final class PYFeedModule {
+    static func build() -> PYFeedPageView {
+        return PYFeedPageView()
     }
 }
