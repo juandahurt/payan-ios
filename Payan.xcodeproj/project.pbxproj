@@ -55,13 +55,13 @@
 		2F908E4728430396003BD450 /* PYPlaceDataAccessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F908E4628430396003BD450 /* PYPlaceDataAccessLogic.swift */; };
 		2F908E4A28430458003BD450 /* PYPlaceNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F908E4928430458003BD450 /* PYPlaceNetworkWorker.swift */; };
 		2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */; };
-		2FA03DF7283C51940094976A /* Purace in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA03DF6283C51940094976A /* Purace */; };
 		2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */; };
 		2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */; };
 		2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB042815E707005BF493 /* PYNetworkError.swift */; };
 		2FA3BB092815F24D005BF493 /* PYServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB082815F24D005BF493 /* PYServerResponse.swift */; };
 		2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */; };
 		2FA558112849605400E9B2B4 /* PYPlaceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA558102849605400E9B2B4 /* PYPlaceLocation.swift */; };
+		2FBC47ED286A3A270021EBCA /* Purace in Frameworks */ = {isa = PBXBuildFile; productRef = 2FBC47EC286A3A270021EBCA /* Purace */; };
 		2FC270EB2837F0AB00770B46 /* PYFeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */; };
 		2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */; };
 		2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */; };
@@ -195,7 +195,7 @@
 			files = (
 				2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */,
 				2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */,
-				2FA03DF7283C51940094976A /* Purace in Frameworks */,
+				2FBC47ED286A3A270021EBCA /* Purace in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,8 +869,8 @@
 			name = Payan;
 			packageProductDependencies = (
 				2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */,
-				2FA03DF6283C51940094976A /* Purace */,
 				2FD72942284175AE002255A3 /* SkeletonUI */,
+				2FBC47EC286A3A270021EBCA /* Purace */,
 			);
 			productName = Payan;
 			productReference = 3DF708B926F2A4D200FD24CF /* Payan.app */;
@@ -901,8 +901,8 @@
 			mainGroup = 3DF708B026F2A4D200FD24CF;
 			packageReferences = (
 				2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				2FA03DF5283C51940094976A /* XCRemoteSwiftPackageReference "Purace" */,
 				2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
+				2FBC47EB286A3A270021EBCA /* XCRemoteSwiftPackageReference "Purace" */,
 			);
 			productRefGroup = 3DF708BA26F2A4D200FD24CF /* Products */;
 			projectDirPath = "";
@@ -1225,12 +1225,12 @@
 				minimumVersion = 8.0.0;
 			};
 		};
-		2FA03DF5283C51940094976A /* XCRemoteSwiftPackageReference "Purace" */ = {
+		2FBC47EB286A3A270021EBCA /* XCRemoteSwiftPackageReference "Purace" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
 				kind = exactVersion;
-				version = 1.11.0;
+				version = 1.12.0;
 			};
 		};
 		2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
@@ -1249,9 +1249,9 @@
 			package = 2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
-		2FA03DF6283C51940094976A /* Purace */ = {
+		2FBC47EC286A3A270021EBCA /* Purace */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2FA03DF5283C51940094976A /* XCRemoteSwiftPackageReference "Purace" */;
+			package = 2FBC47EB286A3A270021EBCA /* XCRemoteSwiftPackageReference "Purace" */;
 			productName = Purace;
 		};
 		2FD72942284175AE002255A3 /* SkeletonUI */ = {
