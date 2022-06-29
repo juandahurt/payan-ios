@@ -27,7 +27,8 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         latitudinalMeters: 750,
         longitudinalMeters: 750
     )
-    
+    @State var selectedImageIsVisible = false
+    @State var selectedImage: PYPlaceImage?
     @State var navBarBackground: Color = .clear
     @State var navBarForegroundColor: Color = .white
     
@@ -136,6 +137,11 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                             .clipped()
                     )
                     .clipped()
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        selectedImage = viewModel.place.images[index]
+                        selectedImageIsVisible = true
+                    }
             }
         }
     }
@@ -191,6 +197,10 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 Spacer()
             }
         }
+        .imageViewer(
+            url: URL(string: selectedImage?.url ?? ""),
+            isVisible: $selectedImageIsVisible
+        )
         .edgesIgnoringSafeArea(.top)
         .navigationBarHidden(true)
         .onFirstAppear {
