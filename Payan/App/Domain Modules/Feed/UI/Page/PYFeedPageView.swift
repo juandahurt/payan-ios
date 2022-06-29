@@ -89,14 +89,6 @@ struct PYFeedPageView: View {
                             }.padding(.vertical)
                         }
                     }
-                    VStack {
-                        Spacer()
-                        PuraceSnackbarView(
-                            title: "Bienvenido",
-                            type: .info,
-                            isVisible: $viewModel.snackbarIsVisible
-                        ).padding(.bottom)
-                    }
                 }
             }
         }
