@@ -15,7 +15,7 @@ class PYMenuInteractor: PYMenuBusinessLogic {
         self.worker = worker
     }
     
-    func getItems() -> AnyPublisher<[PYMenuItem], Error> {
-        worker.getItems()
+    func getSections() -> AnyPublisher<[PYMenuSection], Error> {
+        worker.getSections()
     }
 }

@@ -8,8 +8,6 @@
 import Foundation
 
 struct PYMenuItem: Decodable {
-    var image: String?
+    var icon: String?
     var title: String
-    var content: String
-    var isStatic: Bool
 }

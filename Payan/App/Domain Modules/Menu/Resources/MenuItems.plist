@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>title</key>
-		<string>¿Qué es Payán?</string>
-		<key>image</key>
-		<string>help</string>
-		<key>content</key>
-		<string>Payán es un proyecto sin ánimo de lucro cuyo principal objetivo es mostrar al mundo al belleza e historia que esconde la ciudad de Popayán, Colombia.</string>
-		<key>isStatic</key>
-		<false/>
-	</dict>
-</array>
+    <array>
+        <dict>
+            <key>items</key>
+            <array>
+                <dict>
+                    <key>title</key>
+                    <string>Inicio</string>
+                    <key>icon</key>
+                    <string>home</string>
+                    <key>deeplink</key>
+                    <string>payan://</string>
+                </dict>
+                <dict>
+                    <key>title</key>
+                    <string>Acerca de Payan</string>
+                    <key>deeplink</key>
+                    <string>payan://</string>
+                </dict>
+            </array>
+        </dict>
+    </array>
 </plist>

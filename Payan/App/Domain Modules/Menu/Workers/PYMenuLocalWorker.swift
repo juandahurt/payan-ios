@@ -14,7 +14,7 @@ class PYMenuLocalWorker: PYMenuDataAccessLogic {
         case unableToGetData
     }
     
-    func getItems() -> AnyPublisher<[PYMenuItem], Error> {
+    func getSections() -> AnyPublisher<[PYMenuSection], Error> {
         Just(())
             .tryMap { Void -> URL in
                 guard let url = Bundle.main.url(forResource: "MenuItems", withExtension: "plist") else {
@@ -28,22 +28,10 @@ class PYMenuLocalWorker: PYMenuDataAccessLogic {
                 }
                 return data
             }
-            .tryMap { (data: Data) -> [PYMenuItem] in
+            .tryMap { (data: Data) -> [PYMenuSection] in
                 let decoder = PropertyListDecoder()
-                let items = try decoder.decode([PYMenuItem].self, from: data)
+                let items = try decoder.decode([PYMenuSection].self, from: data)
                 return items
-            }
-            .map { (items: [PYMenuItem]) -> [PYMenuItem] in
-                // get actual version
-                var itemsCopy = items
-                if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                    itemsCopy.append(.init(
-                        title: "Versión",
-                        content: appVersion,
-                        isStatic: true)
-                    )
-                }
-                return itemsCopy
             }
             .eraseToAnyPublisher()
     }

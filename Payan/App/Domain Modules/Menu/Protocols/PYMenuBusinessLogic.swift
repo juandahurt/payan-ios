@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol PYMenuBusinessLogic {
-    func getItems() -> AnyPublisher<[PYMenuItem], Error>
+    func getSections() -> AnyPublisher<[PYMenuSection], Error>
 }

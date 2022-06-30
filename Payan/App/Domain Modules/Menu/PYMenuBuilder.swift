@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import UIKit
+import SwiftUI
 
 final class PYMenuBuilder {
-    func buildModule() -> PYMenuPageView {
+    func getViewController() -> UIViewController {
         let worker = PYMenuLocalWorker()
         let interactor = PYMenuInteractor(worker: worker)
         let viewModel = PYMenuViewModel(interactor: interactor)
-        return PYMenuPageView(viewModel: viewModel)
+        let vc = UIHostingController(rootView: PYMenuPageView(viewModel: viewModel))
+        return vc
     }
 }
