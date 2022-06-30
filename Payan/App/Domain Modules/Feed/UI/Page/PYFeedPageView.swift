@@ -10,7 +10,11 @@ import Kingfisher
 import SwiftUI
 
 struct PYFeedPageView: View {
-    @StateObject var viewModel = PYFeedViewModel()
+    @StateObject var viewModel: PYFeedViewModel
+    
+    init(viewModel: PYFeedViewModel) {
+        _viewModel = .init(wrappedValue: viewModel)
+    }
     
     var placeCategories: some View {
         VStack {

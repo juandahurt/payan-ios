@@ -14,7 +14,7 @@ final class PYMainBuilder {
     func getViewController() -> UIViewController {
         let controller = UITabBarController()
         
-        let feedViewController = UIHostingController(rootView: PYFeedModule.build())
+        let feedViewController = PYFeedBuilder().getViewController()
         let feedIcon = UIImage(named: "home")
         feedViewController.tabBarItem.selectedImage = feedIcon
         feedViewController.tabBarItem.image = feedIcon
