@@ -10,10 +10,8 @@ import UIKit
 import SwiftUI
 
 
-final class PYCollectionBuilder: Route {
-    var path: String = ""
-    
-    var builder: ([URLQueryItem]) -> UIViewController? = { params in
+final class PYCollectionBuilder: PYModuleBuilder {
+    func build(params: [URLQueryItem]) -> UIViewController? {
         var type: String = ""
         var categoryId: String?
         params.forEach { param in

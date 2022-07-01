@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PYMainRouteHandler: TabbedRouteHandler {
+class PYMainRouteHandler: PYTabbedRouteHandler {
     var host: String {
         "base"
     }

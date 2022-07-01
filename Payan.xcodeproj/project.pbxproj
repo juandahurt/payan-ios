@@ -68,6 +68,7 @@
 		2FCAE685286F8F0200538D05 /* PYHeroRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE684286F8F0200538D05 /* PYHeroRouteHandler.swift */; };
 		2FCAE687286FA07200538D05 /* PYCollectionRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE686286FA07200538D05 /* PYCollectionRouteHandler.swift */; };
 		2FCAE689286FA1EB00538D05 /* PYPlaceRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE688286FA1EB00538D05 /* PYPlaceRouteHandler.swift */; };
+		2FCAE68B286FA44000538D05 /* PYRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE68A286FA44000538D05 /* PYRouteHandler.swift */; };
 		2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */; };
 		2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */; };
 		2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD72942284175AE002255A3 /* SkeletonUI */; };
@@ -96,7 +97,7 @@
 		3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C726F2A4D300FD24CF /* LaunchScreen.storyboard */; };
 		6D46485D281D9B21001FACC0 /* PYCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D46485C281D9B21001FACC0 /* PYCollection.swift */; };
 		6DB6E4F12818A5720002A77C /* PYRoutingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6E4F02818A5720002A77C /* PYRoutingManager.swift */; };
-		6DB6E4F52818A96E0002A77C /* PYModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6E4F42818A96E0002A77C /* PYModule.swift */; };
+		6DB6E4F52818A96E0002A77C /* PYModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6E4F42818A96E0002A77C /* PYModuleBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,7 @@
 		2FCAE684286F8F0200538D05 /* PYHeroRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroRouteHandler.swift; sourceTree = "<group>"; };
 		2FCAE686286FA07200538D05 /* PYCollectionRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionRouteHandler.swift; sourceTree = "<group>"; };
 		2FCAE688286FA1EB00538D05 /* PYPlaceRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceRouteHandler.swift; sourceTree = "<group>"; };
+		2FCAE68A286FA44000538D05 /* PYRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYRouteHandler.swift; sourceTree = "<group>"; };
 		2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionPageView.swift; sourceTree = "<group>"; };
 		2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnFirstAppear.swift"; sourceTree = "<group>"; };
 		2FDC76C42858280800EAC03C /* PYHeroBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroBuilder.swift; sourceTree = "<group>"; };
@@ -195,7 +197,7 @@
 		3DF708CA26F2A4D300FD24CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D46485C281D9B21001FACC0 /* PYCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollection.swift; sourceTree = "<group>"; };
 		6DB6E4F02818A5720002A77C /* PYRoutingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYRoutingManager.swift; sourceTree = "<group>"; };
-		6DB6E4F42818A96E0002A77C /* PYModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModule.swift; sourceTree = "<group>"; };
+		6DB6E4F42818A96E0002A77C /* PYModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModuleBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -861,7 +863,8 @@
 			isa = PBXGroup;
 			children = (
 				6DB6E4F02818A5720002A77C /* PYRoutingManager.swift */,
-				6DB6E4F42818A96E0002A77C /* PYModule.swift */,
+				6DB6E4F42818A96E0002A77C /* PYModuleBuilder.swift */,
+				2FCAE68A286FA44000538D05 /* PYRouteHandler.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -989,13 +992,14 @@
 				2FDC76C52858280800EAC03C /* PYHeroBuilder.swift in Sources */,
 				2F0692752801F5770068AA79 /* PYCollectionBusinessLogic.swift in Sources */,
 				2F908E4A28430458003BD450 /* PYPlaceNetworkWorker.swift in Sources */,
-				6DB6E4F52818A96E0002A77C /* PYModule.swift in Sources */,
+				6DB6E4F52818A96E0002A77C /* PYModuleBuilder.swift in Sources */,
 				2F8D512D2800C5E600ADCC64 /* PYFeedDataAccessLogic.swift in Sources */,
 				2F63C88227FCD62500857056 /* PYFeedInteractor.swift in Sources */,
 				2F1D99A0286104C200AC9187 /* PYMenuLocalWorker.swift in Sources */,
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				2F19514928394F9A007B0E73 /* PYFeedPage.swift in Sources */,
 				2FC270EB2837F0AB00770B46 /* PYFeedPageView.swift in Sources */,
+				2FCAE68B286FA44000538D05 /* PYRouteHandler.swift in Sources */,
 				2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */,
 				2F908E332842D104003BD450 /* PYPlaceBuilder.swift in Sources */,
 				2F908E4728430396003BD450 /* PYPlaceDataAccessLogic.swift in Sources */,

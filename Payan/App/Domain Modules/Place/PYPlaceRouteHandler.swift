@@ -7,8 +7,8 @@
 
 import Foundation
 
-class PYPlaceRouteHandler: BasicRouteHandler {
-    var routes: [Route] = []
+class PYPlaceRouteHandler: PYBasicRouteHandler {
+    var routes: [(builder: PYModuleBuilder, path: String)] = []
     var host: String {
         "place"
     }
@@ -19,7 +19,7 @@ class PYPlaceRouteHandler: BasicRouteHandler {
     
     func configure() {
         routes = [
-            PYPlaceBuilder()
+            (builder: PYPlaceBuilder(), path: "")
         ]
     }
 }

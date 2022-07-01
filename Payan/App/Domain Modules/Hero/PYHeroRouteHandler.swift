@@ -7,8 +7,8 @@
 
 import Foundation
 
-class PYHeroRouteHandler: BasicRouteHandler {
-    var routes: [Route] = []
+class PYHeroRouteHandler: PYBasicRouteHandler {
+    var routes: [(builder: PYModuleBuilder, path: String)] = []
     var host: String {
         "hero"
     }
@@ -19,7 +19,7 @@ class PYHeroRouteHandler: BasicRouteHandler {
     
     func configure() {
         routes = [
-            PYHeroBuilder()
+            (builder: PYHeroBuilder(), path: "")
         ]
     }
 }

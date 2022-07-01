@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         PYRoutingManager.provideNavigationController(navigationController)
-        let routeHandlers: [RouteHandler] = [
+        let routeHandlers: [PYRouteHandler] = [
             PYMainRouteHandler(),
             PYHeroRouteHandler(),
             PYCollectionRouteHandler(),

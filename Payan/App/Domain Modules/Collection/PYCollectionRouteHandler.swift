@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 import UIKit
 
-class PYCollectionRouteHandler: BasicRouteHandler {
-    var routes: [Route] = []
+class PYCollectionRouteHandler: PYBasicRouteHandler {
+    var routes: [(builder: PYModuleBuilder, path: String)] = []
     var host: String {
         "collection"
     }
@@ -21,7 +21,7 @@ class PYCollectionRouteHandler: BasicRouteHandler {
     
     func configure() {
         routes = [
-            PYCollectionBuilder()
+            (builder: PYCollectionBuilder(), path: "")
         ]
     }
 }

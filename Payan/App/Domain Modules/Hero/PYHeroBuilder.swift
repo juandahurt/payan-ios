@@ -9,12 +9,8 @@ import Foundation
 import UIKit
 import SwiftUI
 
-final class PYHeroBuilder: Route {
-    var path: String {
-        ""
-    }
-    
-    var builder: ([URLQueryItem]) -> UIViewController? = { params in
+final class PYHeroBuilder: PYModuleBuilder {
+    func build(params: [URLQueryItem]) -> UIViewController? {
         guard !params.isEmpty, params[0].name == "id", let heroId = params[0].value else { return nil }
         let worker = PYHeroNetworkWorker()
         let interactor = PYHeroInteractor(worker: worker)
