@@ -13,6 +13,11 @@
                     <key>deeplink</key>
                     <string>payan://</string>
                 </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>items</key>
+            <array>
                 <dict>
                     <key>title</key>
                     <string>Acerca de Payan</string>

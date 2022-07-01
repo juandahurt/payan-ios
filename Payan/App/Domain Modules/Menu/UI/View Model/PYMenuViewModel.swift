@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class PYMenuViewModel: ObservableObject {
-    @Published var sections: [PYMenuSection] = []
+    @Published private(set) var sections: [PYMenuSection] = []
     
     let interactor: PYMenuBusinessLogic
     
@@ -19,9 +19,18 @@ class PYMenuViewModel: ObservableObject {
         self.interactor = interactor
     }
     
+    func item(at indexPath: IndexPath) -> PYMenuItem {
+        sections[indexPath.section].items[indexPath.item]
+    }
+    
+    func section(at index: Int) -> PYMenuSection {
+        sections[index]
+    }
+    
     func getSections() {
         interactor.getSections()
             .sink { _ in } receiveValue: { sections in
+                print(sections)
                 self.sections = sections
             }
             .store(in: &cancellables)
