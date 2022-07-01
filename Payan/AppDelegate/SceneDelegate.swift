@@ -35,12 +35,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         PYRoutingManager.provideNavigationController(navigationController)
-        let modules: [PYModule] = [
-            PYCollectionModule(),
-            PYPlaceModule(),
-            PYHeroModule()
+        let routeHandlers: [RouteHandler] = [
+            PYMainRouteHandler(),
+            PYHeroRouteHandler(),
+            PYCollectionRouteHandler(),
+            PYPlaceRouteHandler()
         ]
-        modules.forEach { PYRoutingManager.shared.addModule($0) }
+        routeHandlers.forEach { PYRoutingManager.shared.addRouteHandler(routeHandler: $0) }
         navigationController.pushViewController(PYMainBuilder().getViewController(), animated: false)
         PuraceManager.shared.configure()
         

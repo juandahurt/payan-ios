@@ -1,5 +1,5 @@
 //
-//  PYHeroModule.swift
+//  PYHeroBuilder.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 13/06/22.
@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 import SwiftUI
 
-final class PYHeroModule: PYModule {
-    var host: String = "hero"
+final class PYHeroBuilder: Route {
+    var path: String {
+        ""
+    }
     
-    func getViewController(params: [URLQueryItem]) -> UIViewController? {
+    var builder: ([URLQueryItem]) -> UIViewController? = { params in
         guard !params.isEmpty, params[0].name == "id", let heroId = params[0].value else { return nil }
         let worker = PYHeroNetworkWorker()
         let interactor = PYHeroInteractor(worker: worker)

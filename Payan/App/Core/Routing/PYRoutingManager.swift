@@ -19,6 +19,7 @@ class PYRoutingManager {
         }
     }
     
+    private var routeHandlers: [RouteHandler] = []
     private var modules: [PYModule] = []
     private var navigationController: UINavigationController
     
@@ -30,17 +31,24 @@ class PYRoutingManager {
         Self._shared = PYRoutingManager(navigationController: navigationController)
     }
     
-    func addModule(_ module: PYModule) {
-        modules.append(module)
+    func addRouteHandler(routeHandler: RouteHandler) {
+        routeHandlers.append(routeHandler)
     }
     
     func open(url: URL) {
-        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            return
+        guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return }
+        guard let handler = routeHandlers.first(where: { $0.host == components.host }) else { return }
+
+        if let tabbedHandler = handler as? TabbedRouteHandler, navigationController.viewControllers[0] is UITabBarController {
+            guard let item = tabbedHandler.tabItems.first(where: { $0.path == components.path }) else { return }
+            navigationController.popToRootViewController(animated: false)
+            let tabBarController = (navigationController.viewControllers[0] as? UITabBarController)
+            tabBarController?.selectedIndex = item.index
+        } else if let handler = handler as? BasicRouteHandler {
+            guard let route = handler.routes.first(where: { $0.path == components.path }) else { return }
+            guard let vc = route.builder(components.queryItems ?? []) else { return }
+            navigationController.pushViewController(vc, animated: true)
         }
-        guard let module = modules.first(where: { $0.host == components.host }) else { return }
-        guard let vc = module.getViewController(params: components.queryItems ?? []) else { return }
-        navigationController.pushViewController(vc, animated: true)
     }
     
     func pop(animated: Bool = true) {

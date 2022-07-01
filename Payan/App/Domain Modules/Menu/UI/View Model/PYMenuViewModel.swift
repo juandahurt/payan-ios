@@ -30,7 +30,6 @@ class PYMenuViewModel: ObservableObject {
     func getSections() {
         interactor.getSections()
             .sink { _ in } receiveValue: { sections in
-                print(sections)
                 self.sections = sections
             }
             .store(in: &cancellables)

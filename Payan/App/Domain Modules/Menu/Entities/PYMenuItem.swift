@@ -10,4 +10,5 @@ import Foundation
 struct PYMenuItem: Decodable {
     var icon: String?
     var title: String
+    var deeplink: String
 }

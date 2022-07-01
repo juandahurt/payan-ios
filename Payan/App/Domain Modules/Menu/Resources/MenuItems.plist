@@ -11,7 +11,7 @@
                     <key>icon</key>
                     <string>home</string>
                     <key>deeplink</key>
-                    <string>payan://</string>
+                    <string>payan://base/home</string>
                 </dict>
             </array>
         </dict>
