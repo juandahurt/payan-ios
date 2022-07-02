@@ -53,4 +53,12 @@ class PYRoutingManager {
     func pop(animated: Bool = true) {
         navigationController.popViewController(animated: animated)
     }
+    
+    func push(_ vc: UIViewController, animated: Bool = true) {
+        navigationController.pushViewController(vc, animated: animated)
+    }
+    
+    func setViewControllers(_ viewControllers: [UIViewController]) {
+        navigationController.viewControllers = viewControllers
+    }
 }
