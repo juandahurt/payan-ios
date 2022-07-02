@@ -28,7 +28,8 @@ struct PYMenuPageView: View {
             }
             PuraceTextView(item.title, weight: .medium)
             Spacer()
-        }.onTapGesture {
+        }.background(Color.white)
+        .onTapGesture {
             guard let url = URL(string: item.deeplink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
