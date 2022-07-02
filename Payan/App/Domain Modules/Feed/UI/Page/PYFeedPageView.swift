@@ -81,19 +81,18 @@ struct PYFeedPageView: View {
                         .frame(width: 45, height: 70)
                     PuraceTextView("Llegando a Popayán...")
                 }.offset(x: 0, y: 9)
+                    .transition(.opacity.animation(.linear(duration: 0.2)))
             } else {
-                ZStack {
-                    VStack {
-                        Color.white
-                            .frame(height: 1) // hack to fix transparent status bar when nav bar is hidden
-                        ScrollView {
-                            VStack(spacing: 40) {
-                                placeCategories
-                                heroes
-                            }.padding(.vertical)
-                        }
+                VStack {
+                    Color.white
+                        .frame(height: 1) // hack to fix transparent status bar when nav bar is hidden
+                    ScrollView {
+                        VStack(spacing: 40) {
+                            placeCategories
+                            heroes
+                        }.padding(.vertical)
                     }
-                }
+                }.transition(.opacity.animation(.linear(duration: 0.2)))
             }
         }
         .background(Color.white)
