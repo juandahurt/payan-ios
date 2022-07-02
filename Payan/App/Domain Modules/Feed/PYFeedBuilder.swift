@@ -10,10 +10,10 @@ import UIKit
 import SwiftUI
 
 final class PYFeedBuilder {
-    func getViewController() -> UIViewController {
+    func build(onSuccess: (() -> Void)?) -> UIViewController {
         let worker = PYFeedNetworkWorker()
         let interactor = PYFeedInteractor(worker: worker)
-        let viewModel = PYFeedViewModel(interactor: interactor)
+        let viewModel = PYFeedViewModel(interactor: interactor, onSuccess: onSuccess)
         return UIHostingController(rootView: PYFeedPageView(viewModel: viewModel))
     }
 }

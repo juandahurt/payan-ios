@@ -69,6 +69,9 @@
 		2FCAE687286FA07200538D05 /* PYCollectionRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE686286FA07200538D05 /* PYCollectionRouteHandler.swift */; };
 		2FCAE689286FA1EB00538D05 /* PYPlaceRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE688286FA1EB00538D05 /* PYPlaceRouteHandler.swift */; };
 		2FCAE68B286FA44000538D05 /* PYRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE68A286FA44000538D05 /* PYRouteHandler.swift */; };
+		2FCAE690286FA6D300538D05 /* PYAboutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE68F286FA6D300538D05 /* PYAboutBuilder.swift */; };
+		2FCAE692286FA75800538D05 /* PYAboutRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE691286FA75800538D05 /* PYAboutRouteHandler.swift */; };
+		2FCAE696286FA80F00538D05 /* PYAboutPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE695286FA80F00538D05 /* PYAboutPageView.swift */; };
 		2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */; };
 		2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */; };
 		2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD72942284175AE002255A3 /* SkeletonUI */; };
@@ -166,6 +169,9 @@
 		2FCAE686286FA07200538D05 /* PYCollectionRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionRouteHandler.swift; sourceTree = "<group>"; };
 		2FCAE688286FA1EB00538D05 /* PYPlaceRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceRouteHandler.swift; sourceTree = "<group>"; };
 		2FCAE68A286FA44000538D05 /* PYRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYRouteHandler.swift; sourceTree = "<group>"; };
+		2FCAE68F286FA6D300538D05 /* PYAboutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYAboutBuilder.swift; sourceTree = "<group>"; };
+		2FCAE691286FA75800538D05 /* PYAboutRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYAboutRouteHandler.swift; sourceTree = "<group>"; };
+		2FCAE695286FA80F00538D05 /* PYAboutPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYAboutPageView.swift; sourceTree = "<group>"; };
 		2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionPageView.swift; sourceTree = "<group>"; };
 		2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnFirstAppear.swift"; sourceTree = "<group>"; };
 		2FDC76C42858280800EAC03C /* PYHeroBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroBuilder.swift; sourceTree = "<group>"; };
@@ -585,6 +591,32 @@
 			path = Page;
 			sourceTree = "<group>";
 		};
+		2FCAE68C286FA6AF00538D05 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				2FCAE693286FA80100538D05 /* UI */,
+				2FCAE68F286FA6D300538D05 /* PYAboutBuilder.swift */,
+				2FCAE691286FA75800538D05 /* PYAboutRouteHandler.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		2FCAE693286FA80100538D05 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2FCAE694286FA80500538D05 /* Page */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2FCAE694286FA80500538D05 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				2FCAE695286FA80F00538D05 /* PYAboutPageView.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
 		2FD5786C2840511C007A6EF5 /* Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +872,7 @@
 		3DF708E426F2A64900FD24CF /* Domain Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2FCAE68C286FA6AF00538D05 /* About */,
 				2FFBCFD028661816008E939F /* Onboarding */,
 				2F569931285E72EC00F2D4D3 /* Menu */,
 				2F569928285E645100F2D4D3 /* Main */,
@@ -996,10 +1029,12 @@
 				2F8D512D2800C5E600ADCC64 /* PYFeedDataAccessLogic.swift in Sources */,
 				2F63C88227FCD62500857056 /* PYFeedInteractor.swift in Sources */,
 				2F1D99A0286104C200AC9187 /* PYMenuLocalWorker.swift in Sources */,
+				2FCAE690286FA6D300538D05 /* PYAboutBuilder.swift in Sources */,
 				3D496F8E277E39DF009BFF74 /* FirebaseAnalytics.swift in Sources */,
 				2F19514928394F9A007B0E73 /* PYFeedPage.swift in Sources */,
 				2FC270EB2837F0AB00770B46 /* PYFeedPageView.swift in Sources */,
 				2FCAE68B286FA44000538D05 /* PYRouteHandler.swift in Sources */,
+				2FCAE692286FA75800538D05 /* PYAboutRouteHandler.swift in Sources */,
 				2FA3BB052815E707005BF493 /* PYNetworkError.swift in Sources */,
 				2F908E332842D104003BD450 /* PYPlaceBuilder.swift in Sources */,
 				2F908E4728430396003BD450 /* PYPlaceDataAccessLogic.swift in Sources */,
@@ -1020,6 +1055,7 @@
 				2F19514C283954FB007B0E73 /* PYFeedViewModel.swift in Sources */,
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
 				2F908E422842D34B003BD450 /* PYPlaceBusinessLogic.swift in Sources */,
+				2FCAE696286FA80F00538D05 /* PYAboutPageView.swift in Sources */,
 				2FF1EBE52861731600B16E5E /* PYMainTabItem.swift in Sources */,
 				2FA558112849605400E9B2B4 /* PYPlaceLocation.swift in Sources */,
 				2F1A66EF285A5B950063044F /* PYHeroSection.swift in Sources */,

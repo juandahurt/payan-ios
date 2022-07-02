@@ -14,12 +14,14 @@ final class PYMainBuilder {
     func getViewController() -> UIViewController {
         let controller = UITabBarController()
         
-        let feedViewController = PYFeedBuilder().getViewController()
+        let feedViewController = PYFeedBuilder().build {
+            controller.tabBar.isHidden = false
+        }
         let feedIcon = UIImage(named: "home")
         feedViewController.tabBarItem.selectedImage = feedIcon
         feedViewController.tabBarItem.image = feedIcon
         
-        let menuViewController = PYMenuBuilder().getViewController()
+        let menuViewController = PYMenuBuilder().build()
         let menuIcon = UIImage(named: "menu")
         menuViewController.tabBarItem.selectedImage = menuIcon
         menuViewController.tabBarItem.image = menuIcon
@@ -28,6 +30,7 @@ final class PYMainBuilder {
             feedViewController,
             menuViewController
         ]
+        controller.tabBar.isHidden = true
         return controller
     }
 }

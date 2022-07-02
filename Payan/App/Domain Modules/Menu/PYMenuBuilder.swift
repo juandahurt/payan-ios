@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 final class PYMenuBuilder {
-    func getViewController() -> UIViewController {
+    func build() -> UIViewController {
         let worker = PYMenuLocalWorker()
         let interactor = PYMenuInteractor(worker: worker)
         let viewModel = PYMenuViewModel(interactor: interactor)

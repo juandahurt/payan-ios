@@ -22,9 +22,11 @@ class PYFeedViewModel: ObservableObject {
     }
     
     let interactor: PYFeedBusinessLogic
+    var onSuccess: (() -> Void)?
     
-    init(interactor: PYFeedBusinessLogic = PYFeedInteractor(worker: PYFeedNetworkWorker())) {
+    init(interactor: PYFeedBusinessLogic, onSuccess: (() -> Void)? = nil) {
         self.interactor = interactor
+        self.onSuccess = onSuccess
     }
     
     func getData() {
@@ -43,6 +45,7 @@ class PYFeedViewModel: ObservableObject {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.isLoading = false
                     self.timer.invalidate()
+                    self.onSuccess?()
                 }
             }
         }

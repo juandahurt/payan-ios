@@ -25,7 +25,6 @@ final class PYFeedInteractor: PYFeedBusinessLogic {
                     completion(.failure(error))
                 }
             }
-            
         }
     }
 }
