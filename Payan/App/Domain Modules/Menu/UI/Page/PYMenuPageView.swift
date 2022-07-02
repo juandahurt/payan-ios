@@ -16,62 +16,48 @@ struct PYMenuPageView: View {
     init(viewModel: PYMenuViewModel = PYMenuViewModel()) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
-    
-    func row(at index: Int) -> some View {
-        let item = viewModel.items[index]
-        return VStack(spacing: 0) {
-            if let image = item.image {
-                HStack {
-                    Image(image)
-                    PuraceTextView(item.title, weight: .medium)
-                    Spacer()
-                }
-                    .padding(.leading)
-                    .padding(.vertical, 10)
-            } else {
-                VStack(spacing: 5) {
-                    HStack {
-                        PuraceTextView(item.title, weight: .medium)
-                        Spacer()
-                    }
-                    HStack {
-                        PuraceTextView(item.content, textColor: PuraceStyle.Color.N4)
-                        Spacer()
-                    }
-                }.padding(.leading)
-                .padding(.vertical, 10)
+
+    func sectionItem(at indexPath: IndexPath) -> some View {
+        let item = viewModel.item(at: indexPath)
+        return HStack(spacing: 12) {
+            if let icon = item.icon {
+                Image(icon)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 15, height: 15)
             }
-            
-            Divider()
-                .padding(.horizontal)
-                .opacity(0.65)
-        }
-        .background(Color.white)
+            PuraceTextView(item.title, weight: .medium)
+            Spacer()
+        }.background(Color.white)
         .onTapGesture {
-            viewModel.select(item: item)
-            if !(viewModel.selectedItem?.isStatic ?? false) {
-                isModalVisible.toggle()
-            }
+            guard let url = URL(string: item.deeplink) else { return }
+            PYRoutingManager.shared.open(url: url)
         }
     }
     
-    var body: some View {
-        ZStack {
-            ScrollView {
-                PuraceTextView("Acerca de", fontSize: 22)
-                VStack(spacing: 0) {
-                    ForEach(viewModel.items.indices, id: \.self) { index in
-                        row(at: index)
-                    }
-                }.padding(.top)
-                Spacer()
+    var sections: some View {
+        ForEach(viewModel.sections.indices, id: \.self) { sectionIndex in
+            ForEach(viewModel.section(at: sectionIndex).items.indices) { itemIndex in
+                let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
+                sectionItem(at: indexPath)
             }
-                .padding(.top, 25)
-            PuraceModalView(title: viewModel.selectedItem?.title ?? "", content: viewModel.selectedItem?.content ?? "", isVisible: $isModalVisible)
+            if sectionIndex != viewModel.sections.count - 1 {
+                Divider()
+                    .opacity(0.65)
+            }
+        }.padding(.horizontal)
+    }
+    
+    var body: some View {
+        ScrollView {
+            PuraceTextView("Más", fontSize: 22)
+            sections
+            Spacer()
         }
+            .padding(.top, 25)
             .navigationBarHidden(true)
             .onFirstAppear {
-                viewModel.getItems()
+                viewModel.getSections()
             }
     }
 }

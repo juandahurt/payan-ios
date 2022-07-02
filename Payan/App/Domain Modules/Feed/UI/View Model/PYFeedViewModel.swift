@@ -11,27 +11,22 @@ class PYFeedViewModel: ObservableObject {
     @Published var loadedPercentage: Double = 0
     @Published var isLoading: Bool = true
     @Published var feedData: PYFeedPage = .empty
-    @Published var snackbarIsVisible = false
     
-    lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+    private var currentPercentageAddition = 0.1
+    
+    lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
         guard let self = self else { return }
-        guard self.loadedPercentage < 0.7 else { return }
-        self.loadedPercentage += 0.1
+        guard self.loadedPercentage < 0.85 else { return }
+        self.loadedPercentage += self.currentPercentageAddition
+        self.currentPercentageAddition /= 1.15
     }
     
     let interactor: PYFeedBusinessLogic
+    var onSuccess: (() -> Void)?
     
-    init(interactor: PYFeedBusinessLogic = PYFeedInteractor(worker: PYFeedNetworkWorker())) {
+    init(interactor: PYFeedBusinessLogic, onSuccess: (() -> Void)? = nil) {
         self.interactor = interactor
-    }
-    
-    private func showSnackbar() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.snackbarIsVisible = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                self.snackbarIsVisible = false
-            }
-        }
+        self.onSuccess = onSuccess
     }
     
     func getData() {
@@ -39,17 +34,19 @@ class PYFeedViewModel: ObservableObject {
         isLoading = true
         timer.fire()
         interactor.getFeedData { [weak self] res in
-            guard let self = self else { return }
-            self.loadedPercentage = 1
-            switch res {
-            case .success(let data):
-                self.feedData = data
-            case .failure(_): break
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.isLoading = false
-                self.timer.invalidate()
-                self.showSnackbar()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                guard let self = self else { return }
+                self.loadedPercentage = 1
+                switch res {
+                case .success(let data):
+                    self.feedData = data
+                case .failure(_): break
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.isLoading = false
+                    self.timer.invalidate()
+                    self.onSuccess?()
+                }
             }
         }
     }

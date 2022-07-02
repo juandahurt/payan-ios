@@ -1,5 +1,5 @@
 //
-//  PYCollectionModule.swift
+//  PYCollectionBuilder.swift
 //  Payan
 //
 //  Created by Juan Hurtado on 9/04/22.
@@ -10,10 +10,8 @@ import UIKit
 import SwiftUI
 
 
-final class PYCollectionModule: PYModule {
-    var host: String = "collection"
-    
-    func getViewController(params: [URLQueryItem]) -> UIViewController? {
+final class PYCollectionBuilder: PYModuleBuilder {
+    func build(params: [URLQueryItem]) -> UIViewController? {
         var type: String = ""
         var categoryId: String?
         params.forEach { param in

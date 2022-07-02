@@ -24,9 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         let navigationController = UINavigationController()
         navigationController.navigationBar.isHidden = true
-        UITabBar.appearance().backgroundImage = nil
-        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().isTranslucent = true
         UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().tintColor = UIColor(PuraceStyle.Color.G1)
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(PuraceStyle.Color.G1)
         UIPageControl.appearance().pageIndicatorTintColor = UIColor(PuraceStyle.Color.G8)
         
@@ -34,13 +35,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         PYRoutingManager.provideNavigationController(navigationController)
-        let modules: [PYModule] = [
-            PYCollectionModule(),
-            PYPlaceModule(),
-            PYHeroModule()
+        let routeHandlers: [PYRouteHandler] = [
+            PYMainRouteHandler(),
+            PYHeroRouteHandler(),
+            PYCollectionRouteHandler(),
+            PYPlaceRouteHandler(),
+            PYAboutRouteHandler()
         ]
-        modules.forEach { PYRoutingManager.shared.addModule($0) }
-        navigationController.pushViewController(PYMainModule.getViewController(), animated: false)
+        routeHandlers.forEach { PYRoutingManager.shared.addRouteHandler(routeHandler: $0) }
+        navigationController.pushViewController(PYMainBuilder().getViewController(), animated: false)
         PuraceManager.shared.configure()
         
         window?.makeKeyAndVisible()

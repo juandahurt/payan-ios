@@ -10,7 +10,11 @@ import Kingfisher
 import SwiftUI
 
 struct PYFeedPageView: View {
-    @StateObject var viewModel = PYFeedViewModel()
+    @StateObject var viewModel: PYFeedViewModel
+    
+    init(viewModel: PYFeedViewModel) {
+        _viewModel = .init(wrappedValue: viewModel)
+    }
     
     var placeCategories: some View {
         VStack {
@@ -76,28 +80,19 @@ struct PYFeedPageView: View {
                     PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
                         .frame(width: 45, height: 70)
                     PuraceTextView("Llegando a Popayán...")
-                }.offset(x: 0, y: 33)
+                }.offset(x: 0, y: 9)
+                    .transition(.opacity.animation(.linear(duration: 0.2)))
             } else {
-                ZStack {
-                    VStack {
-                        Color.white
-                            .frame(height: 1) // hack to fix transparent status bar when nav bar is hidden
-                        ScrollView {
-                            VStack(spacing: 40) {
-                                placeCategories
-                                heroes
-                            }.padding(.vertical)
-                        }
+                VStack {
+                    Color.white
+                        .frame(height: 1) // hack to fix transparent status bar when nav bar is hidden
+                    ScrollView {
+                        VStack(spacing: 40) {
+                            placeCategories
+                            heroes
+                        }.padding(.vertical)
                     }
-                    VStack {
-                        Spacer()
-                        PuraceSnackbarView(
-                            title: "Bienvenido",
-                            type: .info,
-                            isVisible: $viewModel.snackbarIsVisible
-                        ).padding(.bottom)
-                    }
-                }
+                }.transition(.opacity.animation(.linear(duration: 0.2)))
             }
         }
         .background(Color.white)
