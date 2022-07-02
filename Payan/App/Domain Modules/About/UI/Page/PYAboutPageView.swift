@@ -10,6 +10,14 @@ import SwiftUI
 import Purace
 
 struct PYAboutPageView: View {
+    private var version: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    }
+    
+    private var buildNumber: String {
+        Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+    }
+    
     var navBar: some View {
         HStack(alignment: .center) {
             Image(systemName: "chevron.left")
@@ -33,17 +41,20 @@ struct PYAboutPageView: View {
     
     var description: some View {
         PuraceTextView(
-            "Payán es un proyecto sin ánimo de lucro cuyo principal objetivo es mostrar al mundo al belleza e historia que esconde el centro histórico de la ciudad de Popayán, Colombia."
+            "Payán es un proyecto sin ánimo de lucro cuyo principal objetivo es mostrar al mundo al belleza e historia que esconde el centro histórico de la ciudad de Popayán, Colombia.",
+            textColor: PuraceStyle.Color.N2
         )
             .multilineTextAlignment(.center)
             .padding(.horizontal, 50)
+            .padding(.vertical, 30)
+            .background(Color.black.opacity(0.05))
     }
     
     var title: some View {
         VStack {
-            PuraceTextView("Payan en iOS", weight: .medium)
-            PuraceTextView("Versión 2.0.0", fontSize: 10, textColor: PuraceStyle.Color.N4)
-        }
+            PuraceTextView("Payan en iOS", fontSize: 14, weight: .medium)
+            PuraceTextView("Versión \(version)+\(buildNumber)", fontSize: 10, textColor: PuraceStyle.Color.N4)
+        }.padding(.bottom)
     }
     
     var icon: some View {
@@ -57,7 +68,7 @@ struct PYAboutPageView: View {
     var evaluateButton: some View {
         PuraceButtonView("Evaluar en la App Store", fontSize: 14) {
             // TODO: Go to the app store
-        }
+        }.padding(.top)
     }
     
     var divider: some View {
@@ -71,9 +82,7 @@ struct PYAboutPageView: View {
             navBar
             icon
             title
-            divider
             description
-            divider
             evaluateButton
             Spacer()
         }.navigationBarHidden(true)
