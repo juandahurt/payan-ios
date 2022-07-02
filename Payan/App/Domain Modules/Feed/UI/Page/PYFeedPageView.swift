@@ -80,7 +80,7 @@ struct PYFeedPageView: View {
                     PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
                         .frame(width: 45, height: 70)
                     PuraceTextView("Llegando a Popayán...")
-                }.offset(x: 0, y: 33)
+                }.offset(x: 0, y: 9)
             } else {
                 ZStack {
                     VStack {

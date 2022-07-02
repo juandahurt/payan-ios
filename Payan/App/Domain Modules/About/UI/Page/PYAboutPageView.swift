@@ -37,7 +37,6 @@ struct PYAboutPageView: View {
         )
             .multilineTextAlignment(.center)
             .padding(.horizontal, 50)
-//            .padding(.vertical, 30)
     }
     
     var title: some View {
