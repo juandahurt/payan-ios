@@ -12,23 +12,31 @@ class PYSearchCoreViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var results: [PYSearchResult] = []
     @Published var isLoading = false
-    private var cancellable: AnyCancellable? = nil
+    private var cancellables = Set<AnyCancellable>()
     
     private let interactor: PYSearchCoreBusinessLogic
     
     init(interactor: PYSearchCoreInteractor) {
         self.interactor = interactor
-        cancellable = $searchText
+        $searchText
             .removeDuplicates()
+            .map { [weak self] text -> String in
+                guard let self = self else { return text }
+                if text.isEmpty {
+                    self.results = []
+                }
+                return text
+            }
             .filter { $0.count > 2 }
             .throttle(for: 0.5, scheduler: DispatchQueue.main, latest: true)
-            .map { text -> String in
+            .map { [weak self] text -> String in
+                guard let self = self else { return text }
                 self.isLoading = true
                 return text
             }
-            .flatMap { text in
-                return self.interactor.search(text: text)
-                    .catch { _ in Empty<[PYSearchResult], Never>() }
+            .flatMap { [weak self] text in
+                return (self?.interactor.search(text: text)
+                            .catch { _ in Empty<[PYSearchResult], Never>() })!
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] res in
@@ -36,6 +44,7 @@ class PYSearchCoreViewModel: ObservableObject {
                 self.isLoading = false
                 self.results = res
             }
+            .store(in: &cancellables)
     }
     
     func result(at index: Int) -> PYSearchResult {
