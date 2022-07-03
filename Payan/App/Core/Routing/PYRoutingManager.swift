@@ -34,7 +34,7 @@ class PYRoutingManager {
         routeHandlers.append(routeHandler)
     }
     
-    func open(url: URL) {
+    func open(url: URL, animated: Bool = true) {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return }
         guard let handler = routeHandlers.first(where: { $0.host == components.host }) else { return }
 
@@ -46,7 +46,7 @@ class PYRoutingManager {
         } else if let handler = handler as? PYBasicRouteHandler {
             guard let route = handler.routes.first(where: { $0.path == components.path }) else { return }
             guard let vc = route.builder.build(params: components.queryItems ?? []) else { return }
-            navigationController.pushViewController(vc, animated: true)
+            navigationController.pushViewController(vc, animated: animated)
         }
     }
     
