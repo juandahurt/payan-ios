@@ -76,6 +76,9 @@
 		2FD54473287128460098468D /* PYSearchCoreRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54472287128460098468D /* PYSearchCoreRouteHandler.swift */; };
 		2FD54476287128890098468D /* PYSearchCorePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54475287128890098468D /* PYSearchCorePageView.swift */; };
 		2FD54478287129010098468D /* PYSearchCoreBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54477287129010098468D /* PYSearchCoreBuilder.swift */; };
+		2FD5447E287210F00098468D /* PYSearchCoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5447D287210F00098468D /* PYSearchCoreViewModel.swift */; };
+		2FD54480287211290098468D /* PYSearchResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5447F287211290098468D /* PYSearchResultItem.swift */; };
+		2FD54482287213F50098468D /* PYSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54481287213F50098468D /* PYSearchResult.swift */; };
 		2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */; };
 		2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */; };
 		2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD72942284175AE002255A3 /* SkeletonUI */; };
@@ -179,6 +182,9 @@
 		2FD54472287128460098468D /* PYSearchCoreRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreRouteHandler.swift; sourceTree = "<group>"; };
 		2FD54475287128890098468D /* PYSearchCorePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCorePageView.swift; sourceTree = "<group>"; };
 		2FD54477287129010098468D /* PYSearchCoreBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreBuilder.swift; sourceTree = "<group>"; };
+		2FD5447D287210F00098468D /* PYSearchCoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreViewModel.swift; sourceTree = "<group>"; };
+		2FD5447F287211290098468D /* PYSearchResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchResultItem.swift; sourceTree = "<group>"; };
+		2FD54481287213F50098468D /* PYSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchResult.swift; sourceTree = "<group>"; };
 		2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionPageView.swift; sourceTree = "<group>"; };
 		2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnFirstAppear.swift"; sourceTree = "<group>"; };
 		2FDC76C42858280800EAC03C /* PYHeroBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroBuilder.swift; sourceTree = "<group>"; };
@@ -658,6 +664,7 @@
 		2FD54470287127BB0098468D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2FD5447B2872101D0098468D /* Entities */,
 				2FD54471287128350098468D /* UI */,
 				2FD54472287128460098468D /* PYSearchCoreRouteHandler.swift */,
 				2FD54477287129010098468D /* PYSearchCoreBuilder.swift */,
@@ -668,6 +675,7 @@
 		2FD54471287128350098468D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2FD5447C287210DD0098468D /* View Model */,
 				2FD544742871287D0098468D /* Page */,
 			);
 			path = UI;
@@ -679,6 +687,23 @@
 				2FD54475287128890098468D /* PYSearchCorePageView.swift */,
 			);
 			path = Page;
+			sourceTree = "<group>";
+		};
+		2FD5447B2872101D0098468D /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2FD5447F287211290098468D /* PYSearchResultItem.swift */,
+				2FD54481287213F50098468D /* PYSearchResult.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2FD5447C287210DD0098468D /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FD5447D287210F00098468D /* PYSearchCoreViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		2FD5786C2840511C007A6EF5 /* Page */ = {
@@ -1044,6 +1069,7 @@
 				2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */,
 				2F56992B285E646E00F2D4D3 /* PYMainPageView.swift in Sources */,
 				2F5827742858DB16006836E8 /* PYHeroInteractor.swift in Sources */,
+				2FD54482287213F50098468D /* PYSearchResult.swift in Sources */,
 				2F5827672858D763006836E8 /* PYHeroBusinessLogic.swift in Sources */,
 				2FD54478287129010098468D /* PYSearchCoreBuilder.swift in Sources */,
 				2F1391B72860BA4B00D1455E /* PYMenuItem.swift in Sources */,
@@ -1059,6 +1085,7 @@
 				2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */,
 				2F8789F52842846100C3A40F /* UIViewController+popGesture.swift in Sources */,
 				2F56992E285E651700F2D4D3 /* PYMainBuilder.swift in Sources */,
+				2FD5447E287210F00098468D /* PYSearchCoreViewModel.swift in Sources */,
 				2F19514728394F3B007B0E73 /* PYPlaceCategory.swift in Sources */,
 				6D46485D281D9B21001FACC0 /* PYCollection.swift in Sources */,
 				2F908E3A2842D1DD003BD450 /* PYPlaceViewLogic.swift in Sources */,
@@ -1111,6 +1138,7 @@
 				2FFBCFD42866183A008E939F /* PYOnboardingPageView.swift in Sources */,
 				2FFBCFD928663B4B008E939F /* PYMainDataAccessLogic.swift in Sources */,
 				2F19514C283954FB007B0E73 /* PYFeedViewModel.swift in Sources */,
+				2FD54480287211290098468D /* PYSearchResultItem.swift in Sources */,
 				2FD5446E287122B30098468D /* PYSearchFeedPageView.swift in Sources */,
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
 				2F908E422842D34B003BD450 /* PYPlaceBusinessLogic.swift in Sources */,
