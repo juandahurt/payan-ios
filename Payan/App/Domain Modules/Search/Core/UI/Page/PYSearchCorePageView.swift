@@ -20,15 +20,7 @@ struct PYSearchCorePageView: View {
                 .onTapGesture {
                     PYRoutingManager.shared.pop(animated: false)
                 }
-            TextField("Buscar", text: $text)
-                .textFieldStyle(.plain)
-                .padding(.horizontal, 12)
-                .frame(height: 40)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.black.opacity(0.05))
-                )
-                .foregroundColor(PuraceStyle.Color.N1)
+            PuraceTextField("Buscar", text: $text)
         }
         .padding(16)
         .background(
