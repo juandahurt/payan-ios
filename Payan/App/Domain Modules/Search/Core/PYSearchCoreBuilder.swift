@@ -10,6 +10,10 @@ import SwiftUI
 
 class PYSearchCoreBuilder: PYModuleBuilder {
     func build(params: [URLQueryItem]) -> UIViewController? {
-        UIHostingController(rootView: PYSearchCorePageView())
+        let worker = PYSearchCoreMockWorker()
+        let interactor = PYSearchCoreInteractor(worker: worker)
+        let viewModel = PYSearchCoreViewModel(interactor: interactor)
+        let view = PYSearchCorePageView(viewModel: viewModel)
+        return UIHostingController(rootView: view)
     }
 }

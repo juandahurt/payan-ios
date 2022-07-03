@@ -11,8 +11,12 @@ import SwiftUI
 import Purace
 
 struct PYSearchCorePageView: View {
-    @StateObject var viewModel = PYSearchCoreViewModel()
+    @StateObject var viewModel: PYSearchCoreViewModel
     @FocusStateLegacy var focusedField: SearchFields? = .searchBar
+    
+    init(viewModel: PYSearchCoreViewModel) {
+        _viewModel = .init(wrappedValue: viewModel)
+    }
     
     var searchBar: some View {
         HStack(spacing: 15) {

@@ -80,6 +80,10 @@
 		2FD54480287211290098468D /* PYSearchResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5447F287211290098468D /* PYSearchResultItem.swift */; };
 		2FD54482287213F50098468D /* PYSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54481287213F50098468D /* PYSearchResult.swift */; };
 		2FD54485287236770098468D /* Focuser in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD54484287236770098468D /* Focuser */; };
+		2FD5448828723B3E0098468D /* PYSearchCoreDataAccessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5448728723B3E0098468D /* PYSearchCoreDataAccessLogic.swift */; };
+		2FD5448B28723B9C0098468D /* PYSearchCoreMockWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5448A28723B9C0098468D /* PYSearchCoreMockWorker.swift */; };
+		2FD5448D28723CAB0098468D /* PYSearchCoreBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5448C28723CAB0098468D /* PYSearchCoreBusinessLogic.swift */; };
+		2FD5449028723CDE0098468D /* PYSearchCoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5448F28723CDE0098468D /* PYSearchCoreInteractor.swift */; };
 		2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */; };
 		2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */; };
 		2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD72942284175AE002255A3 /* SkeletonUI */; };
@@ -186,6 +190,10 @@
 		2FD5447D287210F00098468D /* PYSearchCoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreViewModel.swift; sourceTree = "<group>"; };
 		2FD5447F287211290098468D /* PYSearchResultItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchResultItem.swift; sourceTree = "<group>"; };
 		2FD54481287213F50098468D /* PYSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchResult.swift; sourceTree = "<group>"; };
+		2FD5448728723B3E0098468D /* PYSearchCoreDataAccessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreDataAccessLogic.swift; sourceTree = "<group>"; };
+		2FD5448A28723B9C0098468D /* PYSearchCoreMockWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreMockWorker.swift; sourceTree = "<group>"; };
+		2FD5448C28723CAB0098468D /* PYSearchCoreBusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreBusinessLogic.swift; sourceTree = "<group>"; };
+		2FD5448F28723CDE0098468D /* PYSearchCoreInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreInteractor.swift; sourceTree = "<group>"; };
 		2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionPageView.swift; sourceTree = "<group>"; };
 		2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnFirstAppear.swift"; sourceTree = "<group>"; };
 		2FDC76C42858280800EAC03C /* PYHeroBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroBuilder.swift; sourceTree = "<group>"; };
@@ -666,6 +674,9 @@
 		2FD54470287127BB0098468D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2FD5448E28723CD10098468D /* Interactor */,
+				2FD5448928723B8A0098468D /* Worker */,
+				2FD5448628723B2F0098468D /* Protocols */,
 				2FD5447B2872101D0098468D /* Entities */,
 				2FD54471287128350098468D /* UI */,
 				2FD54472287128460098468D /* PYSearchCoreRouteHandler.swift */,
@@ -706,6 +717,31 @@
 				2FD5447D287210F00098468D /* PYSearchCoreViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		2FD5448628723B2F0098468D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2FD5448728723B3E0098468D /* PYSearchCoreDataAccessLogic.swift */,
+				2FD5448C28723CAB0098468D /* PYSearchCoreBusinessLogic.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2FD5448928723B8A0098468D /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				2FD5448A28723B9C0098468D /* PYSearchCoreMockWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		2FD5448E28723CD10098468D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2FD5448F28723CDE0098468D /* PYSearchCoreInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		2FD5786C2840511C007A6EF5 /* Page */ = {
@@ -1090,6 +1126,7 @@
 				2F8789F52842846100C3A40F /* UIViewController+popGesture.swift in Sources */,
 				2F56992E285E651700F2D4D3 /* PYMainBuilder.swift in Sources */,
 				2FD5447E287210F00098468D /* PYSearchCoreViewModel.swift in Sources */,
+				2FD5449028723CDE0098468D /* PYSearchCoreInteractor.swift in Sources */,
 				2F19514728394F3B007B0E73 /* PYPlaceCategory.swift in Sources */,
 				6D46485D281D9B21001FACC0 /* PYCollection.swift in Sources */,
 				2F908E3A2842D1DD003BD450 /* PYPlaceViewLogic.swift in Sources */,
@@ -1097,6 +1134,7 @@
 				2F908E402842D33F003BD450 /* PYPlaceInteractor.swift in Sources */,
 				2FFBCFE128663C72008E939F /* PYMainInteractor.swift in Sources */,
 				3DB9D546277F573F00E4D45A /* FirebaseAppDelegate.swift in Sources */,
+				2FD5448D28723CAB0098468D /* PYSearchCoreBusinessLogic.swift in Sources */,
 				2F908E372842D1B3003BD450 /* PYPlacePageView.swift in Sources */,
 				2F06927D2801F6C50068AA79 /* PYCollectionBuilder.swift in Sources */,
 				2F908E452843032E003BD450 /* PYPlace.swift in Sources */,
@@ -1111,6 +1149,7 @@
 				2FFBCFDE28663C34008E939F /* PYMainBusinessLogic.swift in Sources */,
 				2F5827762858DCBE006836E8 /* PYHeroViewLogic.swift in Sources */,
 				2FDC76C52858280800EAC03C /* PYHeroBuilder.swift in Sources */,
+				2FD5448B28723B9C0098468D /* PYSearchCoreMockWorker.swift in Sources */,
 				2F0692752801F5770068AA79 /* PYCollectionBusinessLogic.swift in Sources */,
 				2F908E4A28430458003BD450 /* PYPlaceNetworkWorker.swift in Sources */,
 				6DB6E4F52818A96E0002A77C /* PYModuleBuilder.swift in Sources */,
@@ -1150,6 +1189,7 @@
 				2FF1EBE52861731600B16E5E /* PYMainTabItem.swift in Sources */,
 				2FA558112849605400E9B2B4 /* PYPlaceLocation.swift in Sources */,
 				2F1A66EF285A5B950063044F /* PYHeroSection.swift in Sources */,
+				2FD5448828723B3E0098468D /* PYSearchCoreDataAccessLogic.swift in Sources */,
 				2FF1EBE22861718E00B16E5E /* PYMenuBusinessLogic.swift in Sources */,
 				2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
