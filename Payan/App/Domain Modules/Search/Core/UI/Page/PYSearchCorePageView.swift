@@ -5,12 +5,14 @@
 //  Created by Juan Hurtado on 2/07/22.
 //
 
+import Focuser
 import Foundation
 import SwiftUI
 import Purace
 
 struct PYSearchCorePageView: View {
     @StateObject var viewModel = PYSearchCoreViewModel()
+    @FocusStateLegacy var focusedField: SearchFields? = .searchBar
     
     var searchBar: some View {
         HStack(spacing: 15) {
@@ -21,6 +23,7 @@ struct PYSearchCorePageView: View {
                     PYRoutingManager.shared.pop(animated: false)
                 }
             PuraceTextField("Buscar", text: $viewModel.searchText)
+                .focusedLegacy($focusedField, equals: .last)
         }
         .padding(16)
         .background(
@@ -81,5 +84,20 @@ struct PYSearchCorePageView: View {
             Spacer()
                 .navigationBarHidden(true)
         }.background(Color.black.opacity(0.05))
+    }
+}
+
+enum SearchFields {
+    case searchBar
+}
+
+extension SearchFields: FocusStateCompliant {
+
+    static var last: SearchFields {
+        .searchBar
+    }
+
+    var next: SearchFields? {
+        nil
     }
 }

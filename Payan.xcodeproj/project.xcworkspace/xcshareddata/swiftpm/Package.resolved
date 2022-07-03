@@ -128,6 +128,15 @@
         }
       },
       {
+        "package": "Focuser",
+        "repositoryURL": "https://github.com/art-technologies/swift-focuser",
+        "state": {
+          "branch": null,
+          "revision": "f874246f370218994469b74939b88d564be1f810",
+          "version": "0.2.0"
+        }
+      },
+      {
         "package": "SwiftProtobuf",
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
@@ -143,6 +152,15 @@
           "branch": null,
           "revision": "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
           "version": "1.9.0"
+        }
+      },
+      {
+        "package": "Introspect",
+        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
+        "state": {
+          "branch": null,
+          "revision": "f2616860a41f9d9932da412a8978fec79c06fe24",
+          "version": "0.1.4"
         }
       },
       {

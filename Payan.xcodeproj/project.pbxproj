@@ -79,6 +79,7 @@
 		2FD5447E287210F00098468D /* PYSearchCoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5447D287210F00098468D /* PYSearchCoreViewModel.swift */; };
 		2FD54480287211290098468D /* PYSearchResultItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5447F287211290098468D /* PYSearchResultItem.swift */; };
 		2FD54482287213F50098468D /* PYSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54481287213F50098468D /* PYSearchResult.swift */; };
+		2FD54485287236770098468D /* Focuser in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD54484287236770098468D /* Focuser */; };
 		2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */; };
 		2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD7293F28416490002255A3 /* View+OnFirstAppear.swift */; };
 		2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD72942284175AE002255A3 /* SkeletonUI */; };
@@ -225,6 +226,7 @@
 			files = (
 				2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */,
 				2FD72943284175AE002255A3 /* SkeletonUI in Frameworks */,
+				2FD54485287236770098468D /* Focuser in Frameworks */,
 				2FBC47ED286A3A270021EBCA /* Purace in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1004,6 +1006,7 @@
 				2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */,
 				2FD72942284175AE002255A3 /* SkeletonUI */,
 				2FBC47EC286A3A270021EBCA /* Purace */,
+				2FD54484287236770098468D /* Focuser */,
 			);
 			productName = Payan;
 			productReference = 3DF708B926F2A4D200FD24CF /* Payan.app */;
@@ -1036,6 +1039,7 @@
 				2F9AFADC27FA393C006DC8D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 				2FBC47EB286A3A270021EBCA /* XCRemoteSwiftPackageReference "Purace" */,
+				2FD54483287236770098468D /* XCRemoteSwiftPackageReference "swift-focuser" */,
 			);
 			productRefGroup = 3DF708BA26F2A4D200FD24CF /* Products */;
 			projectDirPath = "";
@@ -1381,6 +1385,14 @@
 				version = 1.12.1;
 			};
 		};
+		2FD54483287236770098468D /* XCRemoteSwiftPackageReference "swift-focuser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/art-technologies/swift-focuser";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
 		2FD72941284175AD002255A3 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/CSolanaM/SkeletonUI.git";
@@ -1401,6 +1413,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FBC47EB286A3A270021EBCA /* XCRemoteSwiftPackageReference "Purace" */;
 			productName = Purace;
+		};
+		2FD54484287236770098468D /* Focuser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FD54483287236770098468D /* XCRemoteSwiftPackageReference "swift-focuser" */;
+			productName = Focuser;
 		};
 		2FD72942284175AE002255A3 /* SkeletonUI */ = {
 			isa = XCSwiftPackageProductDependency;
