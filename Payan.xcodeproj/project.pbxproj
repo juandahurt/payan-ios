@@ -72,7 +72,6 @@
 		2FCAE690286FA6D300538D05 /* PYAboutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE68F286FA6D300538D05 /* PYAboutBuilder.swift */; };
 		2FCAE692286FA75800538D05 /* PYAboutRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE691286FA75800538D05 /* PYAboutRouteHandler.swift */; };
 		2FCAE696286FA80F00538D05 /* PYAboutPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE695286FA80F00538D05 /* PYAboutPageView.swift */; };
-		2FD5446E287122B30098468D /* PYSearchFeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD5446D287122B30098468D /* PYSearchFeedPageView.swift */; };
 		2FD54473287128460098468D /* PYSearchCoreRouteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54472287128460098468D /* PYSearchCoreRouteHandler.swift */; };
 		2FD54476287128890098468D /* PYSearchCorePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54475287128890098468D /* PYSearchCorePageView.swift */; };
 		2FD54478287129010098468D /* PYSearchCoreBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD54477287129010098468D /* PYSearchCoreBuilder.swift */; };
@@ -183,7 +182,6 @@
 		2FCAE68F286FA6D300538D05 /* PYAboutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYAboutBuilder.swift; sourceTree = "<group>"; };
 		2FCAE691286FA75800538D05 /* PYAboutRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYAboutRouteHandler.swift; sourceTree = "<group>"; };
 		2FCAE695286FA80F00538D05 /* PYAboutPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYAboutPageView.swift; sourceTree = "<group>"; };
-		2FD5446D287122B30098468D /* PYSearchFeedPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchFeedPageView.swift; sourceTree = "<group>"; };
 		2FD54472287128460098468D /* PYSearchCoreRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreRouteHandler.swift; sourceTree = "<group>"; };
 		2FD54475287128890098468D /* PYSearchCorePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCorePageView.swift; sourceTree = "<group>"; };
 		2FD54477287129010098468D /* PYSearchCoreBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchCoreBuilder.swift; sourceTree = "<group>"; };
@@ -641,39 +639,6 @@
 		2FD54469287122920098468D /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				2FD54470287127BB0098468D /* Core */,
-				2FD5446F287127AD0098468D /* Feed */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		2FD5446A2871229C0098468D /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				2FD5446C287122A70098468D /* Page */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		2FD5446C287122A70098468D /* Page */ = {
-			isa = PBXGroup;
-			children = (
-				2FD5446D287122B30098468D /* PYSearchFeedPageView.swift */,
-			);
-			path = Page;
-			sourceTree = "<group>";
-		};
-		2FD5446F287127AD0098468D /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				2FD5446A2871229C0098468D /* UI */,
-			);
-			path = Feed;
-			sourceTree = "<group>";
-		};
-		2FD54470287127BB0098468D /* Core */ = {
-			isa = PBXGroup;
-			children = (
 				2FD5448E28723CD10098468D /* Interactor */,
 				2FD5448928723B8A0098468D /* Worker */,
 				2FD5448628723B2F0098468D /* Protocols */,
@@ -682,7 +647,7 @@
 				2FD54472287128460098468D /* PYSearchCoreRouteHandler.swift */,
 				2FD54477287129010098468D /* PYSearchCoreBuilder.swift */,
 			);
-			path = Core;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		2FD54471287128350098468D /* UI */ = {
@@ -1182,7 +1147,6 @@
 				2FFBCFD928663B4B008E939F /* PYMainDataAccessLogic.swift in Sources */,
 				2F19514C283954FB007B0E73 /* PYFeedViewModel.swift in Sources */,
 				2FD54480287211290098468D /* PYSearchResultItem.swift in Sources */,
-				2FD5446E287122B30098468D /* PYSearchFeedPageView.swift in Sources */,
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
 				2F908E422842D34B003BD450 /* PYPlaceBusinessLogic.swift in Sources */,
 				2FCAE696286FA80F00538D05 /* PYAboutPageView.swift in Sources */,

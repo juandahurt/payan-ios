@@ -76,17 +76,24 @@ struct PYSearchCorePageView: View {
                 }
             }.padding(.bottom)
         }
-        .frame(maxHeight: UIScreen.main.bounds.height * 0.2)
+        .frame(maxHeight: UIScreen.main.bounds.height * 0.3)
         .background(Color.white)
+    }
+    
+    var loader: some View {
+        ZStack {
+            Color.white
+            PuraceCircularLoaderView(lineWidth: 2)
+                .frame(width: 10, height: 10)
+                .padding(.vertical)
+        }.frame(height: 40)
     }
     
     var body: some View {
         VStack(spacing: 0) {
             searchBar
             if viewModel.isLoading {
-                PuraceCircularLoaderView()
-                    .frame(width: 80, height: 80)
-                    .padding(.top, 50)
+                loader
             } else {
                 results
             }
