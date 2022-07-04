@@ -59,6 +59,11 @@ struct PYSearchCorePageView: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 5)
         .background(Color.white)
+        .onTapGesture {
+            guard let url = URL(string: item.deepLink) else { return }
+            isVisible = false
+            PYRoutingManager.shared.open(url: url)
+        }
     }
     
     var results: some View {

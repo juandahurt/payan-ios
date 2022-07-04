@@ -9,5 +9,5 @@ import Foundation
 
 struct PYSearchResultItem {
     var title: String
-    var deepLink: String = "" // TODO: Remove default value
+    var deepLink: String = "payan://hero?id=629254c4df3a07de6d48a1da" // TODO: Remove default value
 }
