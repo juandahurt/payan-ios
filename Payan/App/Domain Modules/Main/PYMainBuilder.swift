@@ -22,11 +22,6 @@ final class PYMainBuilder {
         let feedIcon = UIImage(named: "home")
         feedViewController.tabBarItem.selectedImage = feedIcon
         feedViewController.tabBarItem.image = feedIcon
-
-        let searchViewController = UIHostingController(rootView: PYSearchFeedPageView())
-        let searchIcon = UIImage(named: "search")
-        searchViewController.tabBarItem.image = searchIcon
-        searchViewController.tabBarItem.selectedImage = searchIcon
         
         let menuViewController = PYMenuBuilder().build()
         let menuIcon = UIImage(named: "menu")
@@ -35,7 +30,6 @@ final class PYMainBuilder {
         
         controller.viewControllers = [
             feedViewController,
-            searchViewController,
             menuViewController
         ]
         controller.tabBar.isHidden = true

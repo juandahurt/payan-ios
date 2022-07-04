@@ -8,12 +8,11 @@
 import Foundation
 import SwiftUI
 
-class PYSearchCoreBuilder: PYModuleBuilder {
-    func build(params: [URLQueryItem]) -> UIViewController? {
+class PYSearchCoreBuilder {
+    func build(isVisible: Binding<Bool>) -> some View {
         let worker = PYSearchCoreMockWorker()
         let interactor = PYSearchCoreInteractor(worker: worker)
         let viewModel = PYSearchCoreViewModel(interactor: interactor)
-        let view = PYSearchCorePageView(viewModel: viewModel)
-        return UIHostingController(rootView: view)
+        return PYSearchCorePageView(isVisible: isVisible, viewModel: viewModel)
     }
 }

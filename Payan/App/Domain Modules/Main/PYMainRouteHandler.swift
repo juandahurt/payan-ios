@@ -21,8 +21,7 @@ class PYMainRouteHandler: PYTabbedRouteHandler {
     func configure() {
         tabItems = [
             (index: 0, path: "/home"),
-            (index: 1, path: "/search"),
-            (index: 2, path: "/menu"),
+            (index: 1, path: "/menu"),
         ]
     }
 }

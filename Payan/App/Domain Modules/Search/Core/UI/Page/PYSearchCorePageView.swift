@@ -13,9 +13,11 @@ import Purace
 struct PYSearchCorePageView: View {
     @StateObject var viewModel: PYSearchCoreViewModel
     @FocusStateLegacy var focusedField: SearchFields? = .searchBar
+    @Binding var isVisible: Bool
     
-    init(viewModel: PYSearchCoreViewModel) {
+    init(isVisible: Binding<Bool>, viewModel: PYSearchCoreViewModel) {
         _viewModel = .init(wrappedValue: viewModel)
+        _isVisible = isVisible
     }
     
     var searchBar: some View {
@@ -24,12 +26,13 @@ struct PYSearchCorePageView: View {
                 .foregroundColor(PuraceStyle.Color.N1)
                 .scaleEffect(1.2)
                 .onTapGesture {
-                    PYRoutingManager.shared.pop(animated: false)
+                    isVisible = false
                 }
             PuraceTextField("Buscar", text: $viewModel.searchText)
-                .focusedLegacy($focusedField, equals: .last)
+                .focusedLegacy($focusedField, equals: .searchBar)
         }
-        .padding(16)
+        .padding(.horizontal, 16)
+        .padding(.bottom, 8)
         .background(
             Color.white
         )
@@ -71,8 +74,10 @@ struct PYSearchCorePageView: View {
                         }
                     }
                 }
-            }
+            }.padding(.bottom)
         }
+        .frame(maxHeight: UIScreen.main.bounds.height * 0.2)
+        .background(Color.white)
     }
     
     var body: some View {
@@ -87,7 +92,12 @@ struct PYSearchCorePageView: View {
             }
             Spacer()
                 .navigationBarHidden(true)
-        }.background(Color.black.opacity(0.05))
+        }.background(
+            Color.black.opacity(0.3)
+                .onTapGesture {
+                    isVisible = false
+                }
+        )
     }
 }
 

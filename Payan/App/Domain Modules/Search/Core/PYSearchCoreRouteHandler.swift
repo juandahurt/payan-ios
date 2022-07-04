@@ -18,7 +18,7 @@ class PYSearchCoreRouteHandler: PYBasicRouteHandler {
     
     func configure() {
         routes = [
-            (builder: PYSearchCoreBuilder(), path: "")
+//            (builder: PYSearchCoreBuilder(), path: "")
         ]
     }
 }
