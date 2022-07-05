@@ -5,6 +5,7 @@
 //  Created by Juan Hurtado on 24/04/22.
 //
 
+import Combine
 import Foundation
 
 final class PYNetworkManager {
@@ -47,5 +48,12 @@ extension PYNetworkManager {
                 completion(.success(data))
             }
         }.resume()
+    }
+    
+    func exec(request: PYNetworkRequest) -> URLSession.DataTaskPublisher {
+        let stringUrl = "\(baseUrl)/\(request.endpoint)"
+        let url = URL(string: stringUrl)!
+
+        return URLSession.shared.dataTaskPublisher(for: url)
     }
 }

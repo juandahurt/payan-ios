@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PYSearchResultItem {
+struct PYSearchResultItem: Decodable {
     var title: String
-    var deepLink: String = "payan://hero?id=629254c4df3a07de6d48a1da" // TODO: Remove default value
+    var deepLink: String
 }
