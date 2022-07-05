@@ -80,9 +80,9 @@ struct PYSearchCorePageView: View {
                     }
                 }
             }.padding(.bottom)
+                .background(Color.white)
         }
         .frame(maxHeight: UIScreen.main.bounds.height * 0.3)
-        .background(Color.white)
     }
     
     var loader: some View {
