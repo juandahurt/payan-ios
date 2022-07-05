@@ -94,13 +94,24 @@ struct PYSearchCorePageView: View {
         }.frame(height: 40)
     }
     
+    var noResults: some View {
+        ZStack {
+            Color.white
+            PuraceTextView("No se encontraron resultados.")
+        }.frame(height: 40)
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             searchBar
             if viewModel.isLoading {
                 loader
             } else {
-                results
+                if viewModel.showNoResultsWereFound {
+                    noResults
+                } else {
+                    results
+                }
             }
             Spacer()
                 .navigationBarHidden(true)

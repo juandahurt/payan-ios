@@ -12,6 +12,7 @@ class PYSearchCoreViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var results: [PYSearchResult] = []
     @Published var isLoading = false
+    @Published var showNoResultsWereFound = false
     private var cancellables = Set<AnyCancellable>()
     
     private let interactor: PYSearchCoreBusinessLogic
@@ -24,6 +25,7 @@ class PYSearchCoreViewModel: ObservableObject {
                 guard let self = self else { return text }
                 if text.isEmpty {
                     self.results = []
+                    self.showNoResultsWereFound = false
                 }
                 return text
             }
@@ -42,6 +44,7 @@ class PYSearchCoreViewModel: ObservableObject {
             .sink { [weak self] res in
                 guard let self = self else { return }
                 self.isLoading = false
+                self.showNoResultsWereFound = res.isEmpty
                 self.results = res
             }
             .store(in: &cancellables)
