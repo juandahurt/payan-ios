@@ -54,16 +54,26 @@ struct PYSearchCorePageView: View {
             Image("search-100")
             PuraceTextView(item.title)
                 .multilineTextAlignment(.leading)
+                .lineLimit(1)
             Spacer()
         }
         .padding(.horizontal, 20)
-        .padding(.vertical, 5)
-        .background(Color.white)
+        .padding(.vertical, 8)
+        .background(viewModel.selectedItem == item ? Color.black.opacity(0.05) : Color.white)
         .onTapGesture {
             guard let url = URL(string: item.deepLink) else { return }
             isVisible = false
             PYRoutingManager.shared.open(url: url)
         }
+        .simultaneousGesture(
+            DragGesture(minimumDistance: 0)
+                .onChanged({ _ in
+                    viewModel.select(item: item)
+                })
+                .onEnded({ _ in
+                    viewModel.select(item: nil)
+                })
+        )
     }
     
     var results: some View {
@@ -79,7 +89,7 @@ struct PYSearchCorePageView: View {
                         }
                     }
                 }
-            }.padding(.bottom)
+            }
                 .background(Color.white)
         }
         .frame(maxHeight: UIScreen.main.bounds.height * 0.3)

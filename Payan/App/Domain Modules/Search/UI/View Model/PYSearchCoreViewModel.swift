@@ -13,6 +13,7 @@ class PYSearchCoreViewModel: ObservableObject {
     @Published var results: [PYSearchResult] = []
     @Published var isLoading = false
     @Published var showNoResultsWereFound = false
+    @Published var selectedItem: PYSearchResultItem?
     private var cancellables = Set<AnyCancellable>()
     
     private let interactor: PYSearchCoreBusinessLogic
@@ -56,5 +57,9 @@ class PYSearchCoreViewModel: ObservableObject {
     
     func item(of result: PYSearchResult, at index: Int) -> PYSearchResultItem {
         result.items[index]
+    }
+    
+    func select(item: PYSearchResultItem?) {
+        selectedItem = item
     }
 }
