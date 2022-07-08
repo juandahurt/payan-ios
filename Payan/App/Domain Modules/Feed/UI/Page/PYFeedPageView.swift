@@ -11,6 +11,7 @@ import SwiftUI
 
 struct PYFeedPageView: View {
     @StateObject var viewModel: PYFeedViewModel
+    @State var isSearchVisible = false
     
     init(viewModel: PYFeedViewModel) {
         _viewModel = .init(wrappedValue: viewModel)
@@ -73,24 +74,44 @@ struct PYFeedPageView: View {
         }
     }
     
+    var loader: some View {
+        VStack(spacing: 15) {
+            PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
+                .frame(width: 45, height: 70)
+            PuraceTextView("Llegando a Popayán...")
+        }.offset(x: 0, y: 9)
+            .transition(.opacity.animation(.linear(duration: 0.2)))
+    }
+    
+    var navBar: some View {
+        HStack {
+            Image("search")
+                .padding(.horizontal, 16)
+                .onTapGesture {
+                    isSearchVisible = true
+                }
+            Spacer()
+                .frame(height: 40)
+        }.background(Color.white)
+    }
+    
     var body: some View {
         Group {
             if viewModel.isLoading {
-                VStack(spacing: 15) {
-                    PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
-                        .frame(width: 45, height: 70)
-                    PuraceTextView("Llegando a Popayán...")
-                }.offset(x: 0, y: 9)
-                    .transition(.opacity.animation(.linear(duration: 0.2)))
+                loader
             } else {
-                VStack {
-                    Color.white
-                        .frame(height: 1) // hack to fix transparent status bar when nav bar is hidden
-                    ScrollView {
-                        VStack(spacing: 40) {
-                            placeCategories
-                            heroes
-                        }.padding(.vertical)
+                ZStack {
+                    VStack {
+                        navBar
+                        ScrollView {
+                            VStack(spacing: 40) {
+                                placeCategories
+                                heroes
+                            }.padding(.vertical)
+                        }
+                    }
+                    if isSearchVisible {
+                        PYSearchCoreBuilder().build(isVisible: $isSearchVisible)
                     }
                 }.transition(.opacity.animation(.linear(duration: 0.2)))
             }

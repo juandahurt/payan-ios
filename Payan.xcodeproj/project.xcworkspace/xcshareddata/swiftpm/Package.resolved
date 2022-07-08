@@ -114,8 +114,8 @@
         "repositoryURL": "https://github.com/juandahurt/Purace",
         "state": {
           "branch": null,
-          "revision": "dcda933ebcccb58ba64856cb0d171175defc5fd9",
-          "version": "1.12.0"
+          "revision": "6a743080ec8b639779a9cef68a103f92b5639426",
+          "version": "1.12.1"
         }
       },
       {
@@ -125,6 +125,15 @@
           "branch": "develop",
           "revision": "132f12a34b7fdab275bfc61968749b1f11c36300",
           "version": null
+        }
+      },
+      {
+        "package": "Focuser",
+        "repositoryURL": "https://github.com/art-technologies/swift-focuser",
+        "state": {
+          "branch": null,
+          "revision": "f874246f370218994469b74939b88d564be1f810",
+          "version": "0.2.0"
         }
       },
       {
@@ -143,6 +152,15 @@
           "branch": null,
           "revision": "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
           "version": "1.9.0"
+        }
+      },
+      {
+        "package": "Introspect",
+        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
+        "state": {
+          "branch": null,
+          "revision": "f2616860a41f9d9932da412a8978fec79c06fe24",
+          "version": "0.1.4"
         }
       },
       {
