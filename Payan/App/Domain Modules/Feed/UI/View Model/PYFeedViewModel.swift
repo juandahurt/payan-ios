@@ -11,11 +11,13 @@ class PYFeedViewModel: ObservableObject {
     @Published var loadedPercentage: Double = 0
     @Published var isLoading: Bool = true
     @Published var feedData: PYFeedPage = .empty
+    @Published var errorOccurred = false
     
     private var currentPercentageAddition = 0.1
     
     lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
         guard let self = self else { return }
+        guard !self.errorOccurred else { return }
         guard self.loadedPercentage < 0.85 else { return }
         self.loadedPercentage += self.currentPercentageAddition
         self.currentPercentageAddition /= 1.15
@@ -31,21 +33,24 @@ class PYFeedViewModel: ObservableObject {
     
     func getData() {
         loadedPercentage = 0
+        currentPercentageAddition = 0.1
         isLoading = true
         timer.fire()
         interactor.getFeedData { [weak self] res in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                 guard let self = self else { return }
-                self.loadedPercentage = 1
                 switch res {
                 case .success(let data):
+                    self.loadedPercentage = 1
                     self.feedData = data
-                case .failure(_): break
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.isLoading = false
-                    self.timer.invalidate()
-                    self.onSuccess?()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.isLoading = false
+                        self.timer.invalidate()
+                        self.onSuccess?()
+                    }
+                case .failure(_):
+                    self.loadedPercentage = 0
+                    self.errorOccurred = true
                 }
             }
         }
