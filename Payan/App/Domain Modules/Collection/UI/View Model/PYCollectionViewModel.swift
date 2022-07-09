@@ -10,7 +10,7 @@ import Foundation
 class PYCollectionViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var collection: PYCollection = .skeleton
-    @Published var isErrorPresented = false
+    @Published var errorHasOccured = false
 
     let interactor: PYCollectionBusinessLogic
     
@@ -27,7 +27,9 @@ class PYCollectionViewModel: ObservableObject {
             case .success(let collection):
                 self.collection = collection
             case .failure(_):
-                self.isErrorPresented = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.errorHasOccured = true
+                }
             }
         }
     }
