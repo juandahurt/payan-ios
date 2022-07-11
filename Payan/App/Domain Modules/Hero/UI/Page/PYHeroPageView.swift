@@ -109,5 +109,11 @@ struct PYHeroPageView: View, PYHeroViewLogic {
             .onFirstAppear {
                 viewModel.getHero(id: heroId)
             }
+            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
+            .onChange(of: viewModel.errorHasOccured) { value in
+                if !value {
+                    viewModel.getHero(id: heroId)
+                }
+            }
     }
 }

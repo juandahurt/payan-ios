@@ -10,6 +10,7 @@ import Foundation
 class PYHeroViewModel: ObservableObject {
     @Published var hero: PYHero = .empty
     @Published var isLoading = true
+    @Published var errorHasOccured = false
     
     private let interactor: PYHeroBusinessLogic
     
@@ -22,6 +23,7 @@ class PYHeroViewModel: ObservableObject {
     }
     
     func getHero(id: String) {
+        isLoading = true
         interactor.getHero(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -29,7 +31,10 @@ class PYHeroViewModel: ObservableObject {
                 switch res {
                 case .success(let hero):
                     self.hero = hero
-                case .failure(_): break
+                case .failure(_):
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        self.errorHasOccured = true
+                    }
                 }
             }
         }
