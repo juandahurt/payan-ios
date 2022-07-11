@@ -12,10 +12,18 @@ class PYHeroViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var errorHasOccured = false
     
+    private var heroWasFetchedSuccessfuly = false
     private let interactor: PYHeroBusinessLogic
     
     init(interactor: PYHeroBusinessLogic) {
         self.interactor = interactor
+    }
+    
+    var dates: String {
+        if !heroWasFetchedSuccessfuly {
+            return " "
+        }
+        return "1810 - 1880"
     }
     
     func section(at index: Int) -> PYHeroSection {
@@ -31,6 +39,7 @@ class PYHeroViewModel: ObservableObject {
                 switch res {
                 case .success(let hero):
                     self.hero = hero
+                    self.heroWasFetchedSuccessfuly = true
                 case .failure(_):
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self.errorHasOccured = true

@@ -48,7 +48,7 @@ struct PYHeroPageView: View, PYHeroViewLogic {
             }
             HStack {
                 Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
-                PuraceTextView("1867 - 1934", fontSize: 12, textColor: PuraceStyle.Color.N4, weight: .medium)
+                PuraceTextView(viewModel.dates, fontSize: 12, textColor: PuraceStyle.Color.N4, weight: .medium)
                     .skeleton(with: viewModel.isLoading)
                     .multiline(lines: 1)
                 Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
