@@ -58,6 +58,16 @@ class PYRoutingManager {
         navigationController.pushViewController(vc, animated: animated)
     }
     
+    func present(_ vc: UIViewController) {
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .coverVertical
+        navigationController.present(vc, animated: true)
+    }
+    
+    func dismiss() {
+        navigationController.dismiss(animated: true)
+    }
+    
     func setViewControllers(_ viewControllers: [UIViewController]) {
         navigationController.viewControllers = viewControllers
     }

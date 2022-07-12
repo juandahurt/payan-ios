@@ -114,7 +114,11 @@ struct PYFeedPageView: View {
                     PuraceButtonView(
                         "Ver más",
                         type: .custom(PuraceStyle.Color.B2, PuraceStyle.Color.B1, .white)
-                    )
+                    ) {
+                        // TODO: use deeplinks!!
+                        let vc = UIHostingController(rootView: PYStoryPageView())
+                        PYRoutingManager.shared.present(vc)
+                    }
                 }
             }.padding([.bottom, .trailing], 30)
         }.frame(height: UIScreen.main.bounds.height * 0.6)
