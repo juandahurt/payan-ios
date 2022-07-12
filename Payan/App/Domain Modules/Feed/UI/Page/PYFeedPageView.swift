@@ -95,6 +95,32 @@ struct PYFeedPageView: View {
         }.background(Color.white)
     }
     
+    var story: some View {
+        ZStack {
+            PuraceImageView(url: URL(string: "https://cdn.colombia.com/sdi/2019/03/31/a-36-anos-del-terremoto-de-popayan-723989.jpg"))
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.6)
+            Color.black.opacity(0.2)
+            VStack {
+                VStack(alignment: .leading, spacing: 20) {
+                    Spacer()
+                    PuraceTextView("El terremoto de 1983", fontSize: 20, textColor: .white, weight: .medium)
+                        .multilineTextAlignment(.leading)
+                    PuraceTextView("El terremoto tuvo una magnitud de 5,5 (calculada con ondas de cuerpo) e intensidad VIII grados en la escala de Mercalli con un epicentro al sudoeste de Popayán y una profundidad de 12 a 15 kilómetros.", fontSize: 14, textColor: .white)
+                        .multilineTextAlignment(.leading)
+                }.padding(30)
+                HStack {
+                    Spacer()
+                    PuraceButtonView(
+                        "Ver más",
+                        type: .custom(PuraceStyle.Color.B2, PuraceStyle.Color.B1, .white)
+                    )
+                }
+            }.padding([.bottom, .trailing], 30)
+        }.frame(height: UIScreen.main.bounds.height * 0.6)
+        
+    }
+    
     var body: some View {
         Group {
             if viewModel.isLoading {
@@ -106,6 +132,7 @@ struct PYFeedPageView: View {
                         ScrollView {
                             VStack(spacing: 40) {
                                 placeCategories
+                                story
                                 heroes
                             }.padding(.vertical)
                         }
