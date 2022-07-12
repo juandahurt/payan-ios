@@ -78,7 +78,7 @@ struct PYFeedPageView: View {
         VStack(spacing: 15) {
             PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
                 .frame(width: 45, height: 70)
-            PuraceTextView("Llegando a Popayán...")
+            PuraceTextView(viewModel.errorOccurred ? "No pudimos llegar." : "Llegando a Popayán...")
         }.offset(x: 0, y: 9)
             .transition(.opacity.animation(.linear(duration: 0.2)))
     }
@@ -121,6 +121,12 @@ struct PYFeedPageView: View {
             viewModel.getData()
         }
         .navigationBarHidden(true)
+        .snackBar(title: "Parece que ha ocurrido un error", isVisible: $viewModel.errorOccurred, type: .error, buttonTitle: "REINTENTAR")
+        .onChange(of: viewModel.errorOccurred) { value in
+            if !value {
+                viewModel.getData()
+            }
+        }
     }
 }
 

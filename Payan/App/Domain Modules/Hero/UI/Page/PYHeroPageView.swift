@@ -48,7 +48,7 @@ struct PYHeroPageView: View, PYHeroViewLogic {
             }
             HStack {
                 Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
-                PuraceTextView("1867 - 1934", fontSize: 12, textColor: PuraceStyle.Color.N4, weight: .medium)
+                PuraceTextView(viewModel.dates, fontSize: 12, textColor: PuraceStyle.Color.N4, weight: .medium)
                     .skeleton(with: viewModel.isLoading)
                     .multiline(lines: 1)
                 Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
@@ -108,6 +108,12 @@ struct PYHeroPageView: View, PYHeroViewLogic {
             .navigationBarHidden(true)
             .onFirstAppear {
                 viewModel.getHero(id: heroId)
+            }
+            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
+            .onChange(of: viewModel.errorHasOccured) { value in
+                if !value {
+                    viewModel.getHero(id: heroId)
+                }
             }
     }
 }

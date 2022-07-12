@@ -106,8 +106,14 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             navBar
             collection
         }.navigationBarHidden(true)
+            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
             .onFirstAppear {
                 viewModel.getCollection(ofType: type, categoryId: categoryId)
+            }
+            .onChange(of: viewModel.errorHasOccured) { value in
+                if !value {
+                    viewModel.getCollection(ofType: type, categoryId: categoryId)
+                }
             }
     }
 }

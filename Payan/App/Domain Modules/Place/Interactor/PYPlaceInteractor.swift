@@ -20,7 +20,8 @@ class PYPlaceInteractor: PYPlaceBusinessLogic {
                 switch res {
                 case .success(let place):
                     completion(.success(place))
-                case .failure(_): break
+                case .failure(let error):
+                    completion(.failure(error))
                 }
             }
         }

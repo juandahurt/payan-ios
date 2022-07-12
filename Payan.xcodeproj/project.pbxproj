@@ -1386,7 +1386,7 @@
 			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
 				kind = exactVersion;
-				version = 1.12.1;
+				version = 1.12.4;
 			};
 		};
 		2FD54483287236770098468D /* XCRemoteSwiftPackageReference "swift-focuser" */ = {

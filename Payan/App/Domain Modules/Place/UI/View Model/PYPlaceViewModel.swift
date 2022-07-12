@@ -12,6 +12,8 @@ class PYPlaceViewModel: ObservableObject {
     
     @Published var place: PYPlace = .empty
     @Published var isLoading = true
+    @Published var errorHasOccured = false
+    @Published var placeWasFetchedSuccesffully = false
     
     var tabTitles: [String] {
         var titles = ["Ubicación"]
@@ -26,13 +28,18 @@ class PYPlaceViewModel: ObservableObject {
     }
     
     func getPlace(id: String) {
+        isLoading = true
         interactor.getPlace(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }
             self.isLoading = false
             switch res {
             case .success(let place):
                 self.place = place
-            case .failure(_): break
+                self.placeWasFetchedSuccesffully = true
+            case .failure(_):
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.errorHasOccured = true
+                }
             }
         }
     }

@@ -185,7 +185,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                         description
                             .padding()
                     }.offset(x: 0, y: -15)
-                    if !viewModel.isLoading {
+                    if viewModel.placeWasFetchedSuccesffully {
                         tabs
                             .frame(height: UIScreen.main.bounds.height * 0.5)
                     }
@@ -195,6 +195,12 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             VStack {
                 navBar
                 Spacer()
+            }
+        }
+        .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
+        .onChange(of: viewModel.errorHasOccured) { value in
+            if !value {
+                viewModel.getPlace(id: placeId)
             }
         }
         .imageViewer(
