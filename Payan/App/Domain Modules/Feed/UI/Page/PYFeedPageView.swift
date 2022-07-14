@@ -11,7 +11,6 @@ import SwiftUI
 
 struct PYFeedPageView: View {
     @StateObject var viewModel: PYFeedViewModel
-    @State var isSearchVisible = false
     
     init(viewModel: PYFeedViewModel) {
         _viewModel = .init(wrappedValue: viewModel)
@@ -88,8 +87,9 @@ struct PYFeedPageView: View {
             Image("search")
                 .padding(.horizontal, 16)
                 .onTapGesture {
-                    isSearchVisible = true
+                    viewModel.showSearch()
                 }
+                .opacity(viewModel.isNavBarVisible ? 1 : 0)
             Spacer()
                 .frame(height: 40)
         }.background(Color.white)
@@ -99,7 +99,7 @@ struct PYFeedPageView: View {
         ZStack {
             PuraceImageView(url: URL(string: "https://cdn.colombia.com/sdi/2019/03/31/a-36-anos-del-terremoto-de-popayan-723989.jpg"))
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.6)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7)
             Color.black.opacity(0.2)
             VStack {
                 VStack(alignment: .leading, spacing: 20) {
@@ -112,7 +112,8 @@ struct PYFeedPageView: View {
                 HStack {
                     Spacer()
                     PuraceButtonView(
-                        "Ver más",
+                        "Ver historia",
+                        fontSize: 14,
                         type: .custom(PuraceStyle.Color.B2, PuraceStyle.Color.B1, .white)
                     ) {
                         // TODO: use deeplinks!!
@@ -121,8 +122,7 @@ struct PYFeedPageView: View {
                     }
                 }
             }.padding([.bottom, .trailing], 30)
-        }.frame(height: UIScreen.main.bounds.height * 0.6)
-        
+        }.frame(height: UIScreen.main.bounds.height * 0.7)
     }
     
     var body: some View {
@@ -133,7 +133,12 @@ struct PYFeedPageView: View {
                 ZStack {
                     VStack {
                         navBar
-                        ScrollView {
+                            .frame(height: viewModel.isNavBarVisible ? 40 : 0)
+                        OffsettableScrollView { value in
+                            withAnimation {
+                                viewModel.tryToUpdateNavBar(currentOffset: value)
+                            }
+                        } content: {
                             VStack(spacing: 40) {
                                 placeCategories
                                 story
@@ -141,8 +146,8 @@ struct PYFeedPageView: View {
                             }.padding(.vertical)
                         }
                     }
-                    if isSearchVisible {
-                        PYSearchCoreBuilder().build(isVisible: $isSearchVisible)
+                    if viewModel.isSearchVisible {
+                        PYSearchCoreBuilder().build(isVisible: $viewModel.isSearchVisible)
                     }
                 }.transition(.opacity.animation(.linear(duration: 0.2)))
             }
