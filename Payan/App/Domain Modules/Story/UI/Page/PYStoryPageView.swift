@@ -20,7 +20,7 @@ struct PYStoryPageView: View {
                     .foregroundColor(.white)
                     .background(
                         Circle()
-                            .fill(Color.black.opacity(0.2))
+                            .fill(Color.black.opacity(0.1))
                             .frame(width: 40, height: 40)
                     )
                     .onTapGesture {
@@ -35,12 +35,12 @@ struct PYStoryPageView: View {
     var indicators: some View {
         VStack {
             Spacer()
-            HStack {
+            HStack(spacing: 3) {
                 ForEach(viewModel.chapters.indices, id: \.self) { index in
                     RoundedRectangle(cornerRadius: 2)
                         .fill(Color.white)
                         .opacity(index <= viewModel.currentIndex ? 1 : 0.4)
-                        .frame(height: 6)
+                        .frame(height: 4)
                 }
             }.padding(.bottom, 15)
                 .padding(.horizontal, 10)
@@ -63,10 +63,17 @@ struct PYStoryPageView: View {
     var chapterContent: some View {
         VStack(alignment: .leading, spacing: 20) {
             Spacer()
-            PuraceTextView(viewModel.currentChapter.title, fontSize: 20, textColor: .white, weight: .medium)
-                .multilineTextAlignment(.leading)
-            PuraceTextView(viewModel.currentChapter.content, fontSize: 14, textColor: .white)
-                .multilineTextAlignment(.leading)
+            if let title = viewModel.currentChapter.title {
+                HStack {
+                    PuraceTextView(title, fontSize: 20, textColor: .white, weight: .medium)
+                        .multilineTextAlignment(.leading)
+                    Spacer(minLength: 0)
+                }
+            }
+            if let content = viewModel.currentChapter.content {
+                PuraceTextView(content, fontSize: 14, textColor: .white)
+                    .multilineTextAlignment(.leading)
+            }
         }.padding(.horizontal, 30)
             .padding(.bottom, 60)
     }

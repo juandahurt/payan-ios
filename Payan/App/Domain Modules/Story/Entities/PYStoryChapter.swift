@@ -8,7 +8,7 @@
 import Foundation
 
 struct PYStoryChapter {
-    var title: String
-    var content: String
+    var title: String?
+    var content: String?
     var media: String
 }
