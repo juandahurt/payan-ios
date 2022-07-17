@@ -39,7 +39,7 @@ struct PYStoryPageView: View {
                 ForEach(viewModel.chapters.indices, id: \.self) { index in
                     RoundedRectangle(cornerRadius: 2)
                         .fill(Color.white)
-                        .opacity(index <= viewModel.currentIndex ? 1 : 0.4)
+                        .opacity(index == viewModel.currentIndex ? 1 : 0.4)
                         .frame(height: 4)
                 }
             }.padding(.bottom, 15)
