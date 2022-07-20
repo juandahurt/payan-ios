@@ -11,7 +11,10 @@ class PYStoryViewModel: ObservableObject {
     @Published var chapters: [PYStoryChapter]
     @Published var currentIndex: Int
     
-    init() {
+    private let interactor: PYStoryBusinessLogic
+    
+    init(interactor: PYStoryBusinessLogic) {
+        self.interactor = interactor
         let media = PYStoryMedia(type: .image, link: "https://live.staticflickr.com/4107/5055403619_7ffd3889c4_b.jpg")
         chapters = [
             .init(title: "El terremoto de 1983", content: "El terremoto tuvo una magnitud de 5,5 (calculada con ondas de cuerpo) e intensidad VIII grados en la escala de Mercalli con un epicentro al sudoeste de Popayán y una profundidad de 12 a 15 kilómetros.", media: media),
@@ -28,12 +31,10 @@ class PYStoryViewModel: ObservableObject {
     }
     
     func next() {
-        guard currentIndex < chapters.count - 1 else { return }
-        currentIndex += 1
+        interactor.next(currentIndex: &currentIndex, numberOfChapters: chapters.count)
     }
     
     func back() {
-        guard currentIndex > 0 else { return }
-        currentIndex -= 1
+        interactor.back(currentIndex: &currentIndex, numberOfChapters: chapters.count)
     }
 }

@@ -10,7 +10,11 @@ import SwiftUI
 import Purace
 
 struct PYStoryPageView: View {
-    @StateObject var viewModel = PYStoryViewModel()
+    @StateObject var viewModel: PYStoryViewModel
+    
+    init(viewModel: PYStoryViewModel) {
+        self._viewModel = .init(wrappedValue: viewModel)
+    }
     
     var close: some View {
         VStack {

@@ -110,7 +110,8 @@ struct PYFeedPageView: View {
         }
             .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
             .onTapGesture {
-                let vc = UIHostingController(rootView: PYStoryPageView())
+                // TODO: use `open` func with the right deep link
+                guard let vc = PYStoryBuilder().build(params: []) else { return }
                 PYRoutingManager.shared.present(vc)
             }
             .clipped()
