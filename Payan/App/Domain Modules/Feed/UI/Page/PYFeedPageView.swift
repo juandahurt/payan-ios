@@ -95,34 +95,41 @@ struct PYFeedPageView: View {
         }.background(Color.white)
     }
     
-    var story: some View {
+    var storyPreview: some View {
         ZStack {
             PuraceImageView(url: URL(string: "https://cdn.colombia.com/sdi/2019/03/31/a-36-anos-del-terremoto-de-popayan-723989.jpg"))
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.7)
+                .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
             Color.black.opacity(0.2)
-            VStack {
-                VStack(alignment: .leading, spacing: 20) {
-                    Spacer()
-                    PuraceTextView("El terremoto de 1983", fontSize: 20, textColor: .white, weight: .medium)
-                        .multilineTextAlignment(.leading)
-                    PuraceTextView("El terremoto tuvo una magnitud de 5,5 (calculada con ondas de cuerpo) e intensidad VIII grados en la escala de Mercalli con un epicentro al sudoeste de Popayán y una profundidad de 12 a 15 kilómetros.", fontSize: 14, textColor: .white)
-                        .multilineTextAlignment(.leading)
-                }.padding(30)
+            PuraceTextView("El terremoto de 1983", textColor: .white, weight: .medium)
+            VStack(spacing: 8) {
+                Spacer()
+                Color.white
+                    .frame(width: 66, height: 2)
+            }.padding(.bottom)
+        }
+            .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
+            .onTapGesture {
+                let vc = UIHostingController(rootView: PYStoryPageView())
+                PYRoutingManager.shared.present(vc)
+            }
+            .clipped()
+            .contentShape(Rectangle())
+    }
+    
+    var stories: some View {
+        VStack {
+            VStack(spacing: 5) {
+                PuraceTextView("¿Sabías esto?", fontSize: 20, textColor: PuraceStyle.Color.N1)
+                PuraceTextView("Conoce la ciudad a través de pequeñas histórias", fontSize: 14, textColor: PuraceStyle.Color.N4)
+            }.padding(.bottom)
+            
+            ScrollView(.horizontal) {
                 HStack {
-                    Spacer()
-                    PuraceButtonView(
-                        "Ver historia",
-                        fontSize: 14,
-                        type: .custom(PuraceStyle.Color.B2, PuraceStyle.Color.B1, .white)
-                    ) {
-                        // TODO: use deeplinks!!
-                        let vc = UIHostingController(rootView: PYStoryPageView())
-                        PYRoutingManager.shared.present(vc)
-                    }
-                }
-            }.padding([.bottom, .trailing], 30)
-        }.frame(height: UIScreen.main.bounds.height * 0.7)
+                    storyPreview
+                }.padding(.horizontal, 16)
+            }
+        }
     }
     
     var body: some View {
@@ -141,7 +148,7 @@ struct PYFeedPageView: View {
                         } content: {
                             VStack(spacing: 40) {
                                 placeCategories
-                                story
+                                stories
                                 heroes
                             }.padding(.vertical)
                         }
