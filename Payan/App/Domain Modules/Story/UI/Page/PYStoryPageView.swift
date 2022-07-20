@@ -86,7 +86,7 @@ struct PYStoryPageView: View {
             chapterContent
         }.background(
             ZStack(alignment: .center) {
-                PuraceImageView(url: URL(string: viewModel.currentChapter.media))
+                PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
                     .aspectRatio(contentMode: .fill)
                 LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
             }.ignoresSafeArea(.all)

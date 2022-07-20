@@ -7,8 +7,17 @@
 
 import Foundation
 
-struct PYStoryChapter {
+struct PYStoryChapter: Decodable {
     var title: String?
     var content: String?
-    var media: String
+    var media: PYStoryMedia
+}
+
+struct PYStoryMedia: Decodable {
+    var type: PYStoryMediaType
+    var link: String
+}
+
+enum PYStoryMediaType: String, Decodable {
+    case image, gif
 }
