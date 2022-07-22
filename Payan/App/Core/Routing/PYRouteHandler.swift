@@ -13,9 +13,14 @@ protocol PYRouteHandler {
     func configure()
 }
 
+enum PYRoutePresentationType {
+    case push
+    case present
+}
+
 protocol PYBasicRouteHandler: PYRouteHandler {
     var routes: [
-        (builder: PYModuleBuilder, path: String)
+        (builder: PYModuleBuilder, path: String, type: PYRoutePresentationType)
     ] { get }
 }
 

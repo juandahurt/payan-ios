@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 class PYCollectionRouteHandler: PYBasicRouteHandler {
-    var routes: [(builder: PYModuleBuilder, path: String)] = []
+    var routes: [(builder: PYModuleBuilder, path: String, type: PYRoutePresentationType)] = []
     var host: String {
         "collection"
     }
@@ -21,7 +21,7 @@ class PYCollectionRouteHandler: PYBasicRouteHandler {
     
     func configure() {
         routes = [
-            (builder: PYCollectionBuilder(), path: "")
+            (builder: PYCollectionBuilder(), path: "", type: .push)
         ]
     }
 }

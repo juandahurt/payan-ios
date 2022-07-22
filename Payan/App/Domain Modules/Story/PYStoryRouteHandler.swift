@@ -1,16 +1,17 @@
 //
-//  PYPlaceRouteHandler.swift
+//  PYStoryRouteHandler.swift
 //  Payan
 //
-//  Created by Juan Hurtado on 1/07/22.
+//  Created by Juan Hurtado on 21/07/22.
 //
 
 import Foundation
 
-class PYPlaceRouteHandler: PYBasicRouteHandler {
+class PYStoryRouteHandler: PYBasicRouteHandler {
     var routes: [(builder: PYModuleBuilder, path: String, type: PYRoutePresentationType)] = []
+    
     var host: String {
-        "place"
+        "story"
     }
     
     init() {
@@ -19,7 +20,7 @@ class PYPlaceRouteHandler: PYBasicRouteHandler {
     
     func configure() {
         routes = [
-            (builder: PYPlaceBuilder(), path: "", type: .push)
+            (builder: PYStoryBuilder(), path: "", type: .present)
         ]
     }
 }

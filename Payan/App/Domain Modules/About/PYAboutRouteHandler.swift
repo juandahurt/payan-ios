@@ -8,7 +8,7 @@
 import Foundation
 
 class PYAboutRouteHandler: PYBasicRouteHandler {
-    var routes: [(builder: PYModuleBuilder, path: String)] = []
+    var routes: [(builder: PYModuleBuilder, path: String, type: PYRoutePresentationType)] = []
     var host: String {
         "about"
     }
@@ -19,7 +19,7 @@ class PYAboutRouteHandler: PYBasicRouteHandler {
     
     func configure() {
         routes = [
-            (builder: PYAboutBuilder(), path: "")
+            (builder: PYAboutBuilder(), path: "", type: .push)
         ]
     }
 }

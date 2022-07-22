@@ -46,7 +46,12 @@ class PYRoutingManager {
         } else if let handler = handler as? PYBasicRouteHandler {
             guard let route = handler.routes.first(where: { $0.path == components.path }) else { return }
             guard let vc = route.builder.build(params: components.queryItems ?? []) else { return }
-            navigationController.pushViewController(vc, animated: animated)
+            switch route.type {
+            case .push:
+                push(vc, animated: animated)
+            case .present:
+                present(vc)
+            }
         }
     }
     
