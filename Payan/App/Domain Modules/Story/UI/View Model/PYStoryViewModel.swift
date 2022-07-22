@@ -5,11 +5,14 @@
 //  Created by Juan Hurtado on 12/07/22.
 //
 
+import Combine
 import Foundation
 
 class PYStoryViewModel: ObservableObject {
     @Published var chapters: [PYStoryChapter]
     @Published var currentIndex: Int
+    
+    private var cancellables = Set<AnyCancellable>()
     
     private let interactor: PYStoryBusinessLogic
     
@@ -36,5 +39,15 @@ class PYStoryViewModel: ObservableObject {
     
     func back() {
         interactor.back(currentIndex: &currentIndex, numberOfChapters: chapters.count)
+    }
+    
+    func getData(id: String) {
+        interactor.getStory(identifiedBy: id)
+            .catch { _ in Empty<[PYStoryChapter], Never>() }
+            .receive(on: RunLoop.main)
+            .sink { chapters in
+                print(chapters)
+            }
+            .store(in: &cancellables)
     }
 }

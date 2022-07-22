@@ -9,10 +9,12 @@ import Foundation
 import SwiftUI
 import Purace
 
-struct PYStoryPageView: View {
+struct PYStoryPageView: View, PYStoryViewLogic {
     @StateObject var viewModel: PYStoryViewModel
+    var id: String
     
-    init(viewModel: PYStoryViewModel) {
+    init(id: String, viewModel: PYStoryViewModel) {
+        self.id = id
         self._viewModel = .init(wrappedValue: viewModel)
     }
     
@@ -95,5 +97,8 @@ struct PYStoryPageView: View {
                 LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
             }.ignoresSafeArea(.all)
         )
+            .onAppear {
+                viewModel.getData(id: id)
+            }
     }
 }
