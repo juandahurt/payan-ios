@@ -11,7 +11,7 @@ import CoreGraphics
 class PYFeedViewModel: ObservableObject {
     @Published var loadedPercentage: Double = 0
     @Published var isLoading: Bool = true
-    @Published var feedData: PYFeedPage = .empty
+    @Published var feedData: PYFeedPageData = .empty
     @Published var errorOccurred = false
     @Published var isNavBarVisible = true
     @Published var isSearchVisible = false
@@ -33,6 +33,10 @@ class PYFeedViewModel: ObservableObject {
     init(interactor: PYFeedBusinessLogic, onSuccess: (() -> Void)? = nil) {
         self.interactor = interactor
         self.onSuccess = onSuccess
+    }
+    
+    var stories: [PYStoryPreview] {
+        feedData.stories
     }
     
     func getData() {

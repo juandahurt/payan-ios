@@ -95,13 +95,15 @@ struct PYFeedPageView: View {
         }.background(Color.white)
     }
     
-    var storyPreview: some View {
-        ZStack {
-            PuraceImageView(url: URL(string: "https://cdn.colombia.com/sdi/2019/03/31/a-36-anos-del-terremoto-de-popayan-723989.jpg"))
+    func storyPreview(at index: Int) -> some View {
+        let story = viewModel.stories[index]
+        
+        return ZStack {
+            PuraceImageView(url: URL(string: story.image))
                 .aspectRatio(contentMode: .fill)
                 .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
             Color.black.opacity(0.2)
-            PuraceTextView("El terremoto de 1983", textColor: .white, weight: .medium)
+            PuraceTextView(story.title, textColor: .white, weight: .medium)
             VStack(spacing: 8) {
                 Spacer()
                 Color.white
@@ -125,7 +127,9 @@ struct PYFeedPageView: View {
             
             ScrollView(.horizontal) {
                 HStack {
-                    storyPreview
+                    ForEach(viewModel.stories.indices, id: \.self) { index in
+                        storyPreview(at: index)
+                    }
                 }.padding(.horizontal, 16)
             }
         }
