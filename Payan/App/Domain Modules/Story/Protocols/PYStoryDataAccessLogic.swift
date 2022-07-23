@@ -8,5 +8,5 @@
 import Combine
 
 protocol PYStoryDataAccessLogic {
-    func getStory(id: String) -> AnyPublisher<[PYStoryChapter], Error>
+    func getStory(id: String) -> AnyPublisher<PYStoryData, Error>
 }

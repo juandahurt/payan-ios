@@ -9,8 +9,9 @@ import Combine
 import Foundation
 
 class PYStoryViewModel: ObservableObject {
-    @Published var chapters: [PYStoryChapter]
+    @Published var chapters: [PYStoryChapter] = []
     @Published var currentIndex: Int
+    @Published var isLoading = true
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -18,14 +19,6 @@ class PYStoryViewModel: ObservableObject {
     
     init(interactor: PYStoryBusinessLogic) {
         self.interactor = interactor
-        let media = PYStoryMedia(type: .image, link: "https://live.staticflickr.com/4107/5055403619_7ffd3889c4_b.jpg")
-        chapters = [
-            .init(title: "El terremoto de 1983", content: "El terremoto tuvo una magnitud de 5,5 (calculada con ondas de cuerpo) e intensidad VIII grados en la escala de Mercalli con un epicentro al sudoeste de Popayán y una profundidad de 12 a 15 kilómetros.", media: media),
-            .init(content: "El terremoto tuvo una magnitud de 5,5 (calculada con ondas de cuerpo) e intensidad VIII grados en la escala de Mercalli con un epicentro al sudoeste de Popayán y una profundidad de 12 a 15 kilómetros.", media: media),
-            .init(title: "El terremoto de 1983", content: "El terremoto tuvo una magnitud de 5,5 (calculada con ondas de cuerpo) e intensidad VIII grados en la escala de Mercalli con un epicentro al sudoeste de Popayán y una profundidad de 12 a 15 kilómetros.", media: media),
-            .init(title: "El terremoto de 1983", content: "El", media: media),
-            .init(media: media)
-        ]
         currentIndex = 0
     }
     
@@ -42,11 +35,14 @@ class PYStoryViewModel: ObservableObject {
     }
     
     func getData(id: String) {
+        isLoading = true
         interactor.getStory(identifiedBy: id)
-            .catch { _ in Empty<[PYStoryChapter], Never>() }
+            .catch { _ in Empty<PYStoryData, Never>() }
             .receive(on: RunLoop.main)
-            .sink { chapters in
-                print(chapters)
+            .sink { [weak self] data in
+                guard let self = self else { return }
+                self.chapters = data.chapters
+                self.isLoading = false
             }
             .store(in: &cancellables)
     }

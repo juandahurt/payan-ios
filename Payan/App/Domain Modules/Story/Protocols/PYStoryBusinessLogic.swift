@@ -27,6 +27,6 @@ protocol PYStoryBusinessLogic {
     /// Gets the sotry chapters.
     /// - Parameters:
     ///     - id: Story identifier.
-    /// - Returns: A publisher that will eventually publish the required chapters.
-    func getStory(identifiedBy id: String) -> AnyPublisher<[PYStoryChapter], Error>
+    /// - Returns: A publisher that will eventually publish the required story data.
+    func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error>
 }

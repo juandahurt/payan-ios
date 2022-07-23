@@ -84,18 +84,30 @@ struct PYStoryPageView: View, PYStoryViewLogic {
             .padding(.bottom, 60)
     }
     
+    var loader: some View {
+        PuraceCircularLoaderView()
+            .frame(width: 40, height: 40)
+            .transition(.opacity.animation(.linear))
+    }
+    
     var body: some View {
         ZStack {
             tapHandlers
             close
-            indicators
-            chapterContent
+            if !viewModel.isLoading {
+                indicators
+                chapterContent
+            }
         }.background(
-            ZStack(alignment: .center) {
-                PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
-                    .aspectRatio(contentMode: .fill)
+            Group {
+                if !viewModel.isLoading {
+                    PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
+                        .aspectRatio(contentMode: .fill)
+                } else {
+                    PuraceStyle.Color.allSkeletons.randomElement() ?? .white
+                }
                 LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
-            }.ignoresSafeArea(.all)
+            }.ignoresSafeArea()
         )
             .onAppear {
                 viewModel.getData(id: id)

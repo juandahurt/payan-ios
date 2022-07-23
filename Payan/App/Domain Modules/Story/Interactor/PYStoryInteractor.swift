@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 class PYStoryInteractor: PYStoryBusinessLogic {
     let worker: PYStoryDataAccessLogic
@@ -24,7 +25,7 @@ class PYStoryInteractor: PYStoryBusinessLogic {
         currentIndex -= 1
     }
     
-    func getStory(identifiedBy id: String) -> AnyPublisher<[PYStoryChapter], Error> {
+    func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error> {
         worker.getStory(id: id)
     }
 }

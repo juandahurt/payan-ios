@@ -19,5 +19,5 @@ struct PYStoryMedia: Decodable {
 }
 
 enum PYStoryMediaType: String, Decodable {
-    case image, gif
+    case image = "img", gif
 }

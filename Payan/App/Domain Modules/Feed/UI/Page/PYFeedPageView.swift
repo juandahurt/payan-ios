@@ -112,7 +112,8 @@ struct PYFeedPageView: View {
         }
             .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
             .onTapGesture {
-                PYRoutingManager.shared.open(url: URL(string: "payan://story?id=123")!)
+                guard let url = URL(string: story.link) else { return }
+                PYRoutingManager.shared.open(url: url)
             }
             .clipped()
             .contentShape(Rectangle())

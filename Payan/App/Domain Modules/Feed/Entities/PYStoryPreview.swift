@@ -8,6 +8,7 @@
 import Foundation
 
 struct PYStoryPreview: Decodable {
+    var link: String
     var title: String
     var image: String
 }
