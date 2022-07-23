@@ -77,8 +77,11 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                 }
             }
             if let content = viewModel.currentChapter.content {
-                PuraceTextView(content, fontSize: 14, textColor: .white)
-                    .multilineTextAlignment(.leading)
+                HStack {
+                    PuraceTextView(content, fontSize: 14, textColor: .white)
+                        .multilineTextAlignment(.leading)
+                    Spacer(minLength: 0)
+                }
             }
         }.padding(.horizontal, 30)
             .padding(.bottom, 60)
