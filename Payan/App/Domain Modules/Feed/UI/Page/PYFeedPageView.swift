@@ -104,6 +104,7 @@ struct PYFeedPageView: View {
                 .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
             Color.black.opacity(0.2)
             PuraceTextView(story.title, textColor: .white, weight: .medium)
+                .multilineTextAlignment(.center)
             VStack(spacing: 8) {
                 Spacer()
                 Color.white
