@@ -100,16 +100,17 @@ struct PYFeedPageView: View {
     }
     
     var navBar: some View {
-        HStack {
+        HStack(alignment: .center) {
+            PuraceTextView("Payán", weight: .medium)
+            Spacer()
             Image("search")
-                .padding(.horizontal, 16)
                 .onTapGesture {
                     viewModel.showSearch()
                 }
-                .opacity(viewModel.isNavBarVisible ? 1 : 0)
-            Spacer()
-                .frame(height: 40)
-        }.background(Color.white)
+        }
+            .padding(.vertical, 11)
+            .background(Color.white)
+            .padding(.horizontal, 16)
     }
     
     func storyPreview(at index: Int) -> some View {
@@ -144,7 +145,7 @@ struct PYFeedPageView: View {
                 PuraceTextView("Conoce la ciudad a través de pequeñas histórias", fontSize: 14, textColor: PuraceStyle.Color.N4)
             }.padding(.bottom)
             
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(viewModel.stories.indices, id: \.self) { index in
                         storyPreview(at: index)
@@ -162,12 +163,7 @@ struct PYFeedPageView: View {
                 ZStack {
                     VStack {
                         navBar
-                            .frame(height: viewModel.isNavBarVisible ? 40 : 0)
-                        OffsettableScrollView { value in
-                            withAnimation {
-                                viewModel.tryToUpdateNavBar(currentOffset: value)
-                            }
-                        } content: {
+                        ScrollView {
                             VStack(spacing: 40) {
                                 placeCategories
                                 stories
