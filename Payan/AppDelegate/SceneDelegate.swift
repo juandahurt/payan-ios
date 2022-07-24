@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             PYCollectionRouteHandler(),
             PYPlaceRouteHandler(),
             PYAboutRouteHandler(),
-            PYSearchCoreRouteHandler()
+            PYStoryRouteHandler()
         ]
         routeHandlers.forEach { PYRoutingManager.shared.addRouteHandler(routeHandler: $0) }
         navigationController.pushViewController(PYMainBuilder().getViewController(), animated: false)

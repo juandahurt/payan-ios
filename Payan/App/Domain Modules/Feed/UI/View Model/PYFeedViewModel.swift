@@ -6,14 +6,18 @@
 //
 
 import Foundation
+import CoreGraphics
 
 class PYFeedViewModel: ObservableObject {
     @Published var loadedPercentage: Double = 0
     @Published var isLoading: Bool = true
-    @Published var feedData: PYFeedPage = .empty
+    @Published var feedData: PYFeedPageData = .empty
     @Published var errorOccurred = false
+    @Published var isNavBarVisible = true
+    @Published var isSearchVisible = false
     
     private var currentPercentageAddition = 0.1
+    private var lastScrollValue: CGFloat = .zero
     
     lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
         guard let self = self else { return }
@@ -29,6 +33,10 @@ class PYFeedViewModel: ObservableObject {
     init(interactor: PYFeedBusinessLogic, onSuccess: (() -> Void)? = nil) {
         self.interactor = interactor
         self.onSuccess = onSuccess
+    }
+    
+    var stories: [PYStoryPreview] {
+        feedData.stories
     }
     
     func getData() {
@@ -52,6 +60,28 @@ class PYFeedViewModel: ObservableObject {
                     self.loadedPercentage = 0
                     self.errorOccurred = true
                 }
+            }
+        }
+    }
+    
+    func showSearch() {
+        isSearchVisible = true
+    }
+    
+    func tryToUpdateNavBar(currentOffset value: CGPoint) {
+        guard value.y <= 0 else { return }
+        let diff = abs(value.y) - abs(lastScrollValue)
+        if diff > 50 {
+            lastScrollValue = value.y
+            if isNavBarVisible {
+                isNavBarVisible.toggle()
+            }
+            return
+        }
+        if diff < -50 {
+            lastScrollValue = value.y
+            if !isNavBarVisible {
+                isNavBarVisible.toggle()
             }
         }
     }

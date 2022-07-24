@@ -11,5 +11,5 @@ import Foundation
 protocol PYFeedBusinessLogic {
     var worker: PYFeedDataAccessLogic { get }
     
-    func getFeedData(completion: @escaping (Result<PYFeedPage,Error>) -> Void)
+    func getFeedData(completion: @escaping (Result<PYFeedPageData,Error>) -> Void)
 }

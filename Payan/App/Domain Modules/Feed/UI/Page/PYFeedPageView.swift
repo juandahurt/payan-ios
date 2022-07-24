@@ -11,7 +11,6 @@ import SwiftUI
 
 struct PYFeedPageView: View {
     @StateObject var viewModel: PYFeedViewModel
-    @State var isSearchVisible = false
     
     init(viewModel: PYFeedViewModel) {
         _viewModel = .init(wrappedValue: viewModel)
@@ -88,11 +87,54 @@ struct PYFeedPageView: View {
             Image("search")
                 .padding(.horizontal, 16)
                 .onTapGesture {
-                    isSearchVisible = true
+                    viewModel.showSearch()
                 }
+                .opacity(viewModel.isNavBarVisible ? 1 : 0)
             Spacer()
                 .frame(height: 40)
         }.background(Color.white)
+    }
+    
+    func storyPreview(at index: Int) -> some View {
+        let story = viewModel.stories[index]
+        
+        return ZStack {
+            PuraceImageView(url: URL(string: story.image))
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
+            Color.black.opacity(0.2)
+            PuraceTextView(story.title, textColor: .white, weight: .medium)
+                .multilineTextAlignment(.center)
+            VStack(spacing: 8) {
+                Spacer()
+                Color.white
+                    .frame(width: 66, height: 2)
+            }.padding(.bottom)
+        }
+            .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
+            .onTapGesture {
+                guard let url = URL(string: story.link) else { return }
+                PYRoutingManager.shared.open(url: url)
+            }
+            .clipped()
+            .contentShape(Rectangle())
+    }
+    
+    var stories: some View {
+        VStack {
+            VStack(spacing: 5) {
+                PuraceTextView("¿Sabías esto?", fontSize: 20, textColor: PuraceStyle.Color.N1)
+                PuraceTextView("Conoce la ciudad a través de pequeñas histórias", fontSize: 14, textColor: PuraceStyle.Color.N4)
+            }.padding(.bottom)
+            
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(viewModel.stories.indices, id: \.self) { index in
+                        storyPreview(at: index)
+                    }
+                }.padding(.horizontal, 16)
+            }
+        }
     }
     
     var body: some View {
@@ -103,15 +145,21 @@ struct PYFeedPageView: View {
                 ZStack {
                     VStack {
                         navBar
-                        ScrollView {
+                            .frame(height: viewModel.isNavBarVisible ? 40 : 0)
+                        OffsettableScrollView { value in
+                            withAnimation {
+                                viewModel.tryToUpdateNavBar(currentOffset: value)
+                            }
+                        } content: {
                             VStack(spacing: 40) {
                                 placeCategories
+                                stories
                                 heroes
                             }.padding(.vertical)
                         }
                     }
-                    if isSearchVisible {
-                        PYSearchCoreBuilder().build(isVisible: $isSearchVisible)
+                    if viewModel.isSearchVisible {
+                        PYSearchCoreBuilder().build(isVisible: $viewModel.isSearchVisible)
                     }
                 }.transition(.opacity.animation(.linear(duration: 0.2)))
             }

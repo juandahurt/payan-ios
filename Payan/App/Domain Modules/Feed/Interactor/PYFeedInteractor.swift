@@ -15,7 +15,7 @@ final class PYFeedInteractor: PYFeedBusinessLogic {
         self.worker = worker
     }
     
-    func getFeedData(completion: @escaping (Result<PYFeedPage,Error>) -> Void) {
+    func getFeedData(completion: @escaping (Result<PYFeedPageData,Error>) -> Void) {
         worker.getData { res in
             DispatchQueue.main.async {
                 switch res {
