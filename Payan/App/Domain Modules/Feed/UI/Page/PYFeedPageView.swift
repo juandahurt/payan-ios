@@ -32,8 +32,25 @@ struct PYFeedPageView: View {
                         Color.black
                             .opacity(0.35)
                         VStack(spacing: 5) {
-                            PuraceTextView(category.title, fontSize: 14, textColor: .white, weight: .medium)
-                            PuraceTextView("\(category.numberOfPlaces) lugares", textColor: .white)
+                            PuraceTextView(category.title, textColor: .white, weight: .medium)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 15)
+                                .background (
+                                    ZStack {
+                                        Color.black.opacity(0.2)
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(.white, lineWidth: 1)
+                                    }
+                                )
+                        }
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                PuraceTextView("\(category.numberOfPlaces) lugares", textColor: .white)
+                                    .frame(alignment: .bottomTrailing)
+                                    .padding()
+                            }
                         }
                     }
                     .cornerRadius(5)
