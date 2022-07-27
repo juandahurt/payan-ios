@@ -51,30 +51,29 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     }
     
     func collectionElement(_ element: PYCollectionElement) -> some View {
-        PuraceImageView(url: URL(string: element.image)) {
+        ZStack {
+            PuraceImageView(url: URL(string: element.image))
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
+                .clipped()
             Color.black.opacity(0.20)
-            Group {
-                PuraceTextView(element.title, fontSize: 12, textColor: .white, weight: .medium)
-                    .multilineTextAlignment(.center)
-                    .cornerRadius(5)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 15)
-                    .background (
-                        ZStack {
-                            Color.black.opacity(0.2)
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.white, lineWidth: 1)
-                        }
-                    )
-                    .frame(maxWidth: correctItemWidth * 0.8)
-            }
+            PuraceTextView(element.title, fontSize: 12, textColor: .white, weight: .medium)
+                .multilineTextAlignment(.center)
+                .padding(.vertical, 8)
+                .padding(.horizontal, 15)
+                .background (
+                    ZStack {
+                        Color.black.opacity(0.2)
+                        RoundedRectangle(cornerRadius: 5)
+                            .stroke(.white, lineWidth: 1.1)
+                    }
+                )
+                .frame(maxWidth: correctItemWidth * 0.8)
         }
         .animation(.none)
         .skeleton(with: viewModel.isLoading, transition: .opacity)
         .shape(type: .rectangle)
-        .aspectRatio(contentMode: .fill)
         .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
-        .clipped()
         .contentShape(Rectangle())
         .onTapGesture {
             guard let url = URL(string: element.deepLink) else { return }

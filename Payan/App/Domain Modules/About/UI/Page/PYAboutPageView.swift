@@ -40,20 +40,18 @@ struct PYAboutPageView: View {
     }
     
     var description: some View {
-        PuraceTextView(
-            "Payán es un proyecto sin ánimo de lucro cuyo principal objetivo es mostrar al mundo al belleza e historia que esconde el centro histórico de la ciudad de Popayán, Colombia.",
-            textColor: PuraceStyle.Color.N2
-        )
-            .multilineTextAlignment(.center)
-            .padding(.horizontal, 50)
-            .padding(.vertical, 30)
-            .background(Color.black.opacity(0.05))
+        PuraceAccordionView(title: "¿Qué es Payán?") {
+            PuraceTextView(
+                "Payán es un proyecto sin ánimo de lucro cuyo principal objetivo es mostrar al mundo al belleza e historia que esconde la ciudad de Popayán, Colombia.",
+                textColor: PuraceStyle.Color.N2
+            ).padding()
+        }
     }
     
     var title: some View {
         VStack {
             PuraceTextView("Payan en iOS", fontSize: 14, weight: .medium)
-            PuraceTextView("Versión \(version)+\(buildNumber)", fontSize: 10, textColor: PuraceStyle.Color.N4)
+            PuraceTextView("Versión \(version)-\(buildNumber)", fontSize: 10, textColor: PuraceStyle.Color.N4)
         }.padding(.bottom)
     }
     
@@ -63,12 +61,6 @@ struct PYAboutPageView: View {
             .scaledToFit()
             .frame(height: 80)
             .padding(.bottom, 20)
-    }
-    
-    var evaluateButton: some View {
-        PuraceButtonView("Evaluar en la App Store", fontSize: 14) {
-            // TODO: Go to the app store
-        }.padding(.top)
     }
     
     var divider: some View {
@@ -83,7 +75,6 @@ struct PYAboutPageView: View {
             icon
             title
             description
-            evaluateButton
             Spacer()
         }.navigationBarHidden(true)
     }

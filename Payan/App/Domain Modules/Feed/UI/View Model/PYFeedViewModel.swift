@@ -13,7 +13,6 @@ class PYFeedViewModel: ObservableObject {
     @Published var isLoading: Bool = true
     @Published var feedData: PYFeedPageData = .empty
     @Published var errorOccurred = false
-    @Published var isNavBarVisible = true
     @Published var isSearchVisible = false
     
     private var currentPercentageAddition = 0.1
@@ -66,23 +65,5 @@ class PYFeedViewModel: ObservableObject {
     
     func showSearch() {
         isSearchVisible = true
-    }
-    
-    func tryToUpdateNavBar(currentOffset value: CGPoint) {
-        guard value.y <= 0 else { return }
-        let diff = abs(value.y) - abs(lastScrollValue)
-        if diff > 50 {
-            lastScrollValue = value.y
-            if isNavBarVisible {
-                isNavBarVisible.toggle()
-            }
-            return
-        }
-        if diff < -50 {
-            lastScrollValue = value.y
-            if !isNavBarVisible {
-                isNavBarVisible.toggle()
-            }
-        }
     }
 }
