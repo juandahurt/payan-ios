@@ -16,7 +16,14 @@ struct PYOnboardingPageView: View {
     var continueOnTap: () -> Void
     
     var placesPage: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 40) {
+            VStack(alignment: .leading, spacing: 20) {
+                PuraceTextView("La ciudad blanca", fontSize: 24)
+                    .multilineTextAlignment(.leading)
+                PuraceTextView("Una de las ciudades más antiguas y mejor conservadas de América, lo que se ve reflejado en su centro histórico y tradiciones religiosas.", textColor: PuraceStyle.Color.N4)
+                    .multilineTextAlignment(.leading)
+            }.padding(.horizontal, 40)
+            
             ZStack {
                 Image("shape-1")
                 Image("ob-1")
@@ -42,15 +49,18 @@ struct PYOnboardingPageView: View {
                     .clipped()
                     .cornerRadius(10)
             }
-            PuraceTextView("La ciudad blanca", fontSize: 20)
-            PuraceTextView("Una de las ciudades más antiguas y mejor conservadas de América, lo que se ve reflejado en su centro histórico y tradiciones religiosas, reconocida por su arquitectura colonial y el cuidado de las fachadas.", textColor: PuraceStyle.Color.N4)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: UIScreen.main.bounds.width * 0.65)
         }
     }
     
     var heroesPage: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 40) {
+            VStack(alignment: .leading, spacing: 20) {
+                PuraceTextView("Cuna de próceres", fontSize: 24)
+                    .multilineTextAlignment(.leading)
+                PuraceTextView("Popayán ha sido cuna de importantes personajes colombianos, incluyendo a expresidentes del país, líderes de la Independencia y poetas célebres.", textColor: PuraceStyle.Color.N4)
+                    .multilineTextAlignment(.leading)
+            }.padding(.horizontal, 40)
+            
             ZStack {
                 Image("shape-2")
                 Image("ob-4")
@@ -76,34 +86,65 @@ struct PYOnboardingPageView: View {
                     .clipped()
                     .cornerRadius(10)
             }
-            PuraceTextView("Cuna de próceres", fontSize: 20)
-            PuraceTextView(" Popayán ha sido cuna de importantes personajes colombianos, incluyendo a expresidentes del país, líderes de la Independencia y poetas célebres.", textColor: PuraceStyle.Color.N4)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: UIScreen.main.bounds.width * 0.65)
         }
     }
     
-    var continueButton: some View {
-        Group {
-            PuraceButtonView("Ir a Popayán", fontSize: 16) {
+    var mainButton: some View {
+        let type: PuraceButtonType
+        switch selectedPage {
+        case 1:
+            type = .loud
+        default:
+            type = .custom(.clear, PuraceStyle.Color.N8, PuraceStyle.Color.N1)
+        }
+        return PuraceButtonView(getButtonText(), fontSize: 14, type: type) {
+            if selectedPage == 1 {
                 continueOnTap()
+            } else {
+                selectedPage += 1
             }
-                .opacity(buttonOpacity)
-                .animation(.easeIn(duration: 0.2))
-        }.frame(height: UIScreen.main.bounds.height * 0.2)
+        }
+    }
+    
+    var bottomBar: some View {
+        HStack {
+            indicators
+            Spacer()
+            mainButton
+        }
+            .padding(.horizontal, 35)
+            .padding(.bottom, 20)
+    }
+    
+    var indicators: some View {
+        HStack {
+            ForEach(0..<2) { index in
+                Circle()
+                    .fill(index == selectedPage ? PuraceStyle.Color.G1 : PuraceStyle.Color.G8)
+                    .frame(width: 6, height: 6)
+            }
+        }
+    }
+    
+    func getButtonText() -> String {
+        selectedPage == 1 ? "Continuar" : "Siguiente"
     }
     
     var body: some View {
         VStack {
-            TabView(selection: $selectedPage) {
-                placesPage
-                    .tag(0)
-                heroesPage
-                    .tag(1)
-            }.tabViewStyle(.page)
-            continueButton
-        }.onChange(of: selectedPage) { newValue in
-            buttonOpacity = newValue == 1 ? 1 : 0
+            ScrollViewReader { reader in
+                TabView(selection: $selectedPage) {
+                    placesPage
+                        .tag(0)
+                    heroesPage
+                        .tag(1)
+                }.tabViewStyle(.page(indexDisplayMode: .never))
+                    .onChange(of: selectedPage) { currentPage in
+                        reader.scrollTo(currentPage)
+                    }
+            }
+            
+            bottomBar
         }
     }
 }
