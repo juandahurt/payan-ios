@@ -38,6 +38,7 @@ class PYStoryViewModel: ObservableObject {
     func getData(id: String) {
         isLoading = true
         interactor.getStory(identifiedBy: id)
+            .receive(on: RunLoop.main)
             .catch { [weak self] _ -> Empty<PYStoryData, Never> in
                 let empty = Empty<PYStoryData, Never>()
                 guard let self = self else { return empty }
@@ -47,7 +48,6 @@ class PYStoryViewModel: ObservableObject {
                 }
                 return empty
             }
-            .receive(on: RunLoop.main)
             .sink { [weak self] data in
                 guard let self = self else { return }
                 self.chapters = data.chapters

@@ -107,7 +107,9 @@ struct PYStoryPageView: View, PYStoryViewLogic {
             ZStack {
                 PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
                     .aspectRatio(contentMode: .fill)
-                LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
+                LinearGradient(colors: [.black.opacity(0.8), .clear], startPoint: .bottom, endPoint: .center)
+                    .skeleton(with: viewModel.isLoading)
+                    .shape(type: .rectangle)
             }
                 .ignoresSafeArea()
         )
