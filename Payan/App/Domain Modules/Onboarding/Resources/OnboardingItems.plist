@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>La ciudad blanca</string>
+		<key>image</key>
+		<string>ob-1</string>
+		<key>content</key>
+		<string>Una de las ciudades más antiguas y mejor conservadas de América, lo que se ve reflejado en su centro histórico y tradiciones religiosas.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Cuna de próceres</string>
+		<key>image</key>
+		<string>ob-2</string>
+		<key>content</key>
+		<string>Popayán ha sido cuna de importantes personajes colombianos: expresidentes del país, líderes de la Independencia, etc.</string>
+	</dict>
+</array>
+</plist>
