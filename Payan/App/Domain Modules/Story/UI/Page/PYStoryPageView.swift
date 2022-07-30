@@ -115,5 +115,11 @@ struct PYStoryPageView: View, PYStoryViewLogic {
             .onAppear {
                 viewModel.getData(id: id)
             }
+            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccurred, type: .error, buttonTitle: "REINTENTAR")
+            .onChange(of: viewModel.errorHasOccurred) { value in
+                if !value {
+                    viewModel.getData(id: id)
+                }
+            }
     }
 }
