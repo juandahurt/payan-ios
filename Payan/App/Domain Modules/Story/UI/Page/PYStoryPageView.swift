@@ -98,22 +98,29 @@ struct PYStoryPageView: View, PYStoryViewLogic {
             tapHandlers
             close
             if !viewModel.isLoading {
-                indicators
+                if viewModel.chapters.count > 1 {
+                    indicators
+                }
                 chapterContent
             }
         }.background(
-            Group {
-                if !viewModel.isLoading {
-                    PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
-                        .aspectRatio(contentMode: .fill)
-                } else {
-                    PuraceStyle.Color.allSkeletons.randomElement() ?? .white
-                }
-                LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
-            }.ignoresSafeArea()
+            ZStack {
+                PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
+                    .aspectRatio(contentMode: .fill)
+                LinearGradient(colors: [.black.opacity(0.8), .clear], startPoint: .bottom, endPoint: .center)
+                    .skeleton(with: viewModel.isLoading)
+                    .shape(type: .rectangle)
+            }
+                .ignoresSafeArea()
         )
             .onAppear {
                 viewModel.getData(id: id)
+            }
+            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccurred, type: .error, buttonTitle: "REINTENTAR")
+            .onChange(of: viewModel.errorHasOccurred) { value in
+                if !value {
+                    viewModel.getData(id: id)
+                }
             }
     }
 }

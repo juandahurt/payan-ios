@@ -9,9 +9,10 @@ import Combine
 import Foundation
 
 class PYStoryViewModel: ObservableObject {
-    @Published var chapters: [PYStoryChapter] = []
+    @Published var chapters: [PYStoryChapter] = [.empty]
     @Published var currentIndex: Int
     @Published var isLoading = true
+    @Published var errorHasOccurred = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -37,8 +38,16 @@ class PYStoryViewModel: ObservableObject {
     func getData(id: String) {
         isLoading = true
         interactor.getStory(identifiedBy: id)
-            .catch { _ in Empty<PYStoryData, Never>() }
             .receive(on: RunLoop.main)
+            .catch { [weak self] _ -> Empty<PYStoryData, Never> in
+                let empty = Empty<PYStoryData, Never>()
+                guard let self = self else { return empty }
+                self.isLoading = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.errorHasOccurred = true
+                }
+                return empty
+            }
             .sink { [weak self] data in
                 guard let self = self else { return }
                 self.chapters = data.chapters

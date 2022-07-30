@@ -13,6 +13,10 @@ struct PYStoryChapter: Decodable {
     var media: PYStoryMedia
 }
 
+extension PYStoryChapter {
+    static let empty = PYStoryChapter(media: .init(type: .image, link: ""))
+}
+
 struct PYStoryMedia: Decodable {
     var type: PYStoryMediaType
     var link: String
