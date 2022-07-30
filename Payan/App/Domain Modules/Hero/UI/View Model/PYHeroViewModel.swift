@@ -11,6 +11,7 @@ class PYHeroViewModel: ObservableObject {
     @Published var hero: PYHero = .empty
     @Published var isLoading = true
     @Published var errorHasOccured = false
+    @Published var isImageViewerVisible = false
     
     private var heroWasFetchedSuccessfuly = false
     private let interactor: PYHeroBusinessLogic
@@ -24,6 +25,10 @@ class PYHeroViewModel: ObservableObject {
             return " "
         }
         return "1810 - 1880"
+    }
+    
+    func showImageViewer() {
+        isImageViewerVisible = true
     }
     
     func section(at index: Int) -> PYHeroSection {
