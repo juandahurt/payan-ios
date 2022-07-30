@@ -10,100 +10,80 @@ import SwiftUI
 import Purace
 
 struct PYOnboardingPageView: View {
-    @State var selectedPage = 0
-    @State var buttonOpacity: Double = 0
+    @StateObject var viewModel: PYOnboardingViewModel
     
     var continueOnTap: () -> Void
     
-    var placesPage: some View {
-        VStack(spacing: 20) {
-            ZStack {
-                Image("shape-1")
-                Image("ob-1")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 194, height: 162)
-                    .clipped()
-                    .cornerRadius(10)
-                    .rotationEffect(.degrees(-12))
-                    .offset(x: -50, y: 0)
-                Image("ob-3")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 161, height: 162)
-                    .clipped()
-                    .cornerRadius(10)
-                    .rotationEffect(.degrees(10))
-                    .offset(x: 50, y: 0)
-                Image("ob-2")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 148, height: 180)
-                    .clipped()
-                    .cornerRadius(10)
-            }
-            PuraceTextView("La ciudad blanca", fontSize: 20)
-            PuraceTextView("Una de las ciudades más antiguas y mejor conservadas de América, lo que se ve reflejado en su centro histórico y tradiciones religiosas, reconocida por su arquitectura colonial y el cuidado de las fachadas.", textColor: PuraceStyle.Color.N4)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: UIScreen.main.bounds.width * 0.65)
+    func item(at index: Int) -> some View {
+        VStack(spacing: 40) {
+            VStack(alignment: .leading, spacing: 20) {
+                HStack {
+                    PuraceTextView(viewModel.item(at: index).title, fontSize: 24)
+                        .multilineTextAlignment(.leading)
+                    Spacer(minLength: 0)
+                }
+                HStack {
+                    PuraceTextView(viewModel.item(at: index).content, textColor: PuraceStyle.Color.N4)
+                        .multilineTextAlignment(.leading)
+                    Spacer(minLength: 0)
+                }
+            }.padding(.horizontal, 40)
+            
+            Image(viewModel.item(at: index).image)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: UIScreen.main.bounds.width * 0.8)
         }
     }
     
-    var heroesPage: some View {
-        VStack(spacing: 20) {
-            ZStack {
-                Image("shape-2")
-                Image("ob-4")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 114.5, height: 185.42)
-                    .clipped()
-                    .cornerRadius(10)
-                    .rotationEffect(.degrees(-12))
-                    .offset(x: -50, y: 0)
-                Image("ob-5")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 114.5, height: 185.42)
-                    .clipped()
-                    .cornerRadius(10)
-                    .rotationEffect(.degrees(10))
-                    .offset(x: 50, y: 0)
-                Image("ob-6")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 114.5, height: 185.42)
-                    .clipped()
-                    .cornerRadius(10)
-            }
-            PuraceTextView("Cuna de próceres", fontSize: 20)
-            PuraceTextView(" Popayán ha sido cuna de importantes personajes colombianos, incluyendo a expresidentes del país, líderes de la Independencia y poetas célebres.", textColor: PuraceStyle.Color.N4)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: UIScreen.main.bounds.width * 0.65)
-        }
-    }
-    
-    var continueButton: some View {
-        Group {
-            PuraceButtonView("Ir a Popayán", fontSize: 16) {
+    var mainButton: some View {
+        let type = viewModel.mainButtonType
+        return PuraceButtonView(viewModel.buttonText, fontSize: 14, type: type) {
+            if viewModel.currentIndex == viewModel.items.count-1 {
                 continueOnTap()
+            } else {
+                viewModel.next()
             }
-                .opacity(buttonOpacity)
-                .animation(.easeIn(duration: 0.2))
-        }.frame(height: UIScreen.main.bounds.height * 0.2)
+        }
+    }
+    
+    var bottomBar: some View {
+        HStack {
+            indicators
+            Spacer()
+            mainButton
+        }
+            .padding(.horizontal, 35)
+            .padding(.bottom, 20)
+    }
+    
+    var indicators: some View {
+        HStack {
+            ForEach(viewModel.items.indices, id: \.self) { index in
+                Circle()
+                    .fill(index == viewModel.currentIndex ? PuraceStyle.Color.G1 : PuraceStyle.Color.G8)
+                    .frame(width: 6, height: 6)
+            }
+        }
     }
     
     var body: some View {
         VStack {
-            TabView(selection: $selectedPage) {
-                placesPage
-                    .tag(0)
-                heroesPage
-                    .tag(1)
-            }.tabViewStyle(.page)
-            continueButton
-        }.onChange(of: selectedPage) { newValue in
-            buttonOpacity = newValue == 1 ? 1 : 0
+            ScrollViewReader { reader in
+                TabView(selection: $viewModel.currentIndex) {
+                    ForEach(viewModel.items.indices, id: \.self) { index in
+                        item(at: index)
+                            .tag(index)
+                    }
+                }.tabViewStyle(.page(indexDisplayMode: .never))
+                    .onChange(of: viewModel.currentIndex) { index in
+                        reader.scrollTo(index)
+                    }
+            }
+            
+            bottomBar
+        }.onAppear {
+            viewModel.getData()
         }
     }
 }

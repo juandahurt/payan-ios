@@ -37,11 +37,11 @@ final class PYMainBuilder {
         if interactor.checkIfUserHasSeenOnboarding() {
             return controller
         } else {
-            return UIHostingController(rootView: PYOnboardingPageView {
+            return PYOnbardingBuilder().build {
                 interactor.saveUserSawOnboarding()
                 PYRoutingManager.shared.push(controller)
                 PYRoutingManager.shared.setViewControllers([controller])
-            })
+            }
         }
     }
 }

@@ -25,7 +25,6 @@
 		2F2B9FF328408B9200565D3E /* PYCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2B9FF228408B9200565D3E /* PYCollectionViewModel.swift */; };
 		2F40C59F28739B4F00629A7E /* PYSearchNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40C59E28739B4F00629A7E /* PYSearchNetworkWorker.swift */; };
 		2F43441B2815A184001E8910 /* PYNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43441A2815A184001E8910 /* PYNetworkManager.swift */; };
-		2F56992B285E646E00F2D4D3 /* PYMainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56992A285E646E00F2D4D3 /* PYMainPageView.swift */; };
 		2F56992E285E651700F2D4D3 /* PYMainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56992D285E651700F2D4D3 /* PYMainBuilder.swift */; };
 		2F569935285E730200F2D4D3 /* PYMenuPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F569934285E730200F2D4D3 /* PYMenuPageView.swift */; };
 		2F5827672858D763006836E8 /* PYHeroBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5827662858D763006836E8 /* PYHeroBusinessLogic.swift */; };
@@ -69,6 +68,14 @@
 		2FA3BB092815F24D005BF493 /* PYServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB082815F24D005BF493 /* PYServerResponse.swift */; };
 		2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */; };
 		2FA558112849605400E9B2B4 /* PYPlaceLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA558102849605400E9B2B4 /* PYPlaceLocation.swift */; };
+		2FA9FEE028956A61004B9A4F /* OnboardingItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2FA9FEDF28956A61004B9A4F /* OnboardingItems.plist */; };
+		2FA9FEE328956B6E004B9A4F /* PYOnboardingBusinessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9FEE228956B6E004B9A4F /* PYOnboardingBusinessLogic.swift */; };
+		2FA9FEE628956BA3004B9A4F /* PYOnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9FEE528956BA3004B9A4F /* PYOnboardingItem.swift */; };
+		2FA9FEE828956D09004B9A4F /* PYOnboardingDataAccessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9FEE728956D09004B9A4F /* PYOnboardingDataAccessLogic.swift */; };
+		2FA9FEEB28956D9D004B9A4F /* PYOnbardingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9FEEA28956D9D004B9A4F /* PYOnbardingInteractor.swift */; };
+		2FA9FEEF28956E92004B9A4F /* PYOnboardingLocalWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9FEEE28956E92004B9A4F /* PYOnboardingLocalWorker.swift */; };
+		2FA9FEF128956F9C004B9A4F /* PYOnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9FEF028956F9C004B9A4F /* PYOnboardingViewModel.swift */; };
+		2FA9FEF3289570F1004B9A4F /* PYOnbardingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA9FEF2289570F1004B9A4F /* PYOnbardingBuilder.swift */; };
 		2FBC47ED286A3A270021EBCA /* Purace in Frameworks */ = {isa = PBXBuildFile; productRef = 2FBC47EC286A3A270021EBCA /* Purace */; };
 		2FC270EB2837F0AB00770B46 /* PYFeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */; };
 		2FCAE681286D1C0E00538D05 /* PYMenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCAE680286D1C0E00538D05 /* PYMenuSection.swift */; };
@@ -144,7 +151,6 @@
 		2F40C59E28739B4F00629A7E /* PYSearchNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchNetworkWorker.swift; sourceTree = "<group>"; };
 		2F40F5E42839640800BF2007 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F43441A2815A184001E8910 /* PYNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkManager.swift; sourceTree = "<group>"; };
-		2F56992A285E646E00F2D4D3 /* PYMainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMainPageView.swift; sourceTree = "<group>"; };
 		2F56992D285E651700F2D4D3 /* PYMainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMainBuilder.swift; sourceTree = "<group>"; };
 		2F569934285E730200F2D4D3 /* PYMenuPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMenuPageView.swift; sourceTree = "<group>"; };
 		2F5827662858D763006836E8 /* PYHeroBusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroBusinessLogic.swift; sourceTree = "<group>"; };
@@ -191,6 +197,14 @@
 		2FA3BB082815F24D005BF493 /* PYServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYServerResponse.swift; sourceTree = "<group>"; };
 		2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedNetworkWorker.swift; sourceTree = "<group>"; };
 		2FA558102849605400E9B2B4 /* PYPlaceLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceLocation.swift; sourceTree = "<group>"; };
+		2FA9FEDF28956A61004B9A4F /* OnboardingItems.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OnboardingItems.plist; sourceTree = "<group>"; };
+		2FA9FEE228956B6E004B9A4F /* PYOnboardingBusinessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOnboardingBusinessLogic.swift; sourceTree = "<group>"; };
+		2FA9FEE528956BA3004B9A4F /* PYOnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOnboardingItem.swift; sourceTree = "<group>"; };
+		2FA9FEE728956D09004B9A4F /* PYOnboardingDataAccessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOnboardingDataAccessLogic.swift; sourceTree = "<group>"; };
+		2FA9FEEA28956D9D004B9A4F /* PYOnbardingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOnbardingInteractor.swift; sourceTree = "<group>"; };
+		2FA9FEEE28956E92004B9A4F /* PYOnboardingLocalWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOnboardingLocalWorker.swift; sourceTree = "<group>"; };
+		2FA9FEF028956F9C004B9A4F /* PYOnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOnboardingViewModel.swift; sourceTree = "<group>"; };
+		2FA9FEF2289570F1004B9A4F /* PYOnbardingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYOnbardingBuilder.swift; sourceTree = "<group>"; };
 		2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedPageView.swift; sourceTree = "<group>"; };
 		2FCAE680286D1C0E00538D05 /* PYMenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMenuSection.swift; sourceTree = "<group>"; };
 		2FCAE682286F8EB700538D05 /* PYMainRouteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMainRouteHandler.swift; sourceTree = "<group>"; };
@@ -384,19 +398,10 @@
 				2FFBCFDA28663BA3008E939F /* Worker */,
 				2FFBCFD728663B1A008E939F /* Protocols */,
 				2FF1EBE32861730200B16E5E /* Entities */,
-				2F569929285E645B00F2D4D3 /* UI */,
 				2F56992D285E651700F2D4D3 /* PYMainBuilder.swift */,
 				2FCAE682286F8EB700538D05 /* PYMainRouteHandler.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		2F569929285E645B00F2D4D3 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				2FFBCFD628663A9E008E939F /* Page */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		2F569931285E72EC00F2D4D3 /* Menu */ = {
@@ -651,6 +656,55 @@
 			name = Packages;
 			sourceTree = "<group>";
 		};
+		2FA9FEDE28956A2C004B9A4F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2FA9FEDF28956A61004B9A4F /* OnboardingItems.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2FA9FEE128956B13004B9A4F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2FA9FEE228956B6E004B9A4F /* PYOnboardingBusinessLogic.swift */,
+				2FA9FEE728956D09004B9A4F /* PYOnboardingDataAccessLogic.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2FA9FEE428956B90004B9A4F /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2FA9FEE528956BA3004B9A4F /* PYOnboardingItem.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		2FA9FEE928956D6D004B9A4F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2FA9FEEA28956D9D004B9A4F /* PYOnbardingInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2FA9FEEC28956E69004B9A4F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FA9FEF028956F9C004B9A4F /* PYOnboardingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FA9FEED28956E76004B9A4F /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				2FA9FEEE28956E92004B9A4F /* PYOnboardingLocalWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
 		2FC270E62837EF9500770B46 /* Page */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,7 +926,13 @@
 		2FFBCFD028661816008E939F /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				2FA9FEED28956E76004B9A4F /* Worker */,
+				2FA9FEE928956D6D004B9A4F /* Interactor */,
+				2FA9FEE428956B90004B9A4F /* Entities */,
+				2FA9FEE128956B13004B9A4F /* Protocols */,
+				2FA9FEDE28956A2C004B9A4F /* Resources */,
 				2FFBCFD12866181E008E939F /* UI */,
+				2FA9FEF2289570F1004B9A4F /* PYOnbardingBuilder.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -880,6 +940,7 @@
 		2FFBCFD12866181E008E939F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2FA9FEEC28956E69004B9A4F /* ViewModel */,
 				2FFBCFD228661827008E939F /* Page */,
 			);
 			path = UI;
@@ -889,14 +950,6 @@
 			isa = PBXGroup;
 			children = (
 				2FFBCFD32866183A008E939F /* PYOnboardingPageView.swift */,
-			);
-			path = Page;
-			sourceTree = "<group>";
-		};
-		2FFBCFD628663A9E008E939F /* Page */ = {
-			isa = PBXGroup;
-			children = (
-				2F56992A285E646E00F2D4D3 /* PYMainPageView.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -1155,6 +1208,7 @@
 			files = (
 				2F1D99902860D6C100AC9187 /* MenuItems.plist in Resources */,
 				3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */,
+				2FA9FEE028956A61004B9A4F /* OnboardingItems.plist in Resources */,
 				3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */,
 				3D496F90277E4C90009BFF74 /* GoogleService-Info.plist in Resources */,
 			);
@@ -1169,7 +1223,6 @@
 			files = (
 				2FCAE685286F8F0200538D05 /* PYHeroRouteHandler.swift in Sources */,
 				2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */,
-				2F56992B285E646E00F2D4D3 /* PYMainPageView.swift in Sources */,
 				2F5827742858DB16006836E8 /* PYHeroInteractor.swift in Sources */,
 				2FD54482287213F50098468D /* PYSearchResult.swift in Sources */,
 				2F5827672858D763006836E8 /* PYHeroBusinessLogic.swift in Sources */,
@@ -1188,11 +1241,14 @@
 				2F645F6928886D2500064F8A /* PYStoryBusinessLogic.swift in Sources */,
 				2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */,
 				2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */,
+				2FA9FEE828956D09004B9A4F /* PYOnboardingDataAccessLogic.swift in Sources */,
 				2F8789F52842846100C3A40F /* UIViewController+popGesture.swift in Sources */,
+				2FA9FEF3289570F1004B9A4F /* PYOnbardingBuilder.swift in Sources */,
 				2F56992E285E651700F2D4D3 /* PYMainBuilder.swift in Sources */,
 				2FD5447E287210F00098468D /* PYSearchCoreViewModel.swift in Sources */,
 				2FD5449028723CDE0098468D /* PYSearchCoreInteractor.swift in Sources */,
 				2F19514728394F3B007B0E73 /* PYPlaceCategory.swift in Sources */,
+				2FA9FEEF28956E92004B9A4F /* PYOnboardingLocalWorker.swift in Sources */,
 				6D46485D281D9B21001FACC0 /* PYCollection.swift in Sources */,
 				2F908E3A2842D1DD003BD450 /* PYPlaceViewLogic.swift in Sources */,
 				2F58276C2858D79F006836E8 /* PYHero.swift in Sources */,
@@ -1212,6 +1268,7 @@
 				2F8CADF128024AF700F166E0 /* PYCollectionNetworkWorker.swift in Sources */,
 				2F645F6C28886F1E00064F8A /* PYStoryInteractor.swift in Sources */,
 				2F8D51342800C7B900ADCC64 /* PYFeedViewLogic.swift in Sources */,
+				2FA9FEF128956F9C004B9A4F /* PYOnboardingViewModel.swift in Sources */,
 				2FFBCFDE28663C34008E939F /* PYMainBusinessLogic.swift in Sources */,
 				2F5827762858DCBE006836E8 /* PYHeroViewLogic.swift in Sources */,
 				2FDC76C52858280800EAC03C /* PYHeroBuilder.swift in Sources */,
@@ -1220,6 +1277,7 @@
 				2F908E4A28430458003BD450 /* PYPlaceNetworkWorker.swift in Sources */,
 				2FDAAD71288C86520098092A /* PYStoryPreview.swift in Sources */,
 				6DB6E4F52818A96E0002A77C /* PYModuleBuilder.swift in Sources */,
+				2FA9FEE628956BA3004B9A4F /* PYOnboardingItem.swift in Sources */,
 				2F8D512D2800C5E600ADCC64 /* PYFeedDataAccessLogic.swift in Sources */,
 				2F63C88227FCD62500857056 /* PYFeedInteractor.swift in Sources */,
 				2F1D99A0286104C200AC9187 /* PYMenuLocalWorker.swift in Sources */,
@@ -1236,6 +1294,7 @@
 				2F908E4728430396003BD450 /* PYPlaceDataAccessLogic.swift in Sources */,
 				3D496F89277E357C009BFF74 /* AnalyticsManager.swift in Sources */,
 				3DF708BD26F2A4D200FD24CF /* AppDelegate.swift in Sources */,
+				2FA9FEEB28956D9D004B9A4F /* PYOnbardingInteractor.swift in Sources */,
 				2F8CADEF28024A4900F166E0 /* PYCollectionDataAccessLogic.swift in Sources */,
 				2F8CADEC2802486F00F166E0 /* PYCollectionElement.swift in Sources */,
 				2FCAE681286D1C0E00538D05 /* PYMenuSection.swift in Sources */,
@@ -1267,6 +1326,7 @@
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
 				2F68A1192852DD9300DCF1E6 /* PYPlaceImage.swift in Sources */,
 				2F78195128170E820096E342 /* PYNetworkingAppDelegate.swift in Sources */,
+				2FA9FEE328956B6E004B9A4F /* PYOnboardingBusinessLogic.swift in Sources */,
 				2FDAAD75288C8E5E0098092A /* PYStoryData.swift in Sources */,
 				2FDC76C92858284D00EAC03C /* PYHeroPageView.swift in Sources */,
 				2F06927B2801F6360068AA79 /* PYCollectionInteractor.swift in Sources */,
