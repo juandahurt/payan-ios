@@ -24,7 +24,7 @@ class PYHeroViewModel: ObservableObject {
         if !heroWasFetchedSuccessfuly {
             return " "
         }
-        return "1810 - 1880"
+        return "\(hero.bornAt) - \(hero.diedAt)"
     }
     
     func showImageViewer() {
