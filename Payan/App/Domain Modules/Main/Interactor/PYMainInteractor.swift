@@ -15,8 +15,7 @@ class PYMainInteractor: PYMainBusinessLogic {
     }
     
     func checkIfUserHasSeenOnboarding() -> Bool {
-        false
-//        worker.getUserHasSeenOnboarding()
+        worker.getUserHasSeenOnboarding()
     }
     
     func saveUserSawOnboarding() {
