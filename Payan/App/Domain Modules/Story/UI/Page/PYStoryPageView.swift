@@ -98,19 +98,18 @@ struct PYStoryPageView: View, PYStoryViewLogic {
             tapHandlers
             close
             if !viewModel.isLoading {
-                indicators
+                if viewModel.chapters.count > 1 {
+                    indicators
+                }
                 chapterContent
             }
         }.background(
-            Group {
-                if !viewModel.isLoading {
-                    PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
-                        .aspectRatio(contentMode: .fill)
-                } else {
-                    PuraceStyle.Color.allSkeletons.randomElement() ?? .white
-                }
+            ZStack {
+                PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
+                    .aspectRatio(contentMode: .fill)
                 LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
-            }.ignoresSafeArea()
+            }
+                .ignoresSafeArea()
         )
             .onAppear {
                 viewModel.getData(id: id)
