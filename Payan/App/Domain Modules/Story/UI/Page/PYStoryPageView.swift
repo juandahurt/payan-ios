@@ -46,14 +46,24 @@ struct PYStoryPageView: View, PYStoryViewLogic {
             .padding(.horizontal, 10)
     }
     
+    var topBarBackground: some View {
+        VStack {
+            LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .top, endPoint: .bottom)
+                .frame(height: UIScreen.main.bounds.height * 0.2)
+            Spacer()
+        }.transition(.opacity)
+    }
+    
     var topBar: some View {
         VStack(spacing: 25) {
-            if viewModel.chapters.count > 1 {
-                indicators
+            if !viewModel.isPaused {
+                if viewModel.chapters.count > 1 {
+                    indicators
+                }
+                close
+                Spacer()
             }
-            close
-            Spacer()
-        }
+        }.transition(.opacity)
     }
     
     var tapHandlers: some View {
@@ -67,6 +77,28 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                     viewModel.next()
                 }
         }
+        .simultaneousGesture(
+            LongPressGesture(minimumDuration: 0.3).sequenced(before: DragGesture(minimumDistance: 0, coordinateSpace: .local))
+                .onChanged { value in
+                    switch value {
+                        case .second(_, _):
+                        withAnimation {
+                            viewModel.pause()
+                        }
+                        default:
+                            break
+                    }
+                }
+                .onEnded { value in
+                    switch value {
+                        case .second(_, _):
+                        viewModel.resume()
+                        default:
+                            break
+                    }
+                }
+        )
+
     }
     
     var chapterContent: some View {
@@ -98,25 +130,24 @@ struct PYStoryPageView: View, PYStoryViewLogic {
     
     var body: some View {
         ZStack {
-            tapHandlers
             topBar
             if !viewModel.isLoading {
                 chapterContent
             }
-        }.background(
+        }
+        .background(
             ZStack {
                 PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
                     .aspectRatio(contentMode: .fill)
-                VStack {
-                    LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .top, endPoint: .bottom)
-                        .frame(height: UIScreen.main.bounds.height * 0.2)
-                    Spacer()
+                if !viewModel.isPaused {
+                    topBarBackground
                 }
-                LinearGradient(colors: [.black.opacity(0.8), .clear], startPoint: .bottom, endPoint: .center)
+                LinearGradient(colors: [.black.opacity(0.6), .clear], startPoint: .bottom, endPoint: .center)
                     .skeleton(with: viewModel.isLoading)
                     .shape(type: .rectangle)
             }
                 .ignoresSafeArea()
+                .overlay(tapHandlers)
         )
             .onAppear {
                 viewModel.getData(id: id)

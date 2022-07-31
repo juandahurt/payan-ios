@@ -13,6 +13,7 @@ class PYStoryViewModel: ObservableObject {
     @Published var currentIndex: Int
     @Published var isLoading = true
     @Published var errorHasOccurred = false
+    @Published var isPaused = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -27,11 +28,22 @@ class PYStoryViewModel: ObservableObject {
         chapters[currentIndex]
     }
     
+    func pause() {
+        guard !isPaused else { return }
+        isPaused = true
+    }
+    
+    func resume() {
+        isPaused = false
+    }
+    
     func next() {
+        guard !isPaused else { return }
         interactor.next(currentIndex: &currentIndex, numberOfChapters: chapters.count)
     }
     
     func back() {
+        guard !isPaused else { return }
         interactor.back(currentIndex: &currentIndex, numberOfChapters: chapters.count)
     }
     
