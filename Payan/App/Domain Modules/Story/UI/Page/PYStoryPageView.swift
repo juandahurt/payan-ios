@@ -19,37 +19,40 @@ struct PYStoryPageView: View, PYStoryViewLogic {
     }
     
     var close: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Image(systemName: "xmark")
-                    .foregroundColor(.white)
-                    .background(
-                        Circle()
-                            .fill(Color.black.opacity(0.1))
-                            .frame(width: 40, height: 40)
-                    )
-                    .onTapGesture {
-                        PYRoutingManager.shared.dismiss()
-                    }
-                    .padding(30)
-            }
+        HStack {
             Spacer()
+            Image(systemName: "xmark")
+                .foregroundColor(.white)
+                .background(
+                    Color.black.opacity(0.001)
+                        .frame(width: 40, height: 40)
+                )
+                .onTapGesture {
+                    PYRoutingManager.shared.dismiss()
+                }
+                .padding(.trailing, 30)
         }
     }
     
     var indicators: some View {
-        VStack {
+        HStack(spacing: 3) {
+            ForEach(viewModel.chapters.indices, id: \.self) { index in
+                RoundedRectangle(cornerRadius: 2)
+                    .fill(index <= viewModel.currentIndex ? Color.white : Color.black.opacity(0.1))
+                    .frame(height: 3)
+            }
+        }
+            .padding(.top, 15)
+            .padding(.horizontal, 10)
+    }
+    
+    var topBar: some View {
+        VStack(spacing: 25) {
+            if viewModel.chapters.count > 1 {
+                indicators
+            }
+            close
             Spacer()
-            HStack(spacing: 3) {
-                ForEach(viewModel.chapters.indices, id: \.self) { index in
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(Color.white)
-                        .opacity(index == viewModel.currentIndex ? 1 : 0.4)
-                        .frame(height: 4)
-                }
-            }.padding(.bottom, 15)
-                .padding(.horizontal, 10)
         }
     }
     
@@ -96,17 +99,19 @@ struct PYStoryPageView: View, PYStoryViewLogic {
     var body: some View {
         ZStack {
             tapHandlers
-            close
+            topBar
             if !viewModel.isLoading {
-                if viewModel.chapters.count > 1 {
-                    indicators
-                }
                 chapterContent
             }
         }.background(
             ZStack {
                 PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
                     .aspectRatio(contentMode: .fill)
+                VStack {
+                    LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .top, endPoint: .bottom)
+                        .frame(height: UIScreen.main.bounds.height * 0.2)
+                    Spacer()
+                }
                 LinearGradient(colors: [.black.opacity(0.8), .clear], startPoint: .bottom, endPoint: .center)
                     .skeleton(with: viewModel.isLoading)
                     .shape(type: .rectangle)
