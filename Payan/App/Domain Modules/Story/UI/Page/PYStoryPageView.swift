@@ -74,9 +74,8 @@ struct PYStoryPageView: View, PYStoryViewLogic {
     var topBar: some View {
         VStack(spacing: 25) {
             if !viewModel.isPaused {
-                if viewModel.chapters.count > 1 {
-                    indicators
-                }
+                indicators
+                    .opacity(viewModel.chapters.count == 1 ? 0 : 1)
                 close
                 Spacer()
             }
@@ -166,8 +165,6 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                     topBarBackground
                 }
                 LinearGradient(colors: [.black.opacity(0.6), .clear], startPoint: .bottom, endPoint: .center)
-                    .skeleton(with: viewModel.isLoading)
-                    .shape(type: .rectangle)
             }
                 .ignoresSafeArea()
                 .overlay(tapHandlers)
