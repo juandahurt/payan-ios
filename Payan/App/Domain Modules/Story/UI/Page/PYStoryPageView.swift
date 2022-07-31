@@ -151,10 +151,13 @@ struct PYStoryPageView: View, PYStoryViewLogic {
             if !viewModel.isLoading {
                 chapterContent
             }
+            if let timer = viewModel.timer {
+                EmptyView()
+                    .onReceive(timer, perform: { _ in
+                        viewModel.timerFired()
+                    })
+            }
         }
-        .onReceive(viewModel.timer, perform: { _ in
-            viewModel.timerFired()
-        })
         .background(
             ZStack {
                 PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))

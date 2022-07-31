@@ -20,7 +20,7 @@ class PYStoryViewModel: ObservableObject {
     
     let timerInterval = 0.4
     
-    var timer: Publishers.Autoconnect<Timer.TimerPublisher>
+    var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -29,11 +29,14 @@ class PYStoryViewModel: ObservableObject {
     init(interactor: PYStoryBusinessLogic) {
         self.interactor = interactor
         currentIndex = 0
-        timer = Timer.publish(every: timerInterval, on: .main, in: .default).autoconnect()
     }
     
     var currentChapter: PYStoryChapter {
         chapters[currentIndex]
+    }
+    
+    private func starTimer() {
+        timer = Timer.publish(every: timerInterval, on: .main, in: .default).autoconnect()
     }
     
     func timerFired() {
@@ -46,7 +49,7 @@ class PYStoryViewModel: ObservableObject {
     
     func pause() {
         guard !isPaused else { return }
-        timer.upstream.connect().cancel()
+        timer?.upstream.connect().cancel()
         isPaused = true
     }
     
@@ -86,6 +89,7 @@ class PYStoryViewModel: ObservableObject {
                 guard let self = self else { return }
                 self.chapters = data.chapters
                 self.isLoading = false
+                self.starTimer()
             }
             .store(in: &cancellables)
     }
