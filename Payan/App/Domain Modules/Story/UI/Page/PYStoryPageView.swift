@@ -38,8 +38,25 @@ struct PYStoryPageView: View, PYStoryViewLogic {
         HStack(spacing: 3) {
             ForEach(viewModel.chapters.indices, id: \.self) { index in
                 RoundedRectangle(cornerRadius: 2)
-                    .fill(index <= viewModel.currentIndex ? Color.white : Color.white.opacity(0.1))
+                    .fill(index < viewModel.currentIndex ? Color.white : Color.white.opacity(0.1))
                     .frame(height: 3)
+                    .overlay(
+                        Group {
+                            if index == viewModel.currentIndex {
+                                GeometryReader { reader in
+                                    let width = reader.size.width
+                                    
+                                    RoundedRectangle(cornerRadius: 2)
+                                        .fill(Color.white)
+                                        .frame(width: width * viewModel.currentPercentage)
+                                        .animation(.linear(duration: viewModel.timerInterval))
+                                }
+                            } else {
+                                EmptyView()
+                            }
+                        }
+                        
+                    )
             }
         }
             .padding(.top, 15)
@@ -135,6 +152,9 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                 chapterContent
             }
         }
+        .onReceive(viewModel.timer, perform: { _ in
+            viewModel.timerFired()
+        })
         .background(
             ZStack {
                 PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
@@ -157,6 +177,9 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                 if !value {
                     viewModel.getData(id: id)
                 }
+            }
+            .onReceive(viewModel.storyFinshed) { _ in
+                PYRoutingManager.shared.dismiss()
             }
     }
 }

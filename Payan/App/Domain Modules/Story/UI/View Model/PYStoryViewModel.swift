@@ -14,6 +14,13 @@ class PYStoryViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var errorHasOccurred = false
     @Published var isPaused = false
+    @Published var currentPercentage = 0.0
+    
+    var storyFinshed = PassthroughSubject<Void, Never>()
+    
+    let timerInterval = 0.4
+    
+    var timer: Publishers.Autoconnect<Timer.TimerPublisher>
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -22,28 +29,43 @@ class PYStoryViewModel: ObservableObject {
     init(interactor: PYStoryBusinessLogic) {
         self.interactor = interactor
         currentIndex = 0
+        timer = Timer.publish(every: timerInterval, on: .main, in: .default).autoconnect()
     }
     
     var currentChapter: PYStoryChapter {
         chapters[currentIndex]
     }
     
+    func timerFired() {
+        let aux = currentPercentage + 0.1
+        currentPercentage = min(1, aux)
+        if currentPercentage == 1 {
+            next()
+        }
+    }
+    
     func pause() {
         guard !isPaused else { return }
+        timer.upstream.connect().cancel()
         isPaused = true
     }
     
     func resume() {
+        timer = Timer.publish(every: timerInterval, on: .main, in: .default).autoconnect()
         isPaused = false
     }
     
     func next() {
-        guard !isPaused else { return }
+        guard currentIndex < chapters.count - 1 else {
+            storyFinshed.send()
+            return
+        }
+        currentPercentage = 0
         interactor.next(currentIndex: &currentIndex, numberOfChapters: chapters.count)
     }
     
     func back() {
-        guard !isPaused else { return }
+        currentPercentage = 0
         interactor.back(currentIndex: &currentIndex, numberOfChapters: chapters.count)
     }
     
