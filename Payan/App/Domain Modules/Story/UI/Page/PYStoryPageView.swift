@@ -38,7 +38,7 @@ struct PYStoryPageView: View, PYStoryViewLogic {
         HStack(spacing: 3) {
             ForEach(viewModel.chapters.indices, id: \.self) { index in
                 RoundedRectangle(cornerRadius: 2)
-                    .fill(index <= viewModel.currentIndex ? Color.white : Color.black.opacity(0.1))
+                    .fill(index <= viewModel.currentIndex ? Color.white : Color.white.opacity(0.1))
                     .frame(height: 3)
             }
         }
@@ -87,7 +87,7 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                 }
             }
         }.padding(.horizontal, 30)
-            .padding(.bottom, 60)
+            .padding(.bottom, 20)
     }
     
     var loader: some View {
