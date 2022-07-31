@@ -141,7 +141,6 @@ struct PYStoryPageView: View, PYStoryViewLogic {
     var loader: some View {
         PuraceCircularLoaderView()
             .frame(width: 40, height: 40)
-            .transition(.opacity.animation(.linear))
     }
     
     var body: some View {
@@ -149,6 +148,8 @@ struct PYStoryPageView: View, PYStoryViewLogic {
             topBar
             if !viewModel.isLoading {
                 chapterContent
+            } else {
+                loader
             }
             if let timer = viewModel.timer {
                 EmptyView()
