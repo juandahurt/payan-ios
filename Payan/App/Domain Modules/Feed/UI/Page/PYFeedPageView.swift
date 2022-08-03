@@ -116,43 +116,43 @@ struct PYFeedPageView: View {
     func storyPreview(at index: Int) -> some View {
         let story = viewModel.stories[index]
         
-        return ZStack {
-            PuraceImageView(url: URL(string: story.image))
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
-            Color.black.opacity(0.2)
-            PuraceTextView(story.title, textColor: .white, weight: .medium)
+        return VStack {
+            ZStack {
+                Circle()
+                    .fill(index == 0 ? PuraceStyle.Color.B2 : PuraceStyle.Color.N4)
+                    .frame(width: index == 0 ? 75 : 71, height: index == 0 ? 75 : 71)
+                Circle()
+                    .fill(Color.white)
+                    .frame(width: 70, height: 70)
+                PuraceImageView(url: URL(string: story.image))
+                    .aspectRatio(contentMode: .fill)
+                    .clipShape(Circle())
+                    .frame(width: 64, height: 64)
+            }
+            PuraceTextView(story.title, fontSize: 10, weight: .regular)
                 .multilineTextAlignment(.center)
-            VStack(spacing: 8) {
-                Spacer()
-                Color.white
-                    .frame(width: 66, height: 2)
-            }.padding(.bottom)
+                .lineLimit(1)
+                .frame(width: 80)
+                .opacity(index == 0 ? 1 : 0.5)
         }
-            .frame(width: UIScreen.main.bounds.height * 0.2, height: UIScreen.main.bounds.height * 0.35)
             .onTapGesture {
                 guard let url = URL(string: story.link) else { return }
                 PYRoutingManager.shared.open(url: url)
             }
-            .clipped()
-            .contentShape(Rectangle())
     }
     
     var stories: some View {
-        VStack {
-            VStack(spacing: 5) {
-                PuraceTextView("¿Sabías esto?", fontSize: 20, textColor: PuraceStyle.Color.N1)
-                PuraceTextView("Conoce la ciudad a través de pequeñas histórias", fontSize: 14, textColor: PuraceStyle.Color.N4)
-            }.padding(.bottom)
-            
+        VStack(spacing: 20) {
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
+                HStack(spacing: 15) {
                     ForEach(viewModel.stories.indices, id: \.self) { index in
                         storyPreview(at: index)
                     }
                 }.padding(.horizontal, 16)
             }
-        }
+            Divider()
+                .opacity(0.5)
+        }.padding(.top)
     }
     
     var body: some View {
@@ -164,11 +164,13 @@ struct PYFeedPageView: View {
                     VStack {
                         navBar
                         ScrollView {
-                            VStack(spacing: 40) {
-                                placeCategories
+                            VStack {
                                 stories
-                                heroes
-                            }.padding(.vertical)
+                                VStack(spacing: 40) {
+                                    placeCategories
+                                    heroes
+                                }
+                            }.padding(.bottom)
                         }
                     }
                     if viewModel.isSearchVisible {
