@@ -18,7 +18,7 @@ class PYStoryViewModel: ObservableObject {
     
     var storyFinshed = PassthroughSubject<Void, Never>()
     
-    let timerInterval = 0.4
+    let timerInterval = 0.2
     
     var timer: Publishers.Autoconnect<Timer.TimerPublisher>?
     
@@ -39,8 +39,13 @@ class PYStoryViewModel: ObservableObject {
         timer = Timer.publish(every: timerInterval, on: .main, in: .default).autoconnect()
     }
     
+    private func resetTimer() {
+        timer?.upstream.connect().cancel()
+        starTimer()
+    }
+    
     func timerFired() {
-        let aux = currentPercentage + 0.1
+        let aux = currentPercentage + 0.05
         currentPercentage = min(1, aux)
         if currentPercentage == 1 {
             next()
@@ -65,6 +70,7 @@ class PYStoryViewModel: ObservableObject {
         }
         currentPercentage = 0
         interactor.next(currentIndex: &currentIndex, numberOfChapters: chapters.count)
+        resetTimer()
     }
     
     func back() {
