@@ -47,7 +47,7 @@ struct PYFeedPageView: View {
                             Spacer()
                             HStack {
                                 Spacer()
-                                PuraceTextView("\(category.numberOfPlaces) lugares", textColor: .white)
+                                PuraceTextView("\(category.numberOfPlaces) lugares", fontSize: 10, textColor: .white)
                                     .frame(alignment: .bottomTrailing)
                                     .padding()
                             }
@@ -120,19 +120,19 @@ struct PYFeedPageView: View {
             ZStack {
                 Circle()
                     .fill(index == 0 ? PuraceStyle.Color.B2 : PuraceStyle.Color.N4)
-                    .frame(width: index == 0 ? 75 : 71, height: index == 0 ? 75 : 71)
+                    .frame(width: index == 0 ? 120 : 116, height: index == 0 ? 120 : 116)
                 Circle()
                     .fill(Color.white)
-                    .frame(width: 70, height: 70)
+                    .frame(width: 115, height: 115)
                 PuraceImageView(url: URL(string: story.image))
                     .aspectRatio(contentMode: .fill)
                     .clipShape(Circle())
-                    .frame(width: 64, height: 64)
+                    .frame(width: 109, height: 109)
             }
-            PuraceTextView(story.title, fontSize: 10, weight: .regular)
+            PuraceTextView(story.title, weight: .regular)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
-                .frame(width: 80)
+                .frame(width: 120)
                 .opacity(index == 0 ? 1 : 0.5)
         }
             .onTapGesture {
@@ -143,16 +143,18 @@ struct PYFeedPageView: View {
     
     var stories: some View {
         VStack(spacing: 20) {
+            VStack(spacing: 5) {
+                PuraceTextView("¿Sabías esto?", fontSize: 20, textColor: PuraceStyle.Color.N1)
+                PuraceTextView("Conoce la ciudad a través de pequeñas historias", fontSize: 14, textColor: PuraceStyle.Color.N4)
+            }
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 15) {
+                HStack(spacing: 30) {
                     ForEach(viewModel.stories.indices, id: \.self) { index in
                         storyPreview(at: index)
                     }
                 }.padding(.horizontal, 16)
             }
-            Divider()
-                .opacity(0.5)
-        }.padding(.top)
+        }
     }
     
     var body: some View {
@@ -163,13 +165,11 @@ struct PYFeedPageView: View {
                 ZStack {
                     VStack {
                         navBar
-                        ScrollView {
-                            VStack {
+                        ScrollView(showsIndicators: false) {
+                            VStack(spacing: 40) {
+                                placeCategories
                                 stories
-                                VStack(spacing: 40) {
-                                    placeCategories
-                                    heroes
-                                }
+                                heroes
                             }.padding(.bottom)
                         }
                     }
