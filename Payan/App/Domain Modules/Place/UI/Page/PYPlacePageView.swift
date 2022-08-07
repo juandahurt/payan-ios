@@ -45,10 +45,11 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 Image(systemName: "chevron.left")
                     .foregroundColor(navBarForegroundColor)
                     .scaleEffect(1.2)
+                    .padding()
+                    .background(Color.black.opacity(0.001))
                     .onTapGesture {
                         PYRoutingManager.shared.pop()
                     }
-                    .padding()
             }
             Spacer()
         }
@@ -159,7 +160,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     images
                 }
             }
-        }
+        }.frame(height: UIScreen.main.bounds.height * 0.4)
     }
     
     func tryToUpdateNavBar(basedOn scrollOffset: CGFloat) {
@@ -191,7 +192,6 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     }.offset(x: 0, y: -15)
                     if viewModel.placeWasFetchedSuccesffully {
                         tabs
-                            .frame(height: UIScreen.main.bounds.height * 0.5)
                     }
                     Spacer(minLength: 0)
                 }

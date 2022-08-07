@@ -23,6 +23,8 @@ struct PYAboutPageView: View {
             Image(systemName: "chevron.left")
                 .foregroundColor(PuraceStyle.Color.N1)
                 .scaleEffect(1.2)
+                .padding()
+                .background(Color.black.opacity(0.001))
                 .onTapGesture {
                     PYRoutingManager.shared.pop()
                 }
@@ -33,8 +35,8 @@ struct PYAboutPageView: View {
                 .foregroundColor(PuraceStyle.Color.N1)
                 .scaleEffect(1.2)
                 .opacity(0)
+                .padding()
         }
-            .padding()
             .frame(height: 50)
             .padding(.bottom, 50)
     }

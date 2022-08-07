@@ -15,7 +15,6 @@ struct PYHeroPageView: View, PYHeroViewLogic {
     var heroId: String
     
     init(heroId: String, viewModel: PYHeroViewModel) {
-        #warning("Apple says 'don't use this initializer' but how am i going to inject this????")
         _viewModel = StateObject(wrappedValue: viewModel)
         self.heroId = heroId
     }
@@ -27,10 +26,11 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 Image(systemName: "chevron.left")
                     .foregroundColor(PuraceStyle.Color.N1)
                     .scaleEffect(1.2)
+                    .padding()
+                    .background(Color.black.opacity(0.001))
                     .onTapGesture {
                         PYRoutingManager.shared.pop()
                     }
-                    .padding()
             }
             Spacer()
         }
