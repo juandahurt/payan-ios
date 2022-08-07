@@ -19,38 +19,67 @@ struct PYStoryPageView: View, PYStoryViewLogic {
     }
     
     var close: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Image(systemName: "xmark")
-                    .foregroundColor(.white)
-                    .background(
-                        Circle()
-                            .fill(Color.black.opacity(0.1))
-                            .frame(width: 40, height: 40)
-                    )
-                    .onTapGesture {
-                        PYRoutingManager.shared.dismiss()
-                    }
-                    .padding(30)
-            }
+        HStack {
             Spacer()
+            Image(systemName: "xmark")
+                .foregroundColor(.white)
+                .background(
+                    Color.black.opacity(0.001)
+                        .frame(width: 40, height: 40)
+                )
+                .onTapGesture {
+                    PYRoutingManager.shared.dismiss()
+                }
+                .padding(.trailing, 30)
         }
     }
     
     var indicators: some View {
-        VStack {
-            Spacer()
-            HStack(spacing: 3) {
-                ForEach(viewModel.chapters.indices, id: \.self) { index in
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(Color.white)
-                        .opacity(index == viewModel.currentIndex ? 1 : 0.4)
-                        .frame(height: 4)
-                }
-            }.padding(.bottom, 15)
-                .padding(.horizontal, 10)
+        HStack(spacing: 3) {
+            ForEach(viewModel.chapters.indices, id: \.self) { index in
+                RoundedRectangle(cornerRadius: 2)
+                    .fill(index < viewModel.currentIndex ? Color.white : Color.white.opacity(0.1))
+                    .frame(height: 3)
+                    .overlay(
+                        Group {
+                            if index == viewModel.currentIndex {
+                                GeometryReader { reader in
+                                    let width = reader.size.width
+                                    
+                                    RoundedRectangle(cornerRadius: 2)
+                                        .fill(Color.white)
+                                        .frame(width: width * viewModel.currentPercentage)
+                                        .animation(.linear(duration: viewModel.timerInterval))
+                                }
+                            } else {
+                                EmptyView()
+                            }
+                        }
+                        
+                    )
+            }
         }
+            .padding(.top, 15)
+            .padding(.horizontal, 10)
+    }
+    
+    var topBarBackground: some View {
+        VStack {
+            LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .top, endPoint: .bottom)
+                .frame(height: UIScreen.main.bounds.height * 0.2)
+            Spacer()
+        }.transition(.opacity)
+    }
+    
+    var topBar: some View {
+        VStack(spacing: 25) {
+            if !viewModel.isPaused {
+                indicators
+                    .opacity(viewModel.chapters.count == 1 ? 0 : 1)
+                close
+                Spacer()
+            }
+        }.transition(.opacity)
     }
     
     var tapHandlers: some View {
@@ -64,6 +93,28 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                     viewModel.next()
                 }
         }
+        .simultaneousGesture(
+            LongPressGesture(minimumDuration: 0.3).sequenced(before: DragGesture(minimumDistance: 0, coordinateSpace: .local))
+                .onChanged { value in
+                    switch value {
+                        case .second(_, _):
+                        withAnimation {
+                            viewModel.pause()
+                        }
+                        default:
+                            break
+                    }
+                }
+                .onEnded { value in
+                    switch value {
+                        case .second(_, _):
+                        viewModel.resume()
+                        default:
+                            break
+                    }
+                }
+        )
+
     }
     
     var chapterContent: some View {
@@ -84,34 +135,40 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                 }
             }
         }.padding(.horizontal, 30)
-            .padding(.bottom, 60)
+            .padding(.bottom, 20)
     }
     
     var loader: some View {
         PuraceCircularLoaderView()
             .frame(width: 40, height: 40)
-            .transition(.opacity.animation(.linear))
     }
     
     var body: some View {
         ZStack {
-            tapHandlers
-            close
+            topBar
             if !viewModel.isLoading {
-                if viewModel.chapters.count > 1 {
-                    indicators
-                }
                 chapterContent
+            } else {
+                loader
             }
-        }.background(
+            if let timer = viewModel.timer {
+                EmptyView()
+                    .onReceive(timer, perform: { _ in
+                        viewModel.timerFired()
+                    })
+            }
+        }
+        .background(
             ZStack {
                 PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
                     .aspectRatio(contentMode: .fill)
-                LinearGradient(colors: [.black.opacity(0.8), .clear], startPoint: .bottom, endPoint: .center)
-                    .skeleton(with: viewModel.isLoading)
-                    .shape(type: .rectangle)
+                if !viewModel.isPaused {
+                    topBarBackground
+                }
+                LinearGradient(colors: [.black.opacity(0.6), .clear], startPoint: .bottom, endPoint: .center)
             }
                 .ignoresSafeArea()
+                .overlay(tapHandlers)
         )
             .onAppear {
                 viewModel.getData(id: id)
@@ -121,6 +178,9 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                 if !value {
                     viewModel.getData(id: id)
                 }
+            }
+            .onReceive(viewModel.storyFinshed) { _ in
+                PYRoutingManager.shared.dismiss()
             }
     }
 }
