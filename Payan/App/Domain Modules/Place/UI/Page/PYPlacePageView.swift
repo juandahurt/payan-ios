@@ -28,7 +28,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         longitudinalMeters: 750
     )
     @State var selectedImageIsVisible = false
-    @State var selectedImage: PYPlaceImage?
+    @State var selectedImageUrl: String?
     @State var navBarBackground: Color = .clear
     @State var navBarForegroundColor: Color = .white
     
@@ -69,6 +69,10 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             Color.black.opacity(imageOpacity)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
                 .opacity(viewModel.isLoading ? 0 : 1)
+                .onTapGesture {
+                    selectedImageUrl = viewModel.place.image
+                    selectedImageIsVisible = true
+                }
         }
         .frame(height: UIScreen.main.bounds.height * 0.4)
     }
@@ -139,7 +143,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     .clipped()
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        selectedImage = viewModel.place.images[index]
+                        selectedImageUrl = viewModel.place.images[index].url
                         selectedImageIsVisible = true
                     }
             }
@@ -204,7 +208,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             }
         }
         .imageViewer(
-            url: URL(string: selectedImage?.url ?? ""),
+            url: URL(string: selectedImageUrl ?? ""),
             isVisible: $selectedImageIsVisible
         )
         .edgesIgnoringSafeArea(.top)
