@@ -58,11 +58,11 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: correctItemWidth, height: correctHeight)
                 .clipped()
-            LinearGradient(colors: [.clear, .black.opacity(0.5)], startPoint: .top, endPoint: .bottom)
+            Color.black.opacity(0.3)
             VStack {
                 Spacer()
                 HStack {
-                    PuraceTextView(element.title, textColor: .white)
+                    PuraceTextView(element.title, fontSize: 10, textColor: .white)
                         .lineLimit(1)
                         .multilineTextAlignment(.leading)
                         .padding(8)
@@ -76,10 +76,10 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
-        .transition(.opacity.animation(.easeIn.delay(Double(index) * 0.15)))
+        .transition(.opacity.animation(.spring().delay(Double(index) * 0.15)))
     }
     
-    func heroElement(_ element: PYCollectionElement) -> some View {
+    func heroElement(_ element: PYCollectionElement, index: Int) -> some View {
         ZStack {
             PuraceImageView(url: URL(string: element.image))
                 .aspectRatio(contentMode: .fill)
@@ -99,15 +99,13 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 )
                 .frame(maxWidth: correctItemWidth * 0.8)
         }
-        .animation(.none)
-        .skeleton(with: viewModel.isLoading, transition: .opacity)
-        .shape(type: .rectangle)
         .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
         .contentShape(Rectangle())
         .onTapGesture {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
+        .transition(.opacity.animation(.spring().delay(Double(index) * 0.15)))
     }
     
     var collection: some View {
@@ -124,7 +122,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             PuraceVerticalGridView(columns: columns, spacing: 1) {
                 ForEach(viewModel.collection.elements.indices, id: \.self) { index in
                     if type == "hero" {
-                        heroElement(viewModel.collection.elements[index])
+                        heroElement(viewModel.collection.elements[index], index: index)
                     } else {
                         placeElement(viewModel.collection.elements[index], index: index)
                     }
