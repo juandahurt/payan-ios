@@ -28,7 +28,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         longitudinalMeters: 750
     )
     @State var selectedImageIsVisible = false
-    @State var selectedImage: PYPlaceImage?
+    @State var selectedImageUrl: String?
     @State var navBarBackground: Color = .clear
     @State var navBarForegroundColor: Color = .white
     
@@ -45,10 +45,11 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 Image(systemName: "chevron.left")
                     .foregroundColor(navBarForegroundColor)
                     .scaleEffect(1.2)
+                    .padding()
+                    .background(Color.black.opacity(0.001))
                     .onTapGesture {
                         PYRoutingManager.shared.pop()
                     }
-                    .padding()
             }
             Spacer()
         }
@@ -69,6 +70,10 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             Color.black.opacity(imageOpacity)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
                 .opacity(viewModel.isLoading ? 0 : 1)
+                .onTapGesture {
+                    selectedImageUrl = viewModel.place.image
+                    selectedImageIsVisible = true
+                }
         }
         .frame(height: UIScreen.main.bounds.height * 0.4)
     }
@@ -139,7 +144,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     .clipped()
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        selectedImage = viewModel.place.images[index]
+                        selectedImageUrl = viewModel.place.images[index].url
                         selectedImageIsVisible = true
                     }
             }
@@ -155,7 +160,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     images
                 }
             }
-        }
+        }.frame(height: UIScreen.main.bounds.height * 0.4)
     }
     
     func tryToUpdateNavBar(basedOn scrollOffset: CGFloat) {
@@ -187,7 +192,6 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                     }.offset(x: 0, y: -15)
                     if viewModel.placeWasFetchedSuccesffully {
                         tabs
-                            .frame(height: UIScreen.main.bounds.height * 0.5)
                     }
                     Spacer(minLength: 0)
                 }
@@ -204,7 +208,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             }
         }
         .imageViewer(
-            url: URL(string: selectedImage?.url ?? ""),
+            url: URL(string: selectedImageUrl ?? ""),
             isVisible: $selectedImageIsVisible
         )
         .edgesIgnoringSafeArea(.top)

@@ -115,12 +115,21 @@ struct PYFeedPageView: View {
     
     func storyPreview(at index: Int) -> some View {
         let story = viewModel.stories[index]
+        let notSeenIndicatorColor = LinearGradient(colors: [.blue, .red, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing)
         
         return VStack {
             ZStack {
-                Circle()
-                    .fill(index == 0 ? PuraceStyle.Color.B2 : PuraceStyle.Color.N4)
-                    .frame(width: index == 0 ? 120 : 116, height: index == 0 ? 120 : 116)
+                if index == 0 {
+                    Circle()
+                        .fill(.clear)
+                        .background(notSeenIndicatorColor.clipShape(Circle()))
+                        .clipped()
+                        .frame(width: 120, height: 120)
+                } else {
+                    Circle()
+                        .fill(PuraceStyle.Color.N4)
+                        .frame(width: 116, height: 116)
+                }
                 Circle()
                     .fill(Color.white)
                     .frame(width: 115, height: 115)
