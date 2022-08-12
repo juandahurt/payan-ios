@@ -18,7 +18,6 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     @State var title = ""
     
     let heroHeight = UIScreen.main.bounds.width * 0.8
-    let placeHeight = UIScreen.main.bounds.height * 0.2
     let correctHeight: CGFloat
     let correctItemWidth: CGFloat
     let columns: Int
@@ -26,9 +25,9 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     init(type: String, categoryId: String?) {
         self.type = type
         self.categoryId = categoryId
-        correctHeight = type == "hero" ? heroHeight : placeHeight
-        columns = type == "hero" ? 2 : 1
-        correctItemWidth = type == "hero" ? UIScreen.main.bounds.width / 2 : UIScreen.main.bounds.width
+        columns = type == "hero" ? 2 : 3
+        correctItemWidth = UIScreen.main.bounds.width / CGFloat(columns)
+        correctHeight = type == "hero" ? heroHeight : correctItemWidth
     }
     
     var navBar: some View {
@@ -48,11 +47,39 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 .foregroundColor(PuraceStyle.Color.N1)
                 .scaleEffect(1.2)
                 .opacity(0)
+                .padding()
         }
             .frame(height: 50)
     }
     
-    func collectionElement(_ element: PYCollectionElement) -> some View {
+    func placeElement(_ element: PYCollectionElement, index: Int) -> some View {
+        ZStack {
+            PuraceImageView(url: URL(string: element.image))
+                .aspectRatio(contentMode: .fill)
+                .frame(width: correctItemWidth, height: correctHeight)
+                .clipped()
+            Color.black.opacity(0.3)
+            VStack {
+                Spacer()
+                HStack {
+                    PuraceTextView(element.title, fontSize: 10, textColor: .white)
+                        .lineLimit(1)
+                        .multilineTextAlignment(.leading)
+                        .padding(8)
+                    Spacer(minLength: 0)
+                }
+            }
+        }
+        .frame(width: correctItemWidth, height: correctHeight)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            guard let url = URL(string: element.deepLink) else { return }
+            PYRoutingManager.shared.open(url: url)
+        }
+        .transition(.opacity.animation(.spring().delay(Double(index) * 0.15)))
+    }
+    
+    func heroElement(_ element: PYCollectionElement, index: Int) -> some View {
         ZStack {
             PuraceImageView(url: URL(string: element.image))
                 .aspectRatio(contentMode: .fill)
@@ -72,15 +99,13 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 )
                 .frame(maxWidth: correctItemWidth * 0.8)
         }
-        .animation(.none)
-        .skeleton(with: viewModel.isLoading, transition: .opacity)
-        .shape(type: .rectangle)
         .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
         .contentShape(Rectangle())
         .onTapGesture {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
+        .transition(.opacity.animation(.spring().delay(Double(index) * 0.15)))
     }
     
     var collection: some View {
@@ -94,22 +119,41 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             PuraceTextView(viewModel.collection.title, fontSize: 22)
                 .padding(.bottom, 20)
                 .frame(height: 70)
-            PuraceVerticalGridView(columns: columns, spacing: 2) {
-                ForEach(viewModel.collection.elements) { element in
-                    collectionElement(element)
+            PuraceVerticalGridView(columns: columns, spacing: 1) {
+                ForEach(viewModel.collection.elements.indices, id: \.self) { index in
+                    if type == "hero" {
+                        heroElement(viewModel.collection.elements[index], index: index)
+                    } else {
+                        placeElement(viewModel.collection.elements[index], index: index)
+                    }
                 }
             }
         }
     }
     
+    var loader: some View {
+        PuraceCircularLoaderView()
+            .frame(width: 50, height: 50)
+    }
+    
     var body: some View {
-        VStack {
-            navBar
-            collection
-        }.navigationBarHidden(true)
+        ZStack {
+            VStack {
+                navBar
+                collection
+                Spacer(minLength: 0)
+            }
+            if viewModel.isLoading {
+                loader
+                    .transition(.opacity)
+            }
+        }
+        .navigationBarHidden(true)
             .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
             .onFirstAppear {
-                viewModel.getCollection(ofType: type, categoryId: categoryId)
+                withAnimation {
+                    viewModel.getCollection(ofType: type, categoryId: categoryId)
+                }
             }
             .onChange(of: viewModel.errorHasOccured) { value in
                 if !value {

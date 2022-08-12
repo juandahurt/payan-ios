@@ -26,12 +26,12 @@ extension PYCollection {
     static let skeleton = PYCollection(
         title: "",
         elements: [
-            PYCollectionElement(title: "", image: "", deepLink: ""),
-            PYCollectionElement(title: "", image: "", deepLink: ""),
-            PYCollectionElement(title: "", image: "", deepLink: ""),
-            PYCollectionElement(title: "", image: "", deepLink: ""),
-            PYCollectionElement(title: "", image: "", deepLink: ""),
-            PYCollectionElement(title: "", image: "", deepLink: ""),
+//            PYCollectionElement(title: "", image: "", deepLink: ""),
+//            PYCollectionElement(title: "", image: "", deepLink: ""),
+//            PYCollectionElement(title: "", image: "", deepLink: ""),
+//            PYCollectionElement(title: "", image: "", deepLink: ""),
+//            PYCollectionElement(title: "", image: "", deepLink: ""),
+//            PYCollectionElement(title: "", image: "", deepLink: ""),
         ]
     )
 }
