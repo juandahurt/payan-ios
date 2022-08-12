@@ -28,7 +28,6 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
         columns = type == "hero" ? 2 : 3
         correctItemWidth = UIScreen.main.bounds.width / CGFloat(columns)
         correctHeight = type == "hero" ? heroHeight : correctItemWidth
-//        KingfisherManager.shared.cache.clearCache()
     }
     
     var navBar: some View {
@@ -48,6 +47,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 .foregroundColor(PuraceStyle.Color.N1)
                 .scaleEffect(1.2)
                 .opacity(0)
+                .padding()
         }
             .frame(height: 50)
     }
