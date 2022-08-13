@@ -14,7 +14,6 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     var type: String
     var categoryId: String?
     
-    @StateObject var viewModel = PYCollectionViewModel()
     @State var title = ""
     
     let heroHeight = UIScreen.main.bounds.width * 0.8
@@ -153,16 +152,16 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             }
         }
         .navigationBarHidden(true)
-            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
+//            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
             .onFirstAppear {
                 store.send(.getCollection(type, categoryId))
             }
-            .onChange(of: viewModel.errorHasOccured) { value in
-                if !value {
+//            .onChange(of: viewModel.errorHasOccured) { value in
+//                if !value {
 //                    withAnimation(.spring()) {
 //                        viewModel.getCollection(ofType: type, categoryId: categoryId)
 //                    }
-                }
-            }
+//                }
+//            }
     }
 }
