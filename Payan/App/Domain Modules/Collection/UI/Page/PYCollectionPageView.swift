@@ -58,11 +58,11 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: correctItemWidth, height: correctHeight)
                 .clipped()
-            Color.black.opacity(0.3)
+            Color.black.opacity(0.2)
             VStack {
                 Spacer()
                 HStack {
-                    PuraceTextView(element.title, fontSize: 10, textColor: .white)
+                    PuraceTextView(element.title, fontSize: 10, textColor: .white, weight: .medium)
                         .lineLimit(1)
                         .multilineTextAlignment(.leading)
                         .padding(8)
@@ -151,13 +151,15 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
         .navigationBarHidden(true)
             .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
             .onFirstAppear {
-                withAnimation {
+                withAnimation(.spring()) {
                     viewModel.getCollection(ofType: type, categoryId: categoryId)
                 }
             }
             .onChange(of: viewModel.errorHasOccured) { value in
                 if !value {
-                    viewModel.getCollection(ofType: type, categoryId: categoryId)
+                    withAnimation(.spring()) {
+                        viewModel.getCollection(ofType: type, categoryId: categoryId)
+                    }
                 }
             }
     }
