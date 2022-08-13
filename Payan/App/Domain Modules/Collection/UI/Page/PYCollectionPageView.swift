@@ -59,7 +59,6 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: correctItemWidth, height: correctHeight)
                 .clipped()
-                .animation(.none)
             Color.black.opacity(0.15)
             VStack {
                 Spacer()
@@ -72,7 +71,6 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 }
             }
         }
-        .transition(.opacity)
         .frame(width: correctItemWidth, height: correctHeight)
         .contentShape(Rectangle())
         .onTapGesture {
@@ -120,7 +118,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             PuraceTextView(data.title, fontSize: 22)
                 .padding(.bottom, 20)
                 .frame(height: 70)
-            PuraceVerticalGridView(columns: columns, spacing: 1) {
+            PuraceVerticalGridView(columns: columns, spacing: 1.5) {
                 ForEach(data.elements) { element in
                     if type == "hero" {
                         heroElement(element)
@@ -129,13 +127,14 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                     }
                 }
             }
-        }.transition(.opacity.animation(.spring()))
+        }
+        .transition(.opacity.animation(.spring().delay(0.5)))
     }
     
     var loader: some View {
         PuraceCircularLoaderView()
             .frame(width: 50, height: 50)
-//            .transition(.opacity.animation(.spring()))
+            .transition(.opacity.animation(.spring().delay(0.5)))
     }
     
     var body: some View {
