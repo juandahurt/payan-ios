@@ -15,15 +15,22 @@ class PYCollectionReducer: AnyReducer<PYCollectionState, PYCollectionAction, PYC
             state = PYCollectionSuccessState(data: collection)
             return nil
         case .getCollection(let type, let categoryId):
-//            state = PYCollectionLoadingState()
+            state = PYCollectionLoadingState()
             return environment.worker.getCollection(type: type, categoryId: categoryId)
-                .catch { _ in
-                    Empty<PYCollection, Never>()
-                }
                 .map { data in
                     .setCollection(data)
                 }
+                .tryCatch { _ in
+                    Just(PYCollectionAction.errorOcurred)
+                        .delay(for: 1, scheduler: RunLoop.main)
+                }
+                .catch { _ in
+                    Empty<PYCollectionAction, Never>()
+                }
                 .eraseToAnyPublisher()
+        case .errorOcurred:
+            state = PYCollectionErrorState("Hubo un error desconocido.")
+            return nil
         }
     }
 }

@@ -10,4 +10,5 @@ import Foundation
 enum PYCollectionAction {
     case setCollection(PYCollection)
     case getCollection(String, String?)
+    case errorOcurred
 }

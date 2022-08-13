@@ -8,7 +8,13 @@
 import Foundation
 
 // MARK: - Base State
-protocol PYCollectionState {}
+class PYCollectionState: Equatable {
+    let id = UUID().uuidString
+    
+    static func == (lhs: PYCollectionState, rhs: PYCollectionState) -> Bool {
+        lhs.id == rhs.id
+    }
+}
 
 
 // MARK: - Loading State
@@ -16,7 +22,13 @@ final class PYCollectionLoadingState: PYCollectionState {}
 
 
 // MARK: - Error State
-final class PYCollectionErrorState: PYCollectionState {}
+final class PYCollectionErrorState: PYCollectionState {
+    let description: String
+    
+    init(_ description: String) {
+        self.description = description
+    }
+}
 
 
 // MARK: - Success State
