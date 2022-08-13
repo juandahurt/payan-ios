@@ -59,14 +59,14 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: correctItemWidth, height: correctHeight)
                 .clipped()
-            Color.black.opacity(0.15)
+            Color.black.opacity(0.18)
             VStack {
                 Spacer()
                 HStack {
-                    PuraceTextView(element.title, fontSize: 10, textColor: .white, weight: .medium)
+                    PuraceTextView(element.title, textColor: .white, weight: .regular)
                         .lineLimit(1)
                         .multilineTextAlignment(.leading)
-                        .padding(8)
+                        .padding()
                     Spacer(minLength: 0)
                 }
             }
