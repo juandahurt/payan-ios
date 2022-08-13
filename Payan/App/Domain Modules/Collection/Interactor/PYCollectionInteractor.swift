@@ -9,9 +9,9 @@ import Foundation
 
 
 class PYCollectionInteractor: PYCollectionBusinessLogic {
-    var worker: PYCollectionDataAccessLogic
+    var worker: PYCollectionDataAccessLogicAux
     
-    init(worker: PYCollectionDataAccessLogic = PYCollectionNetworkWorker()) {
+    init(worker: PYCollectionDataAccessLogicAux = PYCollectionNetworkWorkerAux()) {
         self.worker = worker
     }
     

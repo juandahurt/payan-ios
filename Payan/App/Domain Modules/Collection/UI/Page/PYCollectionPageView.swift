@@ -22,6 +22,8 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     let correctItemWidth: CGFloat
     let columns: Int
     
+    let store = PYCollectionStore(initialState: PYCollectionLoadingState(), reducer: PYCollectionReducer(), environment: PYCollectionEnvironment()).debug()
+    
     init(type: String, categoryId: String?) {
         self.type = type
         self.categoryId = categoryId
@@ -151,9 +153,10 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
         .navigationBarHidden(true)
             .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
             .onFirstAppear {
-                withAnimation(.spring()) {
-                    viewModel.getCollection(ofType: type, categoryId: categoryId)
-                }
+                store.send(.getCollection(type, categoryId))
+//                withAnimation(.spring()) {
+//                    viewModel.getCollection(ofType: type, categoryId: categoryId)
+//                }
             }
             .onChange(of: viewModel.errorHasOccured) { value in
                 if !value {

@@ -17,6 +17,8 @@ class AnyStore<State, Action, Env>: ObservableObject {
     private let environment: Env
     private var cancellables: Set<AnyCancellable> = []
     
+    private var verbose = false
+    
     init(initialState: State, reducer: Reducer, environment: Env) {
         state = initialState
         self.reducer = reducer
@@ -24,6 +26,9 @@ class AnyStore<State, Action, Env>: ObservableObject {
     }
     
     final func send(_ action: Action) {
+        if verbose {
+            print("sending action: \(action.self)")
+        }
         guard let effect = reducer.update(state: &state, with: action, environment: environment) else {
             return
         }
@@ -32,5 +37,10 @@ class AnyStore<State, Action, Env>: ObservableObject {
             .receive(on: RunLoop.main)
             .sink(receiveValue: send)
             .store(in: &cancellables)
+    }
+    
+    func debug() -> Self {
+        verbose = true
+        return self
     }
 }
