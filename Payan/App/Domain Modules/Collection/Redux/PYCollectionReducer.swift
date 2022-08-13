@@ -15,7 +15,7 @@ class PYCollectionReducer: AnyReducer<PYCollectionState, PYCollectionAction, PYC
             state = PYCollectionSuccessState(data: collection)
             return nil
         case .getCollection(let type, let categoryId):
-            state = PYCollectionLoadingState()
+//            state = PYCollectionLoadingState()
             return environment.worker.getCollection(type: type, categoryId: categoryId)
                 .catch { _ in
                     Empty<PYCollection, Never>()

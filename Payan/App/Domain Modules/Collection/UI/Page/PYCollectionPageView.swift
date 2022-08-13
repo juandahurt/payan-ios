@@ -22,7 +22,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     let correctItemWidth: CGFloat
     let columns: Int
     
-    let store = PYCollectionStore(initialState: PYCollectionLoadingState(), reducer: PYCollectionReducer(), environment: PYCollectionEnvironment()).debug()
+    @StateObject var store = PYCollectionStore(initialState: PYCollectionLoadingState(), reducer: PYCollectionReducer(), environment: PYCollectionEnvironment()).debug()
     
     init(type: String, categoryId: String?) {
         self.type = type
@@ -54,13 +54,14 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             .frame(height: 50)
     }
     
-    func placeElement(_ element: PYCollectionElement, index: Int) -> some View {
+    func placeElement(_ element: PYCollectionElement) -> some View {
         ZStack {
             PuraceImageView(url: URL(string: element.image))
                 .aspectRatio(contentMode: .fill)
                 .frame(width: correctItemWidth, height: correctHeight)
                 .clipped()
-            Color.black.opacity(0.2)
+                .animation(.none)
+            Color.black.opacity(0.15)
             VStack {
                 Spacer()
                 HStack {
@@ -72,16 +73,16 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 }
             }
         }
+        .transition(.opacity)
         .frame(width: correctItemWidth, height: correctHeight)
         .contentShape(Rectangle())
         .onTapGesture {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
-        .transition(.opacity.animation(.spring().delay(Double(index) * 0.15)))
     }
     
-    func heroElement(_ element: PYCollectionElement, index: Int) -> some View {
+    func heroElement(_ element: PYCollectionElement) -> some View {
         ZStack {
             PuraceImageView(url: URL(string: element.image))
                 .aspectRatio(contentMode: .fill)
@@ -107,62 +108,60 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
-        .transition(.opacity.animation(.spring().delay(Double(index) * 0.15)))
     }
     
-    var collection: some View {
+    func collection(data: PYCollection) -> some View {
         OffsettableScrollView { value in
             if value.y < -70 {
-                title = viewModel.collection.title
+                title = data.title
             } else {
                 title = ""
             }
         } content: {
-            PuraceTextView(viewModel.collection.title, fontSize: 22)
+            PuraceTextView(data.title, fontSize: 22)
                 .padding(.bottom, 20)
                 .frame(height: 70)
             PuraceVerticalGridView(columns: columns, spacing: 1) {
-                ForEach(viewModel.collection.elements.indices, id: \.self) { index in
+                ForEach(data.elements) { element in
                     if type == "hero" {
-                        heroElement(viewModel.collection.elements[index], index: index)
+                        heroElement(element)
                     } else {
-                        placeElement(viewModel.collection.elements[index], index: index)
+                        placeElement(element)
                     }
                 }
             }
-        }
+        }.transition(.opacity.animation(.spring()))
     }
     
     var loader: some View {
         PuraceCircularLoaderView()
             .frame(width: 50, height: 50)
+//            .transition(.opacity.animation(.spring()))
     }
     
     var body: some View {
         ZStack {
             VStack {
                 navBar
-                collection
+                if let store = store.state as? PYCollectionSuccessState {
+                    collection(data: store.data)
+                }
                 Spacer(minLength: 0)
             }
-            if viewModel.isLoading {
+            if store.state is PYCollectionLoadingState {
                 loader
-                    .transition(.opacity)
             }
         }
         .navigationBarHidden(true)
             .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
             .onFirstAppear {
                 store.send(.getCollection(type, categoryId))
-//                withAnimation(.spring()) {
-//                    viewModel.getCollection(ofType: type, categoryId: categoryId)
-//                }
             }
             .onChange(of: viewModel.errorHasOccured) { value in
                 if !value {
-                    withAnimation(.spring()) {
-                        viewModel.getCollection(ofType: type, categoryId: categoryId)
-                    }
+//                    withAnimation(.spring()) {
+//                        viewModel.getCollection(ofType: type, categoryId: categoryId)
+//                    }
                 }
             }
     }
