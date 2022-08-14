@@ -129,13 +129,13 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                 }
             }
         }
-        .transition(.opacity.animation(.spring().delay(0.5)))
+        .transition(.opacity.animation(.spring()))
     }
     
     var loader: some View {
         PuraceCircularLoaderView()
             .frame(width: 50, height: 50)
-            .transition(.opacity.animation(.spring().delay(0.5)))
+            .transition(.opacity.animation(.spring()))
     }
     
     var body: some View {
