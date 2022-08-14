@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class AnyStore<State, Action, Env>: ObservableObject {
+class AppStore<State, Action, Env>: ObservableObject {
     typealias Reducer = AnyReducer<State, Action, Env>
     
     @Published private(set) var state: State
