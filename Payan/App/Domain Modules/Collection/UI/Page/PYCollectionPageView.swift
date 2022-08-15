@@ -55,29 +55,35 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     }
     
     func placeElement(_ element: PYCollectionElement) -> some View {
-        ZStack {
-            PuraceImageView(url: URL(string: element.image))
-                .aspectRatio(contentMode: .fill)
-                .frame(width: correctItemWidth, height: correctHeight)
-                .clipped()
-            Color.black.opacity(0.18)
-            VStack {
-                Spacer()
-                HStack {
-                    PuraceTextView(element.title, textColor: .white, weight: .regular)
-                        .lineLimit(1)
-                        .multilineTextAlignment(.leading)
-                        .padding()
-                    Spacer(minLength: 0)
-                }
-            }
-        }
-        .frame(width: correctItemWidth, height: correctHeight)
-        .contentShape(Rectangle())
-        .onTapGesture {
+        Button {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
-        }
+        } label: {
+            ZStack {
+                Color.clear
+                    .background(
+                        ZStack(alignment: .center) {
+                            PuraceImageView(url: URL(string: element.image)) {
+                                LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
+                            }
+                                .scaledToFill()
+                        }
+                    )
+                    .frame(height: correctHeight)
+                    .contentShape(Rectangle())
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        PuraceTextView(element.title, fontSize: 10, textColor: .white, weight: .regular)
+                            .lineLimit(1)
+                            .multilineTextAlignment(.leading)
+                            .padding(10)
+                        Spacer(minLength: 0)
+                    }
+                }
+            }
+        }.buttonStyle(.plain)
     }
     
     func heroElement(_ element: PYCollectionElement) -> some View {
@@ -119,12 +125,13 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             PuraceTextView(data.title, fontSize: 22)
                 .padding(.bottom, 20)
                 .frame(height: 70)
-            PuraceVerticalGridView(columns: columns, spacing: 1.5) {
+            PuraceVerticalGridView(columns: columns, spacing: 4) {
                 ForEach(data.elements) { element in
                     if type == "hero" {
                         heroElement(element)
                     } else {
                         placeElement(element)
+                            .clipped()
                     }
                 }
             }
