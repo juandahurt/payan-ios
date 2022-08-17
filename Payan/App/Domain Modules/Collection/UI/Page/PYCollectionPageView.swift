@@ -62,12 +62,10 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             ZStack {
                 Color.clear
                     .background(
-                        ZStack(alignment: .center) {
-                            PuraceImageView(url: URL(string: element.image)) {
-                                LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
-                            }
-                                .scaledToFill()
+                        PuraceImageView(url: URL(string: element.image)) {
+                            LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
                         }
+                            .scaledToFill()
                     )
                     .frame(height: correctHeight)
                     .contentShape(Rectangle())
@@ -87,31 +85,35 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     }
     
     func heroElement(_ element: PYCollectionElement) -> some View {
-        ZStack {
-            PuraceImageView(url: URL(string: element.image))
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
-                .clipped()
-            Color.black.opacity(0.20)
-            PuraceTextView(element.title, fontSize: 12, textColor: .white, weight: .medium)
-                .multilineTextAlignment(.center)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 15)
-                .background (
-                    ZStack {
-                        Color.black.opacity(0.2)
-                        RoundedRectangle(cornerRadius: 5)
-                            .stroke(.white, lineWidth: 1.1)
-                    }
-                )
-                .frame(maxWidth: correctItemWidth * 0.8)
-        }
-        .frame(width: UIScreen.main.bounds.width / CGFloat(columns), height: correctHeight)
-        .contentShape(Rectangle())
-        .onTapGesture {
+        Button {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
-        }
+        } label: {
+            Color.clear
+                .background(
+                    ZStack {
+                        PuraceImageView(url: URL(string: element.image))
+                            .scaledToFill()
+                        
+                        Color.black.opacity(0.20)
+                        
+                        PuraceTextView(element.title, fontSize: 12, textColor: .white, weight: .medium)
+                            .multilineTextAlignment(.center)
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 15)
+                            .background (
+                                ZStack {
+                                    Color.black.opacity(0.2)
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(.white, lineWidth: 1.1)
+                                }
+                            )
+                    }
+                )
+                .frame(height: correctHeight)
+                .clipped()
+                .contentShape(Rectangle())
+        }.buttonStyle(.plain)
     }
     
     func collection(data: PYCollection) -> some View {
