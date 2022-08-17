@@ -148,22 +148,21 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     }
     
     var collectionSkeleton: some View {
-        OffsettableScrollView { _ in
-        } content: {
+        ScrollView {
             PuraceTextView("Loading", fontSize: 22, textColor: .white)
                 .padding(20)
                 .frame(height: 70)
             
             PuraceVerticalGridView(columns: columns, spacing: 4) {
-                ForEach(0..<20) { index in
-                    Color.black.opacity(0.02)
+                ForEach(0..<12) { index in
+                    Color.black.opacity(0.04)
                         .frame(height: correctHeight)
                 }
-            }
+            }.padding(.top, 5)
         }
         .transition(.opacity.animation(.spring()))
-        .introspectScrollView { scroll in
-            scroll.isScrollEnabled = false
+        .introspectScrollView { scrollView in
+            scrollView.isScrollEnabled = false
         }
     }
     
@@ -175,7 +174,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             } else if store.state is PYCollectionLoadingState {
                 collectionSkeleton
             }
-//            Spacer(minLength: 0)
+            Spacer(minLength: 0)
         }
         .navigationBarHidden(true)
         .snackBar(title: (store.state as? PYCollectionErrorState)?.description ?? "", isVisible: $errorHasOccurred, type: .error, buttonTitle: "REINTENTAR")
