@@ -17,6 +17,7 @@ class PYCollectionReducer: AnyReducer<PYCollectionState, PYCollectionAction, PYC
         case .getCollection(let type, let categoryId):
             state = PYCollectionLoadingState()
             return environment.worker.getCollection(type: type, categoryId: categoryId)
+//                .delay(for: 4, scheduler: RunLoop.main)
                 .map { data in
                     .setCollection(data)
                 }
