@@ -9,4 +9,5 @@ import Foundation
 
 enum PYNetworkError: Error {
     case malformedUrl
+    case unknown
 }
