@@ -41,19 +41,19 @@ struct PYHeroPageView: View, PYHeroViewLogic {
         VStack(spacing: viewModel.isLoading ? 15 : 10) {
             HStack {
                 Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.2 : 0)
-                PuraceTextView(viewModel.hero.name, fontSize: 18, weight: .medium)
+                PuraceTextView(viewModel.hero.name, fontSize: 22, weight: .medium)
                     .skeleton(with: viewModel.isLoading)
                     .multiline(lines: 1)
                 Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.2 : 0)
             }
             HStack {
                 Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
-                PuraceTextView(viewModel.dates, fontSize: 12, textColor: PuraceStyle.Color.N4, weight: .medium)
+                PuraceTextView(viewModel.dates, fontSize: 14, textColor: PuraceStyle.Color.N4)
                     .skeleton(with: viewModel.isLoading)
                     .multiline(lines: 1)
                 Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
             }
-        }.padding()
+        }
             .padding(.vertical, viewModel.isLoading ? 10 : 0)
     }
     
@@ -66,7 +66,7 @@ struct PYHeroPageView: View, PYHeroViewLogic {
         }
             .skeleton(with: viewModel.isLoading)
             .shape(type: .rectangle)
-            .frame(height: UIScreen.main.bounds.height * 0.4)
+            .frame(height: UIScreen.main.bounds.height * 0.35)
             .onTapGesture {
                 viewModel.showImageViewer()
             }
@@ -80,7 +80,7 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 .multiline(lines: 4, scales: [1: 0.9, 3: 0.6])
             Spacer(minLength: 0)
         }
-            .padding()
+        .padding(.horizontal, 30)
     }
     
     var sections: some View {
@@ -91,7 +91,8 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                         PuraceTextView(viewModel.section(at: index).content)
                             .multilineTextAlignment(.leading)
                         Spacer(minLength: 0)
-                    }.padding()
+                    }.padding(.vertical)
+                        .padding(.horizontal, 30)
                 }
             }
         }.opacity(viewModel.isLoading ? 0 : 1)
@@ -101,10 +102,12 @@ struct PYHeroPageView: View, PYHeroViewLogic {
         VStack {
             navBar
             ScrollView {
-                title
-                image
-                description
-                sections
+                VStack(spacing: 40) {
+                    image
+                    title
+                    description
+                    sections
+                }
             }
             Spacer()
         }
