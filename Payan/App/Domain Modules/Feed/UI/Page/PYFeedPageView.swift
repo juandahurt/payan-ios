@@ -138,8 +138,20 @@ struct PYFeedPageView: View {
                     .frame(width: 60, height: 60)
                 PuraceImageView(url: URL(string: story.image))
                     .aspectRatio(contentMode: .fill)
-                    .clipShape(Circle())
                     .frame(width: 53, height: 53)
+                    .overlay(
+                        Group {
+                            if viewModel.loadingStoryIndex == index {
+                                ZStack {
+                                    Color.white
+                                        .opacity(0.5)
+                                    ProgressView()
+                                }
+                            }
+                        }
+                    )
+                    .clipShape(Circle())
+                
             }
             PuraceTextView(story.title, weight: .regular)
                 .multilineTextAlignment(.center)
@@ -149,7 +161,9 @@ struct PYFeedPageView: View {
         }
             .onTapGesture {
                 guard let url = URL(string: story.link) else { return }
-                PYRoutingManager.shared.open(url: url)
+                guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return }
+                guard let idItem = components.queryItems?.first(where: { $0.name == "id" }) else { return }
+                viewModel.getStory(id: idItem.value ?? "", index: index)
             }
     }
     
@@ -198,6 +212,12 @@ struct PYFeedPageView: View {
         .onChange(of: viewModel.errorOccurred) { value in
             if !value {
                 viewModel.getData()
+            }
+        }
+        .onChange(of: viewModel.loadingStoryIndex) { newValue in
+            if let data = viewModel.storyData, newValue == -1 {
+                let vc = PYStoryBuilder().build(data: data)
+                PYRoutingManager.shared.present(vc)
             }
         }
     }

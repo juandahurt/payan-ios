@@ -393,6 +393,7 @@
 		2F44E21C27FCCF400026FDBC /* Workers */ = {
 			isa = PBXGroup;
 			children = (
+				2F645F66288864B100064F8A /* PYStoryNetworkWorker.swift */,
 				2FA3BB0E2815F8CA005BF493 /* PYFeedNetworkWorker.swift */,
 			);
 			path = Workers;
@@ -503,19 +504,10 @@
 		2F645F61288863A100064F8A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				2F645F622888640E00064F8A /* PYStoryDataAccessLogic.swift */,
 				2F645F6828886D2500064F8A /* PYStoryBusinessLogic.swift */,
 				2F74AF9A288A2C9700DF6624 /* PYStoryViewLogic.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		2F645F65288864A400064F8A /* Worker */ = {
-			isa = PBXGroup;
-			children = (
-				2F645F66288864B100064F8A /* PYStoryNetworkWorker.swift */,
-			);
-			path = Worker;
 			sourceTree = "<group>";
 		};
 		2F645F6A28886F1300064F8A /* Interactor */ = {
@@ -568,6 +560,7 @@
 		2F8D51292800C58F00ADCC64 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				2F645F622888640E00064F8A /* PYStoryDataAccessLogic.swift */,
 				2F8D512A2800C5AD00ADCC64 /* PYFeedBusinessLogic.swift */,
 				2F8D512C2800C5E600ADCC64 /* PYFeedDataAccessLogic.swift */,
 				2F8D51332800C7B900ADCC64 /* PYFeedViewLogic.swift */,
@@ -749,7 +742,6 @@
 			isa = PBXGroup;
 			children = (
 				2F645F6A28886F1300064F8A /* Interactor */,
-				2F645F65288864A400064F8A /* Worker */,
 				2F645F61288863A100064F8A /* Protocols */,
 				2FD18804287DE58100C6C098 /* Entities */,
 				2FD18800287DE43300C6C098 /* UI */,

@@ -5,14 +5,16 @@
 //  Created by Juan Hurtado on 5/04/22.
 //
 
+import Combine
 import Foundation
-
 
 final class PYFeedInteractor: PYFeedBusinessLogic {
     var worker: PYFeedDataAccessLogic
+    var storyWorker: PYStoryDataAccessLogic
     
-    init(worker: PYFeedDataAccessLogic) {
+    init(worker: PYFeedDataAccessLogic, storyWorker: PYStoryDataAccessLogic) {
         self.worker = worker
+        self.storyWorker = storyWorker
     }
     
     func getFeedData(completion: @escaping (Result<PYFeedPageData,Error>) -> Void) {
@@ -26,5 +28,9 @@ final class PYFeedInteractor: PYFeedBusinessLogic {
                 }
             }
         }
+    }
+    
+    func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error> {
+        storyWorker.getStory(id: id)
     }
 }

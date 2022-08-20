@@ -7,20 +7,20 @@
 
 import Foundation
 
-class PYStoryRouteHandler: PYBasicRouteHandler {
-    var routes: [(builder: PYModuleBuilder, path: String, type: PYRoutePresentationType)] = []
-    
-    var host: String {
-        "story"
-    }
-    
-    init() {
-        configure()
-    }
-    
-    func configure() {
-        routes = [
-            (builder: PYStoryBuilder(), path: "", type: .present)
-        ]
-    }
-}
+//class PYStoryRouteHandler: PYBasicRouteHandler {
+//    var routes: [(builder: PYModuleBuilder, path: String, type: PYRoutePresentationType)] = []
+//    
+//    var host: String {
+//        "story"
+//    }
+//    
+//    init() {
+//        configure()
+//    }
+//    
+//    func configure() {
+//        routes = [
+//            (builder: PYStoryBuilder(), path: "", type: .present)
+//        ]
+//    }
+//}

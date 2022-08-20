@@ -23,10 +23,4 @@ protocol PYStoryBusinessLogic {
     ///     - currentIndex: The current chapter index.
     ///     - numberOfChapters: The total number of chapters.
     func back(currentIndex: inout Int, numberOfChapters: Int)
-    
-    /// Gets the sotry chapters.
-    /// - Parameters:
-    ///     - id: Story identifier.
-    /// - Returns: A publisher that will eventually publish the required story data.
-    func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error>
 }

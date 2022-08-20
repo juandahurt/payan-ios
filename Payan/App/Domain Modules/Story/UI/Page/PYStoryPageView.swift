@@ -9,12 +9,10 @@ import Foundation
 import SwiftUI
 import Purace
 
-struct PYStoryPageView: View, PYStoryViewLogic {
+struct PYStoryPageView: View {
     @StateObject var viewModel: PYStoryViewModel
-    var id: String
     
-    init(id: String, viewModel: PYStoryViewModel) {
-        self.id = id
+    init(viewModel: PYStoryViewModel) {
         self._viewModel = .init(wrappedValue: viewModel)
     }
     
@@ -146,11 +144,7 @@ struct PYStoryPageView: View, PYStoryViewLogic {
     var body: some View {
         ZStack {
             topBar
-            if !viewModel.isLoading {
-                chapterContent
-            } else {
-                loader
-            }
+            chapterContent
             if let timer = viewModel.timer {
                 EmptyView()
                     .onReceive(timer, perform: { _ in
@@ -170,17 +164,11 @@ struct PYStoryPageView: View, PYStoryViewLogic {
                 .ignoresSafeArea()
                 .overlay(tapHandlers)
         )
-            .onAppear {
-                viewModel.getData(id: id)
-            }
-            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccurred, type: .error, buttonTitle: "REINTENTAR")
-            .onChange(of: viewModel.errorHasOccurred) { value in
-                if !value {
-                    viewModel.getData(id: id)
-                }
-            }
             .onReceive(viewModel.storyFinshed) { _ in
                 PYRoutingManager.shared.dismiss()
+            }
+            .onAppear {
+                viewModel.resume()
             }
     }
 }
