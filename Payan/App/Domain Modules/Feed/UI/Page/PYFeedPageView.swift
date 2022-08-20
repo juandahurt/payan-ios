@@ -124,24 +124,24 @@ struct PYFeedPageView: View {
                         .fill(.clear)
                         .background(notSeenIndicatorColor.clipShape(Circle()))
                         .clipped()
-                        .frame(width: 120, height: 120)
+                        .frame(width: 65, height: 65)
                 } else {
                     Circle()
-                        .fill(PuraceStyle.Color.N4)
-                        .frame(width: 116, height: 116)
+                        .fill(PuraceStyle.Color.N5)
+                        .frame(width: 62, height: 62)
                 }
                 Circle()
                     .fill(Color.white)
-                    .frame(width: 115, height: 115)
+                    .frame(width: 60, height: 60)
                 PuraceImageView(url: URL(string: story.image))
                     .aspectRatio(contentMode: .fill)
                     .clipShape(Circle())
-                    .frame(width: 109, height: 109)
+                    .frame(width: 53, height: 53)
             }
             PuraceTextView(story.title, weight: .regular)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
-                .frame(width: 120)
+                .frame(width: 80)
                 .opacity(index == 0 ? 1 : 0.5)
         }
             .onTapGesture {
@@ -152,17 +152,15 @@ struct PYFeedPageView: View {
     
     var stories: some View {
         VStack(spacing: 20) {
-            VStack(spacing: 5) {
-                PuraceTextView("¿Sabías esto?", fontSize: 20, textColor: PuraceStyle.Color.N1)
-                PuraceTextView("Conoce la ciudad a través de pequeñas historias", fontSize: 14, textColor: PuraceStyle.Color.N4)
-            }
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 30) {
+                HStack(spacing: 20) {
                     ForEach(viewModel.stories.indices, id: \.self) { index in
                         storyPreview(at: index)
                     }
                 }.padding(.horizontal, 16)
             }
+            Divider()
+                .opacity(0.5)
         }
     }
     
@@ -175,9 +173,9 @@ struct PYFeedPageView: View {
                     VStack {
                         navBar
                         ScrollView(showsIndicators: false) {
-                            VStack(spacing: 40) {
-                                placeCategories
+                            VStack(alignment: .leading, spacing: 40) {
                                 stories
+                                placeCategories
                                 heroes
                             }.padding(.bottom)
                         }
