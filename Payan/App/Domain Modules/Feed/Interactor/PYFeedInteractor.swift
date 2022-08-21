@@ -42,7 +42,6 @@ final class PYFeedInteractor: PYFeedBusinessLogic {
             stories.append(hash)
         }
         storySeenWorker.setSeenStories(hashes: stories)
-        dump(stories)
     }
     
     func getSeenStories() -> [String] {
