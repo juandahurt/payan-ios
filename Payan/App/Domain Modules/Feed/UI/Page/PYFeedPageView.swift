@@ -118,7 +118,7 @@ struct PYFeedPageView: View {
     
     func storyPreview(at index: Int) -> some View {
         let story = viewModel.stories[index]
-        let notSeenIndicatorColor = LinearGradient(colors: [.blue, .red, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing)
+        let notSeenIndicatorColor = PuraceStyle.Color.B1
         
         return VStack {
             ZStack {
@@ -127,18 +127,18 @@ struct PYFeedPageView: View {
                         .fill(.clear)
                         .background(notSeenIndicatorColor.clipShape(Circle()))
                         .clipped()
-                        .frame(width: 65, height: 65)
+                        .frame(width: 70, height: 70)
                 } else {
                     Circle()
-                        .fill(PuraceStyle.Color.N5)
-                        .frame(width: 62, height: 62)
+                        .fill(.black.opacity(0.35))
+                        .frame(width: 66, height: 66)
                 }
                 Circle()
                     .fill(Color.white)
-                    .frame(width: 60, height: 60)
+                    .frame(width: 65, height: 65)
                 PuraceImageView(url: URL(string: story.image))
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 53, height: 53)
+                    .frame(width: 58, height: 58)
                     .overlay(
                         Group {
                             if viewModel.loadingStoryIndex == index {
@@ -153,10 +153,10 @@ struct PYFeedPageView: View {
                     .clipShape(Circle())
                 
             }
-            PuraceTextView(story.title, weight: .regular)
+            PuraceTextView(story.title, fontSize: 10, weight: .medium)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
-                .frame(width: 80)
+                .frame(width: 70)
                 .opacity(index == 0 ? 1 : 0.5)
         }
             .onTapGesture {
@@ -168,7 +168,7 @@ struct PYFeedPageView: View {
     }
     
     var stories: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 15) {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
                     ForEach(viewModel.stories.indices, id: \.self) { index in
@@ -190,8 +190,8 @@ struct PYFeedPageView: View {
                     VStack {
                         navBar
                         ScrollView(showsIndicators: false) {
+                            stories
                             VStack(alignment: .leading, spacing: 40) {
-                                stories
                                 placeCategories
                                 heroes
                             }.padding(.bottom)
