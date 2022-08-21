@@ -119,10 +119,11 @@ struct PYFeedPageView: View {
     func storyPreview(at index: Int) -> some View {
         let story = viewModel.stories[index]
         let notSeenIndicatorColor = PuraceStyle.Color.B1
+        let seenStory = viewModel.seenStories.contains(where: { $0 == story.hash })
         
         return VStack {
             ZStack {
-                if index == 0 {
+                if !seenStory {
                     Circle()
                         .fill(.clear)
                         .background(notSeenIndicatorColor.clipShape(Circle()))
@@ -157,7 +158,7 @@ struct PYFeedPageView: View {
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
                 .frame(width: 70)
-                .opacity(index == 0 ? 1 : 0.5)
+                .opacity(!seenStory ? 1 : 0.5)
         }
             .onTapGesture {
                 guard let url = URL(string: story.link) else { return }
@@ -206,6 +207,7 @@ struct PYFeedPageView: View {
         .background(Color.white)
         .onFirstAppear {
             viewModel.getData()
+            viewModel.updateSeenStories()
         }
         .navigationBarHidden(true)
         .snackBar(title: "Parece que ha ocurrido un error", isVisible: $viewModel.errorOccurred, type: .error, buttonTitle: "REINTENTAR")
@@ -216,7 +218,9 @@ struct PYFeedPageView: View {
         }
         .onChange(of: viewModel.loadingStoryIndex) { newValue in
             if let data = viewModel.storyData, newValue == -1 {
-                let vc = PYStoryBuilder().build(data: data)
+                let vc = PYStoryBuilder().build(data: data, onSeenStory: {
+                    viewModel.saveSeenStory(hash: viewModel.storyData?.hash ?? "")
+                })
                 PYRoutingManager.shared.present(vc)
             }
         }

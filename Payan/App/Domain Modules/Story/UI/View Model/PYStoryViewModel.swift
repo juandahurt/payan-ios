@@ -15,6 +15,7 @@ class PYStoryViewModel: ObservableObject {
     @Published var currentPercentage = 0.0
     
     var storyFinshed = PassthroughSubject<Void, Never>()
+    var lastChapterSeen = PassthroughSubject<Void, Never>()
     
     let timerInterval = 0.2
     
@@ -69,6 +70,9 @@ class PYStoryViewModel: ObservableObject {
         }
         currentPercentage = 0
         interactor.next(currentIndex: &currentIndex, numberOfChapters: chapters.count)
+        if currentIndex == chapters.count - 1 {
+            lastChapterSeen.send()
+        }
         resetTimer()
     }
     

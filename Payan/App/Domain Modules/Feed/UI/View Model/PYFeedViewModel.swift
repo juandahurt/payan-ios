@@ -17,6 +17,7 @@ class PYFeedViewModel: ObservableObject {
     @Published var isSearchVisible = false
     @Published var storyData: PYStoryData?
     @Published var loadingStoryIndex = -1
+    @Published var seenStories: [String] = []
     
     private var currentPercentageAddition = 0.1
     private var lastScrollValue: CGFloat = .zero
@@ -79,11 +80,6 @@ class PYFeedViewModel: ObservableObject {
             .catch { [weak self] _ -> Empty<PYStoryData, Never> in
                 let empty = Empty<PYStoryData, Never>()
                 // TODO: show error
-//                guard let self = self else { return empty }
-//                self.isLoading = false
-//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                    self.errorHasOccurred = true
-//                }
                 return empty
             }
             .sink { [weak self] data in
@@ -92,5 +88,14 @@ class PYFeedViewModel: ObservableObject {
                 self.loadingStoryIndex = -1
             }
             .store(in: &cancellables)
+    }
+    
+    func saveSeenStory(hash: String) {
+        interactor.saveSeenStory(hash: hash)
+        updateSeenStories()
+    }
+    
+    func updateSeenStories() {
+        seenStories = interactor.getSeenStories()
     }
 }

@@ -11,10 +11,12 @@ import Foundation
 final class PYFeedInteractor: PYFeedBusinessLogic {
     var worker: PYFeedDataAccessLogic
     var storyWorker: PYStoryDataAccessLogic
+    var storySeenWorker: PYStorySeenDataAccessLogic
     
-    init(worker: PYFeedDataAccessLogic, storyWorker: PYStoryDataAccessLogic) {
+    init(worker: PYFeedDataAccessLogic, storyWorker: PYStoryDataAccessLogic, storySeenWorker: PYStorySeenDataAccessLogic) {
         self.worker = worker
         self.storyWorker = storyWorker
+        self.storySeenWorker = storySeenWorker
     }
     
     func getFeedData(completion: @escaping (Result<PYFeedPageData,Error>) -> Void) {
@@ -32,5 +34,18 @@ final class PYFeedInteractor: PYFeedBusinessLogic {
     
     func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error> {
         storyWorker.getStory(id: id)
+    }
+    
+    func saveSeenStory(hash: String) {
+        var stories = storySeenWorker.getSeenStories()
+        if !stories.contains(where: { $0 == hash }) {
+            stories.append(hash)
+        }
+        storySeenWorker.setSeenStories(hashes: stories)
+        dump(stories)
+    }
+    
+    func getSeenStories() -> [String] {
+        storySeenWorker.getSeenStories()
     }
 }

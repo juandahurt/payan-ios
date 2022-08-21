@@ -10,3 +10,8 @@ import Combine
 protocol PYStoryDataAccessLogic {
     func getStory(id: String) -> AnyPublisher<PYStoryData, Error>
 }
+
+protocol PYStorySeenDataAccessLogic {
+    func getSeenStories() -> [String]
+    func setSeenStories(hashes: [String])
+}

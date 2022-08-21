@@ -12,8 +12,11 @@ import Purace
 struct PYStoryPageView: View {
     @StateObject var viewModel: PYStoryViewModel
     
-    init(viewModel: PYStoryViewModel) {
+    let onSeenStory: (() -> Void)?
+    
+    init(viewModel: PYStoryViewModel, onSeenStory: (() -> Void)? = nil) {
         self._viewModel = .init(wrappedValue: viewModel)
+        self.onSeenStory = onSeenStory
     }
     
     var close: some View {
@@ -166,6 +169,9 @@ struct PYStoryPageView: View {
         )
             .onReceive(viewModel.storyFinshed) { _ in
                 PYRoutingManager.shared.dismiss()
+            }
+            .onReceive(viewModel.lastChapterSeen) { _ in
+                onSeenStory?()
             }
             .onAppear {
                 viewModel.resume()
