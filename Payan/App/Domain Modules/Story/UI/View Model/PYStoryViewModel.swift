@@ -11,12 +11,11 @@ import Foundation
 class PYStoryViewModel: ObservableObject {
     @Published var chapters: [PYStoryChapter] = [.empty]
     @Published var currentIndex: Int
-    @Published var isLoading = true
-    @Published var errorHasOccurred = false
     @Published var isPaused = false
     @Published var currentPercentage = 0.0
     
     var storyFinshed = PassthroughSubject<Void, Never>()
+    var lastChapterSeen = PassthroughSubject<Void, Never>()
     
     let timerInterval = 0.2
     
@@ -26,8 +25,9 @@ class PYStoryViewModel: ObservableObject {
     
     private let interactor: PYStoryBusinessLogic
     
-    init(interactor: PYStoryBusinessLogic) {
+    init(interactor: PYStoryBusinessLogic, chapters: [PYStoryChapter]) {
         self.interactor = interactor
+        self.chapters = chapters
         currentIndex = 0
     }
     
@@ -70,33 +70,14 @@ class PYStoryViewModel: ObservableObject {
         }
         currentPercentage = 0
         interactor.next(currentIndex: &currentIndex, numberOfChapters: chapters.count)
+        if currentIndex == chapters.count - 1 {
+            lastChapterSeen.send()
+        }
         resetTimer()
     }
     
     func back() {
         currentPercentage = 0
         interactor.back(currentIndex: &currentIndex, numberOfChapters: chapters.count)
-    }
-    
-    func getData(id: String) {
-        isLoading = true
-        interactor.getStory(identifiedBy: id)
-            .receive(on: RunLoop.main)
-            .catch { [weak self] _ -> Empty<PYStoryData, Never> in
-                let empty = Empty<PYStoryData, Never>()
-                guard let self = self else { return empty }
-                self.isLoading = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.errorHasOccurred = true
-                }
-                return empty
-            }
-            .sink { [weak self] data in
-                guard let self = self else { return }
-                self.chapters = data.chapters
-                self.isLoading = false
-                self.starTimer()
-            }
-            .store(in: &cancellables)
     }
 }

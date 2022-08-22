@@ -8,5 +8,6 @@
 import Foundation
 
 struct PYStoryData: Decodable {
+    var hash: String
     var chapters: [PYStoryChapter]
 }

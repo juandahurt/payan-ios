@@ -24,8 +24,4 @@ class PYStoryInteractor: PYStoryBusinessLogic {
         guard currentIndex > 0 else { return }
         currentIndex -= 1
     }
-    
-    func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error> {
-        worker.getStory(id: id)
-    }
 }

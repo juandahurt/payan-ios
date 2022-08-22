@@ -5,6 +5,7 @@
 //  Created by Juan Hurtado on 21/05/22.
 //
 
+import Combine
 import Foundation
 import CoreGraphics
 
@@ -14,9 +15,14 @@ class PYFeedViewModel: ObservableObject {
     @Published var feedData: PYFeedPageData = .empty
     @Published var errorOccurred = false
     @Published var isSearchVisible = false
+    @Published var storyData: PYStoryData?
+    @Published var loadingStoryIndex = -1
+    @Published var seenStories: [String] = []
     
     private var currentPercentageAddition = 0.1
     private var lastScrollValue: CGFloat = .zero
+    
+    private var cancellables = Set<AnyCancellable>()
     
     lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
         guard let self = self else { return }
@@ -65,5 +71,31 @@ class PYFeedViewModel: ObservableObject {
     
     func showSearch() {
         isSearchVisible = true
+    }
+    
+    func getStory(id: String, index: Int) {
+        loadingStoryIndex = index
+        interactor.getStory(identifiedBy: id)
+            .receive(on: RunLoop.main)
+            .catch { [weak self] _ -> Empty<PYStoryData, Never> in
+                let empty = Empty<PYStoryData, Never>()
+                // TODO: show error
+                return empty
+            }
+            .sink { [weak self] data in
+                guard let self = self else { return }
+                self.storyData = data
+                self.loadingStoryIndex = -1
+            }
+            .store(in: &cancellables)
+    }
+    
+    func saveSeenStory(hash: String) {
+        interactor.saveSeenStory(hash: hash)
+        updateSeenStories()
+    }
+    
+    func updateSeenStories() {
+        seenStories = interactor.getSeenStories()
     }
 }

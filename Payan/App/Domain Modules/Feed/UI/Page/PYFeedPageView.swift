@@ -16,51 +16,54 @@ struct PYFeedPageView: View {
         _viewModel = .init(wrappedValue: viewModel)
     }
     
+    func placeCategory(category: PYPlaceCategory) -> some View {
+        ZStack {
+            PuraceImageView(url: URL(string: category.image))
+                .aspectRatio(contentMode: .fill)
+                .frame(height: UIScreen.main.bounds.height * 0.15)
+                .clipped()
+            Color.black
+                .opacity(0.35)
+            VStack(spacing: 5) {
+                PuraceTextView(category.title, textColor: .white, weight: .medium)
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 15)
+                    .background (
+                        ZStack {
+                            Color.black.opacity(0.2)
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(.white, lineWidth: 1)
+                        }
+                    )
+            }
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    PuraceTextView("\(category.numberOfPlaces) lugares", fontSize: 10, textColor: .white)
+                        .frame(alignment: .bottomTrailing)
+                        .padding()
+                }
+            }
+        }
+        .cornerRadius(10)
+        .contentShape(Rectangle())
+        .frame(height: UIScreen.main.bounds.height * 0.15)
+        .onTapGesture {
+            guard let url = URL(string: category.deeplink) else { return }
+            PYRoutingManager.shared.open(url: url)
+        }
+    }
+    
     var placeCategories: some View {
         VStack {
             VStack(spacing: 5) {
                 PuraceTextView("Explora lugares", fontSize: 20, textColor: PuraceStyle.Color.N1)
                 PuraceTextView("Adentrate en el corazón de la ciudad blanca", fontSize: 14, textColor: PuraceStyle.Color.N4)
             }.padding(.bottom)
-            PuraceVerticalGridView(columns: 1, spacing: 5) {
+            VStack(spacing: 8) {
                 ForEach(viewModel.feedData.placeCategories) { category in
-                    ZStack {
-                        PuraceImageView(url: URL(string: category.image))
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 135)
-                            .clipped()
-                        Color.black
-                            .opacity(0.35)
-                        VStack(spacing: 5) {
-                            PuraceTextView(category.title, textColor: .white, weight: .medium)
-                                .padding(.vertical, 8)
-                                .padding(.horizontal, 15)
-                                .background (
-                                    ZStack {
-                                        Color.black.opacity(0.2)
-                                        RoundedRectangle(cornerRadius: 5)
-                                            .stroke(.white, lineWidth: 1)
-                                    }
-                                )
-                        }
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                PuraceTextView("\(category.numberOfPlaces) lugares", fontSize: 10, textColor: .white)
-                                    .frame(alignment: .bottomTrailing)
-                                    .padding()
-                            }
-                        }
-                    }
-                    .cornerRadius(5)
-                    .contentShape(Rectangle())
-                    .frame(height: 135)
-                    .onTapGesture {
-                        guard let url = URL(string: category.deeplink) else { return }
-                        PYRoutingManager.shared.open(url: url)
-                    }
-                        
+                    placeCategory(category: category)
                 }
             }.padding(.horizontal, 16)
         }
@@ -115,54 +118,67 @@ struct PYFeedPageView: View {
     
     func storyPreview(at index: Int) -> some View {
         let story = viewModel.stories[index]
-        let notSeenIndicatorColor = LinearGradient(colors: [.blue, .red, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing)
+        let notSeenIndicatorColor = PuraceStyle.Color.B1
+        let seenStory = viewModel.seenStories.contains(where: { $0 == story.hash })
         
         return VStack {
             ZStack {
-                if index == 0 {
+                if !seenStory {
                     Circle()
                         .fill(.clear)
                         .background(notSeenIndicatorColor.clipShape(Circle()))
                         .clipped()
-                        .frame(width: 120, height: 120)
+                        .frame(width: 70, height: 70)
                 } else {
                     Circle()
-                        .fill(PuraceStyle.Color.N4)
-                        .frame(width: 116, height: 116)
+                        .fill(.black.opacity(0.35))
+                        .frame(width: 66, height: 66)
                 }
                 Circle()
                     .fill(Color.white)
-                    .frame(width: 115, height: 115)
+                    .frame(width: 65, height: 65)
                 PuraceImageView(url: URL(string: story.image))
                     .aspectRatio(contentMode: .fill)
+                    .frame(width: 58, height: 58)
+                    .overlay(
+                        Group {
+                            if viewModel.loadingStoryIndex == index {
+                                ZStack {
+                                    Color.white
+                                        .opacity(0.5)
+                                    ProgressView()
+                                }
+                            }
+                        }
+                    )
                     .clipShape(Circle())
-                    .frame(width: 109, height: 109)
+                
             }
-            PuraceTextView(story.title, weight: .regular)
+            PuraceTextView(story.title, fontSize: 10, weight: .medium)
                 .multilineTextAlignment(.center)
                 .lineLimit(1)
-                .frame(width: 120)
-                .opacity(index == 0 ? 1 : 0.5)
+                .frame(width: 70)
+                .opacity(!seenStory ? 1 : 0.5)
         }
             .onTapGesture {
                 guard let url = URL(string: story.link) else { return }
-                PYRoutingManager.shared.open(url: url)
+                guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return }
+                guard let idItem = components.queryItems?.first(where: { $0.name == "id" }) else { return }
+                viewModel.getStory(id: idItem.value ?? "", index: index)
             }
     }
     
     var stories: some View {
-        VStack(spacing: 20) {
-            VStack(spacing: 5) {
-                PuraceTextView("¿Sabías esto?", fontSize: 20, textColor: PuraceStyle.Color.N1)
-                PuraceTextView("Conoce la ciudad a través de pequeñas historias", fontSize: 14, textColor: PuraceStyle.Color.N4)
-            }
+        VStack(spacing: 15) {
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 30) {
+                HStack(spacing: 20) {
                     ForEach(viewModel.stories.indices, id: \.self) { index in
                         storyPreview(at: index)
                     }
                 }.padding(.horizontal, 16)
             }
+            Divider()
+                .opacity(0.5)
         }
     }
     
@@ -175,9 +191,9 @@ struct PYFeedPageView: View {
                     VStack {
                         navBar
                         ScrollView(showsIndicators: false) {
-                            VStack(spacing: 40) {
+                            stories
+                            VStack(alignment: .leading, spacing: 40) {
                                 placeCategories
-                                stories
                                 heroes
                             }.padding(.bottom)
                         }
@@ -191,6 +207,7 @@ struct PYFeedPageView: View {
         .background(Color.white)
         .onFirstAppear {
             viewModel.getData()
+            viewModel.updateSeenStories()
         }
         .navigationBarHidden(true)
         .snackBar(title: "Parece que ha ocurrido un error", isVisible: $viewModel.errorOccurred, type: .error, buttonTitle: "REINTENTAR")
@@ -199,9 +216,19 @@ struct PYFeedPageView: View {
                 viewModel.getData()
             }
         }
+        .onChange(of: viewModel.loadingStoryIndex) { newValue in
+            if let data = viewModel.storyData, newValue == -1 {
+                let vc = PYStoryBuilder().build(data: data, onSeenStory: {
+                    viewModel.saveSeenStory(hash: viewModel.storyData?.hash ?? "")
+                })
+                PYRoutingManager.shared.present(vc)
+            }
+        }
     }
 }
 
+
+// TODO: remove!!
 extension PYHeroPreview: PuraceCollectionCardData {
     var backgroundImage: URL? {
         URL(string: image)

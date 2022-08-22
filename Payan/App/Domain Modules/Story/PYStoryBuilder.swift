@@ -8,13 +8,12 @@
 import Foundation
 import SwiftUI
 
-class PYStoryBuilder: PYModuleBuilder {
-    func build(params: [URLQueryItem]) -> UIViewController? {
-        guard params.count == 1, params[0].name == "id", let id = params[0].value else { return nil }
+class PYStoryBuilder {
+    func build(data: PYStoryData, onSeenStory: (() -> Void)?) -> UIViewController {
         let worker = PYStoryNetworkWorker()
         let interactor = PYStoryInteractor(worker: worker)
-        let viewModel = PYStoryViewModel(interactor: interactor)
-        let view = PYStoryPageView(id: id, viewModel: viewModel)
+        let viewModel = PYStoryViewModel(interactor: interactor, chapters: data.chapters)
+        let view = PYStoryPageView(viewModel: viewModel, onSeenStory: onSeenStory)
         return UIHostingController(rootView: view)
     }
 }
