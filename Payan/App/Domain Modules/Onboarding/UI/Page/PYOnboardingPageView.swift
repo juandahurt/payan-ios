@@ -15,36 +15,57 @@ struct PYOnboardingPageView: View {
     var continueOnTap: () -> Void
     
     func item(at index: Int) -> some View {
-        VStack(spacing: 40) {
+        VStack(spacing: 34) {
+            ZStack {
+                Color.black
+                    .opacity(0.05)
+                    .frame(height: UIScreen.main.bounds.height * 0.45)
+                
+                Image(viewModel.item(at: index).image)
+                    .resizable()
+                    .frame(width: UIScreen.main.bounds.width - 60, height: UIScreen.main.bounds.height * 0.45)
+                    .scaledToFit()
+            }
+            
             VStack(alignment: .leading, spacing: 20) {
                 HStack {
-                    PuraceTextView(viewModel.item(at: index).title, fontSize: 24)
+                    PuraceTextView(viewModel.item(at: index).title, textColor: PuraceStyle.Color.N4)
                         .multilineTextAlignment(.leading)
                     Spacer(minLength: 0)
                 }
                 HStack {
-                    PuraceTextView(viewModel.item(at: index).content, textColor: PuraceStyle.Color.N4)
+                    PuraceTextView(viewModel.item(at: index).content, fontSize: 20)
                         .multilineTextAlignment(.leading)
                     Spacer(minLength: 0)
                 }
-            }.padding(.horizontal, 40)
-            
-            Image(viewModel.item(at: index).image)
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: UIScreen.main.bounds.width * 0.8)
+            }.padding(.horizontal, 30)
         }
+        .padding(.top, 35)
+        .animation(.none)
     }
     
     var mainButton: some View {
-        let type = viewModel.mainButtonType
-        return PuraceButtonView(viewModel.buttonText, fontSize: 14, type: type) {
+        Button {
             if viewModel.currentIndex == viewModel.items.count-1 {
                 continueOnTap()
             } else {
-                viewModel.next()
+                withAnimation {
+                    viewModel.next()
+                }
             }
-        }
+        } label: {
+            ZStack {
+                Circle()
+                    .fill( PuraceStyle.Color.G1)
+                    .frame(width: 60, height: 60)
+                    .opacity(viewModel.currentIndex == viewModel.items.count - 1 ? 1 : 0.1)
+                
+                Image(systemName: "chevron.left")
+                    .foregroundColor(viewModel.currentIndex == viewModel.items.count - 1 ? .white : PuraceStyle.Color.N1)
+                    .scaleEffect(1.2)
+                    .rotationEffect(.degrees(180))
+            }
+        }.buttonStyle(.plain)
     }
     
     var bottomBar: some View {
@@ -53,36 +74,37 @@ struct PYOnboardingPageView: View {
             Spacer()
             mainButton
         }
-            .padding(.horizontal, 35)
+            .padding(.horizontal, 30)
             .padding(.bottom, 20)
     }
     
     var indicators: some View {
-        HStack {
-            ForEach(viewModel.items.indices, id: \.self) { index in
-                Circle()
-                    .fill(index == viewModel.currentIndex ? PuraceStyle.Color.G1 : PuraceStyle.Color.G8)
-                    .frame(width: 6, height: 6)
-            }
-        }
+        GeometryReader { reader in
+            ZStack(alignment: .leading) {
+                Color.black
+                    .opacity(0.05)
+                    .cornerRadius(7)
+                
+                PuraceStyle.Color.B1
+                    .cornerRadius(7)
+                    .frame(width: reader.size.width * max(0.15, CGFloat(viewModel.currentIndex / (viewModel.items.count - 1)) ))
+            }.frame(height: 7)
+        }.frame(width: 70, height: 7)
     }
     
     var body: some View {
-        VStack {
-            ScrollViewReader { reader in
-                TabView(selection: $viewModel.currentIndex) {
-                    ForEach(viewModel.items.indices, id: \.self) { index in
-                        item(at: index)
-                            .tag(index)
-                    }
-                }.tabViewStyle(.page(indexDisplayMode: .never))
-                    .onChange(of: viewModel.currentIndex) { index in
-                        reader.scrollTo(index)
-                    }
+        ZStack {
+            VStack {
+                if !viewModel.items.isEmpty {
+                    item(at: viewModel.currentIndex)
+                    
+                    Spacer(minLength: 0)
+                    
+                    bottomBar
+                }
             }
-            
-            bottomBar
-        }.onAppear {
+        }
+        .onAppear {
             viewModel.getData()
         }
     }
