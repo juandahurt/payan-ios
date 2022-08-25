@@ -185,7 +185,18 @@ struct PYFeedPageView: View {
     var body: some View {
         Group {
             if viewModel.isLoading {
-                loader
+                VStack {
+                    Spacer()
+                    
+                    loader
+                    
+                    Spacer()
+                }.snackBar(title: viewModel.errorMessage, isVisible: $viewModel.feedErrorOccurred, type: .error, buttonTitle: "REINTENTAR")
+                    .onChange(of: viewModel.feedErrorOccurred) { value in
+                        if !value {
+                            viewModel.getData()
+                        }
+                    }
             } else {
                 ZStack {
                     VStack {
@@ -202,6 +213,8 @@ struct PYFeedPageView: View {
                         PYSearchCoreBuilder().build(isVisible: $viewModel.isSearchVisible)
                     }
                 }.transition(.opacity.animation(.linear(duration: 0.2)))
+                    .snackBar(title: viewModel.errorMessage, isVisible: $viewModel.storyErrorOccurred, type: .error, duration: .short, dismissOnDrag: true)
+                    .offset(x: 0, y: -0.5)
             }
         }
         .background(Color.white)
@@ -210,12 +223,6 @@ struct PYFeedPageView: View {
             viewModel.updateSeenStories()
         }
         .navigationBarHidden(true)
-        .snackBar(title: "Parece que ha ocurrido un error", isVisible: $viewModel.errorOccurred, type: .error, buttonTitle: "REINTENTAR")
-        .onChange(of: viewModel.errorOccurred) { value in
-            if !value {
-                viewModel.getData()
-            }
-        }
         .onChange(of: viewModel.loadingStoryIndex) { newValue in
             if let data = viewModel.storyData, newValue == -1 {
                 let vc = PYStoryBuilder().build(data: data, onSeenStory: {

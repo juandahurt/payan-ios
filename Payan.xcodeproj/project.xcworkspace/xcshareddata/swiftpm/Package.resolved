@@ -101,6 +101,15 @@
         }
       },
       {
+        "package": "PopupView",
+        "repositoryURL": "https://github.com/exyte/PopupView.git",
+        "state": {
+          "branch": null,
+          "revision": "a25e22b46d47558b1e7e049b5734522c6706600c",
+          "version": "1.1.5"
+        }
+      },
+      {
         "package": "Promises",
         "repositoryURL": "https://github.com/google/promises.git",
         "state": {
@@ -114,8 +123,8 @@
         "repositoryURL": "https://github.com/juandahurt/Purace",
         "state": {
           "branch": null,
-          "revision": "cdc64206813f28d1be1522c102a45c4ad70e5fab",
-          "version": "1.13.0"
+          "revision": "14aff73d550fe8d5c03227a7db9dfb179689ab52",
+          "version": "1.14.0"
         }
       },
       {
