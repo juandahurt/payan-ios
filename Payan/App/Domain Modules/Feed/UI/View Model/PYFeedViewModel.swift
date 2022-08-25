@@ -18,6 +18,9 @@ class PYFeedViewModel: ObservableObject {
     @Published var storyData: PYStoryData?
     @Published var loadingStoryIndex = -1
     @Published var seenStories: [String] = []
+    @Published var errorMessage = ""
+    @Published var feedErrorOccurred = false
+    @Published var storyErrorOccurred = false
     
     private var currentPercentageAddition = 0.1
     private var lastScrollValue: CGFloat = .zero
@@ -26,7 +29,7 @@ class PYFeedViewModel: ObservableObject {
     
     lazy var timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
         guard let self = self else { return }
-        guard !self.errorOccurred else { return }
+        guard !self.feedErrorOccurred else { return }
         guard self.loadedPercentage < 0.85 else { return }
         self.loadedPercentage += self.currentPercentageAddition
         self.currentPercentageAddition /= 1.15
@@ -56,6 +59,7 @@ class PYFeedViewModel: ObservableObject {
                 case .success(let data):
                     self.loadedPercentage = 1
                     self.feedData = data
+                    self.feedErrorOccurred = false
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         self.isLoading = false
                         self.timer.invalidate()
@@ -63,7 +67,8 @@ class PYFeedViewModel: ObservableObject {
                     }
                 case .failure(_):
                     self.loadedPercentage = 0
-                    self.errorOccurred = true
+                    self.feedErrorOccurred = true
+                    self.errorMessage = "Ha ocurrido un error inesperado."
                 }
             }
         }
@@ -74,12 +79,17 @@ class PYFeedViewModel: ObservableObject {
     }
     
     func getStory(id: String, index: Int) {
+        errorOccurred = false
         loadingStoryIndex = index
         interactor.getStory(identifiedBy: id)
             .receive(on: RunLoop.main)
             .catch { [weak self] _ -> Empty<PYStoryData, Never> in
                 let empty = Empty<PYStoryData, Never>()
-                // TODO: show error
+                guard let self = self else { return empty }
+                self.loadingStoryIndex = -1
+                self.storyErrorOccurred = true
+                self.errorMessage = "No fue posible cargar la historia."
+                self.errorOccurred = true
                 return empty
             }
             .sink { [weak self] data in
