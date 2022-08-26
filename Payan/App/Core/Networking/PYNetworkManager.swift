@@ -54,7 +54,7 @@ extension PYNetworkManager {
     }
     
     func exec(request: PYNetworkRequest) -> URLSession.DataTaskPublisher? {
-        guard let stringUrl = "\(baseUrl)/\(request.endpoint)".addingPercentEncoding(withAllowedCharacters: .urlUserAllowed) else {
+        guard let stringUrl = "\(baseUrl)/\(request.endpoint)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             return nil
         }
         guard let url = URL(string: stringUrl) else {
