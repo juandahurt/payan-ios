@@ -101,6 +101,15 @@
         }
       },
       {
+        "package": "PopupView",
+        "repositoryURL": "https://github.com/exyte/PopupView.git",
+        "state": {
+          "branch": null,
+          "revision": "a25e22b46d47558b1e7e049b5734522c6706600c",
+          "version": "1.1.5"
+        }
+      },
+      {
         "package": "Promises",
         "repositoryURL": "https://github.com/google/promises.git",
         "state": {
@@ -114,8 +123,8 @@
         "repositoryURL": "https://github.com/juandahurt/Purace",
         "state": {
           "branch": null,
-          "revision": "2f5efce5fa84d9f87e158d4dd310fa4e225bd4f9",
-          "version": "1.10.0"
+          "revision": "4db4a827f042abd85fca4fbd09b773713793d6e9",
+          "version": "1.14.1"
         }
       },
       {
@@ -125,6 +134,15 @@
           "branch": "develop",
           "revision": "132f12a34b7fdab275bfc61968749b1f11c36300",
           "version": null
+        }
+      },
+      {
+        "package": "Focuser",
+        "repositoryURL": "https://github.com/art-technologies/swift-focuser",
+        "state": {
+          "branch": null,
+          "revision": "f874246f370218994469b74939b88d564be1f810",
+          "version": "0.2.0"
         }
       },
       {
@@ -143,6 +161,15 @@
           "branch": null,
           "revision": "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
           "version": "1.9.0"
+        }
+      },
+      {
+        "package": "Introspect",
+        "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
+        "state": {
+          "branch": null,
+          "revision": "f2616860a41f9d9932da412a8978fec79c06fe24",
+          "version": "0.1.4"
         }
       },
       {

@@ -12,29 +12,14 @@ import Purace
 
 struct PYPlacePageView: View, PYPlaceViewLogic {
     var placeId: String
-    let topSafeAreaPadding: CGFloat
     
     @StateObject var viewModel = PYPlaceViewModel()
     
-    @State var descriptionHeight: CGFloat = .zero
-    @State var scrollOffset: CGFloat = .zero
-    @State var imageOpacity: Double = 0.2
-    @State private var mapLocation = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(
-            latitude: 0,
-            longitude: 0
-        ),
-        latitudinalMeters: 750,
-        longitudinalMeters: 750
-    )
-    
-    @State var navBarBackground: Color = .clear
-    @State var navBarForegroundColor: Color = .white
+    @State var selectedImageIsVisible = false
+    @State var selectedImageUrl: String?
     
     init(placeId: String) {
         self.placeId = placeId
-        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        topSafeAreaPadding = window?.safeAreaInsets.top ?? .zero
     }
     
     var navBar: some View {
@@ -42,38 +27,29 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             VStack(spacing: 0) {
                 Spacer()
                 Image(systemName: "chevron.left")
-                    .foregroundColor(navBarForegroundColor)
+                    .foregroundColor(PuraceStyle.Color.N1)
                     .scaleEffect(1.2)
+                    .padding()
+                    .background(Color.black.opacity(0.001))
                     .onTapGesture {
                         PYRoutingManager.shared.pop()
                     }
-                    .padding()
             }
             Spacer()
         }
-            .frame(height: 50 + topSafeAreaPadding)
-            .background(navBarBackground)
+            .frame(height: 50)
     }
     
     var image: some View {
         let url = URL(string: viewModel.place.image)
-        return ZStack {
-            PuraceImageView(url: url)
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
-                .clipped()
-                .animation(.none)
-                .skeleton(with: viewModel.isLoading)
-                .shape(type: .rectangle)
-            Color.black.opacity(imageOpacity)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.4)
-                .opacity(viewModel.isLoading ? 0 : 1)
-        }
-        .frame(height: UIScreen.main.bounds.height * 0.4)
-    }
-    
-    func updateImageOpacity() {
-        imageOpacity = max(min(0.7, -scrollOffset * 0.0035), 0.15)
+        return PuraceImageView(url: url)
+            .scaledToFill()
+            .frame(height: UIScreen.main.bounds.height * 0.35)
+            .clipped()
+            .animation(.none)
+            .skeleton(with: viewModel.isLoading)
+            .shape(type: .rectangle)
+            .frame(height: UIScreen.main.bounds.height * 0.35)
     }
     
     var title: some View {
@@ -82,11 +58,12 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 if viewModel.isLoading {
                     Spacer(minLength: UIScreen.main.bounds.width * 0.3)
                 }
-                PuraceTextView(viewModel.place.title, fontSize: 18, weight: .medium)
+                PuraceTextView(viewModel.place.title, fontSize: 22, textColor: PuraceStyle.Color.N2, weight: .medium)
                     .multilineTextAlignment(.center)
                     .skeleton(with: viewModel.isLoading, transition: .opacity)
                     .multiline(lines: 1)
                     .padding(.vertical, viewModel.isLoading ? 5 : 0)
+                    .padding(.horizontal)
                 if viewModel.isLoading {
                     Spacer(minLength: UIScreen.main.bounds.width * 0.3)
                 }
@@ -96,7 +73,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 if viewModel.isLoading {
                     Spacer(minLength: UIScreen.main.bounds.width * 0.35)
                 }
-                PuraceTextView(viewModel.place.subtitle, fontSize: 12, textColor: PuraceStyle.Color.N4)
+                PuraceTextView(viewModel.place.subtitle, fontSize: 14, textColor: PuraceStyle.Color.N4)
                     .skeleton(with: viewModel.isLoading, transition: .opacity)
                     .multiline(lines: 1)
                     .padding(.top, viewModel.isLoading ? 5 : 0)
@@ -115,83 +92,61 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             Spacer(minLength: 0)
         }
             .padding(.top, viewModel.isLoading ? 15 : 0)
-    }
-    
-    var location: some View {
-        Map(coordinateRegion: $mapLocation, annotationItems: [viewModel.place.location]) { location in
-            MapMarker(coordinate: location.coordinates, tint: PuraceStyle.Color.G1)
-        }.onReceive(viewModel.$isLoading) { loading in
-            guard !loading else { return }
-            mapLocation.center = viewModel.place.location.coordinates
-        }
+            .padding(.horizontal, 30)
     }
     
     var images: some View {
-        PuraceHorizontalGridView {
-            ForEach(viewModel.place.images.indices) { index in
-                Color.clear
-                    .background(
-                        PuraceImageView(url: URL(string: viewModel.place.images[index].url))
-                            .aspectRatio(contentMode: .fill)
-                            .clipped()
-                    )
-                    .clipped()
-            }
-        }
-    }
-    
-    var tabs: some View {
-        PuraceTabView(titles: viewModel.tabTitles) { index in
-            Group {
-                if index == 0 {
-                    location
-                } else {
-                    images
+        VStack(alignment: .leading, spacing: 27) {
+            PuraceTextView("Descubre este lugar", fontSize: 18)
+                .padding(.horizontal, 30)
+            
+            PuraceHorizontalGridView {
+                ForEach(viewModel.place.images.indices) { index in
+                    Color.clear
+                        .background(
+                            PuraceImageView(url: URL(string: viewModel.place.images[index].url))
+                                .aspectRatio(contentMode: .fill)
+                                .clipped()
+                        )
+                        .clipped()
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            selectedImageUrl = viewModel.place.images[index].url
+                            selectedImageIsVisible = true
+                        }
                 }
-            }
-        }
-    }
-    
-    func tryToUpdateNavBar(basedOn scrollOffset: CGFloat) {
-        withAnimation(.linear(duration: 0.15)) {
-            if scrollOffset < -UIScreen.main.bounds.height * 0.3 {
-                navBarBackground = .white
-                navBarForegroundColor = PuraceStyle.Color.N1
-            } else {
-                navBarBackground = .clear
-                navBarForegroundColor = .white
-            }
+            }.frame(height: UIScreen.main.bounds.height * 0.35)
         }
     }
     
     var body: some View {
-        ZStack {
-            OffsettableScrollView { value in
-                scrollOffset = value.y
-                updateImageOpacity()
-                tryToUpdateNavBar(basedOn: value.y)
-            } content: {
-                VStack {
-                    Group {
-                        image
-                        title
-                            .padding(.top)
-                        description
-                            .padding()
-                    }.offset(x: 0, y: -15)
-                    if !viewModel.isLoading {
-                        tabs
-                            .frame(height: UIScreen.main.bounds.height * 0.5)
+        VStack {
+            navBar
+            
+            ScrollView(showsIndicators: false) {
+                LazyVStack(spacing: 40) {
+                    image
+                    title
+                    description
+                    if viewModel.placeWasFetchedSuccesffully {
+                        if !viewModel.place.images.isEmpty {
+                            images
+                        }
                     }
                     Spacer(minLength: 0)
                 }
             }
-            VStack {
-                navBar
-                Spacer()
+        }
+        .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
+        .onChange(of: viewModel.errorHasOccured) { value in
+            if !value {
+                viewModel.getPlace(id: placeId)
             }
         }
-        .edgesIgnoringSafeArea(.top)
+        .imageViewer(
+            url: URL(string: selectedImageUrl ?? ""),
+            isVisible: $selectedImageIsVisible
+        )
         .navigationBarHidden(true)
         .onFirstAppear {
             viewModel.getPlace(id: placeId)

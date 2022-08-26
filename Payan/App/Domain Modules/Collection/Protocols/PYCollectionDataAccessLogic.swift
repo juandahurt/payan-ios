@@ -2,12 +2,12 @@
 //  PYCollectionDataAccessLogic.swift
 //  Payan
 //
-//  Created by Juan Hurtado on 9/04/22.
+//  Created by Juan Hurtado on 13/08/22.
 //
 
+import Combine
 import Foundation
 
-
 protocol PYCollectionDataAccessLogic {
-    func getCollection(ofType type: String, categoryId: String?, completion: @escaping (Result<PYCollection, Error>) -> Void)
+    func getCollection(type: String, categoryId: String?) -> AnyPublisher<PYCollection, Error>
 }

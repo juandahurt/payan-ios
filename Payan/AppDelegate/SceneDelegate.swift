@@ -23,20 +23,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navBarAppearance.backgroundColor = .white
         UINavigationBar.appearance().standardAppearance = navBarAppearance
         let navigationController = UINavigationController()
-        let navBarButtonAppearance = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
-        navBarButtonAppearance.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 0), NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
+        navigationController.navigationBar.isHidden = true
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().barTintColor = .white
+        UITabBar.appearance().backgroundColor = .white
+        UITabBar.appearance().tintColor = UIColor(PuraceStyle.Color.G1)
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(PuraceStyle.Color.G1)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(PuraceStyle.Color.G8)
+        
         window?.rootViewController = navigationController
         
         
         PYRoutingManager.provideNavigationController(navigationController)
-        let modules: [PYModule] = [
-            PYFeedModule(),
-            PYCollectionModule(),
-            PYPlaceModule(),
-            PYHeroModule()
+        let routeHandlers: [PYRouteHandler] = [
+            PYMainRouteHandler(),
+            PYHeroRouteHandler(),
+            PYCollectionRouteHandler(),
+            PYPlaceRouteHandler(),
+            PYAboutRouteHandler()
         ]
-        modules.forEach { PYRoutingManager.shared.addModule($0) }
-        PYRoutingManager.shared.open(url: URL(string: "payan://feed")!)
+        routeHandlers.forEach { PYRoutingManager.shared.addRouteHandler(routeHandler: $0) }
+        navigationController.pushViewController(PYMainBuilder().getViewController(), animated: false)
         PuraceManager.shared.configure()
         
         window?.makeKeyAndVisible()

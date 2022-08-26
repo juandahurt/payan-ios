@@ -5,6 +5,7 @@
 //  Created by Juan Hurtado on 24/04/22.
 //
 
+import Combine
 import Foundation
 
 final class PYNetworkManager {
@@ -32,7 +33,10 @@ final class PYNetworkManager {
 
 extension PYNetworkManager {
     func exec(request: PYNetworkRequest, completion: @escaping (Result<Data, Error>) -> Void) {
-        let stringUrl = "\(baseUrl)/\(request.endpoint)"
+        guard let stringUrl = "\(baseUrl)/\(request.endpoint)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            completion(.failure(PYNetworkError.malformedUrl))
+            return
+        }
         guard let url = URL(string: stringUrl) else {
             completion(.failure(PYNetworkError.malformedUrl))
             return
@@ -47,5 +51,16 @@ extension PYNetworkManager {
                 completion(.success(data))
             }
         }.resume()
+    }
+    
+    func exec(request: PYNetworkRequest) -> URLSession.DataTaskPublisher? {
+        guard let stringUrl = "\(baseUrl)/\(request.endpoint)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return nil
+        }
+        guard let url = URL(string: stringUrl) else {
+            return nil
+        }
+
+        return URLSession.shared.dataTaskPublisher(for: url)
     }
 }
