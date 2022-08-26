@@ -11,7 +11,11 @@ import Foundation
 class PYCollectionNetworkWorker: PYCollectionDataAccessLogic {
     func getCollection(type: String, categoryId: String?) -> AnyPublisher<PYCollection, Error> {
         let request = PYNetworkRequest(endpoint: "collection?type=\(type)&category_id=\(categoryId ?? "")")
-        return PYNetworkManager.shared.exec(request: request)
+        guard let publisher = PYNetworkManager.shared.exec(request: request) else {
+            return Empty<PYCollection, Error>()
+                .eraseToAnyPublisher()
+        }
+        return publisher
             .tryMap { data, response in
                 do {
                     let decoder = JSONDecoder()
