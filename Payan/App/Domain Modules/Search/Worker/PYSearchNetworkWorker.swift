@@ -11,7 +11,11 @@ import Foundation
 class PYSearchNetworkWorker: PYSearchCoreDataAccessLogic {
     func fetchResults(from text: String) -> AnyPublisher<[PYSearchResult], Error> {
         let request = PYNetworkRequest(endpoint: "search?q=\(text)")
-        return PYNetworkManager.shared.exec(request: request)
+        guard let publisher = PYNetworkManager.shared.exec(request: request) else {
+            return Empty<[PYSearchResult], Error>()
+                .eraseToAnyPublisher()
+        }
+        return publisher
             .tryMap { data, response in
                 do {
                     let decoder = JSONDecoder()

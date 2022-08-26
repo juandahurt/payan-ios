@@ -33,7 +33,10 @@ final class PYNetworkManager {
 
 extension PYNetworkManager {
     func exec(request: PYNetworkRequest, completion: @escaping (Result<Data, Error>) -> Void) {
-        let stringUrl = "\(baseUrl)/\(request.endpoint)"
+        guard let stringUrl = "\(baseUrl)/\(request.endpoint)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            completion(.failure(PYNetworkError.malformedUrl))
+            return
+        }
         guard let url = URL(string: stringUrl) else {
             completion(.failure(PYNetworkError.malformedUrl))
             return
@@ -50,9 +53,13 @@ extension PYNetworkManager {
         }.resume()
     }
     
-    func exec(request: PYNetworkRequest) -> URLSession.DataTaskPublisher {
-        let stringUrl = "\(baseUrl)/\(request.endpoint)"
-        let url = URL(string: stringUrl)!
+    func exec(request: PYNetworkRequest) -> URLSession.DataTaskPublisher? {
+        guard let stringUrl = "\(baseUrl)/\(request.endpoint)".addingPercentEncoding(withAllowedCharacters: .urlUserAllowed) else {
+            return nil
+        }
+        guard let url = URL(string: stringUrl) else {
+            return nil
+        }
 
         return URLSession.shared.dataTaskPublisher(for: url)
     }
