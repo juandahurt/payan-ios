@@ -68,7 +68,9 @@ struct PYHeroPageView: View, PYHeroViewLogic {
             .shape(type: .rectangle)
             .frame(height: UIScreen.main.bounds.height * 0.35)
             .onTapGesture {
-                viewModel.showImageViewer()
+                withAnimation {
+                    viewModel.showImageViewer()
+                }
             }
     }
     
