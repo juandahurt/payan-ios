@@ -122,7 +122,7 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 }
             }
             .imageViewer(
-                url: URL(string: viewModel.hero.image),
+                urls: [URL(string: viewModel.hero.image)],
                 isVisible: $viewModel.isImageViewerVisible
             )
     }
