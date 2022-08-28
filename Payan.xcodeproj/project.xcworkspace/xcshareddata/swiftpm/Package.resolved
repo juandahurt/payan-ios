@@ -122,9 +122,9 @@
         "package": "Purace",
         "repositoryURL": "https://github.com/juandahurt/Purace",
         "state": {
-          "branch": null,
-          "revision": "4db4a827f042abd85fca4fbd09b773713793d6e9",
-          "version": "1.14.1"
+          "branch": "1.15.0",
+          "revision": "729ac911c0cf224b338dc6a1d0a07324ed5ae2e8",
+          "version": null
         }
       },
       {
@@ -132,7 +132,7 @@
         "repositoryURL": "https://github.com/CSolanaM/SkeletonUI.git",
         "state": {
           "branch": "develop",
-          "revision": "132f12a34b7fdab275bfc61968749b1f11c36300",
+          "revision": "98225dbb0459477dfeac063e1c7d0750102325d1",
           "version": null
         }
       },

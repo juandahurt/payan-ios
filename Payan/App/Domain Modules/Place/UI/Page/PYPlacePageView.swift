@@ -16,7 +16,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     @StateObject var viewModel = PYPlaceViewModel()
     
     @State var selectedImageIsVisible = false
-    @State var selectedImageUrl: String?
+    @State var selectedImage: Int = 0
     
     init(placeId: String) {
         self.placeId = placeId
@@ -101,18 +101,20 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 .padding(.horizontal, 30)
             
             PuraceHorizontalGridView {
-                ForEach(viewModel.place.images.indices) { index in
+                ForEach(viewModel.place.images.reversed().indices) { index in
                     Color.clear
                         .background(
-                            PuraceImageView(url: URL(string: viewModel.place.images[index].url))
+                            PuraceImageView(url: URL(string: viewModel.place.images.reversed()[index].url))
                                 .aspectRatio(contentMode: .fill)
                                 .clipped()
                         )
                         .clipped()
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            selectedImageUrl = viewModel.place.images[index].url
-                            selectedImageIsVisible = true
+                            selectedImage = viewModel.place.images.count - index - 1
+                            withAnimation {
+                                selectedImageIsVisible = true
+                            }
                         }
                 }
             }.frame(height: UIScreen.main.bounds.height * 0.35)
@@ -144,8 +146,9 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             }
         }
         .imageViewer(
-            url: URL(string: selectedImageUrl ?? ""),
-            isVisible: $selectedImageIsVisible
+            urls: viewModel.place.images.map { URL(string: $0.url) },
+            isVisible: $selectedImageIsVisible,
+            selectedIndex: selectedImage
         )
         .navigationBarHidden(true)
         .onFirstAppear {

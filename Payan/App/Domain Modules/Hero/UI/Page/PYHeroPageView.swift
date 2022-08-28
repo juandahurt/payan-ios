@@ -68,7 +68,9 @@ struct PYHeroPageView: View, PYHeroViewLogic {
             .shape(type: .rectangle)
             .frame(height: UIScreen.main.bounds.height * 0.35)
             .onTapGesture {
-                viewModel.showImageViewer()
+                withAnimation {
+                    viewModel.showImageViewer()
+                }
             }
     }
     
@@ -122,7 +124,7 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 }
             }
             .imageViewer(
-                url: URL(string: viewModel.hero.image),
+                urls: [URL(string: viewModel.hero.image)],
                 isVisible: $viewModel.isImageViewerVisible
             )
     }
