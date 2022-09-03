@@ -203,7 +203,7 @@ struct PYFeedPageView: View {
                         navBar
                         ScrollView(showsIndicators: false) {
                             stories
-                            VStack(alignment: .leading, spacing: 40) {
+                            LazyVStack(alignment: .leading, spacing: 40) {
                                 placeCategories
                                 heroes
                             }.padding(.bottom)
@@ -212,9 +212,10 @@ struct PYFeedPageView: View {
                     if viewModel.isSearchVisible {
                         PYSearchCoreBuilder().build(isVisible: $viewModel.isSearchVisible)
                     }
-                }.transition(.opacity.animation(.linear(duration: 0.2)))
+                }
                     .snackBar(title: viewModel.errorMessage, isVisible: $viewModel.storyErrorOccurred, type: .error, duration: .short, dismissOnDrag: true)
                     .offset(x: 0, y: -0.5)
+                    .transition(.opacity.animation(.linear(duration: 0.2)))
             }
         }
         .background(Color.white)

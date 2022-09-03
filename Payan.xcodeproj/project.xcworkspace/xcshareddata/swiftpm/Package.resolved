@@ -122,9 +122,9 @@
         "package": "Purace",
         "repositoryURL": "https://github.com/juandahurt/Purace",
         "state": {
-          "branch": "1.15.0",
-          "revision": "729ac911c0cf224b338dc6a1d0a07324ed5ae2e8",
-          "version": null
+          "branch": null,
+          "revision": "d1ad696f1926b099ab8dcc9e8762ce97c11b0b7d",
+          "version": "1.15.1"
         }
       },
       {
