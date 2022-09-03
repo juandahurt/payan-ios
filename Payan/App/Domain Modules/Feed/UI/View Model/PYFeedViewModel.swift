@@ -90,6 +90,7 @@ class PYFeedViewModel: ObservableObject {
                 self.storyErrorOccurred = true
                 self.errorMessage = "No fue posible cargar la historia."
                 self.errorOccurred = true
+                self.storyData = nil
                 return empty
             }
             .sink { [weak self] data in

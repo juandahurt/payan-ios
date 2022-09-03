@@ -1553,8 +1553,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
-				branch = 1.15.0;
-				kind = branch;
+				kind = exactVersion;
+				version = 1.15.1;
 			};
 		};
 		2FD54483287236770098468D /* XCRemoteSwiftPackageReference "swift-focuser" */ = {
