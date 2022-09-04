@@ -181,6 +181,14 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             .onFirstAppear {
                 store.send(.getCollection(type, categoryId))
             }
+            .onAppear {
+                if type == "hero" {
+                    AnalyticsManager.shared.trackView(path: "/heroes", params: nil)
+                }
+                if type == "place" {
+                    AnalyticsManager.shared.trackView(path: "/places", params: nil)
+                }
+            }
             .onChange(of: store.state) { newValue in
                 errorHasOccurred = newValue is PYCollectionErrorState
             }

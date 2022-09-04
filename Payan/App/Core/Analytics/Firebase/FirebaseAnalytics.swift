@@ -11,7 +11,19 @@ import Foundation
 class FirebaseAnalytics: AnalyticsEngine {
     var name: String = "Firebase"
     
-    func logEvent(_ event: AnalyticsEvent) {
-        Analytics.logEvent(event.name, parameters: event.params)
+    func logEvent(name: String, params: [String : Any]?) {
+        Analytics.logEvent(name, parameters: params)
+    }
+    
+    func trackView(path: String, params: [String : Any]?) {
+        var parameters = params
+        if parameters != nil {
+            parameters?[AnalyticsParameterScreenName] = path
+        } else {
+            parameters = [
+                AnalyticsParameterScreenName: path
+            ]
+        }
+        Analytics.logEvent(AnalyticsEventScreenView, parameters: parameters)
     }
 }

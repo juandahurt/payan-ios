@@ -154,5 +154,8 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         .onFirstAppear {
             viewModel.getPlace(id: placeId)
         }
+        .onAppear {
+            AnalyticsManager.shared.trackView(path: "/place", params: ["placeId": placeId])
+        }
     }
 }

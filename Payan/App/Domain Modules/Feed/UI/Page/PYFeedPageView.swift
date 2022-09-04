@@ -208,6 +208,8 @@ struct PYFeedPageView: View {
                                 heroes
                             }.padding(.bottom)
                         }
+                    }.onAppear {
+                        AnalyticsManager.shared.trackView(path: "/feed", params: nil)
                     }
                     if viewModel.isSearchVisible {
                         PYSearchCoreBuilder().build(isVisible: $viewModel.isSearchVisible)
