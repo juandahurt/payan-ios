@@ -6,6 +6,7 @@
 //
 
 import Focuser
+import Firebase
 import Foundation
 import SwiftUI
 import Purace
@@ -64,6 +65,7 @@ struct PYSearchCorePageView: View {
             guard let url = URL(string: item.deepLink) else { return }
             isVisible = false
             PYRoutingManager.shared.open(url: url)
+            AnalyticsManager.shared.logEvent(name: AnalyticsEventViewSearchResults, params: [AnalyticsParameterSearchTerm: item.title])
         }
         .simultaneousGesture(
             DragGesture(minimumDistance: 0)

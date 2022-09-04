@@ -127,5 +127,8 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 urls: [URL(string: viewModel.hero.image)],
                 isVisible: $viewModel.isImageViewerVisible
             )
+            .onAppear {
+                AnalyticsManager.shared.trackView(path: "/hero", params: ["heroId": heroId])
+            }
     }
 }
