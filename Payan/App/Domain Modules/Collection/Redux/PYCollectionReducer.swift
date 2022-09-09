@@ -15,11 +15,12 @@ class PYCollectionReducer: AnyReducer<PYCollectionState, PYCollectionAction, PYC
             state = PYCollectionSuccessState(data: collection)
             return nil
         case .getCollection(let type, let categoryId):
-            state = PYCollectionLoadingState()
+            state = PYCollectionLoadingState(data: .skeleton)
             return environment.worker.getCollection(type: type, categoryId: categoryId)
                 .map { data in
                     .setCollection(data)
                 }
+                .delay(for: 0.5, scheduler: RunLoop.main)
                 .tryCatch { _ in
                     Just(PYCollectionAction.errorOcurred)
                         .delay(for: 1, scheduler: RunLoop.main)
