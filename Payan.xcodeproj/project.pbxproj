@@ -28,6 +28,7 @@
 		2F39E93128A8030700D68554 /* PYCollectionEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E93028A8030700D68554 /* PYCollectionEnvironment.swift */; };
 		2F39E93328A8056300D68554 /* PYCollectionDataAccessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E93228A8056300D68554 /* PYCollectionDataAccessLogic.swift */; };
 		2F39E93528A805DC00D68554 /* PYCollectionNeworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E93428A805DC00D68554 /* PYCollectionNeworkWorker.swift */; };
+		2F402CCB28CBD2070027F1C0 /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F402CCA28CBD2070027F1C0 /* SquishableButton.swift */; };
 		2F40C59F28739B4F00629A7E /* PYSearchNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F40C59E28739B4F00629A7E /* PYSearchNetworkWorker.swift */; };
 		2F43441B2815A184001E8910 /* PYNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43441A2815A184001E8910 /* PYNetworkManager.swift */; };
 		2F56992E285E651700F2D4D3 /* PYMainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F56992D285E651700F2D4D3 /* PYMainBuilder.swift */; };
@@ -155,6 +156,7 @@
 		2F39E93028A8030700D68554 /* PYCollectionEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionEnvironment.swift; sourceTree = "<group>"; };
 		2F39E93228A8056300D68554 /* PYCollectionDataAccessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionDataAccessLogic.swift; sourceTree = "<group>"; };
 		2F39E93428A805DC00D68554 /* PYCollectionNeworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionNeworkWorker.swift; sourceTree = "<group>"; };
+		2F402CCA28CBD2070027F1C0 /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
 		2F40C59E28739B4F00629A7E /* PYSearchNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSearchNetworkWorker.swift; sourceTree = "<group>"; };
 		2F40F5E42839640800BF2007 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
 		2F43441A2815A184001E8910 /* PYNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkManager.swift; sourceTree = "<group>"; };
@@ -365,6 +367,14 @@
 				2F39E93028A8030700D68554 /* PYCollectionEnvironment.swift */,
 			);
 			path = Redux;
+			sourceTree = "<group>";
+		};
+		2F402CC928CBD1DE0027F1C0 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				2F402CCA28CBD2070027F1C0 /* SquishableButton.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		2F4344192815A13C001E8910 /* Networking */ = {
@@ -868,6 +878,7 @@
 		2FD7293D284163B3002255A3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2F402CC928CBD1DE0027F1C0 /* Styles */,
 				2FD7293E2841647C002255A3 /* Extensions */,
 			);
 			path = Common;
@@ -1325,6 +1336,7 @@
 				2F39E92928A7F95800D68554 /* PYCollectionReducer.swift in Sources */,
 				2FD5786E2840512B007A6EF5 /* PYCollectionPageView.swift in Sources */,
 				3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */,
+				2F402CCB28CBD2070027F1C0 /* SquishableButton.swift in Sources */,
 				2F68A1192852DD9300DCF1E6 /* PYPlaceImage.swift in Sources */,
 				2F78195128170E820096E342 /* PYNetworkingAppDelegate.swift in Sources */,
 				2FA9FEE328956B6E004B9A4F /* PYOnboardingBusinessLogic.swift in Sources */,

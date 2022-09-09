@@ -17,56 +17,58 @@ struct PYFeedPageView: View {
     }
     
     func placeCategory(category: PYPlaceCategory) -> some View {
-        ZStack {
-            PuraceImageView(url: URL(string: category.image))
-                .aspectRatio(contentMode: .fill)
-                .frame(height: UIScreen.main.bounds.height * 0.15)
-                .clipped()
-            Color.black
-                .opacity(0.35)
-            VStack(spacing: 5) {
-                PuraceTextView(category.title, textColor: .white, weight: .medium)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 15)
-                    .background (
-                        ZStack {
-                            Color.black.opacity(0.2)
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.white, lineWidth: 1)
-                        }
-                    )
-            }
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    PuraceTextView("\(category.numberOfPlaces) lugares", fontSize: 10, textColor: .white)
-                        .frame(alignment: .bottomTrailing)
-                        .padding()
-                }
-            }
-        }
-        .cornerRadius(10)
-        .contentShape(Rectangle())
-        .frame(height: UIScreen.main.bounds.height * 0.15)
-        .onTapGesture {
+        Button {
             guard let url = URL(string: category.deeplink) else { return }
             PYRoutingManager.shared.open(url: url)
-        }
+        } label: {
+            ZStack {
+                PuraceImageView(url: URL(string: category.image))
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: UIScreen.main.bounds.height * 0.15)
+                    .clipped()
+                
+                LinearGradient(colors: [.clear, .black.opacity(0.5)], startPoint: .top, endPoint: .bottom)
+                
+                VStack {
+                    Spacer()
+                    
+                    HStack(alignment: .center) {
+                        PuraceTextView(category.title, fontSize: 16, textColor: .white, weight: .medium)
+                        
+                        Spacer()
+                        
+                        PuraceTextView("\(category.numberOfPlaces) lugares", fontSize: 10, textColor: .white)
+                    }.padding()
+                }
+            }
+            .cornerRadius(10)
+            .contentShape(Rectangle())
+            .frame(height: UIScreen.main.bounds.height * 0.15)
+        }.buttonStyle(SquishableButton())
     }
     
     var placeCategories: some View {
-        VStack {
-            VStack(spacing: 5) {
-                PuraceTextView("Explora lugares", fontSize: 20, textColor: PuraceStyle.Color.N1)
-                PuraceTextView("Adentrate en el corazón de la ciudad blanca", fontSize: 14, textColor: PuraceStyle.Color.N4)
-            }.padding(.bottom)
+        VStack(spacing: 22) {
+            VStack(alignment: .leading, spacing: 5) {
+                HStack {
+                    PuraceTextView("Explora lugares", fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
+                    
+                    Spacer(minLength: 0)
+                }
+                
+                HStack {
+                    PuraceTextView("Adentrate en el corazón de la ciudad blanca", fontSize: 14, textColor: PuraceStyle.Color.N4)
+                    
+                    Spacer(minLength: 0)
+                }
+            }
+            
             VStack(spacing: 8) {
                 ForEach(viewModel.feedData.placeCategories) { category in
                     placeCategory(category: category)
                 }
-            }.padding(.horizontal, 16)
-        }
+            }
+        }.padding(.horizontal, 20)
     }
     
     var heroes: some View {
@@ -203,7 +205,7 @@ struct PYFeedPageView: View {
                         navBar
                         ScrollView(showsIndicators: false) {
                             stories
-                            LazyVStack(alignment: .leading, spacing: 40) {
+                            VStack(alignment: .leading, spacing: 40) {
                                 placeCategories
                                 heroes
                             }.padding(.bottom)
