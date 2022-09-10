@@ -44,43 +44,35 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         let url = URL(string: viewModel.place.image)
         return PuraceImageView(url: url)
             .scaledToFill()
-            .frame(height: UIScreen.main.bounds.height * 0.35)
+            .frame(height: UIScreen.main.bounds.height * 0.3)
             .clipped()
             .animation(.none)
             .skeleton(with: viewModel.isLoading)
             .shape(type: .rectangle)
-            .frame(height: UIScreen.main.bounds.height * 0.35)
+            .frame(height: UIScreen.main.bounds.height * 0.3)
     }
     
     var title: some View {
-        VStack(spacing: 10) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
-                if viewModel.isLoading {
-                    Spacer(minLength: UIScreen.main.bounds.width * 0.3)
-                }
-                PuraceTextView(viewModel.place.title, fontSize: 22, textColor: PuraceStyle.Color.N2, weight: .medium)
-                    .multilineTextAlignment(.center)
+                PuraceTextView(viewModel.place.title, fontSize: 25, textColor: PuraceStyle.Color.N2, weight: .medium)
+                    .multilineTextAlignment(.leading)
                     .skeleton(with: viewModel.isLoading, transition: .opacity)
-                    .multiline(lines: 1)
+                    .multiline(lines: 1, scales: [0: 0.35])
                     .padding(.vertical, viewModel.isLoading ? 5 : 0)
-                    .padding(.horizontal)
-                if viewModel.isLoading {
-                    Spacer(minLength: UIScreen.main.bounds.width * 0.3)
-                }
-            }
+                
+                Spacer(minLength: 0)
+            }.padding(.horizontal, 30)
             
             HStack {
-                if viewModel.isLoading {
-                    Spacer(minLength: UIScreen.main.bounds.width * 0.35)
-                }
-                PuraceTextView(viewModel.place.subtitle, fontSize: 14, textColor: PuraceStyle.Color.N4)
+                PuraceTextView(viewModel.place.subtitle, textColor: PuraceStyle.Color.N4)
+                    .multilineTextAlignment(.leading)
                     .skeleton(with: viewModel.isLoading, transition: .opacity)
-                    .multiline(lines: 1)
+                    .multiline(lines: 1, scales: [0: 0.2])
                     .padding(.top, viewModel.isLoading ? 5 : 0)
-                if viewModel.isLoading {
-                    Spacer(minLength: UIScreen.main.bounds.width * 0.35)
-                }
-            }
+                
+                Spacer(minLength: 0)
+            }.padding(.horizontal, 30)
         }
     }
     
@@ -117,7 +109,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                             }
                         }
                 }
-            }.frame(height: UIScreen.main.bounds.height * 0.35)
+            }.frame(height: UIScreen.main.bounds.height * 0.55)
         }
     }
     
