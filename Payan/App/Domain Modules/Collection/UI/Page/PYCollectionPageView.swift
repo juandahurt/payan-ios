@@ -89,31 +89,25 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
             guard let url = URL(string: element.deepLink) else { return }
             PYRoutingManager.shared.open(url: url)
         } label: {
-            Color.clear
-                .background(
-                    ZStack {
+            VStack {
+                Color.clear
+                    .background(
                         PuraceImageView(url: URL(string: element.image))
                             .scaledToFill()
-                        
-                        Color.black.opacity(0.20)
-                        
-                        PuraceTextView(element.title, fontSize: 12, textColor: .white, weight: .medium)
-                            .multilineTextAlignment(.center)
-                            .padding(.vertical, 8)
-                            .padding(.horizontal, 15)
-                            .background (
-                                ZStack {
-                                    Color.black.opacity(0.2)
-                                    RoundedRectangle(cornerRadius: 5)
-                                        .stroke(.white, lineWidth: 1.1)
-                                }
-                            )
-                    }
-                )
-                .frame(height: correctHeight)
-                .clipped()
-                .contentShape(Rectangle())
-        }.buttonStyle(.plain)
+                    )
+                    .frame(height: correctHeight)
+                    .clipped()
+                    .contentShape(Rectangle())
+                    .cornerRadius(15)
+                
+                HStack {
+                    PuraceTextView(element.title, fontSize: 12, weight: .medium)
+                        .multilineTextAlignment(.leading)
+                    
+                    Spacer(minLength: 0)
+                }
+            }
+        }.buttonStyle(SquishableButton())
     }
     
     func collection(data: PYCollection) -> some View {
