@@ -40,38 +40,37 @@ struct PYHeroPageView: View, PYHeroViewLogic {
     var title: some View {
         VStack(spacing: viewModel.isLoading ? 15 : 10) {
             HStack {
-                Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.2 : 0)
-                PuraceTextView(viewModel.hero.name, fontSize: 22, weight: .medium)
+                PuraceTextView(viewModel.hero.name, fontSize: 25, weight: .medium)
                     .skeleton(with: viewModel.isLoading)
-                    .multiline(lines: 1)
-                Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.2 : 0)
+                    .multiline(lines: 1, scales: [0: 0.35])
+                
+                Spacer(minLength: 0)
             }
+            
             HStack {
-                Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
-                PuraceTextView(viewModel.dates, fontSize: 14, textColor: PuraceStyle.Color.N4)
+                PuraceTextView(viewModel.dates, textColor: PuraceStyle.Color.N4)
                     .skeleton(with: viewModel.isLoading)
-                    .multiline(lines: 1)
-                Spacer(minLength: viewModel.isLoading ? UIScreen.main.bounds.width * 0.35 : 0)
+                    .multiline(lines: 1, scales: [0: 0.2])
+                
+                Spacer(minLength: 0)
             }
         }
             .padding(.vertical, viewModel.isLoading ? 10 : 0)
+            .padding(.horizontal, 30)
     }
     
     var image: some View {
-        ZStack {
-            PuraceStyle.Color.G1.opacity(0.05)
             PuraceImageView(url: URL(string: viewModel.hero.image))
                 .scaledToFit()
                 .animation(.none)
-        }
-            .skeleton(with: viewModel.isLoading)
-            .shape(type: .rectangle)
-            .frame(height: UIScreen.main.bounds.height * 0.35)
-            .onTapGesture {
-                withAnimation {
-                    viewModel.showImageViewer()
+                .skeleton(with: viewModel.isLoading)
+                .shape(type: .rectangle)
+                .frame(height: UIScreen.main.bounds.height * 0.35)
+                .onTapGesture {
+                    withAnimation {
+                        viewModel.showImageViewer()
+                    }
                 }
-            }
     }
     
     var description: some View {
