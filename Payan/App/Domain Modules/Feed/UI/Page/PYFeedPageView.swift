@@ -72,13 +72,22 @@ struct PYFeedPageView: View {
     }
     
     var heroes: some View {
-        VStack {
-            VStack(spacing: 5) {
-                PuraceTextView("Próceres", fontSize: 20, textColor: PuraceStyle.Color.N1)
-                PuraceTextView("Algunos personajes ilustres de la ciudad", fontSize: 14, textColor: PuraceStyle.Color.N4)
-            }.padding(.bottom)
+        VStack(spacing: 22) {
+            VStack(alignment: .leading, spacing: 5) {
+                HStack {
+                    PuraceTextView("Próceres", fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
+                    
+                    Spacer(minLength: 0)
+                    
+                    PuraceButtonView("Ver todos", type: .custom(.clear, PuraceStyle.Color.B5, PuraceStyle.Color.B1)) {
+                        guard let url = URL(string: "payan://collection?type=hero") else { return }
+                        PYRoutingManager.shared.open(url: url)
+                    }
+                }
+            }.padding(.horizontal, 30)
+            
             PuraceCollectionCardView(
-                firstCardSize: .init(width: UIScreen.main.bounds.width * 0.75, height: UIScreen.main.bounds.width * 0.92),
+                firstCardSize: .init(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.width),
                 cards: viewModel.feedData.heroes
             ) { selectedCard in
                 if let hero = viewModel.feedData.heroes.first(where: { $0.title == selectedCard.title }) {
@@ -86,12 +95,8 @@ struct PYFeedPageView: View {
                     PYRoutingManager.shared.open(url: url)
                 }
             }
-                .frame(height: UIScreen.main.bounds.width * 0.9)
+                .frame(height: UIScreen.main.bounds.width)
                 .padding(.bottom, 25)
-            PuraceButtonView("Ver todos", fontSize: 14) {
-                guard let url = URL(string: "payan://collection?type=hero") else { return }
-                PYRoutingManager.shared.open(url: url)
-            }
         }
     }
     
@@ -99,6 +104,7 @@ struct PYFeedPageView: View {
         VStack(spacing: 15) {
             PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
                 .frame(width: 45, height: 70)
+            
             PuraceTextView(viewModel.errorOccurred ? "No pudimos llegar." : "Llegando a Popayán...")
         }.offset(x: 0, y: 9)
             .transition(.opacity.animation(.linear(duration: 0.2)))
@@ -171,16 +177,12 @@ struct PYFeedPageView: View {
     }
     
     var stories: some View {
-        VStack(spacing: 15) {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    ForEach(viewModel.stories.indices, id: \.self) { index in
-                        storyPreview(at: index)
-                    }
-                }.padding(.horizontal, 16)
-            }
-            Divider()
-                .opacity(0.5)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
+                ForEach(viewModel.stories.indices, id: \.self) { index in
+                    storyPreview(at: index)
+                }
+            }.padding(.horizontal, 16)
         }
     }
     
@@ -204,8 +206,8 @@ struct PYFeedPageView: View {
                     VStack {
                         navBar
                         ScrollView(showsIndicators: false) {
-                            stories
                             VStack(alignment: .leading, spacing: 40) {
+                                stories
                                 placeCategories
                                 heroes
                             }.padding(.bottom)
@@ -218,7 +220,7 @@ struct PYFeedPageView: View {
                     }
                 }
                     .snackBar(title: viewModel.errorMessage, isVisible: $viewModel.storyErrorOccurred, type: .error, duration: .short, dismissOnDrag: true)
-                    .offset(x: 0, y: -0.5)
+                    .offset(x: 0, y: -0.5) // workaround to show the snackbar. :c
                     .transition(.opacity.animation(.linear(duration: 0.2)))
             }
         }
