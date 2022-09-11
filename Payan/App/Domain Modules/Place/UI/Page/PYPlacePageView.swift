@@ -16,7 +16,7 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
     @StateObject var viewModel = PYPlaceViewModel()
     
     @State var selectedImageIsVisible = false
-    @State var selectedImageUrl: String?
+    @State var selectedImage: Int = 0
     
     init(placeId: String) {
         self.placeId = placeId
@@ -44,43 +44,35 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         let url = URL(string: viewModel.place.image)
         return PuraceImageView(url: url)
             .scaledToFill()
-            .frame(height: UIScreen.main.bounds.height * 0.35)
+            .frame(height: UIScreen.main.bounds.height * 0.3)
             .clipped()
             .animation(.none)
             .skeleton(with: viewModel.isLoading)
             .shape(type: .rectangle)
-            .frame(height: UIScreen.main.bounds.height * 0.35)
+            .frame(height: UIScreen.main.bounds.height * 0.3)
     }
     
     var title: some View {
-        VStack(spacing: 10) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
-                if viewModel.isLoading {
-                    Spacer(minLength: UIScreen.main.bounds.width * 0.3)
-                }
-                PuraceTextView(viewModel.place.title, fontSize: 22, textColor: PuraceStyle.Color.N2, weight: .medium)
-                    .multilineTextAlignment(.center)
+                PuraceTextView(viewModel.place.title, fontSize: 25, textColor: PuraceStyle.Color.N2, weight: .medium)
+                    .multilineTextAlignment(.leading)
                     .skeleton(with: viewModel.isLoading, transition: .opacity)
-                    .multiline(lines: 1)
+                    .multiline(lines: 1, scales: [0: 0.35])
                     .padding(.vertical, viewModel.isLoading ? 5 : 0)
-                    .padding(.horizontal)
-                if viewModel.isLoading {
-                    Spacer(minLength: UIScreen.main.bounds.width * 0.3)
-                }
-            }
+                
+                Spacer(minLength: 0)
+            }.padding(.horizontal, 30)
             
             HStack {
-                if viewModel.isLoading {
-                    Spacer(minLength: UIScreen.main.bounds.width * 0.35)
-                }
-                PuraceTextView(viewModel.place.subtitle, fontSize: 14, textColor: PuraceStyle.Color.N4)
+                PuraceTextView(viewModel.place.subtitle, textColor: PuraceStyle.Color.N4)
+                    .multilineTextAlignment(.leading)
                     .skeleton(with: viewModel.isLoading, transition: .opacity)
-                    .multiline(lines: 1)
+                    .multiline(lines: 1, scales: [0: 0.2])
                     .padding(.top, viewModel.isLoading ? 5 : 0)
-                if viewModel.isLoading {
-                    Spacer(minLength: UIScreen.main.bounds.width * 0.35)
-                }
-            }
+                
+                Spacer(minLength: 0)
+            }.padding(.horizontal, 30)
         }
     }
     
@@ -101,21 +93,23 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
                 .padding(.horizontal, 30)
             
             PuraceHorizontalGridView {
-                ForEach(viewModel.place.images.indices) { index in
+                ForEach(viewModel.place.images.reversed().indices) { index in
                     Color.clear
                         .background(
-                            PuraceImageView(url: URL(string: viewModel.place.images[index].url))
+                            PuraceImageView(url: URL(string: viewModel.place.images.reversed()[index].url))
                                 .aspectRatio(contentMode: .fill)
                                 .clipped()
                         )
                         .clipped()
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            selectedImageUrl = viewModel.place.images[index].url
-                            selectedImageIsVisible = true
+                            selectedImage = viewModel.place.images.count - index - 1
+                            withAnimation {
+                                selectedImageIsVisible = true
+                            }
                         }
                 }
-            }.frame(height: UIScreen.main.bounds.height * 0.35)
+            }.frame(height: UIScreen.main.bounds.height * 0.55)
         }
     }
     
@@ -144,12 +138,16 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             }
         }
         .imageViewer(
-            url: URL(string: selectedImageUrl ?? ""),
-            isVisible: $selectedImageIsVisible
+            urls: viewModel.place.images.map { URL(string: $0.url) },
+            isVisible: $selectedImageIsVisible,
+            selectedIndex: selectedImage
         )
         .navigationBarHidden(true)
         .onFirstAppear {
             viewModel.getPlace(id: placeId)
+        }
+        .onAppear {
+            AnalyticsManager.shared.trackView(path: "/place", params: ["placeId": placeId])
         }
     }
 }

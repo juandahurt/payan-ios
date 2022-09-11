@@ -15,13 +15,23 @@ final class AnalyticsManager {
         engines.append(engine)
     }
     
-    func logEvent(_ event: AnalyticsEvent) {
+    func logEvent(name: String, params: [String: Any]? = nil) {
         guard !engines.isEmpty else {
-            print("You're trying to log \(event.name) event, but no engines have been registered!")
+            print("You're trying to log \(name) event, but no engines have been registered!")
             return
         }
         for engine in engines {
-            engine.logEvent(event)
+            engine.logEvent(name: name, params: params)
+        }
+    }
+    
+    func trackView(path: String, params: [String: Any]? = nil) {
+        guard !engines.isEmpty else {
+            print("You're trying to track \(path), but no engines have been registered!")
+            return
+        }
+        for engine in engines {
+            engine.trackView(path: path, params: params)
         }
     }
 }

@@ -17,66 +17,76 @@ struct PYFeedPageView: View {
     }
     
     func placeCategory(category: PYPlaceCategory) -> some View {
-        ZStack {
-            PuraceImageView(url: URL(string: category.image))
-                .aspectRatio(contentMode: .fill)
-                .frame(height: UIScreen.main.bounds.height * 0.15)
-                .clipped()
-            Color.black
-                .opacity(0.35)
-            VStack(spacing: 5) {
-                PuraceTextView(category.title, textColor: .white, weight: .medium)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 15)
-                    .background (
-                        ZStack {
-                            Color.black.opacity(0.2)
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.white, lineWidth: 1)
-                        }
-                    )
-            }
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    PuraceTextView("\(category.numberOfPlaces) lugares", fontSize: 10, textColor: .white)
-                        .frame(alignment: .bottomTrailing)
-                        .padding()
-                }
-            }
-        }
-        .cornerRadius(10)
-        .contentShape(Rectangle())
-        .frame(height: UIScreen.main.bounds.height * 0.15)
-        .onTapGesture {
+        Button {
             guard let url = URL(string: category.deeplink) else { return }
             PYRoutingManager.shared.open(url: url)
-        }
+        } label: {
+            ZStack {
+                PuraceImageView(url: URL(string: category.image))
+                    .aspectRatio(contentMode: .fill)
+                    .frame(height: UIScreen.main.bounds.height * 0.15)
+                    .clipped()
+                
+                LinearGradient(colors: [.clear, .black.opacity(0.5)], startPoint: .top, endPoint: .bottom)
+                
+                VStack {
+                    Spacer()
+                    
+                    HStack(alignment: .center) {
+                        PuraceTextView(category.title, fontSize: 16, textColor: .white, weight: .medium)
+                        
+                        Spacer()
+                        
+                        PuraceTextView("\(category.numberOfPlaces) lugares", fontSize: 10, textColor: .white)
+                    }.padding()
+                }
+            }
+            .cornerRadius(10)
+            .contentShape(Rectangle())
+            .frame(height: UIScreen.main.bounds.height * 0.15)
+        }.buttonStyle(SquishableButton())
     }
     
     var placeCategories: some View {
-        VStack {
-            VStack(spacing: 5) {
-                PuraceTextView("Explora lugares", fontSize: 20, textColor: PuraceStyle.Color.N1)
-                PuraceTextView("Adentrate en el corazón de la ciudad blanca", fontSize: 14, textColor: PuraceStyle.Color.N4)
-            }.padding(.bottom)
+        VStack(spacing: 22) {
+            VStack(alignment: .leading, spacing: 5) {
+                HStack {
+                    PuraceTextView("Explora lugares", fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
+                    
+                    Spacer(minLength: 0)
+                }
+                
+                HStack {
+                    PuraceTextView("Adentrate en el corazón de la ciudad blanca", fontSize: 14, textColor: PuraceStyle.Color.N4)
+                    
+                    Spacer(minLength: 0)
+                }
+            }
+            
             VStack(spacing: 8) {
                 ForEach(viewModel.feedData.placeCategories) { category in
                     placeCategory(category: category)
                 }
-            }.padding(.horizontal, 16)
-        }
+            }
+        }.padding(.horizontal, 20)
     }
     
     var heroes: some View {
-        VStack {
-            VStack(spacing: 5) {
-                PuraceTextView("Próceres", fontSize: 20, textColor: PuraceStyle.Color.N1)
-                PuraceTextView("Algunos personajes ilustres de la ciudad", fontSize: 14, textColor: PuraceStyle.Color.N4)
-            }.padding(.bottom)
+        VStack(spacing: 22) {
+            HStack {
+                PuraceTextView("Próceres", fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
+                    .multilineTextAlignment(.leading)
+                
+                Spacer(minLength: 0)
+                
+                PuraceButtonView("Ver todos", type: .custom(.clear, PuraceStyle.Color.B5, PuraceStyle.Color.B1)) {
+                    guard let url = URL(string: "payan://collection?type=hero") else { return }
+                    PYRoutingManager.shared.open(url: url)
+                }
+            }.padding(.horizontal, 20)
+            
             PuraceCollectionCardView(
-                firstCardSize: .init(width: UIScreen.main.bounds.width * 0.75, height: UIScreen.main.bounds.width * 0.92),
+                firstCardSize: .init(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.width),
                 cards: viewModel.feedData.heroes
             ) { selectedCard in
                 if let hero = viewModel.feedData.heroes.first(where: { $0.title == selectedCard.title }) {
@@ -84,12 +94,8 @@ struct PYFeedPageView: View {
                     PYRoutingManager.shared.open(url: url)
                 }
             }
-                .frame(height: UIScreen.main.bounds.width * 0.9)
+                .frame(height: UIScreen.main.bounds.width)
                 .padding(.bottom, 25)
-            PuraceButtonView("Ver todos", fontSize: 14) {
-                guard let url = URL(string: "payan://collection?type=hero") else { return }
-                PYRoutingManager.shared.open(url: url)
-            }
         }
     }
     
@@ -97,6 +103,7 @@ struct PYFeedPageView: View {
         VStack(spacing: 15) {
             PuraceLogoLoaderView(percentage: $viewModel.loadedPercentage)
                 .frame(width: 45, height: 70)
+            
             PuraceTextView(viewModel.errorOccurred ? "No pudimos llegar." : "Llegando a Popayán...")
         }.offset(x: 0, y: 9)
             .transition(.opacity.animation(.linear(duration: 0.2)))
@@ -169,16 +176,12 @@ struct PYFeedPageView: View {
     }
     
     var stories: some View {
-        VStack(spacing: 15) {
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    ForEach(viewModel.stories.indices, id: \.self) { index in
-                        storyPreview(at: index)
-                    }
-                }.padding(.horizontal, 16)
-            }
-            Divider()
-                .opacity(0.5)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
+                ForEach(viewModel.stories.indices, id: \.self) { index in
+                    storyPreview(at: index)
+                }
+            }.padding(.horizontal, 16)
         }
     }
     
@@ -202,19 +205,22 @@ struct PYFeedPageView: View {
                     VStack {
                         navBar
                         ScrollView(showsIndicators: false) {
-                            stories
                             VStack(alignment: .leading, spacing: 40) {
+                                stories
                                 placeCategories
                                 heroes
                             }.padding(.bottom)
                         }
+                    }.onAppear {
+                        AnalyticsManager.shared.trackView(path: "/feed", params: nil)
                     }
                     if viewModel.isSearchVisible {
                         PYSearchCoreBuilder().build(isVisible: $viewModel.isSearchVisible)
                     }
-                }.transition(.opacity.animation(.linear(duration: 0.2)))
+                }
                     .snackBar(title: viewModel.errorMessage, isVisible: $viewModel.storyErrorOccurred, type: .error, duration: .short, dismissOnDrag: true)
-                    .offset(x: 0, y: -0.5)
+                    .offset(x: 0, y: -0.5) // workaround to show the snackbar. :c
+                    .transition(.opacity.animation(.linear(duration: 0.2)))
             }
         }
         .background(Color.white)

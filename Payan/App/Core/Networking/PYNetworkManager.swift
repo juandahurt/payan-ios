@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import UIKit
 
 final class PYNetworkManager {
     private static var _shared: PYNetworkManager?
@@ -41,8 +42,9 @@ extension PYNetworkManager {
             completion(.failure(PYNetworkError.malformedUrl))
             return
         }
-        let urlRequest = URLRequest(url: url)
-
+        var urlRequest = URLRequest(url: url)
+        addHeaders(to: &urlRequest)
+        
         URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             if let error = error {
                 completion(.failure(error))
@@ -60,7 +62,18 @@ extension PYNetworkManager {
         guard let url = URL(string: stringUrl) else {
             return nil
         }
+        var urlRequest = URLRequest(url: url)
+        addHeaders(to: &urlRequest)
+        
+        return URLSession.shared.dataTaskPublisher(for: urlRequest)
+    }
+}
 
-        return URLSession.shared.dataTaskPublisher(for: url)
+extension PYNetworkManager {
+    func addHeaders(to request: inout URLRequest) {
+        request.addValue(UIDevice.current.systemName, forHTTPHeaderField: "X-Platform")
+        request.addValue(UIDevice.current.systemVersion, forHTTPHeaderField: "X-Platform-Version")
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        request.addValue(appVersion, forHTTPHeaderField: "X-App-Version")
     }
 }
