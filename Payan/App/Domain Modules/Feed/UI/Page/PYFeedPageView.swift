@@ -73,18 +73,17 @@ struct PYFeedPageView: View {
     
     var heroes: some View {
         VStack(spacing: 22) {
-            VStack(alignment: .leading, spacing: 5) {
-                HStack {
-                    PuraceTextView("Próceres", fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
-                    
-                    Spacer(minLength: 0)
-                    
-                    PuraceButtonView("Ver todos", type: .custom(.clear, PuraceStyle.Color.B5, PuraceStyle.Color.B1)) {
-                        guard let url = URL(string: "payan://collection?type=hero") else { return }
-                        PYRoutingManager.shared.open(url: url)
-                    }
+            HStack {
+                PuraceTextView("Próceres", fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
+                    .multilineTextAlignment(.leading)
+                
+                Spacer(minLength: 0)
+                
+                PuraceButtonView("Ver todos", type: .custom(.clear, PuraceStyle.Color.B5, PuraceStyle.Color.B1)) {
+                    guard let url = URL(string: "payan://collection?type=hero") else { return }
+                    PYRoutingManager.shared.open(url: url)
                 }
-            }.padding(.horizontal, 30)
+            }.padding(.horizontal, 20)
             
             PuraceCollectionCardView(
                 firstCardSize: .init(width: UIScreen.main.bounds.width * 0.7, height: UIScreen.main.bounds.width),
