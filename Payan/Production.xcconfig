@@ -6,4 +6,4 @@
 //
 
 APP_NAME = Payan
-BASE_URL = http:/$()/ec2-54-90-218-120.compute-1.amazonaws.com:3000
+BASE_URL = http:/$()/payan-back-juandahurt.vercel.app
