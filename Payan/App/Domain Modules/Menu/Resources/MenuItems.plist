@@ -13,6 +13,14 @@
 				<key>deeplink</key>
 				<string>payan://base/home</string>
 			</dict>
+			<dict>
+				<key>title</key>
+				<string>Mapa</string>
+				<key>icon</key>
+				<string>map</string>
+				<key>deeplink</key>
+				<string>payan://base/map</string>
+			</dict>
 		</array>
 	</dict>
 	<dict>
