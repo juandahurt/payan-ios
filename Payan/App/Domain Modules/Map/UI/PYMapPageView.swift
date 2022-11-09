@@ -92,5 +92,8 @@ struct PYMapPageView: View {
         .onDisappear {
             store.send(.selectLocation(location: nil))
         }
+        .onAppear {
+            AnalyticsManager.shared.trackView(path: PYMapConstants.Analytics.pageName)
+        }
     }
 }

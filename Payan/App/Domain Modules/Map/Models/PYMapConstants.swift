@@ -24,4 +24,8 @@ struct PYMapConstants {
         static let location = "location"
         static let selectedLocation = "location_selected"
     }
+    
+    struct Analytics {
+        static let pageName = "/map"
+    }
 }
