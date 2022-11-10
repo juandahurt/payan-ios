@@ -50,7 +50,10 @@ struct PYMapPageView: View {
                 
                 Spacer()
                 
-                PuraceButtonView(PYMapConstants.Wordings.seeDetails, type: .quiet)
+                PuraceButtonView(PYMapConstants.Wordings.seeDetails, type: .quiet) {
+                    guard let url = URL(string: location.link) else { return }
+                    PYRoutingManager.shared.open(url: url)
+                }
             }
         }
             .padding(.vertical, 20)

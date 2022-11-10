@@ -12,9 +12,10 @@ struct PYPlaceLocation: Identifiable, Decodable {
     let id: UUID
     let title: String
     let coordinates: CLLocationCoordinate2D
+    let link: String
     
     enum CodingKeys: CodingKey {
-        case title, location
+        case title, location, link
     }
     
     enum LocationCodingKeys: CodingKey {
@@ -25,6 +26,7 @@ struct PYPlaceLocation: Identifiable, Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = UUID()
         title = try container.decode(String.self, forKey: .title)
+        link = try container.decode(String.self, forKey: .link)
         
         let locationContainer = try container.nestedContainer(keyedBy: LocationCodingKeys.self, forKey: .location)
         let lat = try locationContainer.decode(Double.self, forKey: .lat)
