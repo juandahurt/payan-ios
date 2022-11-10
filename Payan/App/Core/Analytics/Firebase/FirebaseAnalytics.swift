@@ -11,6 +11,14 @@ import Foundation
 class FirebaseAnalytics: AnalyticsEngine {
     var name: String = "Firebase"
     
+    init() {
+        var analyticsIsEnabled = true
+        #if DEBUG
+        analyticsIsEnabled = false
+        #endif
+        Analytics.setAnalyticsCollectionEnabled(analyticsIsEnabled)
+    }
+    
     func logEvent(name: String, params: [String : Any]?) {
         Analytics.logEvent(name, parameters: params)
     }
