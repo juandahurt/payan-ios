@@ -65,6 +65,7 @@
 		2F908E4728430396003BD450 /* PYPlaceDataAccessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F908E4628430396003BD450 /* PYPlaceDataAccessLogic.swift */; };
 		2F908E4A28430458003BD450 /* PYPlaceNetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F908E4928430458003BD450 /* PYPlaceNetworkWorker.swift */; };
 		2F9AFADE27FA393C006DC8D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9AFADD27FA393C006DC8D6 /* FirebaseAnalytics */; };
+		2F9FD01A291D941E0063CD3B /* PYMenuConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9FD019291D941E0063CD3B /* PYMenuConstants.swift */; };
 		2FA2E91328E7987D0027B2BF /* PYMapConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA2E91228E7987D0027B2BF /* PYMapConstants.swift */; };
 		2FA3BB012815E626005BF493 /* PYNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */; };
 		2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */; };
@@ -206,6 +207,7 @@
 		2F908E4628430396003BD450 /* PYPlaceDataAccessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceDataAccessLogic.swift; sourceTree = "<group>"; };
 		2F908E4928430458003BD450 /* PYPlaceNetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceNetworkWorker.swift; sourceTree = "<group>"; };
 		2F9AFAE027FA3AFF006DC8D6 /* Emogger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Emogger; path = Modules/Emogger; sourceTree = "<group>"; };
+		2F9FD019291D941E0063CD3B /* PYMenuConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMenuConstants.swift; sourceTree = "<group>"; };
 		2FA2E91228E7987D0027B2BF /* PYMapConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMapConstants.swift; sourceTree = "<group>"; };
 		2FA3BB002815E626005BF493 /* PYNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkRequest.swift; sourceTree = "<group>"; };
 		2FA3BB022815E65A005BF493 /* PYNetworkMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkMethod.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 			children = (
 				2F1391B62860BA4B00D1455E /* PYMenuItem.swift */,
 				2FCAE680286D1C0E00538D05 /* PYMenuSection.swift */,
+				2F9FD019291D941E0063CD3B /* PYMenuConstants.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1378,6 +1381,7 @@
 				2FDAAD71288C86520098092A /* PYStoryPreview.swift in Sources */,
 				6DB6E4F52818A96E0002A77C /* PYModuleBuilder.swift in Sources */,
 				2FA9FEE628956BA3004B9A4F /* PYOnboardingItem.swift in Sources */,
+				2F9FD01A291D941E0063CD3B /* PYMenuConstants.swift in Sources */,
 				2F8D512D2800C5E600ADCC64 /* PYFeedDataAccessLogic.swift in Sources */,
 				2F63C88227FCD62500857056 /* PYFeedInteractor.swift in Sources */,
 				2F1D99A0286104C200AC9187 /* PYMenuLocalWorker.swift in Sources */,
