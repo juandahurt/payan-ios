@@ -24,9 +24,9 @@ struct PYMenuPageView: View {
                 Image(icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 15, height: 15)
+                    .frame(width: 18, height: 18)
             }
-            PuraceTextView(item.title, weight: .medium)
+            PuraceTextView(item.title, fontSize: 14, weight: .medium)
             Spacer()
         }.background(Color.white)
         .onTapGesture {
