@@ -24,33 +24,42 @@ struct PYMenuPageView: View {
                 Image(icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 15, height: 15)
+                    .frame(width: 18, height: 18)
             }
-            PuraceTextView(item.title, weight: .medium)
+            PuraceTextView(item.title, fontSize: 14, weight: .medium)
             Spacer()
         }.background(Color.white)
         .onTapGesture {
             guard let url = URL(string: item.deeplink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
+        .padding(.horizontal, 20)
     }
     
     var sections: some View {
         ForEach(viewModel.sections.indices, id: \.self) { sectionIndex in
-            ForEach(viewModel.section(at: sectionIndex).items.indices) { itemIndex in
+            ForEach(viewModel.section(at: sectionIndex).items.indices, id: \.self) { itemIndex in
                 let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
                 sectionItem(at: indexPath)
             }
             if sectionIndex != viewModel.sections.count - 1 {
                 Divider()
-                    .opacity(0.65)
+                    .padding(.leading, 20)
             }
-        }.padding(.horizontal)
+        }
+    }
+    
+    var title: some View {
+        HStack {
+            PuraceTextView(PYMenuConstants.Wordings.title, fontSize: 22, weight: .medium)
+            Spacer()
+        }
+        .padding([.leading, .bottom], 20)
     }
     
     var body: some View {
         ScrollView {
-            PuraceTextView("Más", fontSize: 22)
+            title
             sections
             Spacer()
         }
@@ -58,6 +67,9 @@ struct PYMenuPageView: View {
             .navigationBarHidden(true)
             .onFirstAppear {
                 viewModel.getSections()
+            }
+            .onAppear {
+                AnalyticsManager.shared.trackView(path: PYMenuConstants.Analytics.pageName)
             }
     }
 }
