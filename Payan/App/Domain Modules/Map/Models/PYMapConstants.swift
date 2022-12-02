@@ -9,10 +9,10 @@ import Foundation
 
 struct PYMapConstants {
     struct Wordings {
-        static let cityName = "Popayán"
-        static let loading = "Cargando lugares..."
         static let close = "Cerrar"
         static let seeDetails = "Ver detalles"
+        static let errorOccured = "Ha ocurrido un error."
+        static let retry = "REINTENTAR"
     }
     
     struct InitialLocation {
