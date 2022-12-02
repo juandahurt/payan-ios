@@ -5,13 +5,15 @@
 //  Created by Juan Hurtado on 30/10/22.
 //
 
+import CoreLocation
 import Combine
 import Foundation
 
-final class PYMapReducer: AnyReducer<PYMapState, PYMapAction, Any> {
-    let repository: PYMapDataAccessLogic
-    
+class PYMapReducer: AnyReducer<PYMapState, PYMapAction, Any> {
+    private let repository: PYMapDataAccessLogic
+    private var disposeBag = Set<AnyCancellable>()
     private let minimumLoadingTime = 1.0
+    private let locationManager = CLLocationManager()
     
     init(repository: PYMapDataAccessLogic) {
         self.repository = repository
@@ -31,7 +33,7 @@ final class PYMapReducer: AnyReducer<PYMapState, PYMapAction, Any> {
             
             return holderPub.combineLatest(locationsPub)
                 .map { data in
-                    .setLocations(data: data.1)
+                        .setLocations(data: data.1)
                 }
                 .eraseToAnyPublisher()
         case .setLocations(let data):
@@ -40,6 +42,15 @@ final class PYMapReducer: AnyReducer<PYMapState, PYMapAction, Any> {
             return nil
         case .selectLocation(let location):
             state.selectedLocation = location
+            return nil
+        case .errorOccured:
+            state.isLoading = false
+            state.errorOccured = true
+            return nil
+        case .requestAuth:
+            if locationManager.authorizationStatus == .notDetermined {
+                locationManager.requestWhenInUseAuthorization()
+            }
             return nil
         }
     }

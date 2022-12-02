@@ -91,6 +91,7 @@ struct PYMapPageView: View {
         }
         .onFirstAppear {
             store.send(.getLocations)
+            store.send(.requestAuth)
         }
         .onDisappear {
             store.send(.selectLocation(location: nil))

@@ -11,4 +11,6 @@ enum PYMapAction {
     case getLocations
     case setLocations(data: [PYPlaceLocation])
     case selectLocation(location: PYPlaceLocation?)
+    case errorOccured
+    case requestAuth
 }

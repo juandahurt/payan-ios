@@ -18,6 +18,7 @@ struct PYMapViewContainer: UIViewRepresentable {
         mapView.delegate = context.coordinator
         let region = store.state.region
         mapView.setRegion(region, animated: true)
+        mapView.showsUserLocation = true
         return mapView
     }
     
