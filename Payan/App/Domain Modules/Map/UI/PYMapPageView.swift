@@ -10,30 +10,8 @@ import Purace
 import SwiftUI
 
 struct PYMapPageView: View {
-    @State private var isSnackbarVisible = true
+    @State private var isSnackbarVisible = false
     @EnvironmentObject private var store: AppStore<PYMapState, PYMapAction, Any>
-    
-    var cityName: some View {
-        PuraceTextView(PYMapConstants.Wordings.cityName, fontSize: 10, weight: .medium)
-            .padding(.vertical, 5)
-            .padding(.horizontal, 10)
-            .background(
-                Color.white
-                    .opacity(0.8)
-            )
-            .cornerRadius(8)
-    }
-    
-    var topBarWrapper: some View {
-        VStack {
-            HStack {
-                cityName
-                    .padding()
-                Spacer()
-            }
-            Spacer()
-        }
-    }
     
     func selectedLocationCard(location: PYPlaceLocation) -> some View {
         let screenWidth = UIScreen.main.bounds.width
@@ -76,17 +54,39 @@ struct PYMapPageView: View {
         }
     }
     
+    var loader: some View {
+        PuraceCircularLoaderView(lineWidth: 2)
+            .frame(width: 10, height: 10)
+            .padding(5)
+            .background(Color.white.opacity(0.5))
+    }
+    
+    var loaderWrapper: some View {
+        VStack {
+            HStack {
+                loader
+                    .padding()
+                Spacer()
+            }
+            Spacer()
+        }
+    }
+    
     var body: some View {
         ZStack {
             PYMapViewContainer()
             
-            topBarWrapper
+            if store.state.isLoading {
+                loaderWrapper
+            }
             
             selectedLocationCardWrapper()
         }
-        .snackBar(title: PYMapConstants.Wordings.loading, isVisible: $isSnackbarVisible)
+        .snackBar(title: PYMapConstants.Wordings.errorOccured, isVisible: $isSnackbarVisible, type: .error, buttonTitle: PYMapConstants.Wordings.retry) {
+            store.send(.getLocations)
+        }
         .offset(x: 0, y: -0.5) // workaround to show the snackbar. :c
-        .onChange(of: store.state.isLoading) { newValue in
+        .onChange(of: store.state.errorOccured) { newValue in
             isSnackbarVisible = newValue
         }
         .onFirstAppear {

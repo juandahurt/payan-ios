@@ -18,4 +18,5 @@ class PYMapState {
         latitudinalMeters: 1500,
         longitudinalMeters: 1500
     )
+    var errorOccured = false
 }
