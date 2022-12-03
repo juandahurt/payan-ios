@@ -16,22 +16,27 @@ struct PYMapPageView: View {
     func selectedLocationCard(location: PYPlaceLocation) -> some View {
         let screenWidth = UIScreen.main.bounds.width
         
-        return VStack {
-            PuraceTextView(location.title, fontSize: 20, weight: .medium)
-                .lineLimit(1)
-                .multilineTextAlignment(.center)
+        return HStack(spacing: 15) {
+            PuraceImageView(url: URL(string: location.imageUrl))
+                .scaledToFill()
+                .frame(width: 80, height: 80)
+                .cornerRadius(40)
             
             HStack {
-                PuraceButtonView(PYMapConstants.Wordings.close, type: .transparent) {
-                    store.send(.selectLocation(location: nil))
+                Spacer(minLength: 0)
+                
+                VStack {
+                    PuraceTextView(location.title, fontSize: 20, weight: .medium)
+                        .lineLimit(1)
+                        .multilineTextAlignment(.center)
+                    
+                    PuraceButtonView(PYMapConstants.Wordings.seeDetails, type: .transparent) {
+                        guard let url = URL(string: location.link) else { return }
+                        PYRoutingManager.shared.open(url: url)
+                    }
                 }
                 
-                Spacer()
-                
-                PuraceButtonView(PYMapConstants.Wordings.seeDetails, type: .quiet) {
-                    guard let url = URL(string: location.link) else { return }
-                    PYRoutingManager.shared.open(url: url)
-                }
+                Spacer(minLength: 0)
             }
         }
             .padding(.vertical, 20)
