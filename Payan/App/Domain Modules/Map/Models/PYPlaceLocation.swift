@@ -10,12 +10,13 @@ import MapKit
 
 struct PYPlaceLocation: Identifiable, Decodable {
     let id: UUID
+    let imageUrl: String
     let title: String
     let coordinates: CLLocationCoordinate2D
     let link: String
     
     enum CodingKeys: CodingKey {
-        case title, location, link
+        case title, imageUrl, location, link
     }
     
     enum LocationCodingKeys: CodingKey {
@@ -25,6 +26,7 @@ struct PYPlaceLocation: Identifiable, Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = UUID()
+        imageUrl = try container.decode(String.self, forKey: .imageUrl)
         title = try container.decode(String.self, forKey: .title)
         link = try container.decode(String.self, forKey: .link)
         
