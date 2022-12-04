@@ -237,6 +237,7 @@ struct PYFeedPageView: View {
                 PYRoutingManager.shared.present(vc)
             }
         }
+        .ignoresSafeArea(.keyboard)
     }
 }
 

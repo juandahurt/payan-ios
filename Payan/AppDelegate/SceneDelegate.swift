@@ -47,6 +47,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         PuraceManager.shared.configure()
         
         window?.makeKeyAndVisible()
+        
+//        let window = UIApplication.shared.windows.last!
+//        let viewToShow = UIView(frame: CGRect(x: -20, y: 0, width: window.frame.size.width, height: 40.0))
+//        viewToShow.transform = CGAffineTransform(rotationAngle: 45)
+//        viewToShow.backgroundColor = UIColor.green
+//        viewToShow.addSubview(UILabel())
+//        window.addSubview(viewToShow)
     }
 }
 
