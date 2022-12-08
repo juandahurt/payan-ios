@@ -139,9 +139,18 @@
 		3DF708BF26F2A4D200FD24CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF708BE26F2A4D200FD24CF /* SceneDelegate.swift */; };
 		3DF708C626F2A4D300FD24CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C526F2A4D300FD24CF /* Assets.xcassets */; };
 		3DF708C926F2A4D300FD24CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DF708C726F2A4D300FD24CF /* LaunchScreen.storyboard */; };
+		6D3D0D3629424B7600DF5852 /* PYFeedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D0D3529424B7600DF5852 /* PYFeedState.swift */; };
+		6D3D0D3829424BE600DF5852 /* PYFeedReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D0D3729424BE600DF5852 /* PYFeedReducer.swift */; };
+		6D3D0D3A29424BFA00DF5852 /* PYFeedAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D0D3929424BFA00DF5852 /* PYFeedAction.swift */; };
+		6D3D0D3D29424D6000DF5852 /* PYFeedWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D3D0D3C29424D6000DF5852 /* PYFeedWebRepository.swift */; };
 		6D46485D281D9B21001FACC0 /* PYCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D46485C281D9B21001FACC0 /* PYCollection.swift */; };
 		6DB6E4F12818A5720002A77C /* PYRoutingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6E4F02818A5720002A77C /* PYRoutingManager.swift */; };
 		6DB6E4F52818A96E0002A77C /* PYModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB6E4F42818A96E0002A77C /* PYModuleBuilder.swift */; };
+		6DDA497129413F8300AC9468 /* PYFeedPlaceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA497029413F8300AC9468 /* PYFeedPlaceCategory.swift */; };
+		6DDA49732941430500AC9468 /* PYFeedSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA49722941430500AC9468 /* PYFeedSectionHeader.swift */; };
+		6DDA49752941942600AC9468 /* PYFeedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA49742941942600AC9468 /* PYFeedSection.swift */; };
+		6DDA4977294196DE00AC9468 /* PYFeedHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA4976294196DE00AC9468 /* PYFeedHero.swift */; };
+		6DDA497929419CFC00AC9468 /* PYFeedStoryPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDA497829419CFC00AC9468 /* PYFeedStoryPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -282,9 +291,18 @@
 		3DF708C526F2A4D300FD24CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DF708C826F2A4D300FD24CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DF708CA26F2A4D300FD24CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D3D0D3529424B7600DF5852 /* PYFeedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedState.swift; sourceTree = "<group>"; };
+		6D3D0D3729424BE600DF5852 /* PYFeedReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedReducer.swift; sourceTree = "<group>"; };
+		6D3D0D3929424BFA00DF5852 /* PYFeedAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedAction.swift; sourceTree = "<group>"; };
+		6D3D0D3C29424D6000DF5852 /* PYFeedWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedWebRepository.swift; sourceTree = "<group>"; };
 		6D46485C281D9B21001FACC0 /* PYCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollection.swift; sourceTree = "<group>"; };
 		6DB6E4F02818A5720002A77C /* PYRoutingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYRoutingManager.swift; sourceTree = "<group>"; };
 		6DB6E4F42818A96E0002A77C /* PYModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYModuleBuilder.swift; sourceTree = "<group>"; };
+		6DDA497029413F8300AC9468 /* PYFeedPlaceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedPlaceCategory.swift; sourceTree = "<group>"; };
+		6DDA49722941430500AC9468 /* PYFeedSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedSectionHeader.swift; sourceTree = "<group>"; };
+		6DDA49742941942600AC9468 /* PYFeedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedSection.swift; sourceTree = "<group>"; };
+		6DDA4976294196DE00AC9468 /* PYFeedHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedHero.swift; sourceTree = "<group>"; };
+		6DDA497829419CFC00AC9468 /* PYFeedStoryPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYFeedStoryPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -752,14 +770,6 @@
 			path = Worker;
 			sourceTree = "<group>";
 		};
-		2FC270E62837EF9500770B46 /* Page */ = {
-			isa = PBXGroup;
-			children = (
-				2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */,
-			);
-			path = Page;
-			sourceTree = "<group>";
-		};
 		2FCAE68C286FA6AF00538D05 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,6 +1085,8 @@
 		3D3A3848270A53C700E2EF94 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				6D3D0D3B29424D1500DF5852 /* Data */,
+				6D3D0D3429424B6800DF5852 /* Redux */,
 				2F8D51292800C58F00ADCC64 /* Protocols */,
 				2F63C88027FCD61A00857056 /* Interactor */,
 				2F44E21C27FCCF400026FDBC /* Workers */,
@@ -1088,8 +1100,9 @@
 		3D3A384C270A53F000E2EF94 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */,
+				6DDA496F29413F7500AC9468 /* Components */,
 				2F19514A283954F1007B0E73 /* View Model */,
-				2FC270E62837EF9500770B46 /* Page */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1222,6 +1235,24 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		6D3D0D3429424B6800DF5852 /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				6D3D0D3529424B7600DF5852 /* PYFeedState.swift */,
+				6D3D0D3729424BE600DF5852 /* PYFeedReducer.swift */,
+				6D3D0D3929424BFA00DF5852 /* PYFeedAction.swift */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		6D3D0D3B29424D1500DF5852 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				6D3D0D3C29424D6000DF5852 /* PYFeedWebRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		6DB6E4EF2818A4EF0002A77C /* Routing */ = {
 			isa = PBXGroup;
 			children = (
@@ -1230,6 +1261,18 @@
 				2FCAE68A286FA44000538D05 /* PYRouteHandler.swift */,
 			);
 			path = Routing;
+			sourceTree = "<group>";
+		};
+		6DDA496F29413F7500AC9468 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6DDA497029413F8300AC9468 /* PYFeedPlaceCategory.swift */,
+				6DDA49722941430500AC9468 /* PYFeedSectionHeader.swift */,
+				6DDA49742941942600AC9468 /* PYFeedSection.swift */,
+				6DDA4976294196DE00AC9468 /* PYFeedHero.swift */,
+				6DDA497829419CFC00AC9468 /* PYFeedStoryPreview.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1318,10 +1361,12 @@
 			files = (
 				2FCAE685286F8F0200538D05 /* PYHeroRouteHandler.swift in Sources */,
 				2FA3BB0F2815F8CA005BF493 /* PYFeedNetworkWorker.swift in Sources */,
+				6D3D0D3629424B7600DF5852 /* PYFeedState.swift in Sources */,
 				2F39E92228A72D2E00D68554 /* Reducer.swift in Sources */,
 				2F5827742858DB16006836E8 /* PYHeroInteractor.swift in Sources */,
 				2FA2E91328E7987D0027B2BF /* PYMapConstants.swift in Sources */,
 				2FD54482287213F50098468D /* PYSearchResult.swift in Sources */,
+				6DDA49752941942600AC9468 /* PYFeedSection.swift in Sources */,
 				2F39E92628A72D4A00D68554 /* Store.swift in Sources */,
 				2F1BEAC02919A14D007BFDEE /* PYMapViewContainer.swift in Sources */,
 				2F5827672858D763006836E8 /* PYHeroBusinessLogic.swift in Sources */,
@@ -1337,6 +1382,7 @@
 				2FD7294028416490002255A3 /* View+OnFirstAppear.swift in Sources */,
 				2F1D999A2860EEEB00AC9187 /* PYMenuInteractor.swift in Sources */,
 				2F1391BA2860BAFE00D1455E /* PYMenuViewModel.swift in Sources */,
+				6D3D0D3D29424D6000DF5852 /* PYFeedWebRepository.swift in Sources */,
 				3DB9D548277F584C00E4D45A /* AnalyticsAppDelegate.swift in Sources */,
 				2F645F6928886D2500064F8A /* PYStoryBusinessLogic.swift in Sources */,
 				2FA3BB032815E65A005BF493 /* PYNetworkMethod.swift in Sources */,
@@ -1363,6 +1409,8 @@
 				2FA3BB092815F24D005BF493 /* PYServerResponse.swift in Sources */,
 				3D496F87277E353C009BFF74 /* AnalyticsEngine.swift in Sources */,
 				2F832F1F283D84A000702E71 /* PYHeroPreview.swift in Sources */,
+				6D3D0D3829424BE600DF5852 /* PYFeedReducer.swift in Sources */,
+				6DDA49732941430500AC9468 /* PYFeedSectionHeader.swift in Sources */,
 				2FCAE683286F8EB700538D05 /* PYMainRouteHandler.swift in Sources */,
 				2F43441B2815A184001E8910 /* PYNetworkManager.swift in Sources */,
 				2FD53E4128E3889F00368E26 /* PYMapPageView.swift in Sources */,
@@ -1376,6 +1424,7 @@
 				2FDC76C52858280800EAC03C /* PYHeroBuilder.swift in Sources */,
 				2F645F6E2888B99300064F8A /* PYStoryBuilder.swift in Sources */,
 				2F39E93528A805DC00D68554 /* PYCollectionNeworkWorker.swift in Sources */,
+				6DDA497129413F8300AC9468 /* PYFeedPlaceCategory.swift in Sources */,
 				2F908E4A28430458003BD450 /* PYPlaceNetworkWorker.swift in Sources */,
 				2F39E92F28A8015200D68554 /* PYCollectionAction.swift in Sources */,
 				2FDAAD71288C86520098092A /* PYStoryPreview.swift in Sources */,
@@ -1421,6 +1470,7 @@
 				3D0ECF792782496100847E0D /* Environment.swift in Sources */,
 				2F908E422842D34B003BD450 /* PYPlaceBusinessLogic.swift in Sources */,
 				2FCAE696286FA80F00538D05 /* PYAboutPageView.swift in Sources */,
+				6D3D0D3A29424BFA00DF5852 /* PYFeedAction.swift in Sources */,
 				2FD18806287DE58900C6C098 /* PYStoryChapter.swift in Sources */,
 				2FF1EBE52861731600B16E5E /* PYMainTabItem.swift in Sources */,
 				2FA558112849605400E9B2B4 /* PYPlaceLocation.swift in Sources */,
@@ -1436,9 +1486,11 @@
 				2F68A1192852DD9300DCF1E6 /* PYPlaceImage.swift in Sources */,
 				2F78195128170E820096E342 /* PYNetworkingAppDelegate.swift in Sources */,
 				2FA9FEE328956B6E004B9A4F /* PYOnboardingBusinessLogic.swift in Sources */,
+				6DDA497929419CFC00AC9468 /* PYFeedStoryPreview.swift in Sources */,
 				2FDAAD75288C8E5E0098092A /* PYStoryData.swift in Sources */,
 				2FDC76C92858284D00EAC03C /* PYHeroPageView.swift in Sources */,
 				2F39E93328A8056300D68554 /* PYCollectionDataAccessLogic.swift in Sources */,
+				6DDA4977294196DE00AC9468 /* PYFeedHero.swift in Sources */,
 				2F5827722858D9E6006836E8 /* PYHeroViewModel.swift in Sources */,
 				2F908E3D2842D32F003BD450 /* PYPlaceViewModel.swift in Sources */,
 				2F58276F2858D878006836E8 /* PYHeroDataAccessLogic.swift in Sources */,

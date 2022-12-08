@@ -38,7 +38,7 @@ final class PYMainBuilder {
             mapViewController,
             menuViewController
         ]
-        controller.tabBar.isHidden = true
+//        controller.tabBar.isHidden = true
         
         if interactor.checkIfUserHasSeenOnboarding() {
             return controller

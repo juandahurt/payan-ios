@@ -19,18 +19,18 @@ final class PYFeedInteractor: PYFeedBusinessLogic {
         self.storySeenWorker = storySeenWorker
     }
     
-    func getFeedData(completion: @escaping (Result<PYFeedPageData,Error>) -> Void) {
-        worker.getData { res in
-            DispatchQueue.main.async {
-                switch res {
-                case .success(let data):
-                    completion(.success(data))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
+//    func getFeedData(completion: @escaping (Result<PYFeedPageData,Error>) -> Void) {
+//        worker.getData { res in
+//            DispatchQueue.main.async {
+//                switch res {
+//                case .success(let data):
+//                    completion(.success(data))
+//                case .failure(let error):
+//                    completion(.failure(error))
+//                }
+//            }
+//        }
+//    }
     
     func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error> {
         storyWorker.getStory(id: id)

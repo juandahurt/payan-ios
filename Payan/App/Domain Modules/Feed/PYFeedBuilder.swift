@@ -11,11 +11,14 @@ import SwiftUI
 
 final class PYFeedBuilder {
     func build(onSuccess: (() -> Void)?) -> UIViewController {
-        let worker = PYFeedNetworkWorker()
-        let storyWorker = PYStoryNetworkWorker()
-        let storySeenWorker = PYStorySeenLocalWorker()
-        let interactor = PYFeedInteractor(worker: worker, storyWorker: storyWorker, storySeenWorker: storySeenWorker)
-        let viewModel = PYFeedViewModel(interactor: interactor, onSuccess: onSuccess)
-        return UIHostingController(rootView: PYFeedPageView(viewModel: viewModel))
+        let view = PYFeedPageView()
+            .environmentObject(
+                AppStore(
+                    initialState: PYFeedState(),
+                    reducer: PYFeedReducer(repository: PYFeedWebRepository()),
+                    environment: ""
+                )
+            )
+        return UIHostingController(rootView: view)
     }
 }

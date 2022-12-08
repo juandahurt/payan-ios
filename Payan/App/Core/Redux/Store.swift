@@ -11,7 +11,7 @@ import Foundation
 class AppStore<State, Action, Env>: ObservableObject {
     typealias Reducer = AnyReducer<State, Action, Env>
     
-    @Published private(set) var state: State
+    @Published var state: State
     
     private let reducer: Reducer
     private let environment: Env

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PYFeedNetworkWorker: PYFeedDataAccessLogic {
+class PYFeedNetworkWorker {
     func getData(completion: @escaping (Result<PYFeedPageData, Error>) -> Void) {
         let request = PYNetworkRequest(endpoint: "feed")
         PYNetworkManager.shared.exec(request: request) { result in
