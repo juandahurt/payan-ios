@@ -95,19 +95,21 @@ struct PYSearchCorePageView: View {
     }
     
     var loader: some View {
-        ZStack {
-            Color.white
-            PuraceCircularLoaderView(lineWidth: 2)
-                .frame(width: 10, height: 10)
-                .padding(.vertical)
-        }.frame(height: 40)
+        VStack {
+            PuraceCircularLoaderView(lineWidth: 4)
+                .frame(width: 80, height: 80)
+                .padding(.top, 50)
+        }
     }
     
     var noResults: some View {
-        ZStack {
-            Color.white
-            PuraceTextView("No se encontraron resultados.")
-        }.frame(height: 40)
+        VStack(alignment: .center, spacing: 5) {
+            Image("not-found")
+            PuraceTextView("Uy", fontSize: 22, weight: .medium)
+            PuraceTextView("Parece que no pudimos encontrar resultados para tu búsqueda. Prueba con otra palabra.", fontSize: 14)
+                .multilineTextAlignment(.center)
+            Spacer()
+        }.padding([.top, .horizontal], 50)
     }
     
     var body: some View {
