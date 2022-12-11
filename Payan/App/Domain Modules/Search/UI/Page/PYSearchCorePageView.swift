@@ -14,23 +14,20 @@ import Purace
 struct PYSearchCorePageView: View {
     @StateObject var viewModel: PYSearchCoreViewModel
     @FocusStateLegacy var focusedField: SearchFields? = .searchBar
-    @Binding var isVisible: Bool
     
-    init(isVisible: Binding<Bool>, viewModel: PYSearchCoreViewModel) {
+    init(viewModel: PYSearchCoreViewModel) {
         _viewModel = .init(wrappedValue: viewModel)
-        _isVisible = isVisible
     }
     
     var searchBar: some View {
         HStack(spacing: 15) {
-            Image(systemName: "chevron.left")
-                .foregroundColor(PuraceStyle.Color.N1)
-                .scaleEffect(1.2)
-                .onTapGesture {
-                    isVisible = false
-                }
-            PuraceTextField("Buscar", text: $viewModel.searchText)
+            PuraceSearchBox("Buscar", text: $viewModel.searchText)
                 .focusedLegacy($focusedField, equals: .searchBar)
+            
+            PuraceTextView("Cancelar")
+                .onTapGesture {
+                    PYRoutingManager.shared.pop(animated: false)
+                }
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 8)
@@ -62,8 +59,8 @@ struct PYSearchCorePageView: View {
         .padding(.vertical, 8)
         .background(viewModel.selectedItem == item ? Color.black.opacity(0.05) : Color.white)
         .onTapGesture {
+            focusedField = nil
             guard let url = URL(string: item.deepLink) else { return }
-            isVisible = false
             PYRoutingManager.shared.open(url: url)
             AnalyticsManager.shared.logEvent(name: AnalyticsEventViewSearchResults, params: [AnalyticsParameterSearchTerm: item.title])
         }
@@ -85,7 +82,7 @@ struct PYSearchCorePageView: View {
                     let result = viewModel.result(at: index)
                     resultTitle(of: result)
                     VStack(spacing: 0) {
-                        ForEach(result.items.indices) { itemIndex in
+                        ForEach(result.items.indices, id: \.self) { itemIndex in
                             let item = viewModel.item(of: result, at: itemIndex)
                             resultItemRow(of: item)
                         }
@@ -127,12 +124,14 @@ struct PYSearchCorePageView: View {
             }
             Spacer()
                 .navigationBarHidden(true)
-        }.background(
-            Color.black.opacity(0.3)
-                .onTapGesture {
-                    isVisible = false
-                }
+        }
+        .background(
+            PuraceStyle.Color.F1
         )
+        .ignoresSafeArea(.keyboard)
+        .onAppear {
+            AnalyticsManager.shared.trackView(path: "/search", params: nil)
+        }
     }
 }
 

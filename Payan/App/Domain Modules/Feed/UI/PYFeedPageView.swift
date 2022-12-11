@@ -67,6 +67,10 @@ struct PYFeedPageView: View {
         .background(Color.black.opacity(0.03))
         .cornerRadius(20)
         .padding(.horizontal, 16)
+        .onTapGesture {
+            let vc = PYSearchCoreBuilder().build()
+            PYRoutingManager.shared.push(vc, animated: false)
+        }
     }
     
     // MARK: - Heroes section
@@ -150,8 +154,8 @@ struct PYFeedPageView: View {
                 VStack(spacing: 30) {
                     title
                     searchField
-                    storiesSection
                     placeCategoriesSection
+                    storiesSection
                     heroesSection
                 }
             }.allowsHitTesting(!store.state.isLoading)
@@ -166,6 +170,9 @@ struct PYFeedPageView: View {
                     #warning("TODO: save seen story")
                 }
                 PYRoutingManager.shared.present(vc)
+            }
+            .onAppear {
+                AnalyticsManager.shared.trackView(path: "/feed", params: nil)
             }
     }
 //        Group {

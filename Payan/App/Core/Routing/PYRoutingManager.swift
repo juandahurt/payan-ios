@@ -69,8 +69,8 @@ class PYRoutingManager {
         navigationController.present(vc, animated: true)
     }
     
-    func dismiss() {
-        navigationController.dismiss(animated: true)
+    func dismiss(completion: (() -> Void)? = nil) {
+        navigationController.dismiss(animated: true, completion: completion)
     }
     
     func setViewControllers(_ viewControllers: [UIViewController]) {

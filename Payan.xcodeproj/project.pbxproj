@@ -1092,7 +1092,6 @@
 				2F44E21C27FCCF400026FDBC /* Workers */,
 				2F44E21727FCCDFB0026FDBC /* Models */,
 				3D3A384C270A53F000E2EF94 /* UI */,
-				3D3A3849270A53D300E2EF94 /* PYFeedBuilder.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -1101,6 +1100,7 @@
 			isa = PBXGroup;
 			children = (
 				2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */,
+				3D3A3849270A53D300E2EF94 /* PYFeedBuilder.swift */,
 				6DDA496F29413F7500AC9468 /* Components */,
 				2F19514A283954F1007B0E73 /* View Model */,
 			);
@@ -1714,7 +1714,7 @@
 			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
 				kind = exactVersion;
-				version = 1.15.2;
+				version = 1.16.0;
 			};
 		};
 		2FD54483287236770098468D /* XCRemoteSwiftPackageReference "swift-focuser" */ = {

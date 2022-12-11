@@ -9,10 +9,11 @@ import Foundation
 import SwiftUI
 
 class PYSearchCoreBuilder {
-    func build(isVisible: Binding<Bool>) -> some View {
+    func build() -> UIViewController {
         let worker = PYSearchNetworkWorker()
         let interactor = PYSearchCoreInteractor(worker: worker)
         let viewModel = PYSearchCoreViewModel(interactor: interactor)
-        return PYSearchCorePageView(isVisible: isVisible, viewModel: viewModel)
+        let view = PYSearchCorePageView(viewModel: viewModel)
+        return UIHostingController(rootView: view)
     }
 }
