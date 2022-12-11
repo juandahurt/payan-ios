@@ -6,9 +6,11 @@
 //
 
 import Purace
+import SkeletonUI
 import SwiftUI
 
 struct PYFeedPlaceCategory: View {
+    @Binding var showSkeleton: Bool
     let link: String
     let image: String
     let title: String
@@ -44,6 +46,8 @@ struct PYFeedPlaceCategory: View {
             }
             .cornerRadius(10)
             .contentShape(Rectangle())
+            .skeleton(with: showSkeleton, transition: .opacity)
+            .shape(type: .rounded(.radius(10, style: .circular)))
             .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 3)
         }.buttonStyle(SquishableButton())
     }

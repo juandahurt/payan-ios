@@ -9,7 +9,7 @@ import Purace
 import SwiftUI
 
 struct PYFeedSectionHeader: View {
-    @Binding var isLoading: Bool
+    @Binding var showSkeleton: Bool
     let title: String
     var subtitle: String? = nil
     var buttonTitile: String? = nil
@@ -21,7 +21,7 @@ struct PYFeedSectionHeader: View {
                 HStack {
                     PuraceTextView(title, fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
                         .lineLimit(1)
-                        .skeleton(with: isLoading, transition: .opacity)
+                        .skeleton(with: showSkeleton, transition: .opacity)
                         .multiline(lines: 1, scales: [0: 0.5])
                         .frame(height: 20)
                     Spacer(minLength: 0)
@@ -30,7 +30,7 @@ struct PYFeedSectionHeader: View {
                     HStack {
                         PuraceTextView(subtitle, fontSize: 14, textColor: PuraceStyle.Color.N4)
                             .lineLimit(1)
-                            .skeleton(with: isLoading, transition: .opacity)
+                            .skeleton(with: showSkeleton, transition: .opacity)
                             .multiline(lines: 1, scales: [0: 0.65])
                             .frame(height: 15)
                         Spacer(minLength: 0)
@@ -40,7 +40,7 @@ struct PYFeedSectionHeader: View {
             
             Spacer(minLength: 0)
             
-            if let buttonTitile {
+            if let buttonTitile, !showSkeleton {
                 Button {
                     buttonCallback?()
                 } label: {

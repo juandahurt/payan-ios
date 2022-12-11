@@ -436,7 +436,7 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		2F44E21727FCCDFB0026FDBC /* Entities */ = {
+		2F44E21727FCCDFB0026FDBC /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				2F19514628394F3B007B0E73 /* PYPlaceCategory.swift */,
@@ -444,7 +444,7 @@
 				2F832F1E283D84A000702E71 /* PYHeroPreview.swift */,
 				2FDAAD70288C86520098092A /* PYStoryPreview.swift */,
 			);
-			path = Entities;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2F44E21C27FCCF400026FDBC /* Workers */ = {
@@ -1090,7 +1090,7 @@
 				2F8D51292800C58F00ADCC64 /* Protocols */,
 				2F63C88027FCD61A00857056 /* Interactor */,
 				2F44E21C27FCCF400026FDBC /* Workers */,
-				2F44E21727FCCDFB0026FDBC /* Entities */,
+				2F44E21727FCCDFB0026FDBC /* Models */,
 				3D3A384C270A53F000E2EF94 /* UI */,
 				3D3A3849270A53D300E2EF94 /* PYFeedBuilder.swift */,
 			);

@@ -9,5 +9,9 @@ import Foundation
 
 class PYFeedState {
     var isLoading = true
-    var placeCategories = PYPlaceCategory.skeleton
+    var placeCategories: [PYPlaceCategory] = []
+    var heroes: [PYHeroPreview] = []
+    var stories: [PYStoryPreview] = []
+    var loadingStoryIndex = -1
+    var storyToBeShown: PYStoryData?
 }

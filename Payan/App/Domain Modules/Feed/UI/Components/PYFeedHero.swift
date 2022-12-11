@@ -9,6 +9,7 @@ import Purace
 import SwiftUI
 
 struct PYFeedHero: View {
+    @Binding var showSkeleton: Bool
     let image: String
     let title: String
     let subtitle: String
@@ -39,5 +40,8 @@ struct PYFeedHero: View {
             }.background(Color.black.opacity(0.03))
                 .cornerRadius(10)
         }.buttonStyle(SquishableButton())
+            .skeleton(with: showSkeleton)
+            .shape(type: .rounded(.radius(10, style: .circular)))
+            .frame(height: 80)
     }
 }

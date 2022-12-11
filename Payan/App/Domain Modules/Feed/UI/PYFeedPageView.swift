@@ -15,7 +15,7 @@ struct PYFeedPageView: View {
     // MARK: - Place categories section
     var placeCategoriesSection: some View {
         let header = PYFeedSectionHeader(
-            isLoading: $store.state.isLoading,
+            showSkeleton: $store.state.isLoading,
             title: "Explora lugares",
             subtitle: "Adentrate en el corazón de la ciudad blanca").padding(.horizontal, 16
         )
@@ -27,6 +27,8 @@ struct PYFeedPageView: View {
                             ForEach(store.state.placeCategories.indices, id: \.self) { categoryIndex in
                                 let category = store.state.placeCategories[categoryIndex]
                                 PYFeedPlaceCategory(
+//                                    isloading: .constant(true),
+                                    showSkeleton: $store.state.isLoading,
                                     link: category.deeplink,
                                     image: category.image,
                                     title: category.title,
@@ -55,6 +57,8 @@ struct PYFeedPageView: View {
                 .frame(width: 25)
                 .padding(.trailing)
         }
+        .skeleton(with: store.state.isLoading)
+        .shape(type: .rounded(.radius(20, style: .circular)))
         .frame(height: 45)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
@@ -66,36 +70,40 @@ struct PYFeedPageView: View {
     }
     
     // MARK: - Heroes section
-//    var heroesSection: some View {
-//        let header = PYFeedSectionHeader(title: "Próceres", buttonTitile: "Ver todos") {
-//            let builder = PYCollectionBuilder()
-//            let typeItem = URLQueryItem(name: "type", value: "hero")
-//            if let vc = builder.build(params: [typeItem]) {
-//                PYRoutingManager.shared.push(vc)
-//            }
-//        }
-//        return PYFeedSection(header: header) {
-//            VStack(spacing: 10) {
-//                ForEach(viewModel.feedData.heroes.indices, id: \.self) { heroIndex in
-//                    let hero = viewModel.feedData.heroes[heroIndex]
-//                    PYFeedHero(
-//                        image: hero.image,
-//                        title: hero.name,
-//                        subtitle: hero.description
-//                    ) {
-//                        guard let url = URL(string: hero.deepLink) else { return }
-//                        PYRoutingManager.shared.open(url: url)
-//                    }
-//                }
-//            }
-//        }.padding(.horizontal, 16)
-//    }
+    var heroesSection: some View {
+        let header = PYFeedSectionHeader(
+            showSkeleton: $store.state.isLoading,
+            title: "Próceres",
+            buttonTitile: "Ver todos")
+        {
+            let builder = PYCollectionBuilder()
+            let typeItem = URLQueryItem(name: "type", value: "hero")
+            if let vc = builder.build(params: [typeItem]) {
+                PYRoutingManager.shared.push(vc)
+            }
+        }
+        return PYFeedSection(header: header) {
+            VStack(spacing: 10) {
+                ForEach(store.state.heroes.indices, id: \.self) { heroIndex in
+                    let hero = store.state.heroes[heroIndex]
+                    PYFeedHero(
+                        showSkeleton: $store.state.isLoading,
+                        image: hero.image,
+                        title: hero.name,
+                        subtitle: hero.description
+                    ) {
+                        guard let url = URL(string: hero.deepLink) else { return }
+                        PYRoutingManager.shared.open(url: url)
+                    }
+                }
+            }
+        }.padding(.horizontal, 16)
+    }
     
+    // TODO: set title based on device time
     var title: some View {
         HStack {
             PuraceTextView("Buenos días.", fontSize: 16, weight: .medium)
-                .skeleton(with: store.state.isLoading, transition: .opacity)
-                .multiline(lines: 1, scales: [0: 0.3])
                 .frame(height: 20)
             
             Spacer()
@@ -107,31 +115,34 @@ struct PYFeedPageView: View {
             .frame(width: 50, height: 50)
     }
     
-//    func storyPreview(at index: Int) -> some View {
-//        let story = viewModel.stories[index]
-//        let seenStory = viewModel.seenStories.contains(where: { $0 == story.hash })
-//
-//        return PYFeedStoryPreview(title: story.title, seenStory: seenStory, image: story.image, isLoading: index == viewModel.loadingStoryIndex) {
-//                guard let url = URL(string: story.link) else { return }
-//                guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return }
-//                guard let idItem = components.queryItems?.first(where: { $0.name == "id" }) else { return }
-//                viewModel.getStory(id: idItem.value ?? "", index: index)
-//            }
-//    }
-    
     // MARK: - Stories section
-//    var storiesSection: some View {
-//        let header = PYFeedSectionHeader(title: "Historias", subtitle: "Conoce un poco de la historia de la ciudad")
-//        return PYFeedSection(header: header) {
-//            ScrollView(.horizontal, showsIndicators: false) {
-//                HStack(spacing: 20) {
-//                    ForEach(viewModel.stories.indices, id: \.self) { index in
-//                        storyPreview(at: index)
-//                    }
-//                }
-//            }
-//        }.padding(.horizontal, 16)
-//    }
+    var storiesSection: some View {
+        let header = PYFeedSectionHeader(
+            showSkeleton: $store.state.isLoading,
+            title: "Historias",
+            subtitle: "Conoce un poco de la historia de la ciudad"
+        )
+        return PYFeedSection(header: header) {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(store.state.stories.indices, id: \.self) { index in
+                        let story = store.state.stories[index]
+                //        let seenStory = store.state.seenStories.contains(where: { $0 == story.hash })
+                        PYFeedStoryPreview(
+                            showSkeleton: $store.state.isLoading,
+                            title: story.title,
+                            seenStory: false,
+                            image: story.image,
+                            isLoading: store.state.loadingStoryIndex == index
+                        ) {
+                            //                viewModel.getStory(id: idItem.value ?? "", index: index)
+                            store.send(.loadStory(id: story.id, deeplink: story.link, index: index))
+                        }
+                    }
+                }
+            }
+        }.padding(.horizontal, 16)
+    }
     
     var body: some View {
         Group {
@@ -139,15 +150,22 @@ struct PYFeedPageView: View {
                 VStack(spacing: 30) {
                     title
                     searchField
+                    storiesSection
                     placeCategoriesSection
-//                        storiesSection
-//                        heroesSection
+                    heroesSection
                 }
-            }
+            }.allowsHitTesting(!store.state.isLoading)
         }
-            .onAppear {
-//                viewModel.getData()
+            .onFirstAppear {
                 store.send(.getData)
+            }
+            .onChange(of: store.state.storyToBeShown) { data in
+                guard let data else { return }
+                let vc = PYStoryBuilder().build(data: data) {
+                    // TODO: save seen story
+                    #warning("TODO: save seen story")
+                }
+                PYRoutingManager.shared.present(vc)
             }
     }
 //        Group {

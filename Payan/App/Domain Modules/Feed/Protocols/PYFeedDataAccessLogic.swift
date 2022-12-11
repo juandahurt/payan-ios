@@ -9,4 +9,5 @@ import Combine
 
 protocol PYFeedDataAccessLogic {
     func getData() -> AnyPublisher<PYFeedPageData, Error>
+    func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error>
 }
