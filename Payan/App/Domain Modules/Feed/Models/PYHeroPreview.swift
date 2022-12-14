@@ -19,3 +19,10 @@ struct PYHeroPreview: Decodable {
         case image = "image_url"
     }
 }
+
+extension PYHeroPreview {
+    static let skeleton: [PYHeroPreview] = [
+        .init(name: "", image: "", description: "", deepLink: ""),
+        .init(name: "", image: "", description: "", deepLink: ""),
+    ]
+}

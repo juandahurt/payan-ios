@@ -5,9 +5,9 @@
 //  Created by Juan Hurtado on 8/04/22.
 //
 
-import Foundation
-
+import Combine
 
 protocol PYFeedDataAccessLogic {
-    func getData(completion: @escaping (Result<PYFeedPageData, Error>) -> Void)
+    func getData() -> AnyPublisher<PYFeedPageData, Error>
+    func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error>
 }

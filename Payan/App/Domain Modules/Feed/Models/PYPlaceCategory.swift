@@ -19,3 +19,10 @@ struct PYPlaceCategory: Decodable, Identifiable {
         case title, numberOfPlaces, deeplink
     }
 }
+
+extension PYPlaceCategory {
+    static let skeleton: [PYPlaceCategory] = [
+        .init(image: "", title: "", numberOfPlaces: 0, deeplink: ""),
+        .init(image: "", title: "", numberOfPlaces: 0, deeplink: "")
+    ]
+}

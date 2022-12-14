@@ -13,7 +13,7 @@ protocol PYFeedBusinessLogic {
     var storyWorker: PYStoryDataAccessLogic { get }
     var storySeenWorker: PYStorySeenDataAccessLogic { get }
     
-    func getFeedData(completion: @escaping (Result<PYFeedPageData,Error>) -> Void)
+//    func getFeedData(completion: @escaping (Result<PYFeedPageData,Error>) -> Void)
     func getStory(identifiedBy id: String) -> AnyPublisher<PYStoryData, Error>
     func saveSeenStory(hash: String)
     func getSeenStories() -> [String]
