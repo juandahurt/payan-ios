@@ -22,7 +22,7 @@ struct PYFeedStoryPreview: View {
                 if !seenStory {
                     Circle()
                         .fill(.clear)
-                        .background(PuraceStyle.Color.B1.clipShape(Circle()))
+                        .background(PuraceStyle.Color.N2.clipShape(Circle()))
                         .clipped()
                         .skeleton(with: showSkeleton)
                         .shape(type: .circle)

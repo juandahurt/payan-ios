@@ -24,7 +24,7 @@ struct PYSearchCorePageView: View {
             PuraceSearchBox("Buscar", text: $viewModel.searchText)
                 .focusedLegacy($focusedField, equals: .searchBar)
             
-            PuraceTextView("Cancelar")
+            PuraceTextView("Cancelar", fontSize: 10)
                 .onTapGesture {
                     PYRoutingManager.shared.pop(animated: false)
                 }

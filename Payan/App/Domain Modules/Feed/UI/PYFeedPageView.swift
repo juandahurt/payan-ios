@@ -27,7 +27,6 @@ struct PYFeedPageView: View {
                             ForEach(store.state.placeCategories.indices, id: \.self) { categoryIndex in
                                 let category = store.state.placeCategories[categoryIndex]
                                 PYFeedPlaceCategory(
-//                                    isloading: .constant(true),
                                     showSkeleton: $store.state.isLoading,
                                     link: category.deeplink,
                                     image: category.image,
