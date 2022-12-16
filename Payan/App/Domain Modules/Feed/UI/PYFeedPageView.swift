@@ -139,7 +139,7 @@ struct PYFeedPageView: View {
                             isLoading: store.state.loadingStoryIndex == index
                         ) {
                             //                viewModel.getStory(id: idItem.value ?? "", index: index)
-                            store.send(.loadStory(id: story.id, deeplink: story.link, index: index))
+                            store.send(.loadStory(id: story.id, index: index))
                         }
                     }
                 }
@@ -147,17 +147,22 @@ struct PYFeedPageView: View {
         }.padding(.horizontal, 16)
     }
     
+    @ViewBuilder
     var body: some View {
-        Group {
-            ScrollView {
-                VStack(spacing: 30) {
-                    title
-                    searchField
-                    placeCategoriesSection
-                    storiesSection
-                    heroesSection
-                }
-            }.allowsHitTesting(!store.state.isLoading)
+        PuraceScaffold(navBar: nil) {
+            PuraceScaffoldContent {
+                ScrollView {
+                    VStack(spacing: 30) {
+                        title
+                        searchField
+                        placeCategoriesSection
+                        storiesSection
+                        heroesSection
+                    }
+                }.allowsHitTesting(!store.state.isLoading)
+            }.genericErrorView(isPresented: $store.state.feedErrorOccured) {
+                store.send(.getData)
+            }
         }
             .onFirstAppear {
                 store.send(.getData)
@@ -170,61 +175,17 @@ struct PYFeedPageView: View {
                 }
                 PYRoutingManager.shared.present(vc)
             }
+            .onChange(of: store.state.storyErrorOccured) { errorOccured in
+                if errorOccured {
+                    PuraceSnackbarBuilder()
+                        .withTitle(PYFeedConstants.Wordings.storyErrorMessage)
+                        .withType(.error)
+                        .build()
+                        .show()
+                }
+            }
             .onAppear {
-                AnalyticsManager.shared.trackView(path: "/feed", params: nil)
+                AnalyticsManager.shared.trackView(path: PYFeedConstants.Analytics.pageName, params: nil)
             }
     }
-//        Group {
-//            if viewModel.isLoading {
-//                VStack {
-//                    Spacer()
-//
-//                    loader
-//
-//                    Spacer()
-//                }.snackBar(title: viewModel.errorMessage, isVisible: $viewModel.feedErrorOccurred, type: .error, buttonTitle: "REINTENTAR")
-//                    .onChange(of: viewModel.feedErrorOccurred) { value in
-//                        if !value {
-//                            viewModel.getData()
-//                        }
-//                    }
-//            } else {
-//                ZStack {
-//                    VStack {
-//                        navBar
-//                        ScrollView(showsIndicators: false) {
-//                            VStack(alignment: .leading, spacing: 40) {
-//                                stories
-//                                placeCategories
-//                                heroes
-//                            }.padding(.bottom)
-//                        }
-//                    }.onAppear {
-//                        AnalyticsManager.shared.trackView(path: "/feed", params: nil)
-//                    }
-//                    if viewModel.isSearchVisible {
-//                        PYSearchCoreBuilder().build(isVisible: $viewModel.isSearchVisible)
-//                    }
-//                }
-//                    .snackBar(title: viewModel.errorMessage, isVisible: $viewModel.storyErrorOccurred, type: .error, duration: .short, dismissOnDrag: true)
-//                    .offset(x: 0, y: -0.5) // workaround to show the snackbar. :c
-//                    .transition(.opacity.animation(.linear(duration: 0.2)))
-//            }
-//        }
-//        .background(Color.white)
-//        .onFirstAppear {
-//            viewModel.getData()
-//            viewModel.updateSeenStories()
-//        }
-//        .navigationBarHidden(true)
-//        .onChange(of: viewModel.loadingStoryIndex) { newValue in
-//            if let data = viewModel.storyData, newValue == -1 {
-//                let vc = PYStoryBuilder().build(data: data, onSeenStory: {
-//                    viewModel.saveSeenStory(hash: viewModel.storyData?.hash ?? "")
-//                })
-//                PYRoutingManager.shared.present(vc)
-//            }
-//        }
-//        .ignoresSafeArea(.keyboard)
-//    }
 }

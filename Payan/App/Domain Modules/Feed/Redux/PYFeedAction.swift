@@ -10,6 +10,8 @@ import Foundation
 enum PYFeedAction {
     case getData
     case showData(PYFeedPageData)
-    case loadStory(id: String, deeplink: String, index: Int)
+    case loadStory(id: String, index: Int)
     case showStory(PYStoryData)
+    case storyErrorOccured
+    case feedErrorOccured
 }
