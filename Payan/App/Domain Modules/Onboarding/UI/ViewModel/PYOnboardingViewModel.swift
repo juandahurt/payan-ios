@@ -28,7 +28,7 @@ class PYOnboardingViewModel: ObservableObject {
         if currentIndex == items.count-1 {
             return .loud
         }
-        return .custom(.clear, PuraceStyle.Color.N8, PuraceStyle.Color.N1)
+        return .quiet
     }
     
     func item(at index: Int) -> PYOnboardingItem {

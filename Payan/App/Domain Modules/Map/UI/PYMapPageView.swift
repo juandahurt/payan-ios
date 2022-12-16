@@ -30,7 +30,7 @@ struct PYMapPageView: View {
                         .lineLimit(1)
                         .multilineTextAlignment(.center)
                     
-                    PuraceButtonView(PYMapConstants.Wordings.seeDetails, type: .transparent) {
+                    PuraceButtonView(PYMapConstants.Wordings.seeDetails, type: .quiet) {
                         guard let url = URL(string: location.link) else { return }
                         PYRoutingManager.shared.open(url: url)
                     }

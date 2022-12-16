@@ -14,4 +14,6 @@ class PYFeedState {
     var stories: [PYStoryPreview] = []
     var loadingStoryIndex = -1
     var storyToBeShown: PYStoryData?
+    var storyErrorOccured = false
+    var feedErrorOccured = false
 }
