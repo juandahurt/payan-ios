@@ -28,7 +28,7 @@
 		<array>
 			<dict>
 				<key>title</key>
-				<string>Acerca de Payan</string>
+				<string>Acerca de</string>
 				<key>deeplink</key>
 				<string>payan://about</string>
 			</dict>
