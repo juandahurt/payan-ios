@@ -24,28 +24,35 @@ struct PYMenuPageView: View {
                 Image(icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 18, height: 18)
+                    .frame(width: 15, height: 15)
             }
-            PuraceTextView(item.title, fontSize: 14, weight: .medium)
+            PuraceTextView(item.title, weight: .medium)
             Spacer()
         }.background(Color.white)
+        .padding(.horizontal, 20)
         .onTapGesture {
             guard let url = URL(string: item.deeplink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
-        .padding(.horizontal, 20)
     }
     
     var sections: some View {
         ForEach(viewModel.sections.indices, id: \.self) { sectionIndex in
-            ForEach(viewModel.section(at: sectionIndex).items.indices, id: \.self) { itemIndex in
-                let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
-                sectionItem(at: indexPath)
+            VStack(spacing: 15) {
+                ForEach(viewModel.section(at: sectionIndex).items.indices, id: \.self) { itemIndex in
+                    let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
+                    sectionItem(at: indexPath)
+                    if itemIndex != viewModel.section(at: sectionIndex).items.count - 1 {
+                        PuraceStyle.Color.N8
+                            .frame(height: 1)
+                    }
+                }
             }
-            if sectionIndex != viewModel.sections.count - 1 {
-                Divider()
-                    .padding(.leading, 20)
-            }
+            .padding(.vertical, 10)
+                .background(Color.white)
+                .cornerRadius(20)
+                .padding(.horizontal, 16)
+                .padding(.top, 16)
         }
     }
     
@@ -58,13 +65,12 @@ struct PYMenuPageView: View {
     }
     
     var body: some View {
-        ScrollView {
-            title
-            sections
-            Spacer()
+        PuraceScaffold(navBar: .init(title: PYMenuConstants.Wordings.title, showBackButton: false, backOnTap: {})) {
+            VStack {
+                sections
+                Spacer()
+            }.background(PuraceStyle.Color.F1)
         }
-            .padding(.top, 25)
-            .navigationBarHidden(true)
             .onFirstAppear {
                 viewModel.getSections()
             }
