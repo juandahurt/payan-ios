@@ -35,6 +35,22 @@ struct PYStoryPageView: View {
         }
     }
     
+    var image: some View {
+        ZStack {
+            PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
+                .aspectRatio(contentMode: .fill)
+                .blur(radius: 20)
+                .ignoresSafeArea()
+            
+            Color.black.opacity(0.5)
+                .ignoresSafeArea()
+            
+            PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
+                .scaledToFit()
+                .frame(width: UIScreen.main.bounds.width)
+        }
+    }
+    
     var indicators: some View {
         HStack(spacing: 3) {
             ForEach(viewModel.chapters.indices, id: \.self) { index in
@@ -70,6 +86,7 @@ struct PYStoryPageView: View {
                 .frame(height: UIScreen.main.bounds.height * 0.2)
             Spacer()
         }.transition(.opacity)
+            .ignoresSafeArea()
     }
     
     var topBar: some View {
@@ -119,20 +136,19 @@ struct PYStoryPageView: View {
     }
     
     var chapterContent: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        Group {
             Spacer()
-            if let title = viewModel.currentChapter.title {
-                HStack {
-                    PuraceTextView(title, fontSize: 20, textColor: .white, weight: .medium)
-                        .multilineTextAlignment(.leading)
-                    Spacer(minLength: 0)
-                }
-            }
             if let content = viewModel.currentChapter.content {
-                HStack {
-                    PuraceTextView(content, fontSize: 14, textColor: .white)
-                        .multilineTextAlignment(.leading)
-                    Spacer(minLength: 0)
+                VStack(spacing: 30) {
+                    Spacer()
+                    if viewModel.chapterContentIsVisible {
+                        PuraceTextView(content, fontSize: 10, textColor: .white)
+                            .multilineTextAlignment(.center)
+                    }
+                    PuraceTextView(viewModel.chapterContentIsVisible ? "Ocultar descripción" : "Mostrar descripción", textColor: .white.opacity(0.75), weight: .medium)
+                        .onTapGesture {
+                            viewModel.chapterContentIsVisible.toggle()
+                        }
                 }
             }
         }.padding(.horizontal, 30)
@@ -157,14 +173,13 @@ struct PYStoryPageView: View {
         }
         .background(
             ZStack {
-                PuraceImageView(url: URL(string: viewModel.currentChapter.media.link))
-                    .aspectRatio(contentMode: .fill)
+                image
                 if !viewModel.isPaused {
                     topBarBackground
                 }
                 LinearGradient(colors: [.black.opacity(0.6), .clear], startPoint: .bottom, endPoint: .center)
+                    .ignoresSafeArea()
             }
-                .ignoresSafeArea()
                 .overlay(tapHandlers)
         )
             .onReceive(viewModel.storyFinshed) { _ in
