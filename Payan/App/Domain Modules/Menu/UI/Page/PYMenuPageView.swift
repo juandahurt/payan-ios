@@ -26,7 +26,7 @@ struct PYMenuPageView: View {
                     .scaledToFit()
                     .frame(width: 15, height: 15)
             }
-            PuraceTextView(item.title, weight: .medium)
+            PuraceTextView(item.title, fontSize: 14, weight: .medium)
             Spacer()
         }.background(Color.white)
         .padding(.horizontal, 20)
@@ -50,7 +50,7 @@ struct PYMenuPageView: View {
             }
             .padding(.vertical, 10)
                 .background(Color.white)
-                .cornerRadius(20)
+                .cornerRadius(10)
                 .padding(.horizontal, 16)
                 .padding(.top, 16)
         }
