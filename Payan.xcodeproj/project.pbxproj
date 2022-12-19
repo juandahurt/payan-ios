@@ -49,6 +49,7 @@
 		2F645F6C28886F1E00064F8A /* PYStoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F645F6B28886F1E00064F8A /* PYStoryInteractor.swift */; };
 		2F645F6E2888B99300064F8A /* PYStoryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F645F6D2888B99300064F8A /* PYStoryBuilder.swift */; };
 		2F68A1192852DD9300DCF1E6 /* PYPlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F68A1182852DD9300DCF1E6 /* PYPlaceImage.swift */; };
+		2F722AAD294FE5CE0083EB11 /* PYAboutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F722AAC294FE5CE0083EB11 /* PYAboutConstants.swift */; };
 		2F74AF9B288A2C9700DF6624 /* PYStoryViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F74AF9A288A2C9700DF6624 /* PYStoryViewLogic.swift */; };
 		2F78195128170E820096E342 /* PYNetworkingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78195028170E820096E342 /* PYNetworkingAppDelegate.swift */; };
 		2F832F1F283D84A000702E71 /* PYHeroPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F832F1E283D84A000702E71 /* PYHeroPreview.swift */; };
@@ -201,6 +202,7 @@
 		2F645F6B28886F1E00064F8A /* PYStoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYStoryInteractor.swift; sourceTree = "<group>"; };
 		2F645F6D2888B99300064F8A /* PYStoryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYStoryBuilder.swift; sourceTree = "<group>"; };
 		2F68A1182852DD9300DCF1E6 /* PYPlaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceImage.swift; sourceTree = "<group>"; };
+		2F722AAC294FE5CE0083EB11 /* PYAboutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYAboutConstants.swift; sourceTree = "<group>"; };
 		2F74AF9A288A2C9700DF6624 /* PYStoryViewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYStoryViewLogic.swift; sourceTree = "<group>"; };
 		2F78195028170E820096E342 /* PYNetworkingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYNetworkingAppDelegate.swift; sourceTree = "<group>"; };
 		2F832F1E283D84A000702E71 /* PYHeroPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYHeroPreview.swift; sourceTree = "<group>"; };
@@ -579,6 +581,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		2F722AAB294FE5C40083EB11 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2F722AAC294FE5CE0083EB11 /* PYAboutConstants.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		2F8C80FC28010CBA00A8E7FD /* Collection */ = {
 			isa = PBXGroup;
 			children = (
@@ -776,6 +786,7 @@
 		2FCAE68C286FA6AF00538D05 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				2F722AAB294FE5C40083EB11 /* Models */,
 				2FCAE693286FA80100538D05 /* UI */,
 				2FCAE68F286FA6D300538D05 /* PYAboutBuilder.swift */,
 				2FCAE691286FA75800538D05 /* PYAboutRouteHandler.swift */,
@@ -1443,6 +1454,7 @@
 				2F19514928394F9A007B0E73 /* PYFeedPageData.swift in Sources */,
 				2FD54476287128890098468D /* PYSearchCorePageView.swift in Sources */,
 				2FC270EB2837F0AB00770B46 /* PYFeedPageView.swift in Sources */,
+				2F722AAD294FE5CE0083EB11 /* PYAboutConstants.swift in Sources */,
 				2FFD55F3290F282D00DB46E9 /* PYMapWebRepository.swift in Sources */,
 				2FCAE68B286FA44000538D05 /* PYRouteHandler.swift in Sources */,
 				2FCAE692286FA75800538D05 /* PYAboutRouteHandler.swift in Sources */,
