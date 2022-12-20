@@ -132,7 +132,21 @@ struct PYStoryPageView: View {
                     }
                 }
         )
-
+        .simultaneousGesture(MagnificationGesture()
+                .sequenced(before: DragGesture())
+                .onChanged { value in
+                    guard viewModel.isPaused else { return }
+                    switch value {
+                        case .first(_):
+                        withAnimation {
+                            viewModel.resume()
+                        }
+                        break
+                        default:
+                            break
+                    }
+                }
+        )
     }
     
     var chapterContent: some View {
