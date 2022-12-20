@@ -19,53 +19,25 @@ struct PYHeroPageView: View, PYHeroViewLogic {
         self.heroId = heroId
     }
     
-    var navBar: some View {
-        HStack(alignment: .center) {
-            VStack(spacing: 0) {
-                Spacer()
-                Image(systemName: "chevron.left")
-                    .foregroundColor(PuraceStyle.Color.N1)
-                    .scaleEffect(1.2)
-                    .padding()
-                    .background(Color.black.opacity(0.001))
-                    .onTapGesture {
-                        PYRoutingManager.shared.pop()
-                    }
-            }
-            Spacer()
-        }
-            .frame(height: 50)
-    }
-    
     var title: some View {
-        VStack(spacing: viewModel.isLoading ? 15 : 10) {
-            HStack {
-                PuraceTextView(viewModel.hero.name, fontSize: 25, weight: .medium)
-                    .skeleton(with: viewModel.isLoading)
-                    .multiline(lines: 1, scales: [0: 0.35])
+        HStack {
+            VStack(alignment: .leading, spacing: 10) {
+                PuraceTextView(viewModel.hero.name, fontSize: 25, weight: .semibold)
+                    .multilineTextAlignment(.leading)
                 
-                Spacer(minLength: 0)
-            }
-            
-            HStack {
                 PuraceTextView(viewModel.dates, textColor: PuraceStyle.Color.N4)
-                    .skeleton(with: viewModel.isLoading)
-                    .multiline(lines: 1, scales: [0: 0.2])
-                
-                Spacer(minLength: 0)
+                    .multilineTextAlignment(.leading)
             }
+            Spacer(minLength: 0)
         }
-            .padding(.vertical, viewModel.isLoading ? 10 : 0)
-            .padding(.horizontal, 30)
     }
     
     var image: some View {
             PuraceImageView(url: URL(string: viewModel.hero.image))
                 .scaledToFit()
                 .animation(.none)
-                .skeleton(with: viewModel.isLoading)
-                .shape(type: .rectangle)
                 .frame(height: UIScreen.main.bounds.height * 0.35)
+                .cornerRadius(5)
                 .onTapGesture {
                     withAnimation {
                         viewModel.showImageViewer()
@@ -77,11 +49,8 @@ struct PYHeroPageView: View, PYHeroViewLogic {
         HStack(spacing: 0) {
             PuraceTextView(viewModel.hero.description)
                 .multilineTextAlignment(.leading)
-                .skeleton(with: viewModel.isLoading)
-                .multiline(lines: 4, scales: [1: 0.9, 3: 0.6])
             Spacer(minLength: 0)
         }
-        .padding(.horizontal, 30)
     }
     
     var sections: some View {
@@ -97,26 +66,57 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 }
             }
         }.opacity(viewModel.isLoading ? 0 : 1)
+            .background(Color.white)
+            .cornerRadius(10)
+    }
+    
+    var loader: some View {
+        VStack {
+            Spacer()
+            
+            PuraceCircularLoaderView()
+                .frame(width: 80, height: 80)
+            
+            Spacer()
+        }
+    }
+    
+    var header: some View {
+        VStack(spacing: 25) {
+            image
+            title
+            description
+        }
     }
     
     var body: some View {
-        VStack {
-            navBar
-            ScrollView {
-                VStack(spacing: 40) {
-                    image
-                    title
-                    description
-                    sections
+        PuraceScaffold(navBar: .init(title: "", backOnTap: {
+            PYRoutingManager.shared.pop()
+        })) {
+            PuraceScaffoldContent {
+                Group {
+                    if viewModel.isLoading {
+                        loader
+                    } else {
+                        ScrollView {
+                            VStack(alignment: .center, spacing: 25) {
+                                header
+                                sections
+                            }
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 20)
+                            .padding(.top, 30)
+                        }
+                    }
                 }
+            }.genericErrorView(isPresented: $viewModel.errorHasOccured) {
+                viewModel.getHero(id: heroId)
             }
-            Spacer()
         }
-            .navigationBarHidden(true)
+        .background(PuraceStyle.Color.F1)
             .onFirstAppear {
                 viewModel.getHero(id: heroId)
             }
-            .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
             .onChange(of: viewModel.errorHasOccured) { value in
                 if !value {
                     viewModel.getHero(id: heroId)

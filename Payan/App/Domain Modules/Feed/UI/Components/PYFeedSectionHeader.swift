@@ -17,7 +17,7 @@ struct PYFeedSectionHeader: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 8) {
                 HStack {
                     PuraceTextView(title, fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
                         .lineLimit(1)
@@ -28,7 +28,7 @@ struct PYFeedSectionHeader: View {
                 }
                 if let subtitle {
                     HStack {
-                        PuraceTextView(subtitle, fontSize: 14, textColor: PuraceStyle.Color.N4)
+                        PuraceTextView(subtitle, fontSize: 12, textColor: PuraceStyle.Color.N4)
                             .lineLimit(1)
                             .skeleton(with: showSkeleton, transition: .opacity)
                             .multiline(lines: 1, scales: [0: 0.65])

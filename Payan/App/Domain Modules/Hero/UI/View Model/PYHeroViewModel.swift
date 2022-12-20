@@ -37,6 +37,7 @@ class PYHeroViewModel: ObservableObject {
     
     func getHero(id: String) {
         isLoading = true
+        errorHasOccured = false
         interactor.getHero(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -46,9 +47,7 @@ class PYHeroViewModel: ObservableObject {
                     self.hero = hero
                     self.heroWasFetchedSuccessfuly = true
                 case .failure(_):
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.errorHasOccured = true
-                    }
+                    self.errorHasOccured = true
                 }
             }
         }
