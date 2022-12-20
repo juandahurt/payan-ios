@@ -1099,6 +1099,7 @@
 		3D3A3848270A53C700E2EF94 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				3D3A3849270A53D300E2EF94 /* PYFeedBuilder.swift */,
 				6D3D0D3B29424D1500DF5852 /* Data */,
 				6D3D0D3429424B6800DF5852 /* Redux */,
 				2F8D51292800C58F00ADCC64 /* Protocols */,
@@ -1114,7 +1115,6 @@
 			isa = PBXGroup;
 			children = (
 				2FC270EA2837F0AB00770B46 /* PYFeedPageView.swift */,
-				3D3A3849270A53D300E2EF94 /* PYFeedBuilder.swift */,
 				6DDA496F29413F7500AC9468 /* Components */,
 				2F19514A283954F1007B0E73 /* View Model */,
 			);

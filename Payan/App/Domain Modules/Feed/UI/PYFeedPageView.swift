@@ -151,15 +151,18 @@ struct PYFeedPageView: View {
     var body: some View {
         PuraceScaffold(navBar: nil) {
             PuraceScaffoldContent {
-                ScrollView {
-                    VStack(spacing: 30) {
-                        title
-                        searchField
-                        placeCategoriesSection
-                        storiesSection
-                        heroesSection
-                    }
-                }.allowsHitTesting(!store.state.isLoading)
+                VStack(spacing: 0) {
+                    Color.white.frame(height: 1) // to prevent scroll from going off the top
+                    ScrollView {
+                        VStack(spacing: 30) {
+                            title
+                            searchField
+                            placeCategoriesSection
+                            storiesSection
+                            heroesSection
+                        }.padding(.bottom, 16)
+                    }.allowsHitTesting(!store.state.isLoading)
+                }
             }.genericErrorView(isPresented: $store.state.feedErrorOccured) {
                 store.send(.getData)
             }
