@@ -16,9 +16,9 @@ struct PYFeedPageView: View {
     var placeCategoriesSection: some View {
         let header = PYFeedSectionHeader(
             showSkeleton: $store.state.isLoading,
-            title: "Explora lugares",
-            subtitle: "Adentrate en el corazón de la ciudad blanca").padding(.horizontal, 16
+            title: "Explora lugares"
         )
+                .padding(.horizontal, 16)
         return PYFeedSection(header: header) {
             Group {
                 if !store.state.placeCategories.isEmpty {
@@ -63,7 +63,7 @@ struct PYFeedPageView: View {
             RoundedRectangle(cornerRadius: 20)
                 .stroke(PuraceStyle.Color.N8, lineWidth: 2)
         )
-        .background(Color.black.opacity(0.03))
+        .background(Color.white)
         .cornerRadius(20)
         .padding(.horizontal, 16)
         .onTapGesture {
@@ -77,7 +77,7 @@ struct PYFeedPageView: View {
         let header = PYFeedSectionHeader(
             showSkeleton: $store.state.isLoading,
             title: "Próceres",
-            buttonTitile: "Ver todos")
+            buttonTitle: "Ver todos")
         {
             let builder = PYCollectionBuilder()
             let typeItem = URLQueryItem(name: "type", value: "hero")
@@ -122,8 +122,7 @@ struct PYFeedPageView: View {
     var storiesSection: some View {
         let header = PYFeedSectionHeader(
             showSkeleton: $store.state.isLoading,
-            title: "Historias",
-            subtitle: "Conoce un poco de la historia de la ciudad"
+            title: "Historias"
         )
         return PYFeedSection(header: header) {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -147,14 +146,13 @@ struct PYFeedPageView: View {
         }.padding(.horizontal, 16)
     }
     
-    @ViewBuilder
     var body: some View {
         PuraceScaffold(navBar: nil) {
             PuraceScaffoldContent {
                 VStack(spacing: 0) {
                     Color.white.frame(height: 1) // to prevent scroll from going off the top
                     ScrollView {
-                        VStack(spacing: 30) {
+                        VStack(spacing: 35) {
                             title
                             searchField
                             placeCategoriesSection
@@ -167,6 +165,17 @@ struct PYFeedPageView: View {
                 store.send(.getData)
             }
         }
+            .background(
+                ZStack {
+                    PuraceStyle.Color.F1
+                    
+                    VStack {
+                        LinearGradient(colors: [.white, PuraceStyle.Color.F1], startPoint: .top, endPoint: .bottom)
+                            .frame(height: 100)
+                        Spacer()
+                    }
+                }
+            )
             .onFirstAppear {
                 store.send(.getData)
             }

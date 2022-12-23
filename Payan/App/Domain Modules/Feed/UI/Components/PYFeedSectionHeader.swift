@@ -11,40 +11,24 @@ import SwiftUI
 struct PYFeedSectionHeader: View {
     @Binding var showSkeleton: Bool
     let title: String
-    var subtitle: String? = nil
-    var buttonTitile: String? = nil
+    var buttonTitle: String? = nil
     var buttonCallback: (() -> Void)?
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 8) {
-                HStack {
-                    PuraceTextView(title, fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .medium)
-                        .lineLimit(1)
-                        .skeleton(with: showSkeleton, transition: .opacity)
-                        .multiline(lines: 1, scales: [0: 0.5])
-                        .frame(height: 20)
-                    Spacer(minLength: 0)
-                }
-                if let subtitle {
-                    HStack {
-                        PuraceTextView(subtitle, fontSize: 12, textColor: PuraceStyle.Color.N4)
-                            .lineLimit(1)
-                            .skeleton(with: showSkeleton, transition: .opacity)
-                            .multiline(lines: 1, scales: [0: 0.65])
-                            .frame(height: 15)
-                        Spacer(minLength: 0)
-                    }
-                }
-            }
+            PuraceTextView(title, fontSize: 22, textColor: PuraceStyle.Color.N1, weight: .semibold)
+                .lineLimit(1)
+                .skeleton(with: showSkeleton, transition: .opacity)
+                .multiline(lines: 1, scales: [0: 0.5])
+                .frame(height: 20)
             
             Spacer(minLength: 0)
             
-            if let buttonTitile, !showSkeleton {
+            if let buttonTitle, !showSkeleton {
                 Button {
                     buttonCallback?()
                 } label: {
-                    PuraceTextView(buttonTitile, textColor: PuraceStyle.Color.N4, weight: .medium)
+                    PuraceTextView(buttonTitle, textColor: PuraceStyle.Color.N4, weight: .medium)
                 }.buttonStyle(.plain)
             }
         }

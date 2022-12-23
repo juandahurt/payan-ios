@@ -21,34 +21,41 @@ struct PYFeedPlaceCategory: View {
             guard let url = URL(string: link) else { return }
             PYRoutingManager.shared.open(url: url)
         } label: {
-            ZStack {
+            VStack(alignment: .leading, spacing: 10) {
                 PuraceImageView(url: URL(string: image))
                     .aspectRatio(contentMode: .fill)
+                    .skeleton(with: showSkeleton, transition: .opacity)
+                    .shape(type: .rounded(.radius(10, style: .circular)))
                     .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 3)
                     .clipped()
+                    .cornerRadius(10)
                 
-                LinearGradient(colors: [.clear, .black.opacity(0.5)], startPoint: .top, endPoint: .bottom)
-                
-                VStack {
-                    Spacer()
-                    
-                    HStack {
-                        VStack(alignment: .leading) {
-                            PuraceTextView(title, fontSize: 16, textColor: .white, weight: .medium)
+                HStack {
+                    VStack(alignment: .leading) {
+                        HStack {
+                            PuraceTextView(title, fontSize: 16, weight: .medium)
+                                .skeleton(with: showSkeleton, transition: .opacity)
+                                .multiline(lines: 1, scales: [0: 0.55])
+                                .frame(height: 20)
                             
-                            PuraceTextView("\(numberOfPlaces) lugares", fontSize: 10, textColor: .white)
-                        }.padding()
+                            Spacer(minLength: 0)
+                        }
                         
-                        Spacer()
+                        HStack {
+                            PuraceTextView("\(numberOfPlaces) lugares", fontSize: 10, textColor: PuraceStyle.Color.N3)
+                                .skeleton(with: showSkeleton, transition: .opacity)
+                                .multiline(lines: 1, scales: [0: 0.25])
+                                .frame(height: 12)
+                            
+                            Spacer(minLength: 0)
+                        }
                     }
                 }
-                
             }
-            .cornerRadius(10)
+            .padding(15)
+            .background(Color.white)
+            .cornerRadius(20)
             .contentShape(Rectangle())
-            .skeleton(with: showSkeleton, transition: .opacity)
-            .shape(type: .rounded(.radius(10, style: .circular)))
-            .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 3)
         }.buttonStyle(SquishableButton())
     }
 }

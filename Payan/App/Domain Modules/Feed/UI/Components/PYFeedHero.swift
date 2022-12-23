@@ -37,7 +37,7 @@ struct PYFeedHero: View {
                         Spacer(minLength: 0)
                     }
                 }
-            }.background(Color.black.opacity(0.03))
+            }.background(Color.white)
                 .cornerRadius(10)
         }.buttonStyle(SquishableButton())
             .skeleton(with: showSkeleton)
