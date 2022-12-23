@@ -51,9 +51,15 @@ struct PYFeedStoryPreview: View {
                             Group {
                                 if isLoading {
                                     ZStack {
-                                        Color.white
-                                            .opacity(0.5)
+                                        PuraceStyle.Color.N1
+                                            .opacity(0.8)
                                         ProgressView()
+                                            .progressViewStyle(CircularProgressViewStyle(tint: Color.white))
+                                    }
+                                } else if seenStory && !showSkeleton {
+                                    ZStack {
+                                        Color.white.opacity(0.8)
+                                        Image(PYFeedConstants.Images.seenStory)
                                     }
                                 }
                             }

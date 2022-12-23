@@ -12,6 +12,10 @@ struct PYFeedConstants {
         static let storyErrorMessage = "No fue posible cargar la historia."
     }
     
+    struct Images {
+        static let seenStory = "seen"
+    }
+    
     struct Analytics {
         static let pageName = "/feed"
     }

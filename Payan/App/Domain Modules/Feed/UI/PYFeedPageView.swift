@@ -133,7 +133,7 @@ struct PYFeedPageView: View {
                         PYFeedStoryPreview(
                             showSkeleton: $store.state.isLoading,
                             title: story.title,
-                            seenStory: false,
+                            seenStory: true,
                             image: story.image,
                             isLoading: store.state.loadingStoryIndex == index
                         ) {
