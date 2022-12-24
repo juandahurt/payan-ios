@@ -22,7 +22,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     let correctItemWidth: CGFloat
     let columns: Int
     
-    @StateObject var store = AppStore(initialState: PYCollectionLoadingState(data: .skeleton), reducer: PYCollectionReducer(), environment: PYCollectionEnvironment()).debug()
+    @StateObject var store = AppStore(initialState: PYCollectionLoadingState(data: .skeleton), reducer: PYCollectionReducer(worker: PYCollectionNetworkWorker())).debug()
     
     init(type: String, categoryId: String?) {
         self.type = type

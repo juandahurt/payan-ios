@@ -16,9 +16,7 @@ final class PYMainBuilder {
         let interactor = PYMainInteractor(worker: worker)
         let controller = UITabBarController()
 
-        let feedViewController = PYFeedBuilder().build {
-            controller.tabBar.isHidden = false
-        }
+        let feedViewController = PYFeedBuilder().build()
         let feedIcon = UIImage(named: "home")
         feedViewController.tabBarItem.title = "Inicio"
         feedViewController.tabBarItem.selectedImage = feedIcon

@@ -27,7 +27,6 @@
 		2F39E92928A7F95800D68554 /* PYCollectionReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E92828A7F95800D68554 /* PYCollectionReducer.swift */; };
 		2F39E92B28A7F96700D68554 /* PYCollectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E92A28A7F96700D68554 /* PYCollectionState.swift */; };
 		2F39E92F28A8015200D68554 /* PYCollectionAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E92E28A8015200D68554 /* PYCollectionAction.swift */; };
-		2F39E93128A8030700D68554 /* PYCollectionEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E93028A8030700D68554 /* PYCollectionEnvironment.swift */; };
 		2F39E93328A8056300D68554 /* PYCollectionDataAccessLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E93228A8056300D68554 /* PYCollectionDataAccessLogic.swift */; };
 		2F39E93528A805DC00D68554 /* PYCollectionNeworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F39E93428A805DC00D68554 /* PYCollectionNeworkWorker.swift */; };
 		2F402CCB28CBD2070027F1C0 /* SquishableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F402CCA28CBD2070027F1C0 /* SquishableButton.swift */; };
@@ -177,7 +176,6 @@
 		2F39E92828A7F95800D68554 /* PYCollectionReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionReducer.swift; sourceTree = "<group>"; };
 		2F39E92A28A7F96700D68554 /* PYCollectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionState.swift; sourceTree = "<group>"; };
 		2F39E92E28A8015200D68554 /* PYCollectionAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionAction.swift; sourceTree = "<group>"; };
-		2F39E93028A8030700D68554 /* PYCollectionEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionEnvironment.swift; sourceTree = "<group>"; };
 		2F39E93228A8056300D68554 /* PYCollectionDataAccessLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionDataAccessLogic.swift; sourceTree = "<group>"; };
 		2F39E93428A805DC00D68554 /* PYCollectionNeworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionNeworkWorker.swift; sourceTree = "<group>"; };
 		2F402CCA28CBD2070027F1C0 /* SquishableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButton.swift; sourceTree = "<group>"; };
@@ -425,7 +423,6 @@
 				2F39E92828A7F95800D68554 /* PYCollectionReducer.swift */,
 				2F39E92A28A7F96700D68554 /* PYCollectionState.swift */,
 				2F39E92E28A8015200D68554 /* PYCollectionAction.swift */,
-				2F39E93028A8030700D68554 /* PYCollectionEnvironment.swift */,
 			);
 			path = Redux;
 			sourceTree = "<group>";
@@ -1479,7 +1476,6 @@
 				2F8CADEC2802486F00F166E0 /* PYCollectionElement.swift in Sources */,
 				2FCAE681286D1C0E00538D05 /* PYMenuSection.swift in Sources */,
 				3D3A384A270A53D300E2EF94 /* PYFeedBuilder.swift in Sources */,
-				2F39E93128A8030700D68554 /* PYCollectionEnvironment.swift in Sources */,
 				2F645F632888640E00064F8A /* PYStoryDataAccessLogic.swift in Sources */,
 				2F5827782858DD3F006836E8 /* PYHeroNetworkWorker.swift in Sources */,
 				2F8D512B2800C5AD00ADCC64 /* PYFeedBusinessLogic.swift in Sources */,

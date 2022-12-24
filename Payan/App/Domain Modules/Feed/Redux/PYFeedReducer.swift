@@ -7,14 +7,14 @@
 
 import Combine
 
-class PYFeedReducer: AnyReducer<PYFeedState, PYFeedAction, String> {
+class PYFeedReducer: AnyReducer<PYFeedState, PYFeedAction> {
     let repository: PYFeedDataAccessLogic
     
     init(repository: PYFeedDataAccessLogic) {
         self.repository = repository
     }
     
-    override func update(state: inout PYFeedState, with action: PYFeedAction, environment: String) -> AnyPublisher<PYFeedAction, Never>? {
+    override func update(state: inout PYFeedState, with action: PYFeedAction) -> AnyPublisher<PYFeedAction, Never>? {
         switch action {
         case .getData:
             state.feedErrorOccured = false

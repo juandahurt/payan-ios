@@ -9,7 +9,7 @@ import CoreLocation
 import Combine
 import Foundation
 
-class PYMapReducer: AnyReducer<PYMapState, PYMapAction, Any> {
+class PYMapReducer: AnyReducer<PYMapState, PYMapAction> {
     private let repository: PYMapDataAccessLogic
     private var disposeBag = Set<AnyCancellable>()
     private let minimumLoadingTime = 1.0
@@ -19,7 +19,7 @@ class PYMapReducer: AnyReducer<PYMapState, PYMapAction, Any> {
         self.repository = repository
     }
     
-    override func update(state: inout PYMapState, with action: PYMapAction, environment: Any) -> AnyPublisher<PYMapAction, Never>? {
+    override func update(state: inout PYMapState, with action: PYMapAction) -> AnyPublisher<PYMapAction, Never>? {
         switch action {
         case .getLocations:
             state.errorOccured = false

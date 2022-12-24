@@ -8,8 +8,8 @@
 import Combine
 import Foundation
 
-class AnyReducer<State, Action, Env> {
-    func update(state: inout State, with action: Action, environment: Env) -> AnyPublisher<Action, Never>? {
+class AnyReducer<State, Action> {
+    func update(state: inout State, with action: Action) -> AnyPublisher<Action, Never>? {
         fatalError("update(...) has not been implemented.")
     }
 }

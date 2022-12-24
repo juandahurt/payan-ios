@@ -13,8 +13,7 @@ class PYMapBuilder {
     func build() -> UIViewController {
         let store = AppStore(
             initialState: PYMapState(),
-            reducer: PYMapReducer(repository: PYMapWebRepository()),
-            environment: "" // TODO: remove unnecesary object
+            reducer: PYMapReducer(repository: PYMapWebRepository())
         )
         let view = PYMapPageView()
             .environmentObject(store)

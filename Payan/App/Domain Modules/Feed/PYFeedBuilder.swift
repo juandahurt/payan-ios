@@ -10,13 +10,12 @@ import UIKit
 import SwiftUI
 
 final class PYFeedBuilder {
-    func build(onSuccess: (() -> Void)?) -> UIViewController {
+    func build() -> UIViewController {
         let view = PYFeedPageView()
             .environmentObject(
                 AppStore(
                     initialState: PYFeedState(),
-                    reducer: PYFeedReducer(repository: PYFeedWebRepository()),
-                    environment: ""
+                    reducer: PYFeedReducer(repository: PYFeedWebRepository())
                 )
             )
         return UIHostingController(rootView: view)

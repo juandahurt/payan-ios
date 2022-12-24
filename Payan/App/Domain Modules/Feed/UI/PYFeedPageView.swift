@@ -10,7 +10,7 @@ import Kingfisher
 import SwiftUI
 
 struct PYFeedPageView: View {
-    @EnvironmentObject var store: AppStore<PYFeedState, PYFeedAction, String>
+    @EnvironmentObject var store: AppStore<PYFeedState, PYFeedAction>
     
     // MARK: - Place categories section
     var placeCategoriesSection: some View {
