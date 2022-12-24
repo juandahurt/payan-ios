@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class PYFeedWebRepository: PYFeedDataAccessLogic {
+class PYFeedWebRepository: PYFeedRepository {
     func getData() -> AnyPublisher<PYFeedPageData, Error> {
         let request = PYNetworkRequest(endpoint: "feed")
         guard let publisher = PYNetworkManager.shared.exec(request: request) else {

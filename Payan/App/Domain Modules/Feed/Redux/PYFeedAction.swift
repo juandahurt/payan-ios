@@ -14,4 +14,5 @@ enum PYFeedAction {
     case showStory(PYStoryData)
     case storyErrorOccured
     case feedErrorOccured
+    case saveStory(hash: String)
 }

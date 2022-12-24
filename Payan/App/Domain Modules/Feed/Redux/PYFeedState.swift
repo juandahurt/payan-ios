@@ -12,6 +12,7 @@ class PYFeedState {
     var placeCategories: [PYPlaceCategory] = []
     var heroes: [PYHeroPreview] = []
     var stories: [PYStoryPreview] = []
+    var seenStories: [String] = []
     var loadingStoryIndex = -1
     var storyToBeShown: PYStoryData?
     var storyErrorOccured = false

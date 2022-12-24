@@ -15,7 +15,7 @@ final class PYFeedBuilder {
             .environmentObject(
                 AppStore(
                     initialState: PYFeedState(),
-                    reducer: PYFeedReducer(repository: PYFeedWebRepository())
+                    reducer: PYFeedReducer(repository: PYFeedWebRepository(), seenStoryRepostory: PYSeenStoryUserDefaultsRepository())
                 )
             )
         return UIHostingController(rootView: view)

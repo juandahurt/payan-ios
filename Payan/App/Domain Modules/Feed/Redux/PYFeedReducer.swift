@@ -8,10 +8,12 @@
 import Combine
 
 class PYFeedReducer: AnyReducer<PYFeedState, PYFeedAction> {
-    let repository: PYFeedDataAccessLogic
+    let repository: PYFeedRepository
+    let seenStoryRepository: PYSeenStoryRepository
     
-    init(repository: PYFeedDataAccessLogic) {
+    init(repository: PYFeedRepository, seenStoryRepostory: PYSeenStoryRepository) {
         self.repository = repository
+        self.seenStoryRepository = seenStoryRepostory
     }
     
     override func update(state: inout PYFeedState, with action: PYFeedAction) -> AnyPublisher<PYFeedAction, Never>? {
@@ -35,6 +37,8 @@ class PYFeedReducer: AnyReducer<PYFeedState, PYFeedAction> {
             state.placeCategories = data.placeCategories
             state.heroes = data.heroes
             state.stories = data.stories
+            state.seenStories = seenStoryRepository.getSeenStories()
+            sortStories(state: state)
             return nil
         case .loadStory(let id, let index):
             guard state.loadingStoryIndex == -1 else { return nil }
@@ -59,6 +63,25 @@ class PYFeedReducer: AnyReducer<PYFeedState, PYFeedAction> {
         case .feedErrorOccured:
             state.feedErrorOccured = true
             return nil
+        case .saveStory(let hash):
+            var hashes = state.seenStories
+            let loadedHashes = state.stories.map { $0.hash }
+            hashes = hashes.filter { loadedHashes.contains($0) }
+            if !hashes.contains(hash) {
+                hashes.append(hash)
+            }
+            seenStoryRepository.setSeenStories(hashes)
+            state.seenStories = hashes
+            sortStories(state: state)
+            return nil
+        }
+    }
+    
+    private func sortStories(state: PYFeedState) {
+        state.stories.sort {
+            let seenA = state.seenStories.contains($0.hash) ? 1 : 0
+            let seenB = state.seenStories.contains($1.hash) ? 1 : 0
+            return seenA < seenB
         }
     }
 }

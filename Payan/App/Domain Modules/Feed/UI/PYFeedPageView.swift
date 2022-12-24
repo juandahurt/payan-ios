@@ -129,15 +129,14 @@ struct PYFeedPageView: View {
                 HStack(spacing: 20) {
                     ForEach(store.state.stories.indices, id: \.self) { index in
                         let story = store.state.stories[index]
-                //        let seenStory = store.state.seenStories.contains(where: { $0 == story.hash })
+                        let seenStory = store.state.seenStories.contains(where: { $0 == story.hash })
                         PYFeedStoryPreview(
                             showSkeleton: $store.state.isLoading,
                             title: story.title,
-                            seenStory: true,
+                            seenStory: seenStory,
                             image: story.image,
                             isLoading: store.state.loadingStoryIndex == index
                         ) {
-                            //                viewModel.getStory(id: idItem.value ?? "", index: index)
                             store.send(.loadStory(id: story.id, index: index))
                         }
                     }
@@ -182,8 +181,7 @@ struct PYFeedPageView: View {
             .onChange(of: store.state.storyToBeShown) { data in
                 guard let data else { return }
                 let vc = PYStoryBuilder().build(data: data) {
-                    // TODO: save seen story
-                    #warning("TODO: save seen story")
+                    store.send(.saveStory(hash: data.hash))
                 }
                 PYRoutingManager.shared.present(vc)
             }
