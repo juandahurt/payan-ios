@@ -29,6 +29,7 @@ class PYPlaceViewModel: ObservableObject {
     
     func getPlace(id: String) {
         isLoading = true
+        errorHasOccured = false
         interactor.getPlace(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }
             self.isLoading = false
@@ -37,9 +38,7 @@ class PYPlaceViewModel: ObservableObject {
                 self.place = place
                 self.placeWasFetchedSuccesffully = true
             case .failure(_):
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.errorHasOccured = true
-                }
+                self.errorHasOccured = true
             }
         }
     }

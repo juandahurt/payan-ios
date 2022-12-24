@@ -97,18 +97,36 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             .frame(height: UIScreen.main.bounds.height * 0.35)
     }
     
+    var loader: some View {
+        VStack {
+            Spacer()
+            PuraceCircularLoaderView()
+                .frame(width: 80, height: 80)
+            Spacer()
+        }
+    }
+    
     var body: some View {
         PuraceScaffold(navBar: .init(title: "", backOnTap: {
             PYRoutingManager.shared.pop()
         })) {
-            ScrollView(showsIndicators: false) {
-                LazyVStack(spacing: 30) {
-                    images
-                    title
-                    description
-                    Spacer(minLength: 0)
+            PuraceScaffoldContent {
+                Group {
+                    if viewModel.isLoading {
+                        loader
+                    } else {
+                        ScrollView(showsIndicators: false) {
+                            VStack(spacing: 30) {
+                                images
+                                title
+                                description
+                            }
+                        }.coordinateSpace(name: "scroll")
+                    }
                 }
-            }.coordinateSpace(name: "scroll")
+            }.genericErrorView(isPresented: $viewModel.errorHasOccured) {
+                viewModel.getPlace(id: placeId)
+            }
         }
         .background(PuraceStyle.Color.F1)
         .onChange(of: viewModel.errorHasOccured) { value in
