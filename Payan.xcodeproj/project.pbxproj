@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F0692772801F5930068AA79 /* PYCollectionViewLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0692762801F5930068AA79 /* PYCollectionViewLogic.swift */; };
 		2F06927D2801F6C50068AA79 /* PYCollectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F06927C2801F6C50068AA79 /* PYCollectionBuilder.swift */; };
+		2F07C3A529575E1D00F3D2A4 /* PYLightStatusBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F07C3A429575E1D00F3D2A4 /* PYLightStatusBarViewController.swift */; };
 		2F1391B72860BA4B00D1455E /* PYMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1391B62860BA4B00D1455E /* PYMenuItem.swift */; };
 		2F1391BA2860BAFE00D1455E /* PYMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1391B92860BAFE00D1455E /* PYMenuViewModel.swift */; };
 		2F19514728394F3B007B0E73 /* PYPlaceCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F19514628394F3B007B0E73 /* PYPlaceCategory.swift */; };
@@ -158,6 +159,7 @@
 /* Begin PBXFileReference section */
 		2F0692762801F5930068AA79 /* PYCollectionViewLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionViewLogic.swift; sourceTree = "<group>"; };
 		2F06927C2801F6C50068AA79 /* PYCollectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCollectionBuilder.swift; sourceTree = "<group>"; };
+		2F07C3A429575E1D00F3D2A4 /* PYLightStatusBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYLightStatusBarViewController.swift; sourceTree = "<group>"; };
 		2F1391B62860BA4B00D1455E /* PYMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMenuItem.swift; sourceTree = "<group>"; };
 		2F1391B92860BAFE00D1455E /* PYMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMenuViewModel.swift; sourceTree = "<group>"; };
 		2F19514628394F3B007B0E73 /* PYPlaceCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYPlaceCategory.swift; sourceTree = "<group>"; };
@@ -331,6 +333,14 @@
 				2F39E93228A8056300D68554 /* PYCollectionDataAccessLogic.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2F07C3A329575E0100F3D2A4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2F07C3A429575E1D00F3D2A4 /* PYLightStatusBarViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		2F1391B52860BA3C00D1455E /* Entities */ = {
@@ -952,6 +962,7 @@
 		2FD7293D284163B3002255A3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2F07C3A329575E0100F3D2A4 /* View Controllers */,
 				2F402CC928CBD1DE0027F1C0 /* Styles */,
 				2FD7293E2841647C002255A3 /* Extensions */,
 			);
@@ -1411,6 +1422,7 @@
 				2FA9FEEF28956E92004B9A4F /* PYOnboardingLocalWorker.swift in Sources */,
 				2FB8078028B291520018E514 /* PYStorySeenLocalWorker.swift in Sources */,
 				6D46485D281D9B21001FACC0 /* PYCollection.swift in Sources */,
+				2F07C3A529575E1D00F3D2A4 /* PYLightStatusBarViewController.swift in Sources */,
 				2F908E3A2842D1DD003BD450 /* PYPlaceViewLogic.swift in Sources */,
 				2F58276C2858D79F006836E8 /* PYHero.swift in Sources */,
 				2F908E402842D33F003BD450 /* PYPlaceInteractor.swift in Sources */,

@@ -14,6 +14,6 @@ class PYStoryBuilder {
         let interactor = PYStoryInteractor(worker: worker)
         let viewModel = PYStoryViewModel(interactor: interactor, chapters: data.chapters)
         let view = PYStoryPageView(viewModel: viewModel, onSeenStory: onSeenStory)
-        return UIHostingController(rootView: view)
+        return PYLightStatusBarViewController(rootView: view)
     }
 }
