@@ -14,13 +14,13 @@ class PYPlaceViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var errorHasOccured = false
     @Published var placeWasFetchedSuccesffully = false
+    @Published var currentImageIndex = 0
     
-    var tabTitles: [String] {
-        var titles = ["Ubicación"]
-        if !place.images.isEmpty {
-            titles.append("Imágenes")
-        }
-        return titles
+    var images: [String] {
+        let rawImages = place.images.map { $0.url }
+        var result = [place.image]
+        result.append(contentsOf: rawImages)
+        return result
     }
     
     init(interactor: PYPlaceBusinessLogic = PYPlaceInteractor()) {
