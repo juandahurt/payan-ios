@@ -48,29 +48,42 @@ struct PYMenuPageView: View {
                     }
                 }
             }
-            .padding(.vertical, 10)
+                .padding(.vertical, 10)
                 .background(Color.white)
                 .cornerRadius(10)
                 .padding(.horizontal, 16)
-                .padding(.top, 16)
+                .padding(.bottom, 16)
         }
     }
     
     var title: some View {
-        HStack {
-            PuraceTextView(PYMenuConstants.Wordings.title, fontSize: 22, weight: .medium)
-            Spacer()
-        }
-        .padding([.leading, .bottom], 20)
+        PuraceTextView(PYMenuConstants.Wordings.title, fontSize: 25, weight: .semibold)
+            .multilineTextAlignment(.center)
+            .padding(.top, 30)
     }
     
     var body: some View {
-        PuraceScaffold(navBar: .init(title: PYMenuConstants.Wordings.title, showBackButton: false, backOnTap: {})) {
-            VStack {
-                sections
-                Spacer()
-            }.background(PuraceStyle.Color.F1)
+        PuraceScaffold {
+            VStack(spacing: 30) {
+                title
+                
+                VStack {
+                    sections
+                    Spacer()
+                }
+            }
         }
+        .background(
+            ZStack {
+                PuraceStyle.Color.F1
+                
+                VStack {
+                    LinearGradient(colors: [.white, PuraceStyle.Color.F1], startPoint: .top, endPoint: .bottom)
+                        .frame(height: 100)
+                    Spacer()
+                }
+            }
+        )
             .onFirstAppear {
                 viewModel.getSections()
             }
