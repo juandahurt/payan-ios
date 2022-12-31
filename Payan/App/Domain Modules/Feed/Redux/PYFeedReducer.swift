@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 class PYFeedReducer: AnyReducer<PYFeedState, PYFeedAction> {
     let repository: PYFeedRepository
@@ -18,6 +19,17 @@ class PYFeedReducer: AnyReducer<PYFeedState, PYFeedAction> {
     
     override func update(state: inout PYFeedState, with action: PYFeedAction) -> AnyPublisher<PYFeedAction, Never>? {
         switch action {
+        case .updateTitle:
+            let today = Date()
+            let hours = Calendar.current.component(.hour, from: today)
+            if hours < 12 {
+                state.title = PYFeedConstants.Wordings.goodMornig
+            } else if hours < 19 {
+                state.title = PYFeedConstants.Wordings.goodAfternoon
+            } else {
+                state.title = PYFeedConstants.Wordings.goodNight
+            }
+            return nil
         case .getData:
             state.feedErrorOccured = false
             state.isLoading = true

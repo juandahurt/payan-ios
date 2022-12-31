@@ -8,6 +8,7 @@
 import Foundation
 
 enum PYFeedAction {
+    case updateTitle
     case getData
     case showData(PYFeedPageData)
     case loadStory(id: String, index: Int)

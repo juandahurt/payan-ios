@@ -26,17 +26,15 @@ class PYCollectionReducer: AnyReducer<PYCollectionState, PYCollectionAction> {
                 .map { data in
                     .setCollection(data)
                 }
-                .delay(for: 0.5, scheduler: RunLoop.main)
                 .tryCatch { _ in
                     Just(PYCollectionAction.errorOcurred)
-                        .delay(for: 1, scheduler: RunLoop.main)
                 }
                 .catch { _ in
                     Empty<PYCollectionAction, Never>()
                 }
                 .eraseToAnyPublisher()
         case .errorOcurred:
-            state = PYCollectionErrorState("Hubo un error desconocido.")
+            state.errorHasOcurred = true
             return nil
         }
     }

@@ -47,13 +47,13 @@ struct PYFeedPageView: View {
     // MARK: - Search Field
     var searchField: some View {
         HStack {
-            PuraceTextView("Buscar...", textColor: PuraceStyle.Color.N4)
+            PuraceTextView("Buscar...", textColor: PuraceStyle.Color.N2)
                 .padding(.leading)
             Spacer()
-            Image("search-alt")
+            Image("search")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 25)
+                .frame(width: 15)
                 .padding(.trailing)
         }
         .skeleton(with: store.state.isLoading)
@@ -106,7 +106,7 @@ struct PYFeedPageView: View {
     // TODO: set title based on device time
     var title: some View {
         HStack {
-            PuraceTextView("Buenos días.", fontSize: 16, weight: .medium)
+            PuraceTextView(store.state.title, fontSize: 16, weight: .medium)
                 .frame(height: 20)
             
             Spacer()
@@ -176,6 +176,7 @@ struct PYFeedPageView: View {
                 }
             )
             .onFirstAppear {
+                store.send(.updateTitle)
                 store.send(.getData)
             }
             .onChange(of: store.state.storyToBeShown) { data in

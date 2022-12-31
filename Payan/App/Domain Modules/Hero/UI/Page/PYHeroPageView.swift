@@ -38,11 +38,6 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                 .animation(.none)
                 .frame(height: UIScreen.main.bounds.height * 0.35)
                 .cornerRadius(5)
-                .onTapGesture {
-                    withAnimation {
-                        viewModel.showImageViewer()
-                    }
-                }
     }
     
     var description: some View {
@@ -122,10 +117,6 @@ struct PYHeroPageView: View, PYHeroViewLogic {
                     viewModel.getHero(id: heroId)
                 }
             }
-            .imageViewer(
-                urls: [URL(string: viewModel.hero.image)],
-                isVisible: $viewModel.isImageViewerVisible
-            )
             .onAppear {
                 AnalyticsManager.shared.trackView(path: "/hero", params: ["heroId": heroId])
             }

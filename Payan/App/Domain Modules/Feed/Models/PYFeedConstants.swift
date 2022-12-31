@@ -9,6 +9,9 @@ import Foundation
 
 struct PYFeedConstants {
     struct Wordings {
+        static let goodMornig = "Buenos días"
+        static let goodAfternoon = "Buenas tardes"
+        static let goodNight = "Buenas noches"
         static let storyErrorMessage = "No fue posible cargar la historia."
     }
     

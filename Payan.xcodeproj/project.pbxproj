@@ -575,7 +575,7 @@
 		2F8C80FD28010CD700A8E7FD /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				2FD5786C2840511C007A6EF5 /* Page */,
+				2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -906,14 +906,6 @@
 				2FD5448F28723CDE0098468D /* PYSearchCoreInteractor.swift */,
 			);
 			path = Interactor;
-			sourceTree = "<group>";
-		};
-		2FD5786C2840511C007A6EF5 /* Page */ = {
-			isa = PBXGroup;
-			children = (
-				2FD5786D2840512B007A6EF5 /* PYCollectionPageView.swift */,
-			);
-			path = Page;
 			sourceTree = "<group>";
 		};
 		2FD7293D284163B3002255A3 /* Common */ = {
@@ -1690,7 +1682,7 @@
 			repositoryURL = "https://github.com/juandahurt/Purace";
 			requirement = {
 				kind = exactVersion;
-				version = 1.19.1;
+				version = 1.19.3;
 			};
 		};
 		2FD54483287236770098468D /* XCRemoteSwiftPackageReference "swift-focuser" */ = {

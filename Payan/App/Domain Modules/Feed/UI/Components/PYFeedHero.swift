@@ -32,7 +32,7 @@ struct PYFeedHero: View {
                     }
                     
                     HStack {
-                        PuraceTextView(subtitle, fontSize: 12, textColor: PuraceStyle.Color.N2)
+                        PuraceTextView(subtitle, fontSize: 12, textColor: PuraceStyle.Color.N3)
                             .lineLimit(1)
                         Spacer(minLength: 0)
                     }

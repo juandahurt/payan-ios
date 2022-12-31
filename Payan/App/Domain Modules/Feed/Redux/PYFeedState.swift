@@ -8,6 +8,7 @@
 import Foundation
 
 class PYFeedState {
+    var title: String = PYFeedConstants.Wordings.goodMornig
     var isLoading = true
     var placeCategories: [PYPlaceCategory] = []
     var heroes: [PYHeroPreview] = []
