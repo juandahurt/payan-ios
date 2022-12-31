@@ -19,13 +19,7 @@ class PYCollectionState: Equatable {
 
 
 // MARK: - Loading State
-final class PYCollectionLoadingState: PYCollectionState {
-    let data: PYCollection
-    
-    init(data: PYCollection) {
-        self.data = data
-    }
-}
+final class PYCollectionLoadingState: PYCollectionState {}
 
 
 // MARK: - Error State

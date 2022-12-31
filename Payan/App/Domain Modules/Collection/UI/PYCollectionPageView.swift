@@ -20,7 +20,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
     let correctItemWidth: CGFloat
     let columns: Int
     
-    @StateObject var store = AppStore(initialState: PYCollectionLoadingState(data: .skeleton), reducer: PYCollectionReducer(worker: PYCollectionNetworkWorker()))
+    @StateObject var store = AppStore(initialState: PYCollectionLoadingState(), reducer: PYCollectionReducer(worker: PYCollectionNetworkWorker()))
     
     init(type: String, categoryId: String?) {
         self.type = type
@@ -48,7 +48,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                     }
                     
                     HStack {
-                        PuraceTextView(element.title, fontSize: 12, textColor: PuraceStyle.Color.N3)
+                        PuraceTextView(element.subtitle, fontSize: 12, textColor: PuraceStyle.Color.N3)
                             .lineLimit(1)
                         Spacer(minLength: 0)
                     }
@@ -81,7 +81,7 @@ struct PYCollectionPageView: View, PYCollectionViewLogic {
                     }
                     
                     HStack {
-                        PuraceTextView(element.title, fontSize: 12, textColor: PuraceStyle.Color.N3)
+                        PuraceTextView(element.subtitle, fontSize: 12, textColor: PuraceStyle.Color.N3)
                             .lineLimit(1)
                         Spacer(minLength: 0)
                     }

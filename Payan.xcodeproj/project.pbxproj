@@ -563,7 +563,7 @@
 			children = (
 				2F39E92728A7F94900D68554 /* Redux */,
 				2F8CADED28024A3500F166E0 /* Workers */,
-				2F8CADEA2802485900F166E0 /* Entities */,
+				2F8CADEA2802485900F166E0 /* Models */,
 				2F0692732801F5630068AA79 /* Protocols */,
 				2F8C80FD28010CD700A8E7FD /* UI */,
 				2F06927C2801F6C50068AA79 /* PYCollectionBuilder.swift */,
@@ -580,13 +580,13 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		2F8CADEA2802485900F166E0 /* Entities */ = {
+		2F8CADEA2802485900F166E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				2F8CADEB2802486F00F166E0 /* PYCollectionElement.swift */,
 				6D46485C281D9B21001FACC0 /* PYCollection.swift */,
 			);
-			path = Entities;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2F8CADED28024A3500F166E0 /* Workers */ = {

@@ -21,7 +21,7 @@ class PYCollectionReducer: AnyReducer<PYCollectionState, PYCollectionAction> {
             state = PYCollectionSuccessState(data: collection)
             return nil
         case .getCollection(let type, let categoryId):
-            state = PYCollectionLoadingState(data: .skeleton)
+            state = PYCollectionLoadingState()
             return worker.getCollection(type: type, categoryId: categoryId)
                 .map { data in
                     .setCollection(data)

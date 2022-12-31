@@ -11,11 +11,12 @@ import Foundation
 struct PYCollectionElement: Decodable, Identifiable {
     var id: String = UUID().uuidString
     var title: String
+    var subtitle: String
     var image: String
     var deepLink: String
     
     enum CodingKeys: String, CodingKey {
-        case title, deepLink
+        case title, deepLink, subtitle
         case image = "image_url"
     }
 }
