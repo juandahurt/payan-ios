@@ -11,15 +11,6 @@ import SwiftUI
 struct SquishableButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .overlay(
-                Group {
-                    if configuration.isPressed {
-                        Color.white.opacity(0.25)
-                    } else {
-                        EmptyView()
-                    }
-                }
-            )
             .scaleEffect(configuration.isPressed ? 0.98 : 1)
     }
 }

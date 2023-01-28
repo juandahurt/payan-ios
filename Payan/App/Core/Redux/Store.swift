@@ -8,28 +8,26 @@
 import Combine
 import Foundation
 
-class AppStore<State, Action, Env>: ObservableObject {
-    typealias Reducer = AnyReducer<State, Action, Env>
+class AppStore<State, Action>: ObservableObject {
+    typealias Reducer = AnyReducer<State, Action>
     
-    @Published private(set) var state: State
+    @Published var state: State
     
     private let reducer: Reducer
-    private let environment: Env
     private var cancellables: Set<AnyCancellable> = []
     
     private var verbose = false
     
-    init(initialState: State, reducer: Reducer, environment: Env) {
+    init(initialState: State, reducer: Reducer) {
         state = initialState
         self.reducer = reducer
-        self.environment = environment
     }
     
     final func send(_ action: Action) {
         if verbose {
             print("sending action: \(action.self)")
         }
-        guard let effect = reducer.update(state: &state, with: action, environment: environment) else {
+        guard let effect = reducer.update(state: &state, with: action) else {
             return
         }
         

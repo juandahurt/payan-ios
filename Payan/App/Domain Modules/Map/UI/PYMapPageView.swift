@@ -11,7 +11,7 @@ import SwiftUI
 
 struct PYMapPageView: View {
     @State private var isSnackbarVisible = false
-    @EnvironmentObject private var store: AppStore<PYMapState, PYMapAction, Any>
+    @EnvironmentObject private var store: AppStore<PYMapState, PYMapAction>
     
     func selectedLocationCard(location: PYPlaceLocation) -> some View {
         let screenWidth = UIScreen.main.bounds.width
@@ -30,7 +30,7 @@ struct PYMapPageView: View {
                         .lineLimit(1)
                         .multilineTextAlignment(.center)
                     
-                    PuraceButtonView(PYMapConstants.Wordings.seeDetails, type: .transparent) {
+                    PuraceButtonView(PYMapConstants.Wordings.seeDetails, type: .quiet) {
                         guard let url = URL(string: location.link) else { return }
                         PYRoutingManager.shared.open(url: url)
                     }

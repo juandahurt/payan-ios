@@ -24,47 +24,66 @@ struct PYMenuPageView: View {
                 Image(icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 18, height: 18)
+                    .frame(width: 15, height: 15)
             }
             PuraceTextView(item.title, fontSize: 14, weight: .medium)
             Spacer()
         }.background(Color.white)
+        .padding(.horizontal, 20)
         .onTapGesture {
             guard let url = URL(string: item.deeplink) else { return }
             PYRoutingManager.shared.open(url: url)
         }
-        .padding(.horizontal, 20)
     }
     
     var sections: some View {
         ForEach(viewModel.sections.indices, id: \.self) { sectionIndex in
-            ForEach(viewModel.section(at: sectionIndex).items.indices, id: \.self) { itemIndex in
-                let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
-                sectionItem(at: indexPath)
+            VStack(spacing: 15) {
+                ForEach(viewModel.section(at: sectionIndex).items.indices, id: \.self) { itemIndex in
+                    let indexPath = IndexPath(item: itemIndex, section: sectionIndex)
+                    sectionItem(at: indexPath)
+                    if itemIndex != viewModel.section(at: sectionIndex).items.count - 1 {
+                        PuraceStyle.Color.N8
+                            .frame(height: 1)
+                    }
+                }
             }
-            if sectionIndex != viewModel.sections.count - 1 {
-                Divider()
-                    .padding(.leading, 20)
-            }
+                .padding(.vertical, 10)
+                .background(Color.white)
+                .cornerRadius(10)
+                .padding(.horizontal, 16)
+                .padding(.bottom, 16)
         }
     }
     
     var title: some View {
-        HStack {
-            PuraceTextView(PYMenuConstants.Wordings.title, fontSize: 22, weight: .medium)
-            Spacer()
-        }
-        .padding([.leading, .bottom], 20)
+        PuraceTextView(PYMenuConstants.Wordings.title, fontSize: 25, weight: .semibold)
+            .multilineTextAlignment(.center)
+            .padding(.top, 30)
     }
     
     var body: some View {
-        ScrollView {
-            title
-            sections
-            Spacer()
+        PuraceScaffold {
+            VStack(spacing: 30) {
+                title
+                
+                VStack {
+                    sections
+                    Spacer()
+                }
+            }
         }
-            .padding(.top, 25)
-            .navigationBarHidden(true)
+        .background(
+            ZStack {
+                PuraceStyle.Color.F1
+                
+                VStack {
+                    LinearGradient(colors: [.white, PuraceStyle.Color.F1], startPoint: .top, endPoint: .bottom)
+                        .frame(height: 100)
+                    Spacer()
+                }
+            }
+        )
             .onFirstAppear {
                 viewModel.getSections()
             }

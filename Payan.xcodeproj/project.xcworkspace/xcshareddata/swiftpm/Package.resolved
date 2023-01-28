@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/juandahurt/Purace",
       "state" : {
-        "revision" : "6c903d32d3a5706069b90f3ba0905bbd6c02d3d4",
-        "version" : "1.15.2"
+        "revision" : "fd0cc112ea7d92988e07b8c7fab20ab9296f2cf1",
+        "version" : "1.19.3"
       }
     },
     {

@@ -11,7 +11,7 @@ import MapKit
 
 struct PYMapViewContainer: UIViewRepresentable {
     typealias UIViewType = MKMapView
-    @EnvironmentObject var store: AppStore<PYMapState, PYMapAction, Any>
+    @EnvironmentObject var store: AppStore<PYMapState, PYMapAction>
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()

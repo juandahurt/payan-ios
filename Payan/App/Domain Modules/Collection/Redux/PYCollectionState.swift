@@ -10,6 +10,7 @@ import Foundation
 // MARK: - Base State
 class PYCollectionState: Equatable {
     let id = UUID().uuidString
+    var errorHasOcurred = false
     
     static func == (lhs: PYCollectionState, rhs: PYCollectionState) -> Bool {
         lhs.id == rhs.id
@@ -18,13 +19,7 @@ class PYCollectionState: Equatable {
 
 
 // MARK: - Loading State
-final class PYCollectionLoadingState: PYCollectionState {
-    let data: PYCollection
-    
-    init(data: PYCollection) {
-        self.data = data
-    }
-}
+final class PYCollectionLoadingState: PYCollectionState {}
 
 
 // MARK: - Error State

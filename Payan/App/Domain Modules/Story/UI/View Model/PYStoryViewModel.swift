@@ -13,6 +13,7 @@ class PYStoryViewModel: ObservableObject {
     @Published var currentIndex: Int
     @Published var isPaused = false
     @Published var currentPercentage = 0.0
+    @Published var chapterContentIsVisible = true
     
     var storyFinshed = PassthroughSubject<Void, Never>()
     var lastChapterSeen = PassthroughSubject<Void, Never>()

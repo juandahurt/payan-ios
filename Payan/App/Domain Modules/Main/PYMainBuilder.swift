@@ -16,20 +16,21 @@ final class PYMainBuilder {
         let interactor = PYMainInteractor(worker: worker)
         let controller = UITabBarController()
 
-        let feedViewController = PYFeedBuilder().build {
-            controller.tabBar.isHidden = false
-        }
+        let feedViewController = PYFeedBuilder().build()
         let feedIcon = UIImage(named: "home")
+        feedViewController.tabBarItem.title = "Inicio"
         feedViewController.tabBarItem.selectedImage = feedIcon
         feedViewController.tabBarItem.image = feedIcon
         
         let mapViewController = PYMapBuilder().build()
         let mapIcon = UIImage(named: "map")
+        mapViewController.tabBarItem.title = "Mapa"
         mapViewController.tabBarItem.selectedImage = mapIcon
         mapViewController.tabBarItem.image = mapIcon
         
         let menuViewController = PYMenuBuilder().build()
         let menuIcon = UIImage(named: "menu")
+        menuViewController.tabBarItem.title = "Menú"
         menuViewController.tabBarItem.selectedImage = menuIcon
         menuViewController.tabBarItem.image = menuIcon
         
@@ -38,7 +39,7 @@ final class PYMainBuilder {
             mapViewController,
             menuViewController
         ]
-        controller.tabBar.isHidden = true
+//        controller.tabBar.isHidden = true
         
         if interactor.checkIfUserHasSeenOnboarding() {
             return controller

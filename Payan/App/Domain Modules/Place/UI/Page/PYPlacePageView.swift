@@ -22,57 +22,27 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
         self.placeId = placeId
     }
     
-    var navBar: some View {
-        HStack(alignment: .center) {
-            VStack(spacing: 0) {
-                Spacer()
-                Image(systemName: "chevron.left")
-                    .foregroundColor(PuraceStyle.Color.N1)
-                    .scaleEffect(1.2)
-                    .padding()
-                    .background(Color.black.opacity(0.001))
-                    .onTapGesture {
-                        PYRoutingManager.shared.pop()
-                    }
-            }
-            Spacer()
-        }
-            .frame(height: 50)
-    }
-    
-    var image: some View {
-        let url = URL(string: viewModel.place.image)
-        return PuraceImageView(url: url)
-            .scaledToFill()
-            .frame(height: UIScreen.main.bounds.height * 0.3)
-            .clipped()
-            .animation(.none)
-            .skeleton(with: viewModel.isLoading)
-            .shape(type: .rectangle)
-            .frame(height: UIScreen.main.bounds.height * 0.3)
-    }
-    
     var title: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                PuraceTextView(viewModel.place.title, fontSize: 25, textColor: PuraceStyle.Color.N2, weight: .medium)
+                PuraceTextView(viewModel.place.title, fontSize: 25, textColor: PuraceStyle.Color.N2, weight: .semibold)
                     .multilineTextAlignment(.leading)
                     .skeleton(with: viewModel.isLoading, transition: .opacity)
                     .multiline(lines: 1, scales: [0: 0.35])
                     .padding(.vertical, viewModel.isLoading ? 5 : 0)
                 
                 Spacer(minLength: 0)
-            }.padding(.horizontal, 30)
+            }.padding(.horizontal, 20)
             
             HStack {
-                PuraceTextView(viewModel.place.subtitle, textColor: PuraceStyle.Color.N4)
+                PuraceTextView(viewModel.place.subtitle, fontSize: 14, textColor: PuraceStyle.Color.N4)
                     .multilineTextAlignment(.leading)
                     .skeleton(with: viewModel.isLoading, transition: .opacity)
                     .multiline(lines: 1, scales: [0: 0.2])
                     .padding(.top, viewModel.isLoading ? 5 : 0)
                 
                 Spacer(minLength: 0)
-            }.padding(.horizontal, 30)
+            }.padding(.horizontal, 20)
         }
     }
     
@@ -84,65 +54,86 @@ struct PYPlacePageView: View, PYPlaceViewLogic {
             Spacer(minLength: 0)
         }
             .padding(.top, viewModel.isLoading ? 15 : 0)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, 20)
     }
     
     var images: some View {
-        VStack(alignment: .leading, spacing: 27) {
-            PuraceTextView("Descubre este lugar", fontSize: 18)
-                .padding(.horizontal, 30)
+        GeometryReader { reader in
+            let minY = reader.frame(in: .named("scroll")).minY
             
-            PuraceHorizontalGridView {
-                ForEach(viewModel.place.images.reversed().indices) { index in
-                    Color.clear
-                        .background(
-                            PuraceImageView(url: URL(string: viewModel.place.images.reversed()[index].url))
-                                .aspectRatio(contentMode: .fill)
-                                .clipped()
-                        )
-                        .clipped()
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            selectedImage = viewModel.place.images.count - index - 1
-                            withAnimation {
-                                selectedImageIsVisible = true
-                            }
-                        }
+            ZStack(alignment: .bottomLeading) {
+                TabView(selection: $viewModel.currentImageIndex) {
+                    ForEach(viewModel.images.indices, id: \.self) { index in
+                        Color.clear
+                            .background(
+                                PuraceImageView(url: URL(string: viewModel.images[index]))
+                                    .aspectRatio(contentMode: .fill)
+                                    .clipped()
+                                )
+                            .clipped()
+                            .contentShape(Rectangle())
+                            .overlay(
+                                LinearGradient(colors: [.black.opacity(0.5), .clear], startPoint: .bottom, endPoint: .center)
+                            )
+                            .tag(index)
+                    }
                 }
-            }.frame(height: UIScreen.main.bounds.height * 0.55)
+                    .tabViewStyle(.page(indexDisplayMode: .never))
+                
+                if viewModel.images.count > 1 {
+                    HStack {
+                        ForEach(0..<viewModel.images.count, id: \.self) { index in
+                            Circle()
+                                .fill(Color.white.opacity(index == viewModel.currentImageIndex ? 1 : 0.2))
+                                .frame(width: 8, height: 8)
+                        }
+                    }
+                    .padding()
+                }
+            }
+            .offset(y: minY < 0 ? 0 : -minY)
+                .frame(height: reader.size.height + (minY < 0 ? 0 : minY))
+        }
+            .frame(height: UIScreen.main.bounds.height * 0.35)
+    }
+    
+    var loader: some View {
+        VStack {
+            Spacer()
+            PuraceCircularLoaderView()
+                .frame(width: 80, height: 80)
+            Spacer()
         }
     }
     
     var body: some View {
-        VStack {
-            navBar
-            
-            ScrollView(showsIndicators: false) {
-                LazyVStack(spacing: 40) {
-                    image
-                    title
-                    description
-                    if viewModel.placeWasFetchedSuccesffully {
-                        if !viewModel.place.images.isEmpty {
-                            images
-                        }
+        PuraceScaffold(navBar: .init(title: "", backOnTap: {
+            PYRoutingManager.shared.pop()
+        })) {
+            PuraceScaffoldContent {
+                Group {
+                    if viewModel.isLoading {
+                        loader
+                    } else {
+                        ScrollView(showsIndicators: false) {
+                            VStack(spacing: 30) {
+                                images
+                                title
+                                description
+                            }
+                        }.coordinateSpace(name: "scroll")
                     }
-                    Spacer(minLength: 0)
                 }
+            }.genericErrorView(isPresented: $viewModel.errorHasOccured) {
+                viewModel.getPlace(id: placeId)
             }
         }
-        .snackBar(title: "Parece que ha habido un error", isVisible: $viewModel.errorHasOccured, type: .error, buttonTitle: "REINTENTAR")
+        .background(PuraceStyle.Color.F1)
         .onChange(of: viewModel.errorHasOccured) { value in
             if !value {
                 viewModel.getPlace(id: placeId)
             }
         }
-        .imageViewer(
-            urls: viewModel.place.images.map { URL(string: $0.url) },
-            isVisible: $selectedImageIsVisible,
-            selectedIndex: selectedImage
-        )
-        .navigationBarHidden(true)
         .onFirstAppear {
             viewModel.getPlace(id: placeId)
         }

@@ -14,13 +14,13 @@ class PYPlaceViewModel: ObservableObject {
     @Published var isLoading = true
     @Published var errorHasOccured = false
     @Published var placeWasFetchedSuccesffully = false
+    @Published var currentImageIndex = 0
     
-    var tabTitles: [String] {
-        var titles = ["Ubicación"]
-        if !place.images.isEmpty {
-            titles.append("Imágenes")
-        }
-        return titles
+    var images: [String] {
+        let rawImages = place.images.map { $0.url }
+        var result = [place.image]
+        result.append(contentsOf: rawImages)
+        return result
     }
     
     init(interactor: PYPlaceBusinessLogic = PYPlaceInteractor()) {
@@ -29,6 +29,7 @@ class PYPlaceViewModel: ObservableObject {
     
     func getPlace(id: String) {
         isLoading = true
+        errorHasOccured = false
         interactor.getPlace(identifiedBy: id) { [weak self] res in
             guard let self = self else { return }
             self.isLoading = false
@@ -37,9 +38,7 @@ class PYPlaceViewModel: ObservableObject {
                 self.place = place
                 self.placeWasFetchedSuccesffully = true
             case .failure(_):
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    self.errorHasOccured = true
-                }
+                self.errorHasOccured = true
             }
         }
     }
